@@ -52,26 +52,6 @@ function useRows(): WhyRow[] {
       ),
     },
     {
-      title: "When you'd rather own your setup",
-      cta: { label: 'Read about hosting', href: '/enterprise' },
-      body: (
-        <>
-          <p>
-            {tI18nHardcoded.raw('autoFeaturesMarketingWhyKortixJsxTextKortixIsOpenSource5afa4f64')}
-          </p>
-          <p>
-            {tI18nHardcoded.raw('autoFeaturesMarketingWhyKortixJsxTextYourDataStaysWhere3c5e3923')}
-            <strong>
-              {tI18nHardcoded.raw(
-                'autoFeaturesMarketingWhyKortixJsxTextThePlatformIsYours4d10224d',
-              )}
-            </strong>
-            {tI18nHardcoded.raw('autoFeaturesMarketingWhyKortixJsxTextOnYourTerms2f7966c5')}
-          </p>
-        </>
-      ),
-    },
-    {
       title: 'When you want it to just work',
       cta: { label: 'Get started', href: '/auth' },
       body: (
@@ -111,21 +91,17 @@ function RowCta({ label, href }: { label: string; href: string }) {
   );
 }
 
-export function WhyKortix() {
+export function WhyAgentica() {
   const tI18nHardcoded = useTranslations('hardcodedUi');
   const rows = useRows();
 
   return (
     <section className="bg-foreground text-background relative overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-[0.03]" aria-hidden>
-        <div className="h-full w-full bg-[radial-gradient(ellipse_at_top,_var(--kortix-blue)_0%,_transparent_70%)]" />
-      </div>
-
       <div className="relative z-10 px-6 py-16 sm:py-24 lg:px-0">
         <div className="z-20 mx-auto max-w-6xl">
           <div className="mx-auto mb-16 max-w-2xl space-y-3 text-center">
             <h2 className="text-background text-3xl font-medium tracking-tight sm:text-4xl">
-              {tI18nHardcoded.raw('autoFeaturesMarketingWhyKortixJsxTextWhyKortix55f4edea')}
+              Why Agentica?
             </h2>
             <p className="text-background/70 text-base leading-relaxed text-balance">
               {tI18nHardcoded.raw(
@@ -153,13 +129,9 @@ export function WhyKortix() {
             ))}
           </div>
 
-          <div className="mx-auto mt-28 flex w-full flex-col items-center justify-center space-y-0 text-center">
+          <div className="mx-auto mt-28 flex w-full flex-col items-center justify-center text-center">
             <h1 className="text-background text-xl font-semibold text-balance">
               {tI18nHardcoded.raw('autoFeaturesMarketingWhyKortixJsxTextGetGoingFastGrow2d378210')}
-            </h1>
-
-            <h1 className="text-background text-xl font-semibold text-balance">
-              {tI18nHardcoded.raw('autoFeaturesMarketingWhyKortixJsxTextKortixIsnTJustb8425b28')}
             </h1>
           </div>
         </div>
@@ -168,4 +140,4 @@ export function WhyKortix() {
   );
 }
 
-export default WhyKortix;
+export default WhyAgentica;

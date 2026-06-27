@@ -22,7 +22,7 @@ function PolicyRow({ policy }: { policy: Policy }) {
           <span className="text-muted-foreground text-xs">{total} tools</span>
         </div>
         <div className="bg-muted mt-2 flex h-1.5 overflow-hidden rounded-full">
-          <span className="bg-kortix-green" style={{ width: pct(policy.allow) }} />
+          <span className="bg-emerald-500" style={{ width: pct(policy.allow) }} />
           <span className="bg-amber-500" style={{ width: pct(policy.ask) }} />
           {policy.block > 0 && (
             <span className="bg-destructive" style={{ width: pct(policy.block) }} />

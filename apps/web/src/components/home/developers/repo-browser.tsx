@@ -8,26 +8,26 @@ import { useTranslations } from 'next-intl';
 import { useMemo, useState } from 'react';
 
 /* -------------------------------------------------------------------------- */
-/*  A real Kortix project, as plain files. This is the exact in-product file   */
+/*  A real Agentica project, as plain files. This is the exact in-product file   */
 /*  viewer (FileContentRenderer) fed static content through a mock FileSource. */
 /* -------------------------------------------------------------------------- */
 
 const FILES: Record<string, string> = {
-  'kortix.toml': `# Kortix project manifest — the source of truth for project-wide
-# config, versioned in git. kortix_version pins the schema.
-kortix_version = 1
+  'agentica.toml': `# Agentica project manifest — the source of truth for project-wide
+# config, versioned in git. agentica_version pins the schema.
+agentica_version = 1
 
 [project]
 name = "acme"
 description = "Acme's AI workforce."
 
-# Env the runtime needs. Required values must be set in the Kortix
+# Env the runtime needs. Required values must be set in the Agentica
 # Secrets Manager before a session can start.
 [env]
 required = ["ANTHROPIC_API_KEY"]
 optional = ["STRIPE_API_KEY"]
 
-# Sessions boot from a sandbox image; the Kortix runtime layer is
+# Sessions boot from a sandbox image; the Agentica runtime layer is
 # always added on top of the base.
 [sandbox]
 default = "agent-box"
@@ -35,7 +35,7 @@ default = "agent-box"
 [[sandbox.templates]]
 slug = "agent-box"
 name = "Agent box"
-dockerfile = ".kortix/Dockerfile"
+dockerfile = ".agentica/Dockerfile"
 cpu = 4
 memory = 8
 disk = 20
@@ -43,7 +43,7 @@ disk = 20
 # OpenCode runtime: the daemon launches opencode with OPENCODE_CONFIG_DIR
 # pointed here, so agents, skills and tools live under this folder.
 [opencode]
-config_dir = ".kortix/opencode"
+config_dir = ".agentica/opencode"
 
 # A trigger spawns a fresh session that runs \`prompt\` as its first message.
 [[triggers]]
@@ -75,7 +75,7 @@ agent = "support"
 events = ["mention", "dm"]
 `,
 
-  '.kortix/opencode/agents/support.md': `---
+  '.agentica/opencode/agents/support.md': `---
 description: Acme's support agent. Resolves customer tickets end to end with full product and order context.
 mode: primary
 model: anthropic/claude-opus-4-8
@@ -92,7 +92,7 @@ end, with full product and order context.
 - Always close the loop in the channel the ticket came from.
 `,
 
-  '.kortix/opencode/agents/research.md': `---
+  '.agentica/opencode/agents/research.md': `---
 description: Acme's research agent. Turns open questions into short, sourced briefs the team can act on.
 mode: primary
 model: anthropic/claude-opus-4-8
@@ -108,14 +108,14 @@ sourced briefs the team can act on.
 - Deliver a one-page brief, then the supporting notes.
 `,
 
-  '.kortix/opencode/skills/refund-policy/SKILL.md': `---
+  '.agentica/opencode/skills/refund-policy/SKILL.md': `---
 name: refund-policy
 description: When and how to issue customer refunds. Load before any refund.
 ---
 
 # Refund policy
 
-A skill is a folder under .kortix/opencode/skills/ that an agent
+A skill is a folder under .agentica/opencode/skills/ that an agent
 loads on demand — instructions, plus any scripts or references.
 
 - Full refund within 30 days of purchase, no questions asked.
@@ -125,10 +125,10 @@ loads on demand — instructions, plus any scripts or references.
 Log every refund in the #refunds channel with the order ID.
 `,
 
-  '.kortix/opencode/tools/lookup-order.ts': `import { tool } from "@opencode-ai/plugin";
+  '.agentica/opencode/tools/lookup-order.ts': `import { tool } from "@opencode-ai/plugin";
 
 // A custom tool is just a file. opencode loads everything under
-// .kortix/opencode/tools/ and hands it to your agents.
+// .agentica/opencode/tools/ and hands it to your agents.
 export default tool({
   description: "Fetch an order and its fulfilment status by ID.",
   args: {
@@ -148,7 +148,7 @@ export default tool({
 });
 `,
 
-  '.kortix/opencode/memory/company.md': `# Company memory
+  '.agentica/opencode/memory/company.md': `# Company memory
 
 What every agent should know about Acme, kept in one place
 and updated as the company learns.
@@ -158,7 +158,7 @@ and updated as the company learns.
 - Voice: plain, direct, never hype. Founder-grade.
 `,
 
-  '.kortix/Dockerfile': `# The image every session boots into. The Kortix runtime layer is
+  '.agentica/Dockerfile': `# The image every session boots into. The Agentica runtime layer is
 # added on top automatically — you just declare the tools you need.
 FROM ubuntu:24.04
 
@@ -183,10 +183,10 @@ This repo *is* Acme's AI workforce. Every agent, skill,
 automation and integration lives here as a plain file you
 can read, diff, review and roll back.
 
-- \`kortix.toml\` declares the company and its runtime.
-- \`.kortix/opencode/\` holds the agents, skills, tools and memory.
+- \`agentica.toml\` declares the company and its runtime.
+- \`.agentica/opencode/\` holds the agents, skills, tools and memory.
 
-Build it locally with your coding agent, then run \`kortix ship\`
+Build it locally with your coding agent, then run \`agentica ship\`
 to take it live as a fleet of cloud sandboxes.
 `,
 };
@@ -196,19 +196,19 @@ to take it live as a fleet of cloud sandboxes.
 type Node = { name: string; path?: string; children?: Node[] };
 
 const TREE: Node[] = [
-  { name: 'kortix.toml', path: 'kortix.toml' },
+  { name: 'agentica.toml', path: 'agentica.toml' },
   {
-    name: '.kortix',
+    name: '.agentica',
     children: [
-      { name: 'Dockerfile', path: '.kortix/Dockerfile' },
+      { name: 'Dockerfile', path: '.agentica/Dockerfile' },
       {
         name: 'opencode',
         children: [
           {
             name: 'agents',
             children: [
-              { name: 'support.md', path: '.kortix/opencode/agents/support.md' },
-              { name: 'research.md', path: '.kortix/opencode/agents/research.md' },
+              { name: 'support.md', path: '.agentica/opencode/agents/support.md' },
+              { name: 'research.md', path: '.agentica/opencode/agents/research.md' },
             ],
           },
           {
@@ -217,18 +217,18 @@ const TREE: Node[] = [
               {
                 name: 'refund-policy',
                 children: [
-                  { name: 'SKILL.md', path: '.kortix/opencode/skills/refund-policy/SKILL.md' },
+                  { name: 'SKILL.md', path: '.agentica/opencode/skills/refund-policy/SKILL.md' },
                 ],
               },
             ],
           },
           {
             name: 'tools',
-            children: [{ name: 'lookup-order.ts', path: '.kortix/opencode/tools/lookup-order.ts' }],
+            children: [{ name: 'lookup-order.ts', path: '.agentica/opencode/tools/lookup-order.ts' }],
           },
           {
             name: 'memory',
-            children: [{ name: 'company.md', path: '.kortix/opencode/memory/company.md' }],
+            children: [{ name: 'company.md', path: '.agentica/opencode/memory/company.md' }],
           },
         ],
       },
@@ -238,17 +238,17 @@ const TREE: Node[] = [
   { name: 'README.md', path: 'README.md' },
 ];
 
-const DEFAULT_FILE = 'kortix.toml';
+const DEFAULT_FILE = 'agentica.toml';
 
 /* All folders open by default — the whole company is meant to be visible. */
 const ALL_DIRS = new Set<string>([
-  '.kortix',
-  '.kortix/opencode',
-  '.kortix/opencode/agents',
-  '.kortix/opencode/skills',
-  '.kortix/opencode/skills/refund-policy',
-  '.kortix/opencode/tools',
-  '.kortix/opencode/memory',
+  '.agentica',
+  '.agentica/opencode',
+  '.agentica/opencode/agents',
+  '.agentica/opencode/skills',
+  '.agentica/opencode/skills/refund-policy',
+  '.agentica/opencode/tools',
+  '.agentica/opencode/memory',
 ]);
 
 /* ── mock FileSource — same renderer the product uses, static content ─────── */

@@ -22,7 +22,7 @@ const ASK_SPEED = {
   afterClear: 720,
 };
 
-const ASK_CMD = `kortix chat --prompt "${ASK_PROMPT}"`;
+const ASK_CMD = `agentica chat --prompt "${ASK_PROMPT}"`;
 
 function askStaticBlocks(): StepCliBlock[] {
   return [

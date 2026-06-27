@@ -39,7 +39,7 @@ export function SchedulingPage() {
                 className={cn(
                   'flex size-8 items-center justify-center rounded-lg border transition-colors',
                   job.on
-                    ? 'border-kortix-green/20 bg-kortix-green/10 text-kortix-green'
+                    ? 'border-emerald-500/20 bg-emerald-500/10 text-emerald-500'
                     : 'border-border bg-background text-muted-foreground',
                 )}
               >

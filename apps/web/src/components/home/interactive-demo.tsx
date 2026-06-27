@@ -14,7 +14,7 @@ import type { IconType } from 'react-icons/lib';
 import { MdShield } from 'react-icons/md';
 import { PiChatCircleDotsFill, PiClockCountdownFill } from 'react-icons/pi';
 import { RiCpuLine, RiFolder3Fill, RiRobot3Fill } from 'react-icons/ri';
-import { KortixLogo } from '../sidebar/kortix-logo';
+
 import { Composer } from './interactive-demo/chat/composer';
 import { AUTO_DEMO_PROMPT } from './interactive-demo/chat/scenarios';
 import {
@@ -81,7 +81,7 @@ const PAGES: Record<
   projects: {
     label: 'Projects',
     Icon: RiFolder3Fill,
-    context: 'Each project is a repo your agents run from \u2014 created with kortix init.',
+    context: 'Each project is a repo your agents run from \u2014 created with agentica init.',
     render: () => <ProjectsPage projects={[]} />,
   },
   chat: {
@@ -93,7 +93,7 @@ const PAGES: Record<
   agents: {
     label: 'Agents',
     Icon: RiRobot3Fill,
-    context: 'Each agent is its own worker \u2014 defined in .kortix/opencode/agents.',
+    context: 'Each agent is its own worker \u2014 defined in .agentica/opencode/agents.',
     render: () => <AgentsPage />,
   },
   skills: {
@@ -186,7 +186,7 @@ function HomePage({ nav, convo }: { nav: Nav; convo: DemoConversation }) {
     <div className="flex h-full min-h-0 flex-col">
       <div className="mx-auto flex min-h-0 w-full max-w-3xl flex-1 flex-col items-center justify-center">
         <div className="mt-4 flex w-full shrink-0 flex-col items-start justify-start space-y-6">
-          <KortixLogo size={24} variant="logomark" />
+          <span className="text-foreground text-xl font-semibold tracking-tight">Agentica</span>
 
           <div>
             <div className="text-muted-foreground/70 mb-2 px-0.5 text-xs font-medium tracking-wider uppercase">
@@ -521,11 +521,11 @@ export function InteractiveDemo({
             </div> */}
 
             <div className="border-card bg-card relative z-2 col-span-6 flex h-[min(72vh,520px)] w-full min-w-0 flex-1 flex-row items-center justify-center gap-1 rounded-[calc(var(--radius)+2px)] border-4 p-0.5 shadow-sm sm:h-[min(80vw,480px)] md:aspect-video md:h-full md:pl-0 lg:min-h-0">
-              <div className="bg-background/90 border-card absolute top-2.5 left-2.5 z-10 flex size-11 items-center justify-center rounded-md border md:hidden">
-                <KortixLogo size={20} />
+              <div className="bg-background/90 border-card absolute top-2.5 left-2.5 z-10 hidden items-center justify-center rounded-md border px-2.5 py-1.5 text-sm font-semibold tracking-tight md:hidden">
+                Agentica
               </div>
               <div className="hidden h-full min-h-0 w-8 shrink-0 flex-col items-center justify-start gap-3 py-2 md:flex lg:w-10 lg:gap-5">
-                <KortixLogo size={20} />
+                <span className="text-muted-foreground text-xs font-semibold tracking-tight [writing-mode:vertical-lr]">Agentica</span>
 
                 {ORDER.map((id) => {
                   const { label, Icon } = PAGES[id];

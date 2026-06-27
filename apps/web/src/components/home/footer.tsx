@@ -38,7 +38,7 @@ const FOOTER_SECTIONS: FooterSection[] = [
       { label: 'Changelog', href: '/changelog' },
       { label: 'Docs', href: '/docs' },
       { label: 'Brand', href: '/design-system' },
-      { label: 'Status', href: 'https://status.kortix.com', external: true },
+      { label: 'Status', href: 'https://status.dosco.live', external: true },
     ],
   },
   ...(compareNavItem && typeof compareNavItem.href !== 'string'
@@ -62,8 +62,8 @@ const FOOTER_SECTIONS: FooterSection[] = [
   {
     title: 'Connect',
     links: [
-      { label: 'X', href: 'https://x.com/kortix', external: true },
-      { label: 'LinkedIn', href: 'https://linkedin.com/company/kortix', external: true },
+      { label: 'X', href: 'https://x.com/doscoinc', external: true },
+      { label: 'LinkedIn', href: 'https://linkedin.com/company/dosco-inc', external: true },
     ],
   },
 ];
@@ -122,7 +122,7 @@ const Footer = () => {
         <div className="text-muted-foreground flex items-center gap-3 text-base">
           <small>
             {tI18nHardcoded.raw('autoComponentsHomeFooterJsxTextCopye99743e8')}
-            {currentYear} Kortix
+            {currentYear} Dosco, Inc.
           </small>
         </div>
 

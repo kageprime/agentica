@@ -52,7 +52,7 @@ export const STEPS: Step[] = [
     id: 'work',
     step: '03',
     label: 'Work',
-    title: 'Kortix works safely.',
+    title: 'Agentica works safely.',
     description:
       'Each task runs in a secure workspace with its own permissions, files, and audit trail.',
     bullets: [

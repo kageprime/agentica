@@ -19,5 +19,5 @@ export const siteMetadata = {
     'Agentica is the agentic AI platform for your company — one place to build, run, and govern AI agents that connect 3,000+ tools and deliver real work, not just chat.',
   url: baseUrl,
   keywords:
-    'Agentica, AI agents, AI workforce, open source AI platform, self-hosted AI agents, AI automation, agent orchestration, AI-native company, build AI agents, connect 3000 tools, AI operations',
+    'Agentica, AI agents, AI workforce, AI automation, agent orchestration, AI-native company, build AI agents, connect 3000 tools, AI operations',
 };

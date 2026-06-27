@@ -27,7 +27,7 @@ export type AgentDef = {
 
 export const AGENTS: AgentDef[] = [
   {
-    name: 'kortix',
+    name: 'agentica',
     desc: 'General knowledge worker — full tool access; codes, researches, writes and runs ops end-to-end in an isolated sandbox.',
     icon: Bot,
     trigger: 'primary',
@@ -39,7 +39,7 @@ export const AGENTS: AgentDef[] = [
   },
   {
     name: 'pr-bot',
-    desc: 'Runs a thermo-nuclear review and stands up a one-click preview on every pull request to kortix-ai/kortix.',
+    desc: 'Runs a thermo-nuclear review and stands up a one-click preview on every pull request to dosco-inc/suna.',
     icon: GitPullRequest,
     trigger: 'webhook',
     model: 'GPT-5',
@@ -50,7 +50,7 @@ export const AGENTS: AgentDef[] = [
   },
   {
     name: 'memory-reflector',
-    desc: 'Reflects on recent activity and curates .kortix/memory, opening a memory CR each run.',
+    desc: 'Reflects on recent activity and curates .agentica/memory, opening a memory CR each run.',
     icon: Brain,
     trigger: 'cron',
     model: 'Gemini 2.5 Flash',
@@ -118,10 +118,10 @@ export const AGENTS: AgentDef[] = [
 
 export const CORE_SKILLS: [string, string][] = [
   ['agent-browser', 'Browser automation CLI for AI agents'],
-  ['kortix-executor', 'One interface to every connected integration'],
-  ['kortix-memory', 'Read, write, and curate the project brain'],
-  ['kortix-slack', 'Answer in Slack as a teammate'],
-  ['kortix-system', 'Canonical reference for a Kortix project'],
+  ['agentica-executor', 'One interface to every connected integration'],
+  ['agentica-memory', 'Read, write, and curate the project brain'],
+  ['agentica-slack', 'Answer in Slack as a teammate'],
+  ['agentica-system', 'Canonical reference for an Agentica project'],
   ['thermo-nuclear-review', 'Strict maintainability & abstraction review'],
 ];
 
@@ -232,7 +232,7 @@ export type Provider = {
 export const PROVIDERS: Provider[] = [
   {
     domain: null,
-    name: 'Kortix Gateway',
+    name: 'Agentica Gateway',
     hint: 'Managed routing — injected into every sandbox',
     state: 'managed',
   },
@@ -317,9 +317,9 @@ export type Secret = {
 export type Policy = { domain: string; name: string; allow: number; ask: number; block: number };
 
 export const MEMBERS: Member[] = [
-  { email: 'marko@kortix.com', name: 'marko', role: 'Owner', last: 'active now' },
-  { email: 'dom@kortix.com', name: 'Dom Williams', role: 'Admin', last: '2h ago' },
-  { email: 'sara@kortix.com', name: 'Sara Khan', role: 'Member', last: '1d ago' },
+  { email: 'marko@agentica.dev', name: 'marko', role: 'Owner', last: 'active now' },
+  { email: 'dom@agentica.dev', name: 'Dom Williams', role: 'Admin', last: '2h ago' },
+  { email: 'sara@agentica.dev', name: 'Sara Khan', role: 'Member', last: '1d ago' },
 ];
 
 export const SECRETS: Secret[] = [

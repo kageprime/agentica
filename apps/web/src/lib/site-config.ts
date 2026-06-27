@@ -34,7 +34,7 @@ export const siteConfig = {
     ],
   },
   hero: {
-    description: 'Agentica – the open agentic AI platform for your company.',
+    description: 'Agentica – the agentic AI platform for your company.',
   },
   footerLinks: [
     {

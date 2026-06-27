@@ -1,6 +1,5 @@
 import { InteractiveDemoSection } from '@/components/home/interactive-demo-section';
 import { Button } from '@/components/ui/marketing/button';
-import { KortixLetterField } from '@/components/ui/marketing/kortix-letter-field';
 import { WallpaperBackground } from '@/components/ui/wallpaper-background';
 import { useAuth } from '@/features/providers/auth-provider';
 import { trackCtaSignup } from '@/lib/analytics/gtm';
@@ -31,9 +30,6 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative overflow-hidden px-6 pt-32 pb-12 sm:py-36">
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-30 mask-y-to-95%" aria-hidden>
-        <KortixLetterField seed={3382} />
-      </div>
       <div className="inset-0 z-0 hidden opacity-40 mask-t-from-70% lg:absolute">
         <WallpaperBackground wallpaperId="brandmark" />
       </div>

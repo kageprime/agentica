@@ -13,7 +13,7 @@ import { Loader } from '../ui/loader';
 type TabId = 'toml' | 'agent' | 'deploy';
 
 const TABS: { id: TabId; label: string }[] = [
-  { id: 'toml', label: 'kortix.toml' },
+  { id: 'toml', label: 'agentica.toml' },
   { id: 'agent', label: 'support.md' },
   { id: 'deploy', label: 'deploy' },
 ];
@@ -252,7 +252,7 @@ function DeployBody() {
     <motion.div initial="hidden" animate="visible" variants={deployReveal}>
       <Line variants={deployLine}>
         <Line.Text className={C.c}>
-          {tHardcodedUi.raw('componentsHomeCodeWindow.line70JsxTextKortixDeploy')}
+          {tHardcodedUi.raw('componentsHomeCodeWindow.line70JsxTextDeploy')}
         </Line.Text>
       </Line>
       <Line variants={deployLine} className="items-center justify-start gap-2">

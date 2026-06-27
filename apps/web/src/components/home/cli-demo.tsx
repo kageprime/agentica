@@ -12,18 +12,16 @@ import {
   useState,
 } from 'react';
 import { HyperText } from '../ui/hyper-text';
-import { KORTIX_BULLET_GRADIENT, KortixAsterisk } from '../ui/kortix-asterisk';
 import { Button } from '../ui/marketing/button';
-import { KortixHyperLogo } from '../ui/marketing/kortix-hyper-logo';
 import { TextShimmer } from '../ui/text-shimmer';
 
 type Color = 'cyan' | 'green' | 'amber' | 'red' | 'fg' | 'dim' | 'faded';
 
-const KORTIX_CMD_CLASS =
+const AGENTICA_CMD_CLASS =
   'animate-kortix-bullet-flow inline-block bg-size-[100%_300%] bg-clip-text text-transparent';
 
-const KORTIX_CMD_STYLE: CSSProperties = {
-  backgroundImage: KORTIX_BULLET_GRADIENT,
+const AGENTICA_CMD_STYLE: CSSProperties = {
+  backgroundImage: 'linear-gradient(to bottom, var(--foreground), var(--foreground))',
   backgroundSize: '100% 300%',
   WebkitBackgroundClip: 'text',
   backgroundClip: 'text',
@@ -41,7 +39,7 @@ const COLOR: Record<Color, string> = {
   faded: 'text-muted-foreground/45',
 };
 
-type Span = { t: string; c?: Color | 'kortix' | 'cursor' };
+type Span = { t: string; c?: Color | 'agentica' | 'cursor' };
 type Line = Span[];
 
 type OutEvent =
@@ -51,7 +49,7 @@ type OutEvent =
 
 type Step = { input: string; note?: boolean; out?: Line[]; events?: OutEvent[] };
 
-const t = (text: string, c?: Color | 'kortix' | 'cursor'): Span => ({ t: text, c });
+const t = (text: string, c?: Color | 'agentica' | 'cursor'): Span => ({ t: text, c });
 const ok = (...spans: Span[]): Line => [t('  '), t('✓', 'green'), t('  '), ...spans];
 
 const CURSOR: Span = { t: '', c: 'cursor' };
@@ -61,7 +59,7 @@ const pickOptionsLine = (options: string[], selected: number): Line => {
   const spans: Span[] = [t('  ')];
   options.forEach((opt, i) => {
     if (i > 0) spans.push(t('  ·  ', 'faded'));
-    spans.push(i === selected ? t(opt, 'kortix') : t(opt, 'dim'));
+    spans.push(i === selected ? t(opt, 'agentica') : t(opt, 'dim'));
   });
   return spans;
 };
@@ -111,7 +109,7 @@ const insetCard = (title: string, body: string[]): string[] => {
 };
 
 const PROMPT_BODY = [
-  'Read the kortix skill, then propose an',
+  'Read the agentica skill, then propose an',
   'initial agent, wire up the trigger,',
   'and list the secrets to set.',
 ];
@@ -122,7 +120,7 @@ function getStartedBox(): Line[] {
   lines.push([t(boxLine(''), 'faded')]);
   for (const s of [
     'Paste this prompt into your coding agent',
-    'to configure your Kortix project:',
+    'to configure your Agentica project:',
   ]) {
     lines.push([t('║ ', 'faded'), t(padTo(s, BW), 'dim'), t(' ║', 'faded')]);
   }
@@ -130,9 +128,9 @@ function getStartedBox(): Line[] {
   for (const l of insetCard('prompt', PROMPT_BODY)) lines.push([t(l, 'dim')]);
   lines.push([t(boxLine(''), 'faded')]);
   const pre = 'When ready, take it live:  ';
-  const cmd = 'kortix ship';
+  const cmd = 'agentica ship';
   const trailing = ' '.repeat(Math.max(0, BW - pre.length - cmd.length));
-  lines.push([t('║ ', 'faded'), t(pre, 'dim'), t(cmd, 'kortix'), t(trailing), t(' ║', 'faded')]);
+  lines.push([t('║ ', 'faded'), t(pre, 'dim'), t(cmd, 'agentica'), t(trailing), t(' ║', 'faded')]);
   lines.push([t(boxLine(''), 'faded')]);
   lines.push([t(boxBottom(), 'faded')]);
   return lines;
@@ -147,18 +145,18 @@ const INIT_INTRO: Line[] = [
     t('   '),
     t('The operating system for AI workers', 'fg'),
     t('   '),
-    t('·  configure your Kortix project', 'faded'),
+    t('·  configure your Agentica project', 'faded'),
   ],
   [],
 ];
 
 const AGENT_PICK_INTRO: Line[] = [
   [],
-  [t('  Pick your local coding agent to configure this Kortix project.', 'dim')],
+  [t('  Pick your local coding agent to configure this Agentica project.', 'dim')],
   [],
-  [t('  It picks up the Kortix skill — ask it to scaffold triggers,', 'dim')],
-  [t('  custom agents, or edit kortix.toml for you.', 'dim')],
-  [t('  (Kortix itself runs opencode inside every sandbox session.)', 'dim')],
+  [t('  It picks up the Agentica skill — ask it to scaffold triggers,', 'dim')],
+  [t('  custom agents, or edit agentica.toml for you.', 'dim')],
+  [t('  (Agentica runs opencode inside every sandbox session.)', 'dim')],
   [],
 ];
 
@@ -167,14 +165,14 @@ const PROJECT_NAME_LABEL: Line = [t('Project name '), t('(my-app)', 'dim'), t(':
 
 const initTail = (name: string): Line[] => [
   [],
-  [t('Initialized Kortix project '), t(`"${name}"`, 'fg'), t(' in '), t(`~/${name}`, 'faded')],
+  [t('Initialized Agentica project '), t(`"${name}"`, 'fg'), t(' in '), t(`~/${name}`, 'faded')],
   [t('Wrote 9 files:')],
-  [t('  + ', 'faded'), t('kortix.toml')],
-  [t('  + ', 'faded'), t('.kortix/Dockerfile')],
-  [t('  + ', 'faded'), t('.kortix/opencode/opencode.jsonc')],
-  [t('  + ', 'faded'), t('.kortix/opencode/agents/kortix.md')],
-  [t('  + ', 'faded'), t('.kortix/opencode/skills/kortix-system/SKILL.md')],
-  [t('  + ', 'faded'), t('.claude/skills/kortix/SKILL.md')],
+  [t('  + ', 'faded'), t('agentica.toml')],
+  [t('  + ', 'faded'), t('.agentica/Dockerfile')],
+  [t('  + ', 'faded'), t('.agentica/opencode/opencode.jsonc')],
+  [t('  + ', 'faded'), t('.agentica/opencode/agents/agentica.md')],
+  [t('  + ', 'faded'), t('.agentica/opencode/skills/agentica-system/SKILL.md')],
+  [t('  + ', 'faded'), t('.claude/skills/agentica/SKILL.md')],
   [t('Git: initialized (main)', 'dim')],
   [],
   [t('Next:')],
@@ -191,30 +189,30 @@ const INIT_EVENTS: OutEvent[] = [
 
 const SCRIPT: Step[] = [
   {
-    input: 'kortix init my-app',
+    input: 'agentica init my-app',
     events: INIT_EVENTS,
   },
   { input: "# build your agents locally — they're just files", note: true, out: [] },
   {
-    input: 'kortix ship',
+    input: 'agentica ship',
     out: [
-      ok(t('kortix.toml verified')),
+      ok(t('agentica.toml verified')),
       [],
-      [t('  '), t('kortix ship', 'kortix'), t('  new project → managed Kortix git', 'dim')],
+      [t('  '), t('agentica ship', 'agentica'), t('  new project → managed git', 'dim')],
       [t('  name    ', 'dim'), t('my-app')],
       [],
-      ok(t('Committed: '), t('kortix: ship', 'fg')),
+      ok(t('Committed: '), t('agentica: ship', 'fg')),
       [],
       ok(t('Pushed '), t('main', 'fg'), t(' → '), t('origin/main', 'fg')),
       [],
       ok(t('Shipped '), t('my-app', 'fg')),
-      [t('  repo  ', 'dim'), t('git.kortix.com/acme/my-app', 'faded')],
-      [t('  live  ', 'dim'), t('kortix.com/p/my-app', 'cyan')],
+      [t('  repo  ', 'dim'), t('git.dosco.live/acme/my-app', 'faded')],
+      [t('  live  ', 'dim'), t('dosco.live/p/my-app', 'cyan')],
       [],
     ],
   },
   {
-    input: 'kortix sessions new --prompt "Audit auth"',
+    input: 'agentica sessions new --prompt "Audit auth"',
     out: [
       ok(t('Session started '), t('1f3a', 'fg')),
       [t('  session_id ', 'dim'), t('1f3a2b7c-…')],
@@ -224,7 +222,7 @@ const SCRIPT: Step[] = [
     ],
   },
   {
-    input: 'kortix cr open --title "Fix auth timeout"',
+    input: 'agentica cr open --title "Fix auth timeout"',
     out: [
       [t('  '), t('✓', 'green'), t(' Opened '), t('CR #3', 'fg'), t(': Fix auth timeout')],
       [t('  session-1f3a → main', 'dim')],
@@ -241,7 +239,7 @@ type InstallCta = {
 type Block = { cmd: Line; out: Line[]; pending?: boolean; installCta?: InstallCta };
 
 const cmdLineOf = (step: Step): Line =>
-  step.note ? [t(step.input, 'faded')] : [t('$ ', 'faded'), t(step.input, 'kortix')];
+  step.note ? [t(step.input, 'faded')] : [t('$ ', 'faded'), t(step.input, 'agentica')];
 
 const STATIC_BLOCKS: Block[] = SCRIPT.map((step) => ({
   cmd: cmdLineOf(step),
@@ -249,19 +247,19 @@ const STATIC_BLOCKS: Block[] = SCRIPT.map((step) => ({
 }));
 
 const PALETTE: { cmd: string; desc: string }[] = [
-  { cmd: 'kortix init', desc: 'scaffold a new Kortix project' },
-  { cmd: 'kortix ship', desc: 'commit, push & deploy to managed git' },
-  { cmd: 'kortix sessions new', desc: 'start an agent session' },
-  { cmd: 'kortix cr open', desc: 'open a change request' },
+  { cmd: 'agentica init', desc: 'scaffold a new Agentica project' },
+  { cmd: 'agentica ship', desc: 'commit, push & deploy to managed git' },
+  { cmd: 'agentica sessions new', desc: 'start an agent session' },
+  { cmd: 'agentica cr open', desc: 'open a change request' },
 ];
 
-const DEFAULT_INSTALL_HOST = 'kortix.com';
+const DEFAULT_INSTALL_HOST = 'dosco.live';
 const INSTALL_CTA_MESSAGE =
   'Install the CLI to start an agent from your terminal, give it the right tools, and review every change before you merge.';
 
 function demoResponse(cmd: string, installCmd: string): Block {
   return {
-    cmd: [t('$ ', 'faded'), t(cmd, 'kortix')],
+    cmd: [t('$ ', 'faded'), t(cmd, 'agentica')],
     out: [
       [],
       // [t('demo response', 'amber')],
@@ -295,8 +293,8 @@ function LineView({ line }: { line: Line }) {
       {line.length === 0
         ? ' '
         : line.map((s, i) =>
-            s.c === 'kortix' ? (
-              <span key={i} className={KORTIX_CMD_CLASS} style={KORTIX_CMD_STYLE}>
+            s.c === 'agentica' ? (
+              <span key={i} className={AGENTICA_CMD_CLASS} style={AGENTICA_CMD_STYLE}>
                 {s.t}
               </span>
             ) : s.c === 'cursor' ? (
@@ -319,12 +317,7 @@ function ReasoningView() {
   const tI18nHardcoded = useTranslations('hardcodedUi');
   return (
     <div className="text-muted-foreground flex items-center gap-2 py-0.5">
-      <KortixAsterisk
-        index={0}
-        parentClass={tI18nHardcoded.raw(
-          'autoComponentsHomeCliDemoJsxAttrParentClassMt0Animateaddcd0bb',
-        )}
-      />
+      <span className="text-foreground text-[10px]">◆</span>
       <div className="inline-flex items-center gap-0">
         {/* <span className="text-primary text-sm font-medium">Reasoning</span> */}
         <TextShimmer>Reasoning...</TextShimmer>
@@ -565,7 +558,7 @@ export function CliDemo() {
     setPaletteIdx(0);
     setScrollback((prev) => [
       ...prev,
-      { cmd: [t('$ ', 'faded'), t('kortix init', 'kortix')], out: [...INIT_INTRO] },
+      { cmd: [t('$ ', 'faded'), t('agentica init', 'agentica')], out: [...INIT_INTRO] },
     ]);
     setWizard({ phase: 'name' });
     requestAnimationFrame(() => inputRef.current?.focus());
@@ -597,7 +590,7 @@ export function CliDemo() {
 
   const runCommand = (cmd: string) => {
     if (thinking) return;
-    if (cmd === 'kortix init') {
+    if (cmd === 'agentica init') {
       startInitWizard();
       return;
     }
@@ -612,7 +605,7 @@ export function CliDemo() {
     if (value.startsWith('/')) {
       const item = paletteItems[paletteIdx] ?? paletteItems[0];
       runCommand(item ? item.cmd : value.slice(1).trim());
-    } else if (/^kortix\s+init$/.test(value)) {
+    } else if (/^agentica\s+init$/.test(value)) {
       startInitWizard();
     } else {
       respond(demoResponse(value, installCmd));
@@ -679,8 +672,8 @@ export function CliDemo() {
     >
       <div className="border-border/60 bg-muted/30 flex shrink-0 items-center gap-3 border-b p-4 py-2">
         <span className="text-muted-foreground/70 inline-flex items-center gap-1 text-xs">
-          <KortixAsterisk index={0} parentClass="mt-0" />
-          <HyperText animateOnHover={false}>kortix</HyperText>
+          <span className="text-foreground text-xs">◆</span>
+          <HyperText animateOnHover={false}>agentica</HyperText>
         </span>
       </div>
 
@@ -709,7 +702,7 @@ export function CliDemo() {
           ))
         ) : (
           <div className="flex h-full w-full items-center justify-center">
-            <KortixHyperLogo />
+            <span className="text-muted-foreground font-mono text-[10px] font-bold tracking-widest">AGENTICA</span>
           </div>
         )}
       </div>
@@ -727,11 +720,11 @@ export function CliDemo() {
                   className={
                     isNote
                       ? 'text-muted-foreground/45'
-                      : typed.startsWith('kortix')
-                        ? KORTIX_CMD_CLASS
+                      : typed.startsWith('agentica')
+                        ? AGENTICA_CMD_CLASS
                         : 'text-foreground'
                   }
-                  style={!isNote && typed.startsWith('kortix') ? KORTIX_CMD_STYLE : undefined}
+                  style={!isNote && typed.startsWith('agentica') ? AGENTICA_CMD_STYLE : undefined}
                 >
                   {typed}
                 </span>
@@ -763,7 +756,7 @@ export function CliDemo() {
               disabled={thinking}
               readOnly={wizard?.phase === 'agent'}
               aria-label={tI18nHardcoded.raw(
-                'autoComponentsHomeCliDemoJsxAttrAriaLabelKortixTerminalc0bdb15a',
+                    'autoComponentsHomeCliDemoJsxAttrAriaLabelAgenticaTerminalc0bdb15a',
               )}
               placeholder={
                 thinking
@@ -772,7 +765,7 @@ export function CliDemo() {
                     ? ''
                     : wizard?.phase === 'name'
                       ? 'my-app'
-                      : 'try kortix init, or / for commands'
+                      : 'try agentica init, or / for commands'
               }
               onFocus={() => setFocused(true)}
               onBlur={() => setFocused(false)}
@@ -811,8 +804,8 @@ export function CliDemo() {
                   )}
                 >
                   <span
-                    className={active ? KORTIX_CMD_CLASS : undefined}
-                    style={active ? KORTIX_CMD_STYLE : undefined}
+                    className={active ? AGENTICA_CMD_CLASS : undefined}
+                    style={active ? AGENTICA_CMD_STYLE : undefined}
                   >
                     {agent}
                   </span>

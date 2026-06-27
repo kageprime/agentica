@@ -2,7 +2,6 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import { KortixAsterisk } from '@/components/ui/kortix-asterisk';
 import { cn } from '@/lib/utils';
 import { useInView } from 'motion/react';
 import { useTranslations } from 'next-intl';
@@ -65,7 +64,7 @@ function StepRow({
       ref={ref}
       className="flex min-h-[70vh] flex-col justify-start space-y-4 pt-10 pb-16 first:border-t-0"
     >
-      <Badge variant="kortix" className="w-fit rounded">
+      <Badge variant="default" className="w-fit rounded">
         {step.label}
       </Badge>
       <h3 className="text-foreground text-2xl font-medium tracking-tight">{step.title}</h3>
@@ -73,7 +72,7 @@ function StepRow({
       <ul className="text-muted-foreground max-w-md space-y-2 text-[15px] leading-relaxed">
         {step.bullets.map((bullet) => (
           <li key={bullet} className="flex gap-2">
-            <KortixAsterisk index={index} />
+            <span className="text-muted-foreground size-1.5 mt-2 shrink-0 rounded-full bg-current" />
             <span>{bullet}</span>
           </li>
         ))}

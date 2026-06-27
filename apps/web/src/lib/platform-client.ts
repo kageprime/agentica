@@ -70,7 +70,7 @@ function getPlatformUrl(): string {
   }
 
   // Fallback for local dev
-  return 'http://localhost:8008/v1';
+  return 'https://api.dosco.live/v1';
 }
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -156,8 +156,7 @@ interface LocalBridgeSandboxResponse {
 }
 
 const LOCAL_PLATFORM_CANDIDATES = [
-  'http://localhost:8008/v1',
-  'http://127.0.0.1:8008/v1',
+  'https://api.dosco.live/v1',
 ];
 
 function getLocalBridgeStatusUrl(baseUrl: string): string {

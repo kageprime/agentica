@@ -34,7 +34,7 @@ import { IconType } from 'react-icons/lib';
 import { MdShield } from 'react-icons/md';
 import { PiChatCircleDotsFill, PiClockCountdownFill } from 'react-icons/pi';
 import { RiCpuLine, RiFolder3Fill, RiRobot3Fill } from 'react-icons/ri';
-import { KortixLogo } from '../sidebar/kortix-logo';
+
 import { Composer } from './interactive-demo/chat/composer';
 import { type DemoConversation } from './interactive-demo/chat/use-demo-conversation';
 import { CliTerminal } from './interactive-demo/cli/cli-terminal';
@@ -179,7 +179,7 @@ function Toggle({ on, onClick }: { on: boolean; onClick?: () => void }) {
   const tI18nHardcoded = useTranslations('hardcodedUi');
   const className = cn(
     'flex h-5 w-9 items-center rounded-full p-0.5 transition-colors',
-    on ? 'bg-kortix-green justify-end' : 'bg-muted-foreground/20 justify-start',
+    on ? 'bg-emerald-500 justify-end' : 'bg-muted-foreground/20 justify-start',
     onClick && 'cursor-pointer',
   );
   const knob = <span className="size-4 rounded-full bg-white shadow" />;
@@ -230,11 +230,11 @@ function HomePage({ nav, convo }: { nav: Nav; convo: DemoConversation }) {
     <div className="flex h-full min-h-0 flex-col">
       <div className="mx-auto flex min-h-0 w-full max-w-3xl flex-1 flex-col items-center justify-center">
         <div className="mt-2 flex w-full shrink-0 flex-col items-start justify-start space-y-4 sm:mt-4 sm:space-y-6">
-          <span className="hidden md:block">
-            <KortixLogo size={24} variant="logomark" />
+          <span className="text-foreground text-xl font-semibold tracking-tight hidden md:block">
+            Agentica
           </span>
-          <span className="block md:hidden">
-            <KortixLogo size={18} variant="logomark" />
+          <span className="text-foreground text-lg font-semibold tracking-tight block md:hidden">
+            Agentica
           </span>
 
           <div className="w-full min-w-0">
@@ -304,7 +304,7 @@ type AgentDef = {
 
 const AGENTS: AgentDef[] = [
   {
-    name: 'kortix',
+    name: 'agentica',
     desc: 'General knowledge worker — full tool access; codes, researches, writes and runs ops end-to-end in an isolated sandbox.',
     icon: Bot,
     trigger: 'primary',
@@ -316,7 +316,7 @@ const AGENTS: AgentDef[] = [
   },
   {
     name: 'pr-bot',
-    desc: 'Runs a thermo-nuclear review and stands up a one-click preview on every pull request to kortix-ai/kortix.',
+    desc: 'Runs a thermo-nuclear review and stands up a one-click preview on every pull request to dosco-inc/suna.',
     icon: GitPullRequest,
     trigger: 'webhook',
     model: 'GPT-5',
@@ -327,7 +327,7 @@ const AGENTS: AgentDef[] = [
   },
   {
     name: 'memory-reflector',
-    desc: 'Reflects on recent activity and curates .kortix/memory, opening a memory CR each run.',
+    desc: 'Reflects on recent activity and curates .agentica/memory, opening a memory CR each run.',
     icon: Brain,
     trigger: 'cron',
     model: 'Gemini 2.5 Flash',
@@ -597,7 +597,7 @@ function IntegrationsPage({ connectedExtra = [] }: { connectedExtra?: string[] }
                 key={name}
                 className={cn(
                   'border-border/60 bg-card flex items-center gap-2.5 rounded-md border p-2.5 transition-all',
-                  justConnected && 'border-kortix-green/30 ring-kortix-green/30 ring-1',
+                  justConnected && 'border-emerald-500/30 ring-emerald-500/30 ring-1',
                 )}
               >
                 <BrandLogo domain={domain} alt={name} />
@@ -639,7 +639,7 @@ type Provider = {
 const PROVIDERS: Provider[] = [
   {
     domain: null,
-    name: 'Kortix Gateway',
+    name: 'Agentica Gateway',
     hint: 'Managed routing — injected into every sandbox',
     state: 'managed',
   },
@@ -721,7 +721,7 @@ function ModelsPage({
               key={p.name}
               className={cn(
                 'border-border/60 bg-card flex items-center gap-3 rounded-md border p-2.5 transition-all',
-                isActive && 'border-kortix-green/30 ring-kortix-green/30 ring-2',
+                isActive && 'border-emerald-500/30 ring-emerald-500/30 ring-2',
               )}
             >
               {p.domain ? (
@@ -788,7 +788,7 @@ const INITIAL_JOBS: ScheduleJob[] = [
   },
 ];
 
-/** Appears on the Scheduling tab when the CLI runs `kortix triggers add`. */
+/** Appears on the Scheduling tab when the CLI runs `agentica triggers add`. */
 const ADDED_JOB: ScheduleJob = {
   name: 'daily-briefing',
   cron: '0 8 * * *',
@@ -825,13 +825,13 @@ function SchedulingPage({ added = false }: { added?: boolean }) {
           return (
             <Row
               key={job.name}
-              className={isNew ? 'bg-kortix-green/5' : undefined}
+              className={isNew ? 'bg-emerald-500/5' : undefined}
               leading={
                 <span
                   className={cn(
                     'flex size-8 items-center justify-center rounded-lg border transition-colors',
                     job.on
-                      ? 'border-kortix-green/20 bg-kortix-green/10 text-kortix-green'
+                      ? 'border-emerald-500/20 bg-emerald-500/10 text-emerald-500'
                       : 'border-border bg-background text-muted-foreground',
                   )}
                 >
@@ -881,7 +881,7 @@ function ChannelsPage({
             <span
               className={cn(
                 'flex size-14 shrink-0 items-center justify-center rounded-lg border transition-colors',
-                connected ? 'border-kortix-green/30 bg-kortix-green/5' : 'border-border',
+                connected ? 'border-emerald-500/30 bg-emerald-500/5' : 'border-border',
               )}
             >
               <Icon.Slack className="size-7" />
@@ -890,7 +890,7 @@ function ChannelsPage({
               <p className="text-foreground text-sm font-medium">
                 {connected
                   ? `Connected to ${workspace ?? 'your workspace'}`
-                  : 'Add Kortix to your Slack workspace'}
+                  : 'Add Agentica to your Slack workspace'}
               </p>
               <p className="text-muted-foreground mt-0.5 text-xs">
                 {connected
@@ -982,9 +982,9 @@ type Secret = { name: string; masked: string; domain: string; rotated: string; a
 type Policy = { domain: string; name: string; allow: number; ask: number; block: number };
 
 const MEMBERS: Member[] = [
-  { email: 'marko@kortix.com', name: 'marko', role: 'Owner', last: 'active now' },
-  { email: 'dom@kortix.com', name: 'Dom Williams', role: 'Admin', last: '2h ago' },
-  { email: 'sara@kortix.com', name: 'Sara Khan', role: 'Member', last: '1d ago' },
+  { email: 'marko@agentica.dev', name: 'marko', role: 'Owner', last: 'active now' },
+  { email: 'dom@agentica.dev', name: 'Dom Williams', role: 'Admin', last: '2h ago' },
+  { email: 'sara@agentica.dev', name: 'Sara Khan', role: 'Member', last: '1d ago' },
 ];
 
 const SECRETS: Secret[] = [
@@ -1043,7 +1043,7 @@ function PolicyRow({ policy }: { policy: Policy }) {
           <span className="text-muted-foreground text-xs">{total} tools</span>
         </div>
         <div className="bg-muted mt-2 flex h-1.5 overflow-hidden rounded-full">
-          <span className="bg-kortix-green" style={{ width: pct(policy.allow) }} />
+          <span className="bg-emerald-500" style={{ width: pct(policy.allow) }} />
           <span className="bg-amber-500" style={{ width: pct(policy.ask) }} />
           {policy.block > 0 && (
             <span className="bg-destructive" style={{ width: pct(policy.block) }} />
@@ -1129,7 +1129,7 @@ function SecurityPage({
               <Row
                 key={m.email}
                 className={
-                  memberAdded && m.email === ADDED_MEMBER.email ? 'bg-kortix-green/5' : undefined
+                  memberAdded && m.email === ADDED_MEMBER.email ? 'bg-emerald-500/5' : undefined
                 }
                 leading={<UserAvatar email={m.email} name={m.name} size="sm" />}
                 title={m.name}
@@ -1168,7 +1168,7 @@ function SecurityPage({
               <Row
                 key={sec.name}
                 className={
-                  secretAdded && sec.name === ADDED_SECRET.name ? 'bg-kortix-green/5' : undefined
+                  secretAdded && sec.name === ADDED_SECRET.name ? 'bg-emerald-500/5' : undefined
                 }
                 leading={<BrandLogo domain={sec.domain} alt={sec.name} size={16} />}
                 title={<span className="font-mono text-xs">{sec.name}</span>}

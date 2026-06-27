@@ -18,7 +18,7 @@ import Image from 'next/image';
 export function StepMedia({
   src,
   alt,
-  urlLabel = 'acme.kortix.app',
+  urlLabel = 'acme.dosco.live',
   priority = false,
   className,
 }: {

@@ -20,7 +20,7 @@ So people built tools to give it a past. And those tools are demos. One tenant, 
 
 The other option is to crawl back to the model labs, who will happily host the polished version — and keep your data, your configuration, and your model on their side of the wall, where it stays theirs and you rent access to your own operation forever.
 
-A toy or a cage. That's the actual choice on the table today, and it's a stupid one. Kortix is what you build when you refuse both.
+A toy or a cage. That's the actual choice on the table today, and it's a stupid one. Agentica is what you build when you refuse both.
 
 ---
 

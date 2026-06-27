@@ -1,18 +1,17 @@
 'use client';
 
-import { KORTIX_BULLET_GRADIENT } from '@/components/ui/kortix-asterisk';
 import type { CSSProperties } from 'react';
 
 /* ───────────────────────────────────────────────────────────────────────────
  * Terminal rendering primitives — the styled-span model from cli-demo.tsx,
  * extracted so the CLI director and the floating terminal share one renderer.
  * A `Line` is an array of colored `Span`s; the director streams lines into a
- * scrollback buffer and `LineView` paints them in the real kortix CLI palette.
+ * scrollback buffer and `LineView` paints them in the real agentica CLI palette.
  * ─────────────────────────────────────────────────────────────────────────── */
 
 export type Color = 'cyan' | 'green' | 'amber' | 'red' | 'fg' | 'dim' | 'faded';
 
-export type Span = { t: string; c?: Color | 'kortix' | 'cursor' };
+export type Span = { t: string; c?: Color | 'agentica' | 'cursor' };
 export type Line = Span[];
 
 const COLOR: Record<Color, string> = {
@@ -25,12 +24,13 @@ const COLOR: Record<Color, string> = {
   faded: 'text-muted-foreground/45',
 };
 
-/** Flowing kortix-green gradient used for `kortix …` command text + selections. */
-export const KORTIX_CMD_CLASS =
+const AGENTICA_GRADIENT = 'linear-gradient(135deg, #22c55e 0%, #16a34a 25%, #15803d 50%, #16a34a 75%, #22c55e 100%)';
+
+export const AGENTICA_CMD_CLASS =
   'animate-kortix-bullet-flow inline-block bg-size-[100%_300%] bg-clip-text text-transparent';
 
-export const KORTIX_CMD_STYLE: CSSProperties = {
-  backgroundImage: KORTIX_BULLET_GRADIENT,
+export const AGENTICA_CMD_STYLE: CSSProperties = {
+  backgroundImage: AGENTICA_GRADIENT,
   backgroundSize: '100% 300%',
   WebkitBackgroundClip: 'text',
   backgroundClip: 'text',
@@ -39,12 +39,12 @@ export const KORTIX_CMD_STYLE: CSSProperties = {
 };
 
 /** Span constructor. `t('Shipped', 'fg')`. */
-export const t = (text: string, c?: Color | 'kortix' | 'cursor'): Span => ({ t: text, c });
+export const t = (text: string, c?: Color | 'agentica' | 'cursor'): Span => ({ t: text, c });
 
-/** A green `✓` status line, e.g. `ok(t('kortix.toml verified'))`. */
+/** A green `✓` status line, e.g. `ok(t('agentica.toml verified'))`. */
 export const ok = (...spans: Span[]): Line => [t('  '), t('✓', 'green'), t('  '), ...spans];
 
-/** A two-column meta row: `  repo  git.kortix.com/…`. */
+/** A two-column meta row: `  repo  git.dosco.live/…`. */
 export const meta = (label: string, value: string, c: Color = 'faded'): Line => [
   t(`  ${label.padEnd(8)}`, 'dim'),
   t(value, c),
@@ -54,7 +54,7 @@ export const CURSOR: Span = { t: '', c: 'cursor' };
 
 /** Wrap plain `Line[]` into the prompt's `$ ` command form (or a `#` note). */
 export const cmdLine = (input: string, note = false): Line =>
-  note ? [t(input, 'faded')] : [t('$ ', 'faded'), t(input, 'kortix')];
+  note ? [t(input, 'faded')] : [t('$ ', 'faded'), t(input, 'agentica')];
 
 export function LineView({ line }: { line: Line }) {
   return (
@@ -62,8 +62,8 @@ export function LineView({ line }: { line: Line }) {
       {line.length === 0
         ? ' '
         : line.map((s, i) =>
-            s.c === 'kortix' ? (
-              <span key={i} className={KORTIX_CMD_CLASS} style={KORTIX_CMD_STYLE}>
+            s.c === 'agentica' ? (
+              <span key={i} className={AGENTICA_CMD_CLASS} style={AGENTICA_CMD_STYLE}>
                 {s.t}
               </span>
             ) : s.c === 'cursor' ? (

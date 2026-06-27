@@ -2,12 +2,11 @@
 
 import type { CliPanelAnchor } from '@/components/home/interactive-demo/cli/draggable-cli-panel';
 import {
-  KORTIX_CMD_CLASS,
-  KORTIX_CMD_STYLE,
+  AGENTICA_CMD_CLASS,
+  AGENTICA_CMD_STYLE,
   LineView,
   type Line,
 } from '@/components/home/interactive-demo/cli/terminal';
-import { KortixLogo } from '@/components/sidebar/kortix-logo';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { useEffect, useRef, type HTMLAttributes } from 'react';
@@ -61,8 +60,7 @@ export function StepCliTerminal({
         )}
       >
         <span className="text-muted-foreground ml-1.5 inline-flex items-center gap-1 text-[11px] font-medium">
-          <KortixLogo size={12} />
-          Kortix
+          Agentica
         </span>
       </div>
 
@@ -102,14 +100,14 @@ export function StepCliTerminal({
                 >
                   <span
                     aria-hidden
-                    className={cn('w-2 shrink-0', active ? KORTIX_CMD_CLASS : 'opacity-0')}
-                    style={active ? KORTIX_CMD_STYLE : undefined}
+                    className={cn('w-2 shrink-0', active ? AGENTICA_CMD_CLASS : 'opacity-0')}
+                    style={active ? AGENTICA_CMD_STYLE : undefined}
                   >
                     ❯
                   </span>
                   <span
-                    className={active ? KORTIX_CMD_CLASS : undefined}
-                    style={active ? KORTIX_CMD_STYLE : undefined}
+                    className={active ? AGENTICA_CMD_CLASS : undefined}
+                    style={active ? AGENTICA_CMD_STYLE : undefined}
                   >
                     {opt.label}
                   </span>
@@ -124,7 +122,7 @@ export function StepCliTerminal({
         {running && !menu && (
           <div className="flex items-center whitespace-pre">
             <span className="text-muted-foreground/45">$ </span>
-            <span className={KORTIX_CMD_CLASS} style={KORTIX_CMD_STYLE}>
+            <span className={AGENTICA_CMD_CLASS} style={AGENTICA_CMD_STYLE}>
               {typed}
             </span>
             <span

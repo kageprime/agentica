@@ -2,7 +2,6 @@
 
 import { Reveal } from '@/components/home/reveal';
 import { UnifiedMarkdown } from '@/components/markdown/unified-markdown';
-import { KortixLogo } from '@/components/sidebar/kortix-logo';
 import { AnimatedThinkingText } from '@/components/ui/animated-thinking-text';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/marketing/button';
@@ -46,7 +45,7 @@ function SectionIntro({
   return (
     <div className="mb-12 max-w-2xl space-y-3">
       {/* <p className="text-muted-foreground font-mono text-xs tracking-wider uppercase">{eyebrow}</p> */}
-      <Badge variant="kortix" className="rounded">
+      <Badge variant="default" className="rounded">
         {eyebrow}
       </Badge>
       <h2 className="text-foreground text-3xl font-medium tracking-tight sm:text-4xl">{title}</h2>
@@ -350,7 +349,7 @@ function SlackSurfaceCard({
                   isApp
                   avatar={
                     <span className="bg-primary flex size-[2.1rem] shrink-0 items-center justify-center rounded-md">
-                      <KortixLogo size={16} className="text-background" />
+                      <span className="text-background text-xs font-bold">A</span>
                     </span>
                   }
                 >
@@ -392,7 +391,7 @@ function SlackSurfaceCard({
                   isApp
                   avatar={
                     <span className="bg-primary flex size-[2.1rem] shrink-0 items-center justify-center rounded-md">
-                      <KortixLogo size={16} className="text-background" />
+                      <span className="text-background text-xs font-bold">A</span>
                     </span>
                   }
                 >
