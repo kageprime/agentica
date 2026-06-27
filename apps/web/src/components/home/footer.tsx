@@ -34,8 +34,6 @@ const FOOTER_SECTIONS: FooterSection[] = [
   {
     title: 'Resources',
     links: [
-      { label: 'Blog', href: '/blog' },
-      { label: 'Changelog', href: '/changelog' },
       { label: 'Docs', href: '/docs' },
       { label: 'Brand', href: '/design-system' },
       { label: 'Status', href: 'https://status.dosco.live', external: true },

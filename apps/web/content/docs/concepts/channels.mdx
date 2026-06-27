@@ -1,4 +1,4 @@
----
+﻿---
 title: Channels
 description: Drive a project from Slack — messages spawn sessions and the agent replies in-thread.
 ---
@@ -11,8 +11,8 @@ from chat. Connect Slack to a project, and a message or mention spawns a
 messages in that thread continue the same session.
 
 - **Connect Slack** from the project's Channels page in the dashboard, or with
-  [`kortix channels connect`](/docs/reference/cli). Two options: bring your own
-  Slack app (a bot token + signing secret), or the Kortix-managed Slack app via
+  [`agentica channels connect`](/docs/reference/cli). Two options: bring your own
+  Slack app (a bot token + signing secret), or the Agentica-managed Slack app via
   OAuth.
 - **Credentials are stored as project [secrets](/docs/concepts/secrets)** (e.g.
   `SLACK_BOT_TOKEN`, `SLACK_SIGNING_SECRET`) — never in the repo.
@@ -26,6 +26,6 @@ messages in that thread continue the same session.
 
 <Callout type="info" title="Note">
 Channels are configured through the dashboard, CLI, and secrets — **not** through
-`kortix.toml`. The `slack` connector auto-materializes on connect; you don't
+`agentica.toml`. The `slack` connector auto-materializes on connect; you don't
 declare it.
 </Callout>

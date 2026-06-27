@@ -1,11 +1,11 @@
----
+﻿---
 title: Agents
-description: The agent runtime is OpenCode, governed by kortix.toml and implemented through the repo's .kortix/opencode directory.
+description: The agent runtime is OpenCode, governed by agentica.toml and implemented through the repo's .agentica/opencode directory.
 ---
 
 The agent in every [session](/docs/concepts/sessions) is
-**[OpenCode](https://opencode.ai/docs/)**. The `kortix-agent` daemon runs it as
-`opencode serve` with its config dir pointed at the project's `.kortix/opencode/`.
+**[OpenCode](https://opencode.ai/docs/)**. The `agentica-agent` daemon runs it as
+`opencode serve` with its config dir pointed at the project's `.agentica/opencode/`.
 
 OpenCode-native behavior lives there, in OpenCode's standard layout:
 
@@ -16,18 +16,18 @@ OpenCode-native behavior lives there, in OpenCode's standard layout:
 
 `opencode.jsonc` stays the OpenCode-native registry for plugins, MCP servers,
 providers, model/provider settings, permissions, and default runtime behavior.
-Kortix does not duplicate those settings in `kortix.toml`.
+Agentica does not duplicate those settings in `agentica.toml`.
 
-Kortix-side launchability and authority live in `kortix.toml` `[[agents]]`.
+Agentica-side launchability and authority live in `agentica.toml` `[[agents]]`.
 Legacy projects with no `[[agents]]` keep OpenCode-native discovery for backward
 compatibility. Projects that add `[[agents]]` opt into declarative, server-side
 agent discovery: chat inputs, trigger pickers, and channel pickers should list
 registered agents from the API, not from a sandbox-local OpenCode query. This
-does not mean every native file under `.kortix/opencode/agents/` must be
+does not mean every native file under `.agentica/opencode/agents/` must be
 registered; unregistered files can still exist for local experiments or runtime
 internals.
 
-Every project ships a default agent + the kortix-system skill, so it runs with no
+Every project ships a default agent + the agentica-system skill, so it runs with no
 setup. Beyond reading/writing repo files, an agent can use external tools through
 connected integrations (per project — it only uses what's connected; see
 [Connecting your tools](/docs/guides/connecting-tools)).
@@ -35,4 +35,4 @@ connected integrations (per project — it only uses what's connected; see
 New agents, skills, or tools reach future sessions only after a
 [change request](/docs/concepts/change-requests) merges them. Authoring details:
 [opencode.ai/docs](https://opencode.ai/docs/) and
-[Kortix vs OpenCode config](/docs/reference/config-boundary).
+[Agentica vs OpenCode config](/docs/reference/config-boundary).

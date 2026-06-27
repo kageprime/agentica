@@ -8,7 +8,6 @@ export const siteConfig = {
     links: [
       { id: 2, name: 'Enterprise', href: '/enterprise' },
       { id: 3, name: 'Pricing', href: '/pricing' },
-      { id: 4, name: 'Docs', href: '/docs' },
       {
         id: 5,
         name: 'Compare',
@@ -34,7 +33,7 @@ export const siteConfig = {
     ],
   },
   hero: {
-    description: 'Agentica – the agentic AI platform for your company.',
+    description: 'Agentica 火 — Shadow Autonomous workforce',
   },
   footerLinks: [
     {

@@ -1,16 +1,16 @@
----
+﻿---
 title: Projects
-description: A project is one git repository plus a kortix.toml manifest.
+description: A project is one git repository plus a agentica.toml manifest.
 ---
 
-A **project is one git repository** with a [`kortix.toml`](/docs/reference/manifest)
+A **project is one git repository** with a [`agentica.toml`](/docs/reference/manifest)
 at its root. The repo is the project — files, history, agent config, and settings
 all live in git. No separate database to keep in sync.
 
 Backed two ways:
 
-- **Kortix-managed repo** — Kortix creates and hosts a private repo (default).
-- **Imported GitHub repo** — link an existing repo; Kortix operates on it via the
+- **Agentica-managed repo** — Agentica creates and hosts a private repo (default).
+- **Imported GitHub repo** — link an existing repo; Agentica operates on it via the
   GitHub API.
 
 Either way the project has a `default_branch` that every
@@ -33,17 +33,17 @@ Large data and other systems are reached through
 it's small and truly yours, keep it in the project; if it's large or lives
 somewhere else, reference it.
 
-So you don't turn an existing codebase into a project by dropping a `kortix.toml`
+So you don't turn an existing codebase into a project by dropping a `agentica.toml`
 into it — least of all a large monorepo, which would be cloned into every
 session. You create a **dedicated** project for the agent and point it at the
 repositories and tools it should work with.
 
-## What the control plane reads from `kortix.toml`
+## What the control plane reads from `agentica.toml`
 
 - `[project]` — name, description
 - `[env]` — [secret](/docs/reference/secrets) names
-- `[sandbox]` + `.kortix/Dockerfile` — the [sandbox image](/docs/reference/sandbox-image)
-- `[opencode] config_dir` — agent config location (default `.kortix/opencode`)
+- `[sandbox]` + `.agentica/Dockerfile` — the [sandbox image](/docs/reference/sandbox-image)
+- `[opencode] config_dir` — agent config location (default `.agentica/opencode`)
 - `[[triggers]]` — [automations](/docs/concepts/triggers)
 - `[[apps]]` — deployable apps (experimental)
 

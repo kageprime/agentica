@@ -34,7 +34,7 @@ export async function generateMetadata(props: {
   if (!page) return {};
 
   return {
-    title: `${page.data.title} | Kortix Docs`,
-    description: page.data.description ?? 'Kortix developer documentation.',
+    title: `${page.data.title} | Agentica 火 Docs`,
+    description: page.data.description ?? 'Agentica developer documentation.',
   };
 }

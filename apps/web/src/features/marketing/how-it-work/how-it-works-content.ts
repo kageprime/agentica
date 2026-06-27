@@ -68,7 +68,7 @@ export const STEPS: Step[] = [
     label: 'Review',
     title: 'Review what comes back.',
     description:
-      'Kortix returns the finished output: a report, deck, dashboard, app, reply, or change request.',
+      'Agentica returns the finished output: a report, deck, dashboard, app, reply, or change request.',
     bullets: [
       'People stay in control before important work ships',
       'Files, diffs, and results open in the workspace instead of getting lost',

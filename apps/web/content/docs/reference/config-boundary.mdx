@@ -1,53 +1,53 @@
----
-title: Kortix vs OpenCode config
-description: The strict ownership boundary between kortix.toml and the .kortix/opencode/ config directory.
+﻿---
+title: Agentica vs OpenCode config
+description: The strict ownership boundary between agentica.toml and the .agentica/opencode/ config directory.
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 
-A Kortix project's config has two owners, and the boundary is strict.
+A Agentica project's config has two owners, and the boundary is strict.
 
-- **Kortix owns** `kortix.toml` and `.kortix/Dockerfile` — what a project is, its sandbox, secrets, triggers, apps, and which agents the platform may launch/authorize.
-- **OpenCode owns** `.kortix/opencode/` — how the runtime behaves. `opencode.jsonc` remains the native registry for plugins, MCP servers, providers, models, permissions, and default OpenCode behavior.
+- **Agentica owns** `agentica.toml` and `.agentica/Dockerfile` — what a project is, its sandbox, secrets, triggers, apps, and which agents the platform may launch/authorize.
+- **OpenCode owns** `.agentica/opencode/` — how the runtime behaves. `opencode.jsonc` remains the native registry for plugins, MCP servers, providers, models, permissions, and default OpenCode behavior.
 
-The config dir is declared via `[opencode] config_dir` (default `.kortix/opencode`); the agent daemon launches OpenCode with `OPENCODE_CONFIG_DIR` pointed there.
+The config dir is declared via `[opencode] config_dir` (default `.agentica/opencode`); the agent daemon launches OpenCode with `OPENCODE_CONFIG_DIR` pointed there.
 
 Legacy projects can still rely on OpenCode-native discovery. Projects that adopt
-`[[agents]]` in `kortix.toml` opt into declarative, server-side agent governance:
-Kortix product surfaces should list registered agents from the API, not directly
+`[[agents]]` in `agentica.toml` opt into declarative, server-side agent governance:
+Agentica product surfaces should list registered agents from the API, not directly
 from a sandbox OpenCode `/app/agents` response. This is not a rule that every
-native file under `.kortix/opencode/agents/` must be registered; unregistered
+native file under `.agentica/opencode/agents/` must be registered; unregistered
 files can still exist for local experiments or runtime internals.
 
 ## Ownership table
 
 | Concern | Lives in | Read by |
 | --- | --- | --- |
-| Project metadata (`name`, `description`) | `kortix.toml` `[project]` | Kortix |
-| Env / secrets spec | `kortix.toml` `[env]` | Kortix |
-| Sandbox base image | `kortix.toml` `[sandbox]` + `.kortix/Dockerfile` | Kortix |
-| Where the OpenCode config dir lives | `kortix.toml` `[opencode] config_dir` | Kortix |
-| Triggers (cron + webhook) | `kortix.toml` `[[triggers]]` | Kortix |
-| Apps (experimental) | `kortix.toml` `[[apps]]` | Kortix |
-| Platform-launchable agents and grants | `kortix.toml` `[[agents]]` | Kortix |
-| Agent personas | `.kortix/opencode/agents/` | OpenCode |
-| Skills | `.kortix/opencode/skills/` | OpenCode |
-| Slash commands | `.kortix/opencode/` (commands) | OpenCode |
-| Custom tools | `.kortix/opencode/` (tools) | OpenCode |
-| Plugins | `.kortix/opencode/` (plugins) | OpenCode |
-| MCP servers | `.kortix/opencode/opencode.jsonc` | OpenCode |
-| Model / provider config | `.kortix/opencode/opencode.jsonc` | OpenCode runtime; product model pickers should come from the server / LLM gateway catalog |
+| Project metadata (`name`, `description`) | `agentica.toml` `[project]` | Agentica |
+| Env / secrets spec | `agentica.toml` `[env]` | Agentica |
+| Sandbox base image | `agentica.toml` `[sandbox]` + `.agentica/Dockerfile` | Agentica |
+| Where the OpenCode config dir lives | `agentica.toml` `[opencode] config_dir` | Agentica |
+| Triggers (cron + webhook) | `agentica.toml` `[[triggers]]` | Agentica |
+| Apps (experimental) | `agentica.toml` `[[apps]]` | Agentica |
+| Platform-launchable agents and grants | `agentica.toml` `[[agents]]` | Agentica |
+| Agent personas | `.agentica/opencode/agents/` | OpenCode |
+| Skills | `.agentica/opencode/skills/` | OpenCode |
+| Slash commands | `.agentica/opencode/` (commands) | OpenCode |
+| Custom tools | `.agentica/opencode/` (tools) | OpenCode |
+| Plugins | `.agentica/opencode/` (plugins) | OpenCode |
+| MCP servers | `.agentica/opencode/opencode.jsonc` | OpenCode |
+| Model / provider config | `.agentica/opencode/opencode.jsonc` | OpenCode runtime; product model pickers should come from the server / LLM gateway catalog |
 
 <Callout type="info" title="Rule of thumb">
-If it describes the project, the sandbox, when work runs, what gets deployed, or what the platform is allowed to launch/authorize, it belongs in `kortix.toml`. If it describes how OpenCode executes that agent, it belongs under `.kortix/opencode/`.
+If it describes the project, the sandbox, when work runs, what gets deployed, or what the platform is allowed to launch/authorize, it belongs in `agentica.toml`. If it describes how OpenCode executes that agent, it belongs under `.agentica/opencode/`.
 </Callout>
 
-Full `kortix.toml` field reference: [kortix.toml](/docs/reference/manifest). The `.kortix/opencode/` directory follows OpenCode's standard layout; see [opencode.ai/docs](https://opencode.ai/docs/) for each primitive.
+Full `agentica.toml` field reference: [agentica.toml](/docs/reference/manifest). The `.agentica/opencode/` directory follows OpenCode's standard layout; see [opencode.ai/docs](https://opencode.ai/docs/) for each primitive.
 
 ## Where the agent runs
 
-The agent runtime is OpenCode, and **Kortix runs it in the cloud sandbox** — the sandbox agent server launches OpenCode with `OPENCODE_CONFIG_DIR` set to your `config_dir`. There is no Kortix command that runs the agent on your machine; the [CLI](/docs/reference/cli) is a cloud control plane, not a local runner.
+The agent runtime is OpenCode, and **Agentica runs it in the cloud sandbox** — the sandbox agent server launches OpenCode with `OPENCODE_CONFIG_DIR` set to your `config_dir`. There is no Agentica command that runs the agent on your machine; the [CLI](/docs/reference/cli) is a cloud control plane, not a local runner.
 
-Because `.kortix/opencode/` uses OpenCode's standard layout, the personas, skills, and tools are portable: install the upstream `opencode` binary and point its config dir at that folder and it reads the same files.
+Because `.agentica/opencode/` uses OpenCode's standard layout, the personas, skills, and tools are portable: install the upstream `opencode` binary and point its config dir at that folder and it reads the same files.
 
-New files under `.kortix/opencode/` reach future sandbox sessions only after a [change request](/docs/reference/change-requests) merges them to `main`.
+New files under `.agentica/opencode/` reach future sandbox sessions only after a [change request](/docs/reference/change-requests) merges them to `main`.

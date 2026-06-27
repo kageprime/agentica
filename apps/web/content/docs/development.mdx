@@ -1,6 +1,6 @@
----
+﻿---
 title: Local development
-description: Run the Kortix stack on your machine and work with the encrypted API secrets.
+description: Run the Agentica stack on your machine and work with the encrypted API secrets.
 ---
 
 import { Steps, Step } from 'fumadocs-ui/components/steps';
@@ -20,9 +20,9 @@ There are **four environments for local development**, each a separate set of AP
 | Command | Env | API talks to |
 | --- | --- | --- |
 | `pnpm dev` | **local** | 100% local stack — local Supabase/Postgres in Docker, test Stripe. Also runs the web + tunnel. |
-| `pnpm dev:dev-env` | **dev** | the **dev** stack — dev Supabase DB, **test** Stripe, dev keys (mirrors `dev-api.kortix.com`). |
-| `pnpm dev:staging-env` | **staging** | the **staging** stack — staging Supabase DB and staging keys (mirrors `staging-api.kortix.com`). |
-| `pnpm dev:prod-env` | **prod** | the **prod** stack — prod Supabase DB, **LIVE** Stripe, prod keys (mirrors `api.kortix.com`). |
+| `pnpm dev:dev-env` | **dev** | the **dev** stack — dev Supabase DB, **test** Stripe, dev keys (mirrors `dev-api.dosco.live`). |
+| `pnpm dev:staging-env` | **staging** | the **staging** stack — staging Supabase DB and staging keys (mirrors `staging-api.dosco.live`). |
+| `pnpm dev:prod-env` | **prod** | the **prod** stack — prod Supabase DB, **LIVE** Stripe, prod keys (mirrors `api.dosco.live`). |
 
 `pnpm dev` is the full local stack you'll use day-to-day. `dev:dev-env` / `dev:staging-env` / `dev:prod-env` run the **API** locally against the remote dev/staging/prod backend (for debugging DB/billing/account flows) — they don't start local Supabase.
 

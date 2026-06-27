@@ -1,11 +1,11 @@
----
+﻿---
 title: Apps
-description: Ship a website from your project — the manifest declares it, Kortix deploys it.
+description: Ship a website from your project — the manifest declares it, Agentica deploys it.
 ---
 
 An **app** is something deployable that lives alongside your agent in the same
 project — a marketing site, a docs site, a small dashboard. You declare apps
-in `kortix.toml` and Kortix takes care of the build and a public URL.
+in `agentica.toml` and Agentica takes care of the build and a public URL.
 
 ```toml
 [[apps]]
@@ -82,7 +82,7 @@ tab.
   persistent state aren't the target — they belong in their own
   infrastructure.
 - **CI/CD for the agent code itself.** Apps deploy `[[apps]]` entries. They
-  don't deploy `kortix.toml`, your agent, or anything else under
-  `.kortix/opencode/` — that all just runs inside sessions.
+  don't deploy `agentica.toml`, your agent, or anything else under
+  `.agentica/opencode/` — that all just runs inside sessions.
 
 Schema: [Manifest reference — `[[apps]]`](/docs/reference/manifest#apps).

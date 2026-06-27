@@ -1,4 +1,4 @@
----
+﻿---
 title: Automating work
 description: How to run a session on a schedule or from an event using triggers.
 ---
@@ -14,7 +14,7 @@ import { Callout } from 'fumadocs-ui/components/callout';
 
 ## A scheduled example
 
-Triggers live in your project's manifest (`kortix.toml`) as `[[triggers]]` entries. This one runs every weekday morning and writes a digest:
+Triggers live in your project's manifest (`agentica.toml`) as `[[triggers]]` entries. This one runs every weekday morning and writes a digest:
 
 ```toml
 [[triggers]]
@@ -29,7 +29,7 @@ Summarize yesterday's activity and save it as a daily note.
 """
 ```
 
-When the schedule fires, Kortix starts a fresh session and gives the agent the `prompt` as its first message.
+When the schedule fires, Agentica starts a fresh session and gives the agent the `prompt` as its first message.
 
 ## Changes take effect after they're merged
 

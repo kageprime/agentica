@@ -1,27 +1,27 @@
----
+﻿---
 title: Sandbox image
-description: The layered Docker image, what Kortix injects, constraints, examples, and snapshot rebuilds.
+description: The layered Docker image, what Agentica injects, constraints, examples, and snapshot rebuilds.
 ---
 
 The sandbox base image. For how a session uses it at runtime, see [Session runtime](/docs/reference/session-runtime).
 
-Every session boots inside a Docker container, built in two parts: **your Dockerfile** defines the environment (languages, tools, system packages), and the **Kortix runtime layer** is auto-injected on top so the dashboard can connect.
+Every session boots inside a Docker container, built in two parts: **your Dockerfile** defines the environment (languages, tools, system packages), and the **Agentica runtime layer** is auto-injected on top so the dashboard can connect.
 
 ```
 ┌─────────────────────────────────────────┐
-│  Kortix runtime layer (auto-injected)   │  ← opencode + kortix-agent + ENTRYPOINT
+│  Agentica runtime layer (auto-injected)   │  ← opencode + agentica-agent + ENTRYPOINT
 ├─────────────────────────────────────────┤
-│  Your Dockerfile                        │  ← .kortix/Dockerfile
+│  Your Dockerfile                        │  ← .agentica/Dockerfile
 └─────────────────────────────────────────┘
 ```
 
-Referenced from `kortix.toml` as a named template under `[[sandbox.templates]]`:
+Referenced from `agentica.toml` as a named template under `[[sandbox.templates]]`:
 
 ```toml
 [[sandbox.templates]]
 slug       = "dev"             # any slug except the reserved "default"
 name       = "Dev box"         # optional label
-dockerfile = ".kortix/Dockerfile"   # OR image = "python:3.12-slim"
+dockerfile = ".agentica/Dockerfile"   # OR image = "python:3.12-slim"
 cpu        = 2     # optional — vCPU cores
 memory     = 4     # optional — GiB
 disk       = 20    # optional — GiB
@@ -32,19 +32,19 @@ disk       = 20    # optional — GiB
 default = "dev"
 ```
 
-Each entry sets exactly one of `dockerfile` or `image`. Paths must be repo-relative — absolute paths and `..` traversal are rejected. The singular `[sandbox]` table with image/build keys on it directly is **legacy and rejected**; image definitions live under `[[sandbox.templates]]`, and `[sandbox]` itself only carries `default`. Field details: [kortix.toml](/docs/reference/manifest#sandbox).
+Each entry sets exactly one of `dockerfile` or `image`. Paths must be repo-relative — absolute paths and `..` traversal are rejected. The singular `[sandbox]` table with image/build keys on it directly is **legacy and rejected**; image definitions live under `[[sandbox.templates]]`, and `[sandbox]` itself only carries `default`. Field details: [agentica.toml](/docs/reference/manifest#sandbox).
 
-## What the Kortix layer injects
+## What the Agentica layer injects
 
 On top of your Dockerfile's final stage, the snapshot builder appends:
 
 1. `USER root` (the layer needs to install things).
 2. `apt-get install -y ca-certificates curl git gzip nodejs npm unzip tmux`.
 3. `npm install -g opencode-ai@<pinned-version>`, plus the `bun` runtime and `agent-browser` (for the headless-browser tool).
-4. A baked OpenCode tool-dependency cache under `/opt/kortix/` (so the boot-time `bun install` in your config dir is a no-op, not a network round-trip).
-5. `COPY` the `kortix-agent` daemon, the `kortix` CLI, and the `kortix-entrypoint` script to `/usr/local/bin/`, plus the `slack-cli` and `executor-sdk` package trees under `/opt/kortix/`.
-6. `ENV KORTIX_WORKSPACE=/workspace`, `WORKDIR /workspace`, `EXPOSE 8000`.
-7. `ENTRYPOINT ["/usr/local/bin/kortix-entrypoint"]`.
+4. A baked OpenCode tool-dependency cache under `/opt/agentica/` (so the boot-time `bun install` in your config dir is a no-op, not a network round-trip).
+5. `COPY` the `agentica-agent` daemon, the `agentica` CLI, and the `agentica-entrypoint` script to `/usr/local/bin/`, plus the `slack-cli` and `executor-sdk` package trees under `/opt/agentica/`.
+6. `ENV AGENTICA_WORKSPACE=/workspace`, `WORKDIR /workspace`, `EXPOSE 8000`.
+7. `ENTRYPOINT ["/usr/local/bin/agentica-entrypoint"]`.
 
 Everything you installed stays on `PATH`; the layer relocates and removes nothing.
 
@@ -54,10 +54,10 @@ These rules keep a sandbox connectable. They aren't enforced statically — your
 
 | Rule | Why |
 | --- | --- |
-| Don't set `ENTRYPOINT`. | Kortix overrides it. Your `CMD` is also ignored. |
+| Don't set `ENTRYPOINT`. | Agentica overrides it. Your `CMD` is also ignored. |
 | Don't claim port `8000`. | Reserved for the daemon's reverse proxy. Run your dev servers on other ports. |
 | `FROM` a Debian/Ubuntu-family base. | The layer assumes `apt-get`. Alpine, Fedora, Arch will fail at layer build. |
-| Don't `RUN apt-get clean` without `rm -rf /var/lib/apt/lists/*`. | The Kortix layer re-runs `apt-get update`; a broken lists cache breaks it. |
+| Don't `RUN apt-get clean` without `rm -rf /var/lib/apt/lists/*`. | The Agentica layer re-runs `apt-get update`; a broken lists cache breaks it. |
 | Don't bake credentials into the image. | Use `[env]` + Secrets Manager — values are injected at session start. |
 
 Everything else is fair game: `RUN curl … | sh` for toolchains, COPY seed data, set `ENV` for non-secret config, install any apt/npm packages.
@@ -105,11 +105,11 @@ memory = 8
 disk   = 50
 ```
 
-The spec is **baked into the snapshot**, not set per-session: the provider builds each sandbox from your project's snapshot and inherits its size from there. That has one practical consequence — changing the spec rebuilds the snapshot (it's part of the content hash, below) and the new size applies on the **next** session, exactly like a Dockerfile edit. Values are rounded to whole numbers; a non-positive value falls back to the default, and anything above the platform ceiling (cpu 32, memory 128 GiB, disk 500 GiB) is clamped down. See [kortix.toml → `[sandbox]`](/docs/reference/manifest#sandbox) for the full field table and aliases.
+The spec is **baked into the snapshot**, not set per-session: the provider builds each sandbox from your project's snapshot and inherits its size from there. That has one practical consequence — changing the spec rebuilds the snapshot (it's part of the content hash, below) and the new size applies on the **next** session, exactly like a Dockerfile edit. Values are rounded to whole numbers; a non-positive value falls back to the default, and anything above the platform ceiling (cpu 32, memory 128 GiB, disk 500 GiB) is clamped down. See [agentica.toml → `[sandbox]`](/docs/reference/manifest#sandbox) for the full field table and aliases.
 
 ## Snapshot rebuilds
 
-Snapshots are content-addressed: the platform hashes your Dockerfile + the git tree OID of the build context + the hardware spec + a platform runtime fingerprint (opencode version + `kortix-agent` binary). Unchanged hash reuses the snapshot; otherwise a new one builds. Rebuilds happen on any push touching your Dockerfile or anything `COPY`'d into it, or any change to the `[sandbox]` spec — pure code commits reuse the snapshot for free.
+Snapshots are content-addressed: the platform hashes your Dockerfile + the git tree OID of the build context + the hardware spec + a platform runtime fingerprint (opencode version + `agentica-agent` binary). Unchanged hash reuses the snapshot; otherwise a new one builds. Rebuilds happen on any push touching your Dockerfile or anything `COPY`'d into it, or any change to the `[sandbox]` spec — pure code commits reuse the snapshot for free.
 
 Builds run Daytona-side via `Image.fromDockerfile`. The first session on a new content hash triggers an inline build (a few minutes, shown as "preparing image"); later sessions on the same content hit the cache.
 
