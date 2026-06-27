@@ -738,7 +738,7 @@ projectsApp.openapi(
       body.display_name ??
       body.displayName ??
       loaded.row.name ??
-      "Kortix Agent"
+      "Agentica Agent"
     ).trim();
     const username = normalizeAgentMailUsername(
       body.username ?? loaded.row.name,

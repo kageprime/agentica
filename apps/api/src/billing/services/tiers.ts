@@ -141,12 +141,12 @@ export function getComputeDisplayPriceCents(serverType: string): number | null {
 
 /**
  * Human-readable line for Stripe checkout / invoice descriptions.
- * Example: "Kortix Computer · Pro — 8 vCPU, 16 GB RAM, 320 GB SSD"
+ * Example: "Agentica Computer · Pro — 8 vCPU, 16 GB RAM, 320 GB SSD"
  */
 export function getComputeDescription(serverType: string): string {
   const t = COMPUTE_TIERS[serverType];
-  if (!t) return 'Kortix Computer';
-  return `Kortix Computer · ${t.label} — ${t.cores} vCPU, ${t.memoryGb} GB RAM, ${t.diskGb} GB SSD`;
+  if (!t) return 'Agentica Computer';
+  return `Agentica Computer · ${t.label} — ${t.cores} vCPU, ${t.memoryGb} GB RAM, ${t.diskGb} GB SSD`;
 }
 
 // ─── Tiers ──────────────────────────────────────────────────────────────────

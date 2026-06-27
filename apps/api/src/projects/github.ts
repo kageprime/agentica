@@ -484,7 +484,7 @@ export async function commitFile(opts: {
   // committed") instead of Kortix. Defaulting here mirrors the identity used by
   // every git-CLI commit path (branches.ts / merge.ts / seed.ts).
   const ident = {
-    name: opts.authorName || 'Kortix',
+    name: opts.authorName || 'Agentica',
     email: opts.authorEmail || 'noreply@kortix.ai',
   };
   const body: Record<string, unknown> = {

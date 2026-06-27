@@ -67,7 +67,7 @@ export interface SandboxProviderAdapter {
 
   /**
    * Build the snapshot. The caller has already composed the layered Dockerfile
-   * (user Dockerfile + Kortix runtime). Returns when the snapshot is `active`,
+   * (user Dockerfile + Agentica runtime). Returns when the snapshot is `active`,
    * throws on terminal failure.
    */
   buildSnapshot(input: BuildableTemplate, tap?: BuildLogTap): Promise<void>;

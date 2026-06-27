@@ -224,7 +224,7 @@ export async function commitMultipleFilesToBranch(
   const tip = await runGitCapture(['rev-parse', '--verify', `refs/heads/${branch}`], repoPath);
   const parentSha = tip.exitCode === 0 ? tip.stdout.trim() : null;
 
-  const author = opts.authorName || 'Kortix';
+  const author = opts.authorName || 'Agentica';
   const email = opts.authorEmail || 'noreply@kortix.ai';
   const identEnv = {
     GIT_AUTHOR_NAME: author,

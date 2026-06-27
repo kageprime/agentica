@@ -65,7 +65,7 @@ const projectParam = z.object({
 
 /** Ask git to (re)authenticate via the credential helper. */
 function unauthorized(c: any, message: string) {
-  c.header('WWW-Authenticate', 'Basic realm="Kortix Git"');
+  c.header('WWW-Authenticate', 'Basic realm="Agentica Git"');
   return c.text(message, 401);
 }
 

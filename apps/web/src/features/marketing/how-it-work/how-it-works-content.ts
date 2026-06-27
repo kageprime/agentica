@@ -29,7 +29,7 @@ export const STEPS: Step[] = [
       'Connect Slack, docs, tickets, CRM, databases, code, and internal systems with scoped access.',
     bullets: [
       '3,000+ app connections, plus MCP, OpenAPI, GraphQL, and HTTP',
-      'Credentials stay brokered by Kortix instead of copied into a session',
+      'Credentials stay brokered by Agentica instead of copied into a session',
       'Connect tools per project so every coworker has the right reach',
       'Admins keep control over what can run, ask first, or stay blocked',
     ],

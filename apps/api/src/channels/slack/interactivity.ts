@@ -252,7 +252,7 @@ export async function handleMessageShortcut(payload: SlackInteractionPayload): P
   if (!thread) {
     await respondViaUrl(payload.response_url, {
       response_type: 'ephemeral',
-      text: 'No Kortix session is attached to this thread yet. `@`-mention me to start one.',
+      text: 'No Agentica session is attached to this thread yet. `@`-mention me to start one.',
     });
     return;
   }
@@ -261,7 +261,7 @@ export async function handleMessageShortcut(payload: SlackInteractionPayload): P
   await respondViaUrl(payload.response_url, {
     response_type: 'ephemeral',
     blocks: [
-      { type: 'section', text: { type: 'mrkdwn', text: '*This thread\'s Kortix session*' } },
+      { type: 'section', text: { type: 'mrkdwn', text: '*This thread\'s Agentica session*' } },
       {
         type: 'actions',
         elements: [

@@ -3,7 +3,6 @@
 import { Reveal } from '@/components/home/reveal';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/marketing/button';
-import KortixGrid from '@/components/ui/marketing/gridder';
 import { Separator } from '@/components/ui/separator';
 import Hero from '@/features/marketing/hero';
 import { HowItWorks } from '@/features/marketing/how-it-work/how-it-works';
@@ -101,8 +100,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="col-span-1 hidden md:block" />
-                <div className="col-span-7 mask-y-from-90% mask-x-from-90%">
-                  <KortixGrid count={58} seed={4228} />
+                <div className="col-span-7 flex items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--kortix-blue)_0%,_transparent_70%)] opacity-30">
+                  <span className="font-mono text-[clamp(6rem,20vw,12rem)] font-bold text-foreground select-none">
+                    A
+                  </span>
                 </div>
               </div>
             </div>

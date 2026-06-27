@@ -282,7 +282,7 @@ export async function pushStep(ctx: MigrationContext): Promise<void> {
     "find . -type f -size +100M -not -path './.git/*' -not -path './.persistent-system/*' -not -path './node_modules/*' -not -path './.cache/*' -printf '%P\\n' 2>/dev/null | while IFS= read -r f; do printf '%s\\n' \"$f\" >> .git/info/exclude; echo \"push: excluding >100MB file (GitHub limit): $f\"; done || true",
     `git checkout -qB ${sq(defaultBranch)}`,
     'git add -A',
-    `git -c user.email=migrations@kortix.com -c user.name=Kortix commit -q --allow-empty -m ${sq('Import legacy workspace')}`,
+    `git -c user.email=migrations@kortix.com -c user.name=Agentica commit -q --allow-empty -m ${sq('Import legacy workspace')}`,
     `git push --force ${sq(authedUrl)} HEAD:${sq(defaultBranch)}`,
     'echo "PUSH_OK files=$(git ls-files | wc -l) bytes=$(git ls-files -z | du -ch --files0-from=- 2>/dev/null | tail -1 | cut -f1)"',
   ].join('\n');

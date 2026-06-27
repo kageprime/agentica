@@ -39,10 +39,10 @@ export async function publishHomeForUser(teamId: string, userId: string): Promis
 }
 
 const HOME_EXAMPLES: Array<{ emoji: string; prompt: string }> = [
-  { emoji: '🔍', prompt: '@Kortix scan this codebase and write me a one-pager' },
-  { emoji: '🔧', prompt: '@Kortix open a PR that switches our logger to pino' },
-  { emoji: '📊', prompt: '@Kortix what changed on main this week?' },
-  { emoji: '📦', prompt: '@Kortix pull yesterday\'s sign-ups, group them by source, drop the CSV here' },
+  { emoji: '🔍', prompt: '@Agentica scan this codebase and write me a one-pager' },
+  { emoji: '🔧', prompt: '@Agentica open a PR that switches our logger to pino' },
+  { emoji: '📊', prompt: '@Agentica what changed on main this week?' },
+  { emoji: '📦', prompt: '@Agentica pull yesterday\'s sign-ups, group them by source, drop the CSV here' },
 ];
 
 const PROJECT_COVERS = [
@@ -73,11 +73,11 @@ function buildHomeView(input: { projects: HomeProjectRow[]; recent: HomeRecentRo
   blocks.push({
     type: 'image',
     image_url: heroUrl,
-    alt_text: 'Kortix — AI command center for your company',
+    alt_text: 'Agentica — AI command center for your company',
   });
   blocks.push({
     type: 'header',
-    text: { type: 'plain_text', text: '👋  Welcome to Kortix', emoji: true },
+    text: { type: 'plain_text', text: '👋  Welcome to Agentica', emoji: true },
   });
   blocks.push({
     type: 'section',
@@ -105,7 +105,7 @@ function buildHomeView(input: { projects: HomeProjectRow[]; recent: HomeRecentRo
   if (input.projects.length === 0) {
     blocks.push({
       type: 'section',
-      text: { type: 'mrkdwn', text: '*No projects connected yet.*\nHead to your Kortix dashboard to link a project to this workspace.' },
+      text: { type: 'mrkdwn', text: '*No projects connected yet.*\nHead to your Agentica dashboard to link a project to this workspace.' },
       accessory: {
         type: 'button',
         text: { type: 'plain_text', text: 'Open dashboard' },
@@ -204,7 +204,7 @@ function buildHomeView(input: { projects: HomeProjectRow[]; recent: HomeRecentRo
   blocks.push({
     type: 'context',
     elements: [
-      { type: 'mrkdwn', text: `🪐  Managed by Kortix  ·  <${dashboardBase}|kortix.com>  ·  <${dashboardBase}/docs|Docs>  ·  <${dashboardBase}/settings|Settings>` },
+      { type: 'mrkdwn', text: `🪐  Managed by Agentica  ·  <${dashboardBase}|kortix.com>  ·  <${dashboardBase}/docs|Docs>  ·  <${dashboardBase}/settings|Settings>` },
     ],
   });
 

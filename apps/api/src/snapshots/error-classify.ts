@@ -127,7 +127,7 @@ const INFO: Record<SnapshotErrorCategory, Omit<SnapshotErrorInfo, 'category'>> =
   },
   runtime: {
     title: 'Runtime artifact missing',
-    hint: 'A Kortix runtime artifact was missing when the image was built. This is a platform/deploy issue, not your repo. Retry after the API is rebuilt.',
+    hint: 'An Agentica runtime artifact was missing when the image was built. This is a platform/deploy issue, not your repo. Retry after the API is rebuilt.',
     fixableByAgent: false,
   },
   unknown: {

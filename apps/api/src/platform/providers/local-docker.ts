@@ -862,7 +862,7 @@ export class LocalDockerProvider implements SandboxProvider {
       'PGID=911',
       'TZ=Etc/UTC',
       'SUBFOLDER=/',
-      'TITLE=Kortix Sandbox',
+      'TITLE=Agentica Sandbox',
       'OPENCODE_CONFIG_DIR=/ephemeral/kortix-master/opencode',
       'OPENCODE_PERMISSION={"*":"allow"}',
       'DISPLAY=:1',

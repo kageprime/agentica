@@ -508,7 +508,7 @@ projectsApp.openapi(
         // shared remote root) so the warm reuse is never broken by a divergent tip.
         await backend.seedFiles(connRef, pushToken, starterBase, {
           branch: provisioned.defaultBranch,
-          message: 'chore: scaffold Kortix project',
+          message: 'chore: scaffold Agentica project',
           baseFiles: starterBase,
         });
       } else {
@@ -517,7 +517,7 @@ projectsApp.openapi(
           token: pushToken,
           files: starter,
           branch: provisioned.defaultBranch,
-          commitMessage: 'chore: scaffold Kortix project',
+          commitMessage: 'chore: scaffold Agentica project',
           baseFiles: starterBase,
         });
       }
@@ -904,7 +904,7 @@ projectsApp.openapi(
     return c.json({
       error: installationId
         ? 'Selected GitHub installation is not connected to this account'
-        : 'Install the Kortix GitHub App before importing repositories',
+        : 'Install the Agentica GitHub App before importing repositories',
       install_url: await createGitHubInstallationInstallUrl(scope.accountId, scope.userId),
     }, 409);
   }

@@ -372,7 +372,7 @@ const HealthSchema = z
 const healthHandler = (c: any) =>
   c.json({
     status: 'ok',
-    service: 'kortix-api',
+    service: 'agentica-api',
     version: API_VERSION,
     commit: API_COMMIT,
     environment: config.INTERNAL_KORTIX_ENV,
@@ -831,7 +831,7 @@ app.notFound((c) => {
 
 console.log(`
 ╔═══════════════════════════════════════════════════════════╗
-║                  Kortix API Starting                      ║
+║                  Agentica API Starting                     ║
 ╠═══════════════════════════════════════════════════════════╣
 ║  Port: ${config.PORT.toString().padEnd(49)}║
 ║  Env:  ${config.INTERNAL_KORTIX_ENV.padEnd(49)}║

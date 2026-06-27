@@ -1230,7 +1230,7 @@ export async function commitManifest(
       content,
       message,
       branch,
-      authorName: 'Kortix',
+      authorName: 'Agentica',
       authorEmail: 'noreply@kortix.ai',
     });
   } catch (err) {

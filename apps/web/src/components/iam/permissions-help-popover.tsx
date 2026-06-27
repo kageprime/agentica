@@ -82,7 +82,7 @@ export function PermissionsHelpPopover({
           <h3 className="text-foreground font-semibold">Groups</h3>
           <p className="text-muted-foreground text-xs">
             {tI18nHardcoded.raw(
-              'autoComponentsIamPermissionsHelpPopoverJsxTextBundleMembersAndd44ada52',
+              'autoComponentsIamPermissionsHelpPopoverJsxTextBundleMembersAnd26d406ea',
             )}
           </p>
         </section>

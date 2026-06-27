@@ -1371,7 +1371,7 @@ function EmailConnectForm({
 }) {
   const mode = useEmailMode(projectId);
   const connect = useConnectEmail();
-  const [displayName, setDisplayName] = useState('Kortix Agent');
+  const [displayName, setDisplayName] = useState('Agentica Agent');
   const [username, setUsername] = useState(() =>
     connectorSlug
       .replace(/^email_/, '')
@@ -1445,7 +1445,7 @@ function EmailConnectForm({
         title={managedAvailable ? 'Create managed Email inbox' : 'Managed Email is not configured'}
       >
         {managedAvailable
-          ? 'Kortix will create and manage the AgentMail inbox for this profile.'
+          ? 'Agentica will create and manage the AgentMail inbox for this profile.'
           : 'This deployment needs a project-specific AgentMail key before it can create an inbox.'}
       </InfoBanner>
       <div className="grid gap-3 sm:grid-cols-2">
@@ -1456,7 +1456,7 @@ function EmailConnectForm({
             aria-label="Email display name"
             value={displayName}
             onChange={(e) => setDisplayName(e.target.value)}
-            placeholder="Kortix Agent"
+            placeholder="Agentica Agent"
           />
         </Field>
         {attachExisting ? (
@@ -1506,7 +1506,7 @@ function EmailConnectForm({
               <Label htmlFor="email-channel-existing-inbox">Attach existing AgentMail inbox</Label>
               <p className="text-muted-foreground mt-1 text-xs">
                 Use this when the mailbox already exists or the AgentMail account has reached its
-                inbox limit. Kortix will still create the webhook for this profile.
+                inbox limit. Agentica will still create the webhook for this profile.
               </p>
             </div>
             {attachExisting ? (

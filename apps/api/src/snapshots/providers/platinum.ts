@@ -3,7 +3,7 @@
  *
  * Platinum templates ARE the "snapshots" (GET/DELETE /v1/templates). Building
  * does exactly what Daytona does — ship the staged build context (user
- * Dockerfile + Kortix runtime layer) to the provider and let it build
+ * Dockerfile + Agentica runtime layer) to the provider and let it build
  * server-side. Daytona uses Image.fromDockerfile(); Platinum uses
  * `POST /v1/templates/from-build` (tar.gz of the same context staged by
  * snapshots/build-context.ts, so the produced image is identical). Platinum's

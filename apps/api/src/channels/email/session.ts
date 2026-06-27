@@ -310,7 +310,7 @@ async function waitForThreadSession(
 
 const EMAIL_TURN_INSTRUCTIONS = [
   "How to work:",
-  "- You are operating an AgentMail inbox assigned to this Kortix project.",
+  "- You are operating an AgentMail inbox assigned to this Agentica project.",
   "- Use the built-in `email` Executor connector for inbox operations. The AgentMail API key is resolved server-side; do not look for it in the sandbox.",
   "- Read the current thread before replying when context matters: `email.get_thread` with `inbox_id` and `thread_id`.",
   "- To answer in the same conversation, call `email.reply_message` with `inbox_id`, `message_id`, `text` or `html`, and attachments when needed.",
@@ -341,7 +341,7 @@ function renderAgentPrompt(
     );
   }
   lines.push(
-    "You're answering an email thread as the Kortix agent.",
+    "You're answering an email thread as the Agentica agent.",
     "",
     `Inbox ID:   ${event.message.inbox_id}`,
     `Thread ID:  ${event.message.thread_id}`,

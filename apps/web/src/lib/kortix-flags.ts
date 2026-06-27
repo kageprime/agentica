@@ -1,7 +1,7 @@
 /**
- * Kortix-cloud-only feature flags.
+ * Agentica-cloud-only feature flags.
  *
- * These gate UI that's specific to the Kortix-hosted cloud frontend and
+ * These gate UI that's specific to the Agentica-hosted cloud frontend and
  * should NOT ship to self-hosters by default. Each flag is read from a
  * NEXT_PUBLIC_ env var (inlined at build time) and defaults to off, so any
  * deployment that doesn't explicitly opt in stays neutral.

@@ -3256,7 +3256,7 @@ export default function BrandPage() {
                       )}
                       size="sm"
                     />
-                    <EntityAvatar label="Kortix" />
+                    <EntityAvatar label="Agentica" />
                     <EntityAvatar icon={FolderGit2} />
                     <EntityAvatar icon={Users} size="lg" />
                   </div>

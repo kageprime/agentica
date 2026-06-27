@@ -59,7 +59,7 @@ export async function handleProxy(c: any, service: ProxyServiceConfig, prefix: s
     // When billing is enabled, reject: only kortix_ tokens with billing are accepted.
     if (config.KORTIX_BILLING_INTERNAL_ENABLED) {
       throw new HTTPException(401, {
-        message: 'Kortix API key required. Get one at https://kortix.com',
+        message: 'Agentica API key required. Get one at https://kortix.com',
       });
     }
     // Self-hosted: allow passthrough for BYOC users with their own API keys.

@@ -142,10 +142,10 @@ const BOT_EVENTS = [
 
 const SHORTCUTS = [
   {
-    name: 'Open in Kortix',
+    name: 'Open in Agentica',
     type: 'message',
     callback_id: 'open_session',
-    description: "Open this thread's Kortix session on the web",
+    description: "Open this thread's Agentica session on the web",
   },
 ] as const;
 
@@ -157,7 +157,7 @@ const APP_HOME = {
 
 const ASSISTANT_VIEW = {
   assistant_description:
-    'Your AI workforce in Slack — give Kortix a task and an agent does the real work across your tools, then replies right here.',
+    'Your AI workforce in Slack — give Agentica a task and an agent does the real work across your tools, then replies right here.',
   suggested_prompts: [] as string[],
 } as const;
 
@@ -167,16 +167,16 @@ const SHORT_DESCRIPTION =
   'Your AI workforce, in Slack — @-mention an agent and it does the real work.';
 
 const LONG_DESCRIPTION =
-  'Kortix is the AI command center for your company — your agents, integrations, automations, and memory in one place, with a workforce of AI agents that does real work across your tools, around the clock. This app brings that workforce into Slack.\n\nInvite the bot to a channel, @-mention it with a task, and an agent gets on it: working across your connected tools and replying in the thread as it goes. Follow-ups stay in the same conversation — Kortix keeps the full context.\n\n*What it can do*\n• Research, search your tools, and summarize threads or documents\n• Pull data, analyze it, and drop reports, decks, and CSVs back into the thread\n• Draft replies, docs, and updates — then post them or hand them off\n• Run multi-step work across thousands of connected integrations\n• Kick off and check on automations that run on a schedule or a trigger\n• Read repos, edit files, and open PRs too — when that\'s the job\n\n*A few things teammates ask it*\n• `@Kortix pull yesterday\'s sign-ups, group them by source, and drop the CSV here`\n• `@Kortix summarize this thread and draft a reply to the customer`\n• `@Kortix build me a one-pager on our Q2 numbers`\n• `@Kortix what changed across our tools this week?`\n\nConnect a Kortix project once, then talk to Kortix like you\'d talk to anyone else on the team. No slash commands. No copy-paste. Just @-mention and reply.\n\n*AI Disclaimer*\nKortix uses AI to generate responses and perform tasks. While we strive for accuracy, AI-generated content may occasionally contain errors. Review important outputs before acting on them.\n\nManaged by Kortix · https://kortix.com';
+  'Agentica is the AI command center for your company — your agents, integrations, automations, and memory in one place, with a workforce of AI agents that does real work across your tools, around the clock. This app brings that workforce into Slack.\n\nInvite the bot to a channel, @-mention it with a task, and an agent gets on it: working across your connected tools and replying in the thread as it goes. Follow-ups stay in the same conversation — Agentica keeps the full context.\n\n*What it can do*\n• Research, search your tools, and summarize threads or documents\n• Pull data, analyze it, and drop reports, decks, and CSVs back into the thread\n• Draft replies, docs, and updates — then post them or hand them off\n• Run multi-step work across thousands of connected integrations\n• Kick off and check on automations that run on a schedule or a trigger\n• Read repos, edit files, and open PRs too — when that\'s the job\n\n*A few things teammates ask it*\n• `@Agentica pull yesterday\'s sign-ups, group them by source, and drop the CSV here`\n• `@Agentica summarize this thread and draft a reply to the customer`\n• `@Agentica build me a one-pager on our Q2 numbers`\n• `@Agentica what changed across our tools this week?`\n\nConnect an Agentica project once, then talk to Agentica like you\'d talk to anyone else on the team. No slash commands. No copy-paste. Just @-mention and reply.\n\n*AI Disclaimer*\nAgentica uses AI to generate responses and perform tasks. While we strive for accuracy, AI-generated content may occasionally contain errors. Review important outputs before acting on them.\n\nManaged by Agentica · https://kortix.com';
 
 // ── The ONE builder ───────────────────────────────────────────────────────────
 
 export interface BuildManifestConfig {
-  /** App display name (e.g. 'Kortix', 'KortixDev'). */
+  /** App display name (e.g. 'Agentica', 'AgenticaDev'). */
   appName: string;
   /** Bot user display name. */
   botName: string;
-  /** Slash command (e.g. '/kortix', '/kortix-dev'). */
+  /** Slash command (e.g. '/agentica', '/agentica-dev'). */
   command: string;
   /** Public base URL of the API (e.g. https://api.kortix.com). */
   baseUrl: string;
@@ -215,7 +215,7 @@ export function buildSlackManifest(cfg: BuildManifestConfig): SlackManifest {
         {
           command: cfg.command,
           url: `${webhook}/commands`,
-          description: 'Manage your Kortix project from Slack',
+          description: 'Manage your Agentica project from Slack',
           usage_hint: SLASH_USAGE_HINT,
           should_escape: false,
         },
@@ -245,9 +245,9 @@ export function buildSlackManifest(cfg: BuildManifestConfig): SlackManifest {
 // ── The canonical (dev/prod) configs — the committed JSON is generated from these.
 
 export const CANONICAL_DEV: BuildManifestConfig = {
-  appName: 'KortixDev',
-  botName: 'KortixDev',
-  command: '/kortix-dev',
+  appName: 'AgenticaDev',
+  botName: 'AgenticaDev',
+  command: '/agentica-dev',
   baseUrl: 'https://dev-api.kortix.com',
   webhookPath: '/v1/webhooks/slack',
   oauthRedirect: true,
@@ -255,9 +255,9 @@ export const CANONICAL_DEV: BuildManifestConfig = {
 };
 
 export const CANONICAL_PROD: BuildManifestConfig = {
-  appName: 'Kortix',
-  botName: 'Kortix',
-  command: '/kortix',
+  appName: 'Agentica',
+  botName: 'Agentica',
+  command: '/agentica',
   baseUrl: 'https://api.kortix.com',
   webhookPath: '/v1/webhooks/slack',
   oauthRedirect: true,
@@ -277,9 +277,9 @@ export interface GenerateManifestInput {
 /** Per-project (BYO) manifest. Same implementation as canonical, scoped to the project. */
 export function generateSlackManifest(input: GenerateManifestInput): SlackManifest {
   return buildSlackManifest({
-    appName: input.appName ?? 'Kortix',
-    botName: input.botName ?? 'kortix',
-    command: '/kortix',
+    appName: input.appName ?? 'Agentica',
+    botName: input.botName ?? 'agentica',
+    command: '/agentica',
     baseUrl: input.baseUrl,
     webhookPath: `/v1/webhooks/slack/${input.projectId}`,
     oauthRedirect: false,

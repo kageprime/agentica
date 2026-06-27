@@ -75,7 +75,7 @@ export default function SlackLoginPage() {
         <ResultCard
           ok
           title="Slack connected"
-          message={`Kortix will now run as your account${workspaceName ? ` in ${workspaceName}` : ''}. Head back to Slack and send your message again. You can close this tab.`}
+          message={`Agentica will now run as your account${workspaceName ? ` in ${workspaceName}` : ''}. Head back to Slack and send your message again. You can close this tab.`}
         />
       </Centered>
     );

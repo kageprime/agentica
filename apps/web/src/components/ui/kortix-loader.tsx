@@ -58,7 +58,7 @@ const SIZE_MAP = {
 } as const;
 
 /**
- * KortixLoader - A unified circular loading animation component
+ * AgenticaLoader - A unified circular loading animation component
  *
  * Uses a CSS-based circular spinner that adapts to light/dark themes.
  *

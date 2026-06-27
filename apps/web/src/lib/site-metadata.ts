@@ -2,7 +2,7 @@
  * Site metadata configuration - SIMPLE AND WORKING
  */
 
-const DEFAULT_APP_URL = 'https://www.kortix.com';
+const DEFAULT_APP_URL = 'https://www.dosco.live';
 // Only accept a real absolute http(s) URL. A missing var — or a non-decrypted
 // dotenvx `encrypted:…` value reaching the Vercel `next build` (which loads the
 // committed apps/web/.env raw) — would otherwise flow into
@@ -13,11 +13,11 @@ const rawAppUrl =
 const baseUrl = /^https?:\/\//.test(rawAppUrl) ? rawAppUrl : DEFAULT_APP_URL;
 
 export const siteMetadata = {
-  name: 'Kortix',
-  title: 'Kortix – The AI Command Center for Your Company',
+  name: 'Agentica',
+  title: 'Agentica – The Agentic AI Platform for Your Company',
   description:
-    'Kortix is the open-source AI command center for your company — one place to build, run, and govern AI agents that connect 3,000+ tools and deliver real work, not just chat.',
+    'Agentica is the agentic AI platform for your company — one place to build, run, and govern AI agents that connect 3,000+ tools and deliver real work, not just chat.',
   url: baseUrl,
   keywords:
-    'Kortix, AI command center, AI agents, AI workforce, open source AI platform, self-hosted AI agents, AI automation, agent orchestration, AI-native company, build AI agents, connect 3000 tools, AI operations',
+    'Agentica, AI agents, AI workforce, open source AI platform, self-hosted AI agents, AI automation, agent orchestration, AI-native company, build AI agents, connect 3000 tools, AI operations',
 };

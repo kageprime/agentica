@@ -133,8 +133,8 @@ export function buildLayeredDockerfile(opts: BuildLayeredDockerfileOpts): string
 
   const kortixLayer = [
     '',
-    '# ─── Kortix runtime layer (auto-injected) ──────────────────────────',
-    '# Everything below is added by the Kortix snapshot builder. Do not',
+    '# ─── Agentica runtime layer (auto-injected) ──────────────────────────',
+    '# Everything below is added by the Agentica snapshot builder. Do not',
     "# edit by hand — your project Dockerfile above is preserved verbatim.",
     '',
     'USER root',
@@ -348,12 +348,12 @@ export interface SandboxTemplate {
   name?: string;
   /**
    * Repo-relative path to a Dockerfile. The builder reads its bytes and layers
-   * the Kortix runtime on top. Mutually exclusive with `image`.
+   * the Agentica runtime on top. Mutually exclusive with `image`.
    */
   dockerfile?: string;
   /**
    * Public Docker image reference (e.g. `python:3.12-slim`). The builder
-   * generates a tiny `FROM <image>` shim and layers the Kortix runtime on top.
+   * generates a tiny `FROM <image>` shim and layers the Agentica runtime on top.
    * Mutually exclusive with `dockerfile`.
    */
   image?: string;

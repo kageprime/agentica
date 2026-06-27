@@ -1,11 +1,8 @@
----
-name: kortix-design-system
-description: "Kortix brand + design system: the rules, tokens, and component library for building any Kortix frontend UI (apps/web). Load this WHENEVER you create or edit a page, screen, component, list, card, badge, avatar, modal, form, empty state, toast, tooltip, or any visual surface in apps/web — and whenever deciding whether to reuse an existing component or add a new one. Enforces: always import from the design system, never hand-roll chrome, people-are-round / things-are-square avatars, toasts only via @/components/ui/toast, tooltips only via @/components/ui/hint, and one standardized brand identity. Source of truth is globals.css + the live /design-system page + src/components/ui."
----
+# Skill: kortix-design-system
 
-# Kortix Design System
+# Agentica Design System
 
-The single reference for building Kortix UI. **If you are touching a visual surface in `apps/web`, follow this.** The goal is one standardized, simple, recognizable brand identity — achieved by _always composing the design system_ instead of hand-rolling.
+The single reference for building Agentica UI. **If you are touching a visual surface in `apps/web`, follow this.** The goal is one standardized, simple, recognizable brand identity — achieved by _always composing the design system_ instead of hand-rolling.
 
 ## Philosophy
 

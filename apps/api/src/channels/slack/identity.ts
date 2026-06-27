@@ -129,8 +129,8 @@ export async function postLoginPrompt(input: {
   const where = input.channel ? ` in <#${input.channel}>` : '';
   const text =
     input.reason === 'not_member'
-      ? `You messaged Kortix${where}, but that Kortix account isn't a member of this workspace's project. Ask an admin to add you, then connect again.`
-      : `You messaged Kortix${where}. Kortix runs as *your own* Kortix account — connect it once to continue.`;
+      ? `You messaged Agentica${where}, but that Agentica account isn't a member of this workspace's project. Ask an admin to add you, then connect again.`
+      : `You messaged Agentica${where}. Agentica runs as *your own* Agentica account — connect it once to continue.`;
 
   await postBlocks(token, dm, text, [
     { type: 'section', text: { type: 'mrkdwn', text } },
@@ -139,7 +139,7 @@ export async function postLoginPrompt(input: {
       elements: [
         {
           type: 'button',
-          text: { type: 'plain_text', text: 'Connect my Kortix account', emoji: true },
+          text: { type: 'plain_text', text: 'Connect my Agentica account', emoji: true },
           style: 'primary',
           url,
           action_id: 'slack_login_connect',

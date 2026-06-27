@@ -9,12 +9,12 @@ import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 
-const MOBILE_STORAGE_KEY = 'kortix-mobile-banner-dismissed';
-const DESKTOP_STORAGE_KEY = 'kortix-desktop-banner-dismissed';
+const MOBILE_STORAGE_KEY = 'agentica-mobile-banner-dismissed';
+const DESKTOP_STORAGE_KEY = 'agentica-desktop-banner-dismissed';
 
 const STORE_LINKS = {
-  ios: 'https://apps.apple.com/ie/app/kortix/id6754448524',
-  android: 'https://play.google.com/store/apps/details?id=com.kortix.app',
+  ios: 'https://apps.apple.com/ie/app/agentica/id6754448524',
+  android: 'https://play.google.com/store/apps/details?id=com.agentica.app',
 };
 
 type DesktopPlatform = 'windows' | 'mac' | 'linux';
@@ -53,11 +53,13 @@ function GooglePlayLogo({ className }: { className?: string }) {
   );
 }
 
-// Kortix symbol SVG (inline to avoid loading issues)
+// Agentica symbol SVG (inline to avoid loading issues)
 function KortixSymbol({ size = 24, className }: { size?: number; className?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 30 25" fill="currentColor" className={className}>
-      <path d="M25.5614 24.916H29.8268C29.8268 19.6306 26.9378 15.0039 22.6171 12.4587C26.9377 9.91355 29.8267 5.28685 29.8267 0.00146484H25.5613C25.5613 5.00287 21.8906 9.18692 17.0654 10.1679V0.00146484H12.8005V10.1679C7.9526 9.20401 4.3046 5.0186 4.3046 0.00146484H0.0391572C0.0391572 5.28685 2.92822 9.91355 7.24884 12.4587C2.92818 15.0039 0.0390625 19.6306 0.0390625 24.916H4.30451C4.30451 19.8989 7.95259 15.7135 12.8005 14.7496V24.9206H17.0654V14.7496C21.9133 15.7134 25.5614 19.8989 25.5614 24.916Z" />
+      <text x="15" y="19" textAnchor="middle" fill="currentColor" fontSize="22" fontWeight="700" fontFamily="system-ui, sans-serif">
+        A
+      </text>
     </svg>
   );
 }

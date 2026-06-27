@@ -1,4 +1,3 @@
-import { KortixLetterField } from '@/components/ui/marketing/kortix-letter-field';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
@@ -118,14 +117,11 @@ export function WhyKortix() {
 
   return (
     <section className="bg-foreground text-background relative overflow-hidden">
-      <div
-        className="pointer-events-none absolute inset-0 z-10 mask-y-from-10% opacity-35"
-        aria-hidden
-      >
-        <KortixLetterField seed={3382} className="invert" />
+      <div className="absolute inset-0 z-0 opacity-[0.03]" aria-hidden>
+        <div className="h-full w-full bg-[radial-gradient(ellipse_at_top,_var(--kortix-blue)_0%,_transparent_70%)]" />
       </div>
 
-      <div className="px-6 py-16 sm:py-24 lg:px-0">
+      <div className="relative z-10 px-6 py-16 sm:py-24 lg:px-0">
         <div className="z-20 mx-auto max-w-6xl">
           <div className="mx-auto mb-16 max-w-2xl space-y-3 text-center">
             <h2 className="text-background text-3xl font-medium tracking-tight sm:text-4xl">

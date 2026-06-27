@@ -1,5 +1,5 @@
 /**
- * Shared OpenAPI wiring for the Kortix API.
+ * Shared OpenAPI wiring for the Agentica API.
  *
  * Every sub-router is an `OpenAPIHono` created via `makeOpenApiApp()` so it (a)
  * contributes typed route definitions to the spec and (b) shares one validation
@@ -79,18 +79,18 @@ export function mountOpenApiDocs(app: OpenAPIHono<any, any, any>, version: strin
     type: "http",
     scheme: "bearer",
     description:
-      "Supabase user JWT, or a Kortix token: PAT (`kortix_pat_…`), API key (`kortix_…`), or service account (`kortix_sa_…`).",
+      "Supabase user JWT, or an Agentica token: PAT (`kortix_pat_…`), API key (`kortix_…`), or service account (`kortix_sa_…`).",
   });
 
   app.doc31("/v1/openapi.json", (c) => ({
     openapi: "3.1.0",
     info: {
-      title: "Kortix API",
+      title: "Agentica API",
       version,
-      description: "The Kortix platform REST API — typed schemas via @hono/zod-openapi.",
+      description: "The Agentica platform REST API — typed schemas via @hono/zod-openapi.",
     },
     servers: [{ url: new URL(c.req.url).origin }],
   }));
 
-  app.get("/v1/docs", Scalar({ url: "/v1/openapi.json", pageTitle: "Kortix API" }));
+  app.get("/v1/docs", Scalar({ url: "/v1/openapi.json", pageTitle: "Agentica API" }));
 }

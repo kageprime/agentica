@@ -301,7 +301,7 @@ projectsApp.openapi(
   if (!loaded) return c.json({ error: 'Not found' }, 404);
 
   if (await hasServerManagedGitAuth(loaded.row)) {
-    return c.json({ error: 'Git auth is already managed by Kortix for this project' }, 409);
+    return c.json({ error: 'Git auth is already managed by Agentica for this project' }, 409);
   }
 
   const token =
@@ -892,7 +892,7 @@ projectsApp.openapi(
     return c.json({ error: 'Invalid secret name' }, 400);
   }
   if (isSystemProjectSecretName(name)) {
-    return c.json({ error: `${name} is managed by Kortix and cannot be removed` }, 403);
+    return c.json({ error: `${name} is managed by Agentica and cannot be removed` }, 403);
   }
 
   // Only the shared row — members' personal overrides for this key are theirs to

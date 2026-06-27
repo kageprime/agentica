@@ -4,9 +4,9 @@ import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'motion/react';
 import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 
-const SOURCE = '01kortixcomputer';
+const SOURCE = '01agenticacomputer';
 const PROPER = SOURCE.split('').join(' ');
-const KORTIX = 'kortix'.split('').join(' ');
+const KORTIX = 'agentica'.split('').join(' ');
 
 function createRng(seed: number) {
   let a = seed >>> 0;
@@ -59,7 +59,7 @@ function computeGrid(width: number, height: number): GridLayout {
   const innerWidth = Math.max(0, width - padding);
   const innerHeight = Math.max(0, height - padding);
 
-  // Wide enough for "k o r t i x" (smallest highlighted token) without clipping.
+  // Wide enough for "a g e n t i c a" (smallest highlighted token) without clipping.
   const minCellWidthPx = width < 640 ? 76 : width < 1024 ? 84 : 92;
 
   const cols = Math.max(1, Math.floor((innerWidth + gapX) / (minCellWidthPx + gapX)));

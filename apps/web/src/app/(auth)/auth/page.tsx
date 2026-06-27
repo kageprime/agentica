@@ -367,7 +367,7 @@ function AuthCardForm({
 
       <div className="mb-5 flex flex-col items-center">
         <h1 className="text-foreground/90 text-base font-medium tracking-tight">
-          {mode === 'signup' ? 'Create your account' : 'Sign in to Kortix'}
+          {mode === 'signup' ? 'Create your account' : 'Sign in to Agentica'}
         </h1>
         <p className="text-foreground/40 mt-0.5 text-sm">
           {method === 'magic'

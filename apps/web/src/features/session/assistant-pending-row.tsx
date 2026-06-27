@@ -40,7 +40,7 @@ export function AssistantPendingRow({
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/kortix-logomark-white.svg"
-        alt="Kortix"
+        alt="Agentica"
         className="dark:invert-0 h-[14px] w-auto flex-shrink-0 invert"
       />
       {/* Regular assistant-waiting row: pulsing dot + thinking text + elapsed —

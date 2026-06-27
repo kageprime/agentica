@@ -1,0 +1,82 @@
+services:
+  api:
+    container_name: kortix-api-prod
+    restart: unless-stopped
+    build:
+      context: ../..
+      dockerfile: scripts/compose/dev-api.Dockerfile
+    ports:
+      - "8008:8008"
+    working_dir: /app/apps/api
+    volumes:
+      - ../../apps/api/src:/app/apps/api/src
+      - ../../apps/api/.env.local:/app/apps/api/.env.local
+      - ../../packages:/app/packages
+      - ../../apps/kortix-sandbox-agent-server:/app/apps/kortix-sandbox-agent-server
+      - ../../apps/cli:/app/apps/cli
+      - ../../apps/sandbox:/app/apps/sandbox
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      PORT: 8008
+      ENV_MODE: production
+      INTERNAL_KORTIX_ENV: prod
+      KORTIX_URL: https://api.dosco.live
+      FRONTEND_URL: https://dosco.live
+      NEXT_PUBLIC_APP_URL: https://dosco.live
+      NEXT_PUBLIC_URL: https://dosco.live
+      NEXT_PUBLIC_BACKEND_URL: https://dosco.live/v1
+      BACKEND_URL: https://dosco.live/v1
+      SUPABASE_URL: http://supabase_kong_kortix-local:8000
+      DATABASE_URL: postgresql://postgres:postgres@supabase_db_kortix-local:5432/postgres
+      MANAGED_GIT_GITHUB_OWNER: Dosco-Inc
+      KORTIX_DEFAULT_SANDBOX_DISK_GB: "10"
+      ALLOWED_SANDBOX_PROVIDERS: "daytona"
+      DAYTONA_SERVER_URL: "https://app.daytona.io/api"
+      DAYTONA_TARGET: "us"
+      DAYTONA_ORGANIZATION_ID: "c8e3f05c-b666-4f6d-b5db-55cc7736c8c4"
+      KORTIX_SKIP_ENSURE_SCHEMA: "0"
+      KORTIX_LOCAL_DEV: "0"
+      KORTIX_BILLING_INTERNAL_ENABLED: "false"
+      KORTIX_WARM_SNAPSHOT_ENABLED: "false"
+      SCHEDULER_ENABLED: "false"
+      TUNNEL_ENABLED: "false"
+    networks:
+      - supabase
+
+  web:
+    container_name: kortix-web-prod
+    restart: unless-stopped
+    build:
+      context: ../..
+      dockerfile: scripts/compose/prod-web.Dockerfile
+      args:
+        NEXT_PUBLIC_APP_URL: https://dosco.live
+        NEXT_PUBLIC_URL: https://dosco.live
+        NEXT_PUBLIC_BACKEND_URL: https://dosco.live/v1
+        NEXT_PUBLIC_SUPABASE_URL: https://dosco.live/supabase
+        NEXT_PUBLIC_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
+        NEXT_PUBLIC_BILLING_ENABLED: "false"
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: "1"
+      NEXT_PUBLIC_APP_URL: https://dosco.live
+      NEXT_PUBLIC_URL: https://dosco.live
+      NEXT_PUBLIC_BACKEND_URL: https://dosco.live/v1
+      NEXT_PUBLIC_SUPABASE_URL: https://dosco.live/supabase
+      NEXT_PUBLIC_BILLING_ENABLED: "false"
+      BACKEND_URL: https://dosco.live/v1
+      SUPABASE_URL: http://supabase_kong_kortix-local:8000
+      SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
+      KORTIX_LOCAL_DEV: "0"
+    depends_on:
+      - api
+    networks:
+      - supabase
+
+networks:
+  supabase:
+    name: supabase_network_kortix-local
+    external: true

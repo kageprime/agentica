@@ -1,5 +1,5 @@
 /**
- * Warm (memory-state) snapshot baker — full Kortix runtime.
+ * Warm (memory-state) snapshot baker — full Agentica runtime.
  *
  * Daytona's experimental VM-class region (DAYTONA_WARM_TARGET) can snapshot a
  * sandbox via `sandbox._experimental_createSnapshot` and create new sandboxes
@@ -242,7 +242,7 @@ async function resolveBuilderBaseSnapshot(onLog?: (l: string) => void): Promise<
 /**
  * Bake a full-runtime warm snapshot named `name`. Boots a throwaway builder
  * (previous warm base if available, else the stock base), installs/refreshes
- * the Kortix runtime + uploads the binaries, snapshots the live box, then
+ * the Agentica runtime + uploads the binaries, snapshots the live box, then
  * removes the builder.
  */
 export async function bakeWarmSnapshot(opts: {

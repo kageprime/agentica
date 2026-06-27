@@ -33,7 +33,7 @@ export default function KortixGrid({
   count,
   cols = 9,
   rows = 12,
-  words = ['kortix'],
+  words = ['agentica'],
   seed = 1,
   gradient = 'linear-gradient(to top left, var(--kortix-green), var(--kortix-purple), var(--kortix-green))',
   speed = 15,

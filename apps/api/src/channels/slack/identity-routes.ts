@@ -48,14 +48,14 @@ slackIdentityApp.openapi(
     if (!token) return c.json({ error: 'Missing token' }, 400);
 
     const payload = verifyLoginState(token);
-    if (!payload) return c.json({ error: 'This link is invalid or has expired. Run `/kortix login` again.' }, 410);
+    if (!payload) return c.json({ error: 'This link is invalid or has expired. Run `/agentica login` again.' }, 410);
 
     // The workspace must be connected to at least one Kortix project, and the
     // accepting user must be a member of that project's account — otherwise a
     // stranger could bind into a workspace they have no access to.
     const projectIds = await listProjectsForWorkspace('slack', payload.teamId);
     if (projectIds.length === 0) {
-      return c.json({ error: 'This Slack workspace is not connected to any Kortix project.' }, 403);
+      return c.json({ error: 'This Slack workspace is not connected to any Agentica project.' }, 403);
     }
     const accountRows = await db
       .select({ accountId: projects.accountId })
@@ -65,7 +65,7 @@ slackIdentityApp.openapi(
     const memberships = await Promise.all(accountIds.map((a) => isAccountMember(userId, a)));
     if (!memberships.some(Boolean)) {
       return c.json(
-        { error: "You're not a member of this workspace's Kortix account. Ask an admin to add you, then try again." },
+        { error: "You're not a member of this workspace's Agentica account. Ask an admin to add you, then try again." },
         403,
       );
     }

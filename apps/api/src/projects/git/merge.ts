@@ -305,7 +305,7 @@ export async function mergeBranches(
   }
 
   const message = options.message || `Merge branch '${headRef}' into '${baseRef}'`;
-  const authorName = options.authorName || 'Kortix';
+  const authorName = options.authorName || 'Agentica';
   const authorEmail = options.authorEmail || 'noreply@kortix.ai';
 
   const commitResult = await runGit(

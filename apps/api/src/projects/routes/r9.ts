@@ -89,7 +89,7 @@ projectsApp.openapi(
   try {
     result = await mergeBranches(projectForGit, cr.baseRef, cr.headRef, {
       message: customMessage ?? `Merge CR #${cr.number}: ${cr.title}`,
-      authorName: 'Kortix',
+      authorName: 'Agentica',
       authorEmail: 'noreply@kortix.ai',
     });
   } catch (error) {

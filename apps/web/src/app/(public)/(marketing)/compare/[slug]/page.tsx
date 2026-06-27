@@ -321,7 +321,7 @@ export default async function ComparePage(props: PageProps) {
                 </span>
                 {s.pick === 'kortix' ? (
                   <span className="text-foreground flex shrink-0 items-center gap-1.5 text-sm font-medium">
-                    <span className="bg-kortix-green size-2 rounded-full" /> Kortix
+<span className="bg-kortix-green size-2 rounded-full" /> Agentica
                   </span>
                 ) : (
                   <span className="text-muted-foreground shrink-0 text-sm font-medium">

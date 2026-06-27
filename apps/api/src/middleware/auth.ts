@@ -195,7 +195,7 @@ export async function supabaseAuth(c: Context, next: Next) {
   if (isKortixToken(token) && sandboxTokenPathAllowed) {
     const result = await validateSecretKey(token);
     if (!result.isValid) {
-      throw new HTTPException(401, { message: result.error || 'Invalid Kortix token' });
+      throw new HTTPException(401, { message: result.error || 'Invalid Agentica token' });
     }
     if (result.type !== 'sandbox' || !result.sandboxId) {
       throw new HTTPException(403, { message: 'This route requires a sandbox token' });
@@ -409,7 +409,7 @@ export async function combinedAuth(c: Context, next: Next) {
         reason: result.error ?? 'invalid_kortix_token',
         authType: 'apiKey',
       });
-      throw new HTTPException(401, { message: result.error || 'Invalid Kortix token' });
+      throw new HTTPException(401, { message: result.error || 'Invalid Agentica token' });
     }
     if (previewSandboxId && !(await canAccessPreviewSandbox({
       previewSandboxId,

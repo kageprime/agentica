@@ -23,24 +23,10 @@ export function KortixAsterisk({
     <div
       className={cn('relative mt-1 flex size-6 shrink-0 items-center justify-center', parentClass)}
     >
-      {ASTERISK_ARMS.map(({ className }, armIndex) => (
-        <div
-          key={armIndex}
-          className={cn(
-            'absolute h-3.5 w-px shrink-0 rounded-full',
-            variant === 'gradient' && 'animate-kortix-bullet-flow bg-[length:100%_300%]',
-            className,
-          )}
-          style={
-            variant === 'gradient'
-              ? {
-                  backgroundImage: KORTIX_BULLET_GRADIENT,
-                  animationDelay: `${index * 0.4 + armIndex * 0.08}s`,
-                }
-              : { backgroundColor: 'var(--foreground)' }
-          }
-        />
-      ))}
+      <div
+        className="size-1.5 shrink-0 rounded-full"
+        style={{ backgroundColor: variant === 'solid' ? 'var(--foreground)' : 'var(--kortix-blue)' }}
+      />
     </div>
   );
 }

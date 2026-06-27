@@ -32,7 +32,7 @@ function openRouterManagedDescriptor(managed: ManagedModel): UpstreamDescriptor 
     apiKey: config.OPENROUTER_API_KEY,
     billingMode: 'credits',
     markup: llmPriceMarkup(),
-    appName: 'Kortix',
+    appName: 'Agentica',
     appReferer: config.KORTIX_URL,
     resolvedModel: managed.upstreamModelId,
     pricing: livePricing(managed.pricingRef),

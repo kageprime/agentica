@@ -97,18 +97,18 @@ function slashHelp(command: string): SlashResponse {
     blocks: [
       {
         type: 'header',
-        text: { type: 'plain_text', text: '⚡  Kortix slash commands', emoji: true },
+        text: { type: 'plain_text', text: '⚡  Agentica slash commands', emoji: true },
       },
       {
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: 'Drive Kortix from any Slack channel. All responses are private to you.',
+          text: 'Drive Agentica from any Slack channel. All responses are private to you.',
         },
       },
       { type: 'divider' },
       ...[
-        { cmd: `${command} projects`, desc: 'List every Kortix project connected to this workspace.' },
+        { cmd: `${command} projects`, desc: 'List every Agentica project connected to this workspace.' },
         { cmd: `${command} switch`,   desc: 'Bind this channel to a different project (opens a picker).' },
         { cmd: `${command} unbind`,   desc: 'Clear this channel\'s project binding.' },
         { cmd: `${command} agents`,   desc: 'List this project\'s agents and pick which one answers here.' },
@@ -117,14 +117,14 @@ function slashHelp(command: string): SlashResponse {
         { cmd: `${command} model <id>`, desc: 'Set the model, e.g. `anthropic/claude-opus-4-8` (`default` to reset).' },
         // Only advertised when per-user identity is enabled.
         ...(config.SLACK_REQUIRE_USER_IDENTITY
-          ? [
-              { cmd: `${command} login`,  desc: 'Connect your own Kortix account so the agent runs as you.' },
-              { cmd: `${command} logout`, desc: 'Disconnect your Kortix account from this Slack workspace.' },
-            ]
+              ? [
+                  { cmd: `${command} login`,  desc: 'Connect your own Agentica account so the agent runs as you.' },
+                  { cmd: `${command} logout`, desc: 'Disconnect your Agentica account from this Slack workspace.' },
+                ]
           : []),
         { cmd: `${command} session`,  desc: 'Show this channel\'s most recent session + open it on the web.' },
         { cmd: `${command} sessions`, desc: 'Show the last 5 sessions started in this workspace.' },
-        { cmd: `${command} whoami`,   desc: 'This channel\'s project, agent, and model' + (config.SLACK_REQUIRE_USER_IDENTITY ? ' + your linked Kortix account.' : '.') },
+        { cmd: `${command} whoami`,   desc: 'This channel\'s project, agent, and model' + (config.SLACK_REQUIRE_USER_IDENTITY ? ' + your linked Agentica account.' : '.') },
         { cmd: `${command} help`,     desc: 'This message.' },
       ].map((r) => ({
         type: 'section',
@@ -144,7 +144,7 @@ async function slashProjects(ctx: { teamId: string; channelId: string }): Promis
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: '*No Kortix projects connected yet.*\nHead to your Kortix dashboard to link one to this workspace.',
+            text: '*No Agentica projects connected yet.*\nHead to your Agentica dashboard to link one to this workspace.',
           },
           accessory: {
             type: 'button',
@@ -236,7 +236,7 @@ async function slashSwitch(ctx: { teamId: string; channelId: string }): Promise<
       blocks: [
         {
           type: 'section',
-          text: { type: 'mrkdwn', text: '*No projects to switch to.*\nLink a project to this workspace from your Kortix dashboard first.' },
+          text: { type: 'mrkdwn', text: '*No projects to switch to.*\nLink a project to this workspace from your Agentica dashboard first.' },
           accessory: {
             type: 'button',
             text: { type: 'plain_text', text: 'Open dashboard', emoji: true },
@@ -337,7 +337,7 @@ async function slashSessions(ctx: { teamId: string; channelId: string }): Promis
     return {
       response_type: 'ephemeral',
       blocks: [
-        { type: 'section', text: { type: 'mrkdwn', text: '*No recent Kortix sessions in this workspace.*\n`@`-mention me in any channel to start one.' } },
+        { type: 'section', text: { type: 'mrkdwn', text: '*No recent Agentica sessions in this workspace.*\n`@`-mention me in any channel to start one.' } },
       ],
     };
   }
@@ -379,13 +379,13 @@ async function buildIdentityContext(ctx: SlashCtx): Promise<Record<string, unkno
   if (!identity) {
     return {
       type: 'context',
-      elements: [{ type: 'mrkdwn', text: `🔌  Not connected — run \`${ctx.command} login\` to run as your own Kortix account.` }],
+      elements: [{ type: 'mrkdwn', text: `🔌  Not connected — run \`${ctx.command} login\` to run as your own Agentica account.` }],
     };
   }
   const email = (await lookupEmailsByUserIds([identity.userId])).get(identity.userId);
   return {
     type: 'context',
-    elements: [{ type: 'mrkdwn', text: `🔗  Connected as *${email ? escapeMrkdwn(email) : 'your Kortix account'}*` }],
+    elements: [{ type: 'mrkdwn', text: `🔗  Connected as *${email ? escapeMrkdwn(email) : 'your Agentica account'}*` }],
   };
 }
 
@@ -491,8 +491,8 @@ async function slashLogin(ctx: SlashCtx): Promise<SlashResponse> {
         text: {
           type: 'mrkdwn',
           text: existing
-            ? '*Your Slack is already connected to a Kortix account.*\nClick below to re-connect (e.g. to switch accounts). The link expires in 10 minutes.'
-            : '*Connect your Kortix account.*\nKortix runs as your own account, so it uses your credentials and connected apps — not the installer\'s. The link expires in 10 minutes and is private to you.',
+            ? '*Your Slack is already connected to an Agentica account.*\nClick below to re-connect (e.g. to switch accounts). The link expires in 10 minutes.'
+            : '*Connect your Agentica account.*\nAgentica runs as your own account, so it uses your credentials and connected apps — not the installer\'s. The link expires in 10 minutes and is private to you.',
         },
       },
       {
@@ -500,7 +500,7 @@ async function slashLogin(ctx: SlashCtx): Promise<SlashResponse> {
         elements: [
           {
             type: 'button',
-            text: { type: 'plain_text', text: existing ? 'Re-connect Kortix' : 'Connect my Kortix account', emoji: true },
+            text: { type: 'plain_text', text: existing ? 'Re-connect Agentica' : 'Connect my Agentica account', emoji: true },
             style: 'primary',
             url,
             action_id: 'slack_login_connect',
@@ -519,8 +519,8 @@ async function slashLogout(ctx: SlashCtx): Promise<SlashResponse> {
   return {
     response_type: 'ephemeral',
     text: revoked
-      ? "Disconnected. Kortix will ask you to connect again before it runs on your behalf. Run `/kortix login` anytime."
-      : "You weren't connected. Run `/kortix login` to connect your Kortix account.",
+      ? "Disconnected. Agentica will ask you to connect again before it runs on your behalf. Run `/agentica login` anytime."
+      : "You weren't connected. Run `/agentica login` to connect your Agentica account.",
   };
 }
 

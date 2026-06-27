@@ -1,7 +1,7 @@
 /**
  * Desktop runtime detection + native window helpers.
  *
- * The Tauri shell sets a custom user-agent (`KortixDesktop/...`) and exposes
+ * The Tauri shell sets a custom user-agent (`AgenticaDesktop/...`) and exposes
  * the Tauri JS bridge as `window.__TAURI__` (because `app.withGlobalTauri` is
  * true in tauri.conf.json). We use the user-agent for detection because it's
  * available synchronously before hydration; we use the global bridge for
@@ -9,7 +9,7 @@
  * `@tauri-apps/api`.
  */
 
-export const DESKTOP_UA_TOKEN = 'KortixDesktop';
+export const DESKTOP_UA_TOKEN = 'AgenticaDesktop';
 
 /**
  * Base path for desktop installer downloads. The `/download` route resolves the
@@ -113,14 +113,14 @@ function tauri(): TauriGlobal | null {
  * so the OS hands the callback back to the desktop app rather than opening
  * it in the user's browser.
  */
-export const DESKTOP_URL_SCHEME = 'kortix';
+export const DESKTOP_URL_SCHEME = 'agentica';
 
 /**
  * Returns the right OAuth redirect target for the current runtime:
  * - Desktop: HTTPS `/auth/callback?desktop=true&...` so the user's browser
  *   lands on a real page after Supabase's 302. That page renders a "you're
- *   signed in" UI and JS-bounces to `kortix://auth/callback?...`. Going
- *   straight to `kortix://` leaves the browser tab spinning forever — the
+ *   signed in" UI and JS-bounces to `agentica://auth/callback?...`. Going
+ *   straight to `agentica://` leaves the browser tab spinning forever — the
  *   OS opens the app but the tab itself has nowhere to navigate.
  * - Web: the standard origin-based callback URL.
  *
@@ -141,7 +141,7 @@ export function authRedirectUrl(path: string = '/auth/callback'): string {
 
 /* ─── Zoom (browser-style Cmd+/Cmd-/Cmd0) ─────────────────────────────── */
 
-const ZOOM_KEY = 'kortix-desktop-zoom';
+const ZOOM_KEY = 'agentica-desktop-zoom';
 const ZOOM_MIN = 0.5;
 const ZOOM_MAX = 3;
 const ZOOM_STEP = 1.1;
@@ -184,9 +184,9 @@ export const zoomOut = () => setDesktopZoom(getDesktopZoom() / ZOOM_STEP);
 export const zoomReset = () => setDesktopZoom(1);
 
 /* ─── Frontend URL override (self-hosting) ───────────────────────────────
-   The switcher lives in the hidden native menu (Kortix → Frontend URL). Its
+   The switcher lives in the hidden native menu (Agentica → Frontend URL). Its
    "Custom URL…" item can't take text input natively, so it fires a
-   `kortix-open-frontend-url` DOM event that the desktop-only prompt listens
+   `agentica-open-frontend-url` DOM event that the desktop-only prompt listens
    for; the prompt then persists the value via these commands. The override is
    stored locally in the Tauri app config dir and reloads the window. */
 

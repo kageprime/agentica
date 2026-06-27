@@ -94,7 +94,7 @@ const FEATURES: readonly ExperimentalFeatureDef[] = [
     key: 'agentmail_email',
     name: 'AgentMail Email',
     description:
-      'Assign AgentMail inbox profiles to the agent so inbound email threads can start and continue Kortix sessions. Native email channels are still experimental.',
+      'Assign AgentMail inbox profiles to the agent so inbound email threads can start and continue Agentica sessions. Native email channels are still experimental.',
     stability: 'experimental',
     available: () => true,
     // Explicit opt-in: hidden unless a project enables it in Settings.
@@ -104,7 +104,7 @@ const FEATURES: readonly ExperimentalFeatureDef[] = [
     key: 'llm_gateway',
     name: 'LLM Gateway',
     description:
-      'Route this project through the managed Kortix LLM gateway. Toggling it refreshes active sandboxes so provider mode follows the project setting.',
+      'Route this project through the managed Agentica LLM gateway. Toggling it refreshes active sandboxes so provider mode follows the project setting.',
     stability: 'experimental',
     // Master kill switch: when off, the feature disappears and every project
     // falls back to native OpenCode provider behavior.

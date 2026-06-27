@@ -3158,12 +3158,12 @@ function SessionTurn({
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/kortix-logomark-white.svg"
-            alt="Kortix"
-            className="h-[14px] w-auto flex-shrink-0 invert dark:invert-0"
+alt="Agentica"
+          className="h-[14px] w-auto flex-shrink-0 invert dark:invert-0"
           />
         </div>
       )}
-
+      
       {/* ── Assistant parts content ──
 			  Renders ALL parts from all assistant messages,
 			  EXCEPT: the response part (last text) is hidden when not working
@@ -3425,12 +3425,12 @@ function SessionTurn({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/kortix-logomark-white.svg"
-              alt="Kortix"
-              className="h-[14px] w-auto flex-shrink-0 invert dark:invert-0"
-            />
-          </div>
-        )}
-
+alt="Agentica"
+          className="h-[14px] w-auto flex-shrink-0 invert dark:invert-0"
+          />
+        </div>
+      )}
+       
       {/* ── Screen reader ── */}
       <div className="sr-only" aria-live="polite">
         {!working && response ? response : ''}
@@ -5598,7 +5598,7 @@ export function SessionChat({
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="/kortix-logomark-white.svg"
-                        alt="Kortix"
+                        alt="Agentica"
                         className="h-[14px] w-auto flex-shrink-0 invert dark:invert-0"
                       />
                       <div className="text-muted-foreground text-sm">

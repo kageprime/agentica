@@ -177,13 +177,13 @@ export async function createOrJoinThreadSession(input: {
 // blocker (out of credits, at the session cap) tells the user what to do.
 function startErrorMessage(status: number | undefined, detail: unknown): string {
   if (status === 402) {
-    return "This workspace is out of credits, so I can't start a session. Top up in the Kortix dashboard and send your message again.";
+    return "This workspace is out of credits, so I can't start a session. Top up in the Agentica dashboard and send your message again.";
   }
   if (status === 429) {
     return "This workspace is at its concurrent-session limit right now. Close or finish a running session, then send your message again.";
   }
   if (status === 404) {
-    return "I couldn't find this project to start a session — it may have been moved or deleted. Reconnect Kortix to this channel and try again.";
+    return "I couldn't find this project to start a session — it may have been moved or deleted. Reconnect Agentica to this channel and try again.";
   }
   const text = typeof detail === 'string' ? detail.trim() : '';
   const tail = text && text.length <= 140 ? ` (${text})` : '';
@@ -245,7 +245,7 @@ const TURN_INSTRUCTIONS = [
   '  reference for posting in Slack — covers step/send semantics, link syntax,',
   '  Block Kit answers, sources, tone, and gotchas. Do not skip it.',
   '- The `slack` CLI needs **no token** in your sandbox — every command runs through the',
-  '  Kortix Executor (the Slack bot token is resolved server-side). The whole surface',
+  '  Agentica Executor (the Slack bot token is resolved server-side). The whole surface',
   '  works, **including `slack send --file` (file upload) and `slack download`**. Do NOT',
   '  conclude "file upload isn\'t supported", do NOT look for `$SLACK_BOT_TOKEN`, and do',
   '  NOT build an upload workaround (executor/MCP, manual files.getUploadURLExternal, an',

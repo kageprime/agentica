@@ -4,8 +4,8 @@ import { config } from '../config';
 
 const MAILTRAP_SEND_URL = 'https://send.api.mailtrap.io/api/send';
 
-const BRAND_WORDMARK = 'Kortix';
-const BRAND_FOOTER = 'Kortix — The Autonomous Company Operating System';
+const BRAND_WORDMARK = 'Agentica';
+const BRAND_FOOTER = 'Agentica — The Autonomous Company Operating System';
 
 export type EmailDeliveryResult =
   | { ok: true; provider: 'mailtrap'; status: number }
@@ -179,12 +179,12 @@ export async function sendAccountInviteEmail(opts: {
 
   const body = `
     <p style="${S.p}">
-      ${inviterLine} to join ${target} on Kortix.
+      ${inviterLine} to join ${target} on Agentica.
     </p>
     ${roleChip}
     <a href="${escapeHtml(url)}" style="${S.btn}">Review invite</a>
     <p style="${S.smallNote}">
-      Don't have a Kortix account yet? You'll be prompted to sign up first —
+      Don't have an Agentica account yet? You'll be prompted to sign up first —
       ${signupTail}
     </p>
   `;
@@ -196,14 +196,14 @@ export async function sendAccountInviteEmail(opts: {
   const html = renderEmail({
     kicker: "You're invited",
     title: opts.projectName
-      ? `Join ${opts.projectName} on Kortix`
-      : `Join ${opts.accountName} on Kortix`,
+      ? `Join ${opts.projectName} on Agentica`
+      : `Join ${opts.accountName} on Agentica`,
     body,
   });
 
   return send({
     to: opts.email,
-    subject: `You're invited to ${subjectTarget} on Kortix`,
+    subject: `You're invited to ${subjectTarget} on Agentica`,
     html,
     category: 'account-invite',
   });

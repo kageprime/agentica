@@ -34,15 +34,15 @@ export const siteConfig = {
     ],
   },
   hero: {
-    description: 'Kortix – the open AI command center for your company.',
+    description: 'Agentica – the open agentic AI platform for your company.',
   },
   footerLinks: [
     {
       title: 'Product',
       links: [
         { id: 4, title: 'Support', url: '/support' },
-        { id: 5, title: 'Contact', url: 'mailto:hey@kortix.com' },
-        { id: 13, title: 'Status', url: 'https://status.kortix.com' },
+        { id: 5, title: 'Contact', url: 'mailto:hey@agentica.com' },
+        { id: 13, title: 'Status', url: 'https://status.dosco.live' },
       ],
     },
     {
@@ -50,7 +50,7 @@ export const siteConfig = {
       links: [
         { id: 7, title: 'Documentation', url: '/docs' },
         { id: 8, title: 'Discord', url: 'https://discord.com/invite/RvFhXUdZ9H' },
-        { id: 9, title: 'GitHub', url: 'https://github.com/kortix-ai/suna' },
+        { id: 9, title: 'GitHub', url: 'https://github.com/Dosco-Inc/suna' },
       ],
     },
     {
@@ -58,7 +58,7 @@ export const siteConfig = {
       links: [
         { id: 10, title: 'Privacy Policy', url: '/legal?tab=privacy' },
         { id: 11, title: 'Terms of Service', url: '/legal?tab=terms' },
-        { id: 12, title: 'License', url: 'https://github.com/kortix-ai/suna/blob/main/LICENSE' },
+        { id: 12, title: 'License', url: 'https://github.com/Dosco-Inc/suna/blob/main/LICENSE' },
       ],
     },
   ],

@@ -39,7 +39,7 @@ export async function tryAuthenticate(c: any): Promise<AuthResult> {
     }
     // Looks like a Kortix token but didn't validate — reject.
     // Never allow an invalid Kortix token to fall through to free passthrough.
-    throw new HTTPException(401, { message: 'Invalid Kortix token' });
+    throw new HTTPException(401, { message: 'Invalid Agentica token' });
   }
 
   // --- Mode 1a: Kortix token in Authorization: Token <token> (Replicate SDK) ---
@@ -54,7 +54,7 @@ export async function tryAuthenticate(c: any): Promise<AuthResult> {
     } catch {
       // Fall through to reject below
     }
-    throw new HTTPException(401, { message: 'Invalid Kortix token' });
+    throw new HTTPException(401, { message: 'Invalid Agentica token' });
   }
 
   // --- Mode 1b: Kortix token in x-api-key header (Anthropic SDK) ---
@@ -70,7 +70,7 @@ export async function tryAuthenticate(c: any): Promise<AuthResult> {
     } catch {
       // Fall through to reject below
     }
-    throw new HTTPException(401, { message: 'Invalid Kortix token in x-api-key' });
+    throw new HTTPException(401, { message: 'Invalid Agentica token in x-api-key' });
   }
 
   // --- Mode 1c: Kortix token in JSON body field (Tavily SDK) ---
@@ -88,7 +88,7 @@ export async function tryAuthenticate(c: any): Promise<AuthResult> {
           if (result.isValid && result.accountId) {
             return { isKortixUser: true, accountId: result.accountId };
           }
-          throw new HTTPException(401, { message: 'Invalid Kortix token in request body' });
+          throw new HTTPException(401, { message: 'Invalid Agentica token in request body' });
         }
       }
     } catch (e) {

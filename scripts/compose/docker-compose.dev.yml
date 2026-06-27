@@ -1,0 +1,88 @@
+services:
+  api:
+    container_name: kortix-api-dev
+    build:
+      context: ../..
+      dockerfile: scripts/compose/dev-api.Dockerfile
+    ports:
+      - "8008:8008"
+    working_dir: /app/apps/api
+    volumes:
+      - ../../apps/api/src:/app/apps/api/src
+      - ../../apps/api/.env.local:/app/apps/api/.env.local
+      - ../../packages:/app/packages
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      PORT: 8008
+      ENV_MODE: local
+      INTERNAL_KORTIX_ENV: dev
+      KORTIX_BILLING_INTERNAL_ENABLED: "false"
+      KORTIX_LOCAL_DEV: "1"
+      KORTIX_SKIP_ENSURE_SCHEMA: "1"
+      DATABASE_URL: postgresql://postgres:postgres@supabase_db_kortix-local:5432/postgres
+      SUPABASE_URL: http://supabase_kong_kortix-local:8000
+      SUPABASE_SERVICE_ROLE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU
+      API_KEY_SECRET: dev-local-api-key-secret-please-32chars
+      TUNNEL_SIGNING_SECRET: dev-local-tunnel-signing-secret-32chars
+      ALLOWED_SANDBOX_PROVIDERS: "unset"
+      DAYTONA_SERVER_URL: "https://app.daytona.io/api"
+      DAYTONA_TARGET: "local"
+      KORTIX_URL: http://localhost:8008
+      FRONTEND_URL: http://localhost:3000
+      KORTIX_WARM_SNAPSHOT_ENABLED: "false"
+      SCHEDULER_ENABLED: "false"
+      OPENROUTER_API_KEY: ""
+      TUNNEL_ENABLED: "false"
+      INTERNAL_SERVICE_KEY: dev-local-internal-service-key
+    networks:
+      - supabase
+
+  web:
+    container_name: kortix-web-dev
+    build:
+      context: ../..
+      dockerfile: scripts/compose/dev-web.Dockerfile
+    ports:
+      - "3000:3000"
+    working_dir: /app/apps/web
+    volumes:
+      - ../../apps/web/src:/app/apps/web/src
+      - ../../apps/web/public:/app/apps/web/public
+      - ../../apps/web/content:/app/apps/web/content
+      - ../../apps/web/messages:/app/apps/web/messages
+      - ../../apps/web/i18n:/app/apps/web/i18n
+      - ../../apps/web/translations:/app/apps/web/translations
+      - ../../apps/web/.env.local:/app/apps/web/.env.local
+      - ../../apps/web/next.config.ts:/app/apps/web/next.config.ts
+      - ../../apps/web/tailwind.config.ts:/app/apps/web/tailwind.config.ts
+      - ../../apps/web/postcss.config.mjs:/app/apps/web/postcss.config.mjs
+      - ../../apps/web/sentry.client.config.ts:/app/apps/web/sentry.client.config.ts
+      - ../../apps/web/sentry.edge.config.ts:/app/apps/web/sentry.edge.config.ts
+      - ../../apps/web/sentry.server.config.ts:/app/apps/web/sentry.server.config.ts
+      - ../../apps/web/source.config.ts:/app/apps/web/source.config.ts
+      - ../../tsconfig.base.json:/app/tsconfig.base.json
+      - ../../packages/shared/src:/app/packages/shared/src
+    environment:
+      PORT: 3000
+      NODE_ENV: development
+      NEXT_TELEMETRY_DISABLED: "1"
+      KORTIX_LOCAL_DEV: "1"
+      NEXT_PUBLIC_BILLING_ENABLED: "false"
+      NEXT_PUBLIC_SUPABASE_URL: http://localhost:54321
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
+      NEXT_PUBLIC_BACKEND_URL: http://localhost:8008/v1
+      BACKEND_URL: http://kortix-api-dev:8008/v1
+      SUPABASE_URL: http://supabase_kong_kortix-local:8000
+      SUPABASE_SERVER_URL: http://supabase_kong_kortix-local:8000
+      NEXT_PUBLIC_APP_URL: http://localhost:3000
+      NEXT_PUBLIC_URL: http://localhost:3000
+    command: ["pnpm", "exec", "next", "dev", "--port", "3000"]
+    depends_on:
+      - api
+    networks:
+      - supabase
+
+networks:
+  supabase:
+    name: supabase_network_kortix-local
+    external: true

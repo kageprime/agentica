@@ -13,7 +13,7 @@ import { siteConfig } from '@/lib/site-config';
 import { cn } from '@/lib/utils';
 
 const SUPPORT_EMAIL = 'support@kortix.ai';
-const MAILTO_SUBJECT = 'Kortix support request';
+const MAILTO_SUBJECT = 'Agentica support request';
 
 const DISCORD_URL =
   siteConfig.footerLinks.flatMap((group) => group.links).find((link) => link.title === 'Discord')

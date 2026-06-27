@@ -197,7 +197,7 @@ projectsApp.openapi(
   }
   if (!githubAuth.installation || !githubAuth.auth) {
     return c.json({
-      error: 'Install the Kortix GitHub App before creating GitHub-backed projects',
+      error: 'Install the Agentica GitHub App before creating GitHub-backed projects',
       install_url: await createGitHubInstallationInstallUrl(scope.accountId, scope.userId),
     }, 409);
   }

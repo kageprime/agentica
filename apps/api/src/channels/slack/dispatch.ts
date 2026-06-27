@@ -268,7 +268,7 @@ async function postSlashResponseToChannel(
   resp: SlashResponse,
 ): Promise<void> {
   if (resp.blocks && resp.blocks.length > 0) {
-    await postBlocks(token, channelId, resp.text ?? 'Kortix', resp.blocks, threadTs);
+    await postBlocks(token, channelId, resp.text ?? 'Agentica', resp.blocks, threadTs);
   } else if (resp.text) {
     await postMessage(token, channelId, resp.text, threadTs);
   }
@@ -364,7 +364,7 @@ async function threadIsOwned(teamId: string, threadTs: string): Promise<boolean>
   return !!row;
 }
 
-const CHANNEL_INTRO_FALLBACK = "Kortix is now connected to this channel. Mention @Kortix with a task to get started.";
+const CHANNEL_INTRO_FALLBACK = "Agentica is now connected to this channel. Mention @Agentica with a task to get started.";
 
 async function postChannelIntro(projectId: string, channelId: string): Promise<void> {
   const token = await loadSlackTokenForProject(projectId);
@@ -372,19 +372,19 @@ async function postChannelIntro(projectId: string, channelId: string): Promise<v
   const blocks: Array<Record<string, unknown>> = [
     {
       type: 'header',
-      text: { type: 'plain_text', text: 'Kortix is connected to this channel', emoji: false },
+      text: { type: 'plain_text', text: 'Agentica is connected to this channel', emoji: false },
     },
     {
       type: 'section',
       text: {
         type: 'mrkdwn',
         text: [
-          '`@`-mention Kortix with a task and an agent gets on it — working across your connected tools and replying right here in the thread. Follow-ups stay in the same conversation, with full context.',
+          '`@`-mention Agentica with a task and an agent gets on it — working across your connected tools and replying right here in the thread. Follow-ups stay in the same conversation, with full context.',
           '',
           'Try something like:',
-          '• `@Kortix summarize this thread and draft a reply to the customer`',
-          '• `@Kortix pull last week’s signups, group them by source, and drop a CSV here`',
-          '• `@Kortix put together a one-pager on our Q2 numbers`',
+          '• `@Agentica summarize this thread and draft a reply to the customer`',
+          '• `@Agentica pull last week’s signups, group them by source, and drop a CSV here`',
+          '• `@Agentica put together a one-pager on our Q2 numbers`',
           '',
           'Run `/kortix help` to see commands.',
         ].join('\n'),
@@ -591,7 +591,7 @@ export async function spawnAgentTurn(
           if (await claimThreadErrorNotice(teamId, threadId)) {
             const url = sessionWebUrl(config.FRONTEND_URL, projectId, existing.sessionId);
             await finalizeTurn(handle, {
-              error: `This thread's session hit an error and couldn't start. <${url}|Open it in Kortix> to see what happened.`,
+              error: `This thread's session hit an error and couldn't start. <${url}|Open it in Agentica> to see what happened.`,
             });
           } else {
             await finalizeTurn(handle, {});

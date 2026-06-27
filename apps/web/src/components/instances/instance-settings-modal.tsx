@@ -251,7 +251,7 @@ function ConfigDegradationPanel({
         <div className="text-xs text-muted-foreground">
           {taskTargetLabel
             ? `The fix task will be created and started in ${taskTargetLabel}.`
-            : 'If this instance has no project yet, Kortix will create a Workspace project automatically before starting the fix task.'}
+            : 'If this instance has no project yet, Agentica will create a Workspace project automatically before starting the fix task.'}
         </div>
       </div>
     </InfoBanner>

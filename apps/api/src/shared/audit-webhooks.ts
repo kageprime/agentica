@@ -98,7 +98,7 @@ async function deliverOne(
         'X-Kortix-Signature': `sha256=${signature}`,
         'X-Kortix-Webhook-Id': hook.webhookId,
         'X-Kortix-Event': 'audit',
-        'User-Agent': 'Kortix-Audit-Webhook/1',
+        'User-Agent': 'Agentica-Audit-Webhook/1',
       },
       body,
       signal: controller.signal,

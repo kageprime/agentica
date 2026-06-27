@@ -54,7 +54,7 @@ getAuthToken.openapi(
     if (isKortixToken(token)) {
       const result = await validateSecretKey(token);
       if (!result.isValid) {
-        return c.json({ error: result.error || 'Invalid Kortix token' }, 401);
+        return c.json({ error: result.error || 'Invalid Agentica token' }, 401);
       }
     } else {
       try {

@@ -82,9 +82,9 @@ export const metadata: Metadata = {
   },
   description: siteMetadata.description,
   keywords: siteMetadata.keywords,
-  authors: [{ name: 'Kortix Team', url: 'https://www.kortix.com' }],
-  creator: 'Kortix Team',
-  publisher: 'Kortix Team',
+  authors: [{ name: 'Agentica Team', url: 'https://www.dosco.live' }],
+  creator: 'Agentica Team',
+  publisher: 'Agentica Team',
   applicationName: siteMetadata.name,
   robots: {
     index: true,
@@ -117,21 +117,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteMetadata.title,
     description: siteMetadata.description,
-    creator: '@kortix',
-    site: '@kortix',
+    creator: '@agentica',
+    site: '@agentica',
     images: ['/banner.png'],
   },
   icons: {
     icon: [
-      { url: '/favicon.png', sizes: '32x32' },
+      { url: '/favicon.svg', sizes: '32x32' },
       {
-        url: '/favicon-light.png',
+        url: '/favicon-light.svg',
         sizes: '32x32',
         media: '(prefers-color-scheme: dark)',
       },
     ],
-    shortcut: '/favicon.png',
-    apple: [{ url: '/logo_black.png', sizes: '180x180' }],
+    shortcut: '/favicon.svg',
+    apple: [{ url: '/logo_black.svg', sizes: '180x180' }],
   },
   manifest: '/manifest.json',
   alternates: {
@@ -255,10 +255,10 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             'appLayout.line200JsxAttrContentACloudComputerWhereAiAgentsRunYour',
           )}
         />
-        <meta property="og:image" content="https://kortix.com/banner.png" />
-        <meta property="og:url" content="https://kortix.com" />
+        <meta property="og:image" content="https://dosco.live/banner.png" />
+        <meta property="og:url" content="https://dosco.live" />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Kortix" />
+        <meta property="og:site_name" content="Agentica" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
@@ -272,12 +272,12 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             'appLayout.line207JsxAttrContentACloudComputerWhereAiAgentsRunYour',
           )}
         />
-        <meta name="twitter:image" content="https://kortix.com/banner.png" />
+        <meta name="twitter:image" content="https://dosco.live/banner.png" />
         <meta
           name="twitter:site"
           content={tHardcodedUi.raw('appLayout.line209JsxAttrContentKortix')}
         />
-        <link rel="canonical" href="https://kortix.com" />
+        <link rel="canonical" href="https://dosco.live" />
 
         {/* iOS Smart App Banner - shows native install banner in Safari */}
         {!featureFlags.disableMobileAdvertising ? (
@@ -285,7 +285,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             name="apple-itunes-app"
             content={tHardcodedUi.raw(
               'appLayout.line214JsxAttrContentAppId6754448524AppArgumentKortix',
-            )}
+            ).replace('Kortix', 'Agentica')}
           />
         ) : null}
 
@@ -297,18 +297,18 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
               '@type': 'Organization',
               name: siteMetadata.name,
               alternateName: [
-                'Kortix',
-                'Kortix AI',
-                'Kortix – The AI Command Center for Your Company',
+                'Agentica',
+                'Agentica AI',
+                'Agentica – The Agentic AI Platform for Your Company',
               ],
               url: siteMetadata.url,
               logo: `${siteMetadata.url}/favicon.png`,
               description: siteMetadata.description,
               foundingDate: '2024',
               sameAs: [
-                'https://github.com/kortix-ai/suna',
-                'https://x.com/kortix',
-                'https://linkedin.com/company/kortix',
+                'https://github.com/Dosco-Inc/suna',
+                'https://x.com/agentica',
+                'https://linkedin.com/company/agentica',
               ],
               contactPoint: {
                 '@type': 'ContactPoint',
@@ -326,7 +326,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
               '@context': 'https://schema.org',
               '@type': 'SoftwareApplication',
               name: siteMetadata.title,
-              alternateName: [siteMetadata.name, 'Kortix'],
+              alternateName: [siteMetadata.name, 'Agentica'],
               applicationCategory: 'BusinessApplication',
               operatingSystem: 'Web, macOS, Windows, Linux',
               description: siteMetadata.description,

@@ -91,7 +91,7 @@ export default function ProjectsPage() {
         if (cancelled) return;
         await invalidateAccountState(queryClient);
         successToast('Subscription activated', {
-          description: 'Your team is on Kortix Team. Compute and LLM credits are ready.',
+          description: 'Your team is on Agentica Team. Compute and LLM credits are ready.',
         });
       } catch {
         invalidateAccountState(queryClient);

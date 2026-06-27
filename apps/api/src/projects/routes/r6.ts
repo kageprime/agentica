@@ -633,7 +633,7 @@ projectsApp.openapi(
     if (emailConfigured) {
       void sendAccountInviteEmail({
         email,
-        accountName: accountRow?.name ?? 'Kortix',
+        accountName: accountRow?.name ?? 'Agentica',
         inviterEmail: callerEmail,
         inviteId,
         role,
@@ -655,8 +655,8 @@ projectsApp.openapi(
         email_sent: emailConfigured,
         email_skip_reason: emailConfigured ? null : 'missing_mailtrap_token',
         message: emailConfigured
-          ? `No Kortix account for that email yet — an invitation email has been sent. They'll land on this project as ${role} when they sign up.`
-          : `No Kortix account for that email yet — invitation created. Share the invite link with them; they'll land on this project as ${role} when they sign up.`,
+          ? `No Agentica account for that email yet — an invitation email has been sent. They'll land on this project as ${role} when they sign up.`
+          : `No Agentica account for that email yet — invitation created. Share the invite link with them; they'll land on this project as ${role} when they sign up.`,
       },
       201,
     );
@@ -919,7 +919,7 @@ projectsApp.openapi(
     .limit(1);
   const delivery = await sendAccountInviteEmail({
     email: invite.email,
-    accountName: accountRow?.name ?? 'Kortix',
+    accountName: accountRow?.name ?? 'Agentica',
     inviterEmail: callerEmail,
     inviteId: invite.inviteId,
     role: grant.role,

@@ -381,7 +381,7 @@ const envSchema = z.object({
   // ── Mailtrap (optional — provisioning email notifications) ────────────────
   MAILTRAP_API_TOKEN:          optStr,
   MAILTRAP_FROM_EMAIL:         optStrDefault('noreply@kortix.com'),
-  MAILTRAP_FROM_NAME:          optStrDefault('Kortix'),
+  MAILTRAP_FROM_NAME:          optStrDefault('Agentica'),
 
   // ── Better Stack Observability (optional — graceful degradation) ────────
   BETTERSTACK_API_LOG_TOKEN:   optStr,  // Logtail source token for structured logs

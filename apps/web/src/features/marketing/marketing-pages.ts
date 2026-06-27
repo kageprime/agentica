@@ -5,12 +5,12 @@
  *   SOLUTION_HERO → /solutions/[slug]  (personas live in narrative.ts USE_CASES)
  *   INTEGRATIONS  → /integrations/[slug]
  *
- * Copy is original to Kortix. Competitor descriptions are neutral and factual —
+ * Copy is original to Agentica. Competitor descriptions are neutral and factual —
  * "different, not worse" — and trace back to POSITIONING.md.
  */
 
-/** Which side a comparison row favors. The Kortix column stays brand-tinted either
- *  way — the icon communicates the honest lean, never a blanket "Kortix wins". */
+/** Which side a comparison row favors. The Agentica column stays brand-tinted either
+ *  way — the icon communicates the honest lean, never a blanket "Agentica wins". */
 export type RowLean = 'kortix' | 'them' | 'both';
 
 export type CompareRow = {
@@ -32,7 +32,7 @@ export type Competitor = {
   relation: 'adjacent' | 'direct';
 
   /** Hero */
-  headline: string; // H1 — "Kortix vs X"
+  headline: string; // H1 — "Agentica vs X"
   sub: string; // hero subhead (also the hub card description)
 
   /** SEO */
@@ -46,7 +46,7 @@ export type Competitor = {
 
   /** The verdict (TL;DR) */
   verdictThem: string; // "Choose X if…"
-  verdictKortix: string; // "Choose Kortix if…"
+  verdictKortix: string; // "Choose Agentica if…"
 
   /** Comparison table */
   rows: CompareRow[];
@@ -55,7 +55,7 @@ export type Competitor = {
   builtForThem: string;
   builtForKortix: string;
 
-  /** Where Kortix is different */
+  /** Where Agentica is different */
   differentiators: Differentiator[];
 
   /** When to choose which */
@@ -77,12 +77,12 @@ export const COMPETITORS: Competitor[] = [
     slug: 'chatgpt',
     name: 'ChatGPT',
     relation: 'adjacent',
-    headline: 'Kortix vs ChatGPT',
-    sub: 'ChatGPT is brilliant at answering questions and drafting text. Kortix builds AI agents that actually do the work — and run on infrastructure you own.',
+    headline: 'Agentica vs ChatGPT',
+    sub: 'ChatGPT is brilliant at answering questions and drafting text. Agentica builds AI agents that actually do the work — and run on infrastructure you own.',
     seo: {
-      title: 'Kortix vs ChatGPT — From answering questions to doing the work',
+      title: 'Agentica vs ChatGPT — From answering questions to doing the work',
       description:
-        'ChatGPT answers and drafts. Kortix builds AI agents that actually do the work across your tools — open-source, self-hosted, and fully yours. See the difference.',
+        'ChatGPT answers and drafts. Agentica builds AI agents that actually do the work across your tools — open-source, self-hosted, and fully yours. See the difference.',
       keywords: [
         'kortix vs chatgpt',
         'chatgpt alternative',
@@ -90,8 +90,8 @@ export const COMPETITORS: Competitor[] = [
         'open source chatgpt alternative',
         'self-hosted ai agent',
       ],
-      ogTitle: 'Kortix vs ChatGPT',
-      ogDescription: 'ChatGPT talks. Kortix gets it done — and you own it.',
+      ogTitle: 'Agentica vs ChatGPT',
+      ogDescription: 'ChatGPT talks. Agentica gets it done — and you own it.',
     },
     verdictThem:
       'you want a fast, all-purpose assistant to write, brainstorm, summarize, and answer questions in a chat window.',
@@ -137,19 +137,19 @@ export const COMPETITORS: Competitor[] = [
     builtForThem:
       "ChatGPT is the best-known AI assistant in the world for good reason — it's fast, capable, and great at the things you'd ask a sharp helper to do: write a draft, explain something, brainstorm, clean up a message. That's where most people meet AI, and for a lot of day-to-day questions it's all you need.",
     builtForKortix:
-      'Kortix is a different kind of product. It builds agents that take action — pulling data, running research, working through files, and completing tasks from start to finish without you copy-pasting between a chat window and your real tools. And because Kortix is open-source, those agents run where you choose, on your terms.',
+      'Agentica is a different kind of product. It builds agents that take action — pulling data, running research, working through files, and completing tasks from start to finish without you copy-pasting between a chat window and your real tools. And because Agentica is open-source, those agents run where you choose, on your terms.',
     differentiators: [
       {
         title: 'It does the work, not just the talking.',
-        body: 'Asking ChatGPT to "analyze last quarter\'s numbers" gets you a thoughtful answer you then have to act on yourself. A Kortix agent can go get the numbers, run the analysis, and hand you the finished output — so the work is actually done, not just described.',
+        body: 'Asking ChatGPT to "analyze last quarter\'s numbers" gets you a thoughtful answer you then have to act on yourself. A Agentica agent can go get the numbers, run the analysis, and hand you the finished output — so the work is actually done, not just described.',
       },
       {
         title: 'Your data and your AI stay yours.',
-        body: "Everything you put into ChatGPT goes to OpenAI's servers. With Kortix, you can run agents on your own cloud or servers, so sensitive information never leaves your control. For anyone in a regulated or privacy-conscious business, that's the whole ballgame.",
+        body: "Everything you put into ChatGPT goes to OpenAI's servers. With Agentica, you can run agents on your own cloud or servers, so sensitive information never leaves your control. For anyone in a regulated or privacy-conscious business, that's the whole ballgame.",
       },
       {
         title: 'No lock-in, no per-seat tax.',
-        body: "ChatGPT ties you to one company's platform and pricing. Kortix is open-source — you're never locked in, never at the mercy of a price change, and never rationing access seat by seat as your team grows.",
+        body: "ChatGPT ties you to one company's platform and pricing. Agentica is open-source — you're never locked in, never at the mercy of a price change, and never rationing access seat by seat as your team grows.",
       },
     ],
     scenarios: [
@@ -160,38 +160,38 @@ export const COMPETITORS: Competitor[] = [
     ],
     faqs: [
       {
-        q: 'Is Kortix a replacement for ChatGPT?',
-        a: 'Not exactly — they overlap but aim at different jobs. ChatGPT is a general assistant for answers and drafting. Kortix builds agents that complete real work and that you own and host. Many teams use a chat assistant for quick questions and Kortix for the work that needs to get done automatically.',
+        q: 'Is Agentica a replacement for ChatGPT?',
+        a: 'Not exactly — they overlap but aim at different jobs. ChatGPT is a general assistant for answers and drafting. Agentica builds agents that complete real work and that you own and host. Many teams use a chat assistant for quick questions and Agentica for the work that needs to get done automatically.',
       },
       {
-        q: 'Can I keep my data private with Kortix?',
-        a: 'Yes. Kortix is self-hostable, so you can run it on your own cloud or servers and keep your data inside your own walls.',
+        q: 'Can I keep my data private with Agentica?',
+        a: 'Yes. Agentica is self-hostable, so you can run it on your own cloud or servers and keep your data inside your own walls.',
       },
       {
-        q: 'Do I need to be technical to use Kortix?',
+        q: 'Do I need to be technical to use Agentica?',
         a: 'You describe what you want in plain language and the agents do the work. Setting up self-hosting is more technical, but using the agents day to day is not.',
       },
       {
-        q: 'Is Kortix free?',
-        a: 'Kortix is open-source. There’s no per-seat subscription — you mainly pay for the AI usage your agents consume.',
+        q: 'Is Agentica free?',
+        a: 'Agentica is open-source. There’s no per-seat subscription — you mainly pay for the AI usage your agents consume.',
       },
     ],
     ctaTitle: 'Stop copy-pasting from a chat window. Put your AI to work.',
     ctaBody:
-      'Connect your tools and hand a Kortix agent a real task. Free to start, free to self-host.',
+      'Connect your tools and hand a Agentica agent a real task. Free to start, free to self-host.',
     trademark:
-      'ChatGPT and OpenAI are trademarks of OpenAI, L.L.C. Kortix is not affiliated with, endorsed by, or sponsored by OpenAI. All product names, logos, and brands are the property of their respective owners and are used here for identification and comparison only. Comparisons reflect publicly available information as of June 2026 and may change.',
+      'ChatGPT and OpenAI are trademarks of OpenAI, L.L.C. Agentica is not affiliated with, endorsed by, or sponsored by OpenAI. All product names, logos, and brands are the property of their respective owners and are used here for identification and comparison only. Comparisons reflect publicly available information as of June 2026 and may change.',
   },
   {
     slug: 'zapier',
     name: 'Zapier',
     relation: 'adjacent',
-    headline: 'Kortix vs Zapier',
-    sub: 'Zapier is great at connecting apps with set rules. Kortix gives you AI agents that reason, adapt, and handle open-ended work — running on infrastructure you own.',
+    headline: 'Agentica vs Zapier',
+    sub: 'Zapier is great at connecting apps with set rules. Agentica gives you AI agents that reason, adapt, and handle open-ended work — running on infrastructure you own.',
     seo: {
-      title: 'Kortix vs Zapier — Rigid automations, or agents that think?',
+      title: 'Agentica vs Zapier — Rigid automations, or agents that think?',
       description:
-        'Zapier connects apps with fixed rules. Kortix gives you AI agents that reason, adapt, and do open-ended work — open-source and self-hosted. Compare the two.',
+        'Zapier connects apps with fixed rules. Agentica gives you AI agents that reason, adapt, and do open-ended work — open-source and self-hosted. Compare the two.',
       keywords: [
         'kortix vs zapier',
         'zapier alternative',
@@ -199,7 +199,7 @@ export const COMPETITORS: Competitor[] = [
         'open source automation',
         'self-hosted ai workflow',
       ],
-      ogTitle: 'Kortix vs Zapier',
+      ogTitle: 'Agentica vs Zapier',
       ogDescription: 'Fixed rules that break — or agents that adapt and own the outcome.',
     },
     verdictThem:
@@ -247,19 +247,19 @@ export const COMPETITORS: Competitor[] = [
     builtForThem:
       'Zapier is the workhorse of app automation. If you can describe your process as a clear set of "when X, do Y" steps, Zapier connects thousands of apps and runs it reliably, no code required. For rigid, repeatable plumbing, it\'s hard to beat.',
     builtForKortix:
-      'Kortix is for the work that isn\'t a fixed recipe. Real tasks change shape: the data looks different this week, a step needs judgment, the request is "look into this and tell me what you find." A rule-based automation breaks the moment reality drifts from the script. A Kortix agent reasons through it.',
+      'Agentica is for the work that isn\'t a fixed recipe. Real tasks change shape: the data looks different this week, a step needs judgment, the request is "look into this and tell me what you find." A rule-based automation breaks the moment reality drifts from the script. A Agentica agent reasons through it.',
     differentiators: [
       {
         title: 'Rules break. Agents adapt.',
-        body: 'A Zap does exactly what you wired it to do — and stops working the moment the inputs change. Kortix agents understand the goal and figure out how to reach it, even when the details shift. Less maintenance, fewer broken automations.',
+        body: 'A Zap does exactly what you wired it to do — and stops working the moment the inputs change. Agentica agents understand the goal and figure out how to reach it, even when the details shift. Less maintenance, fewer broken automations.',
       },
       {
         title: 'Open-ended work, not just moving data.',
-        body: 'Zapier shuttles information from one app to another. Kortix agents can actually do something with it — research a topic, analyze a spreadsheet, draft a report, work through a multi-step project.',
+        body: 'Zapier shuttles information from one app to another. Agentica agents can actually do something with it — research a topic, analyze a spreadsheet, draft a report, work through a multi-step project.',
       },
       {
         title: 'You own the engine.',
-        body: "Zapier runs on Zapier's cloud, on Zapier's terms. Kortix is open-source and self-hostable — your automations and your data stay under your control, with no per-task meter capping how much your team can run.",
+        body: "Zapier runs on Zapier's cloud, on Zapier's terms. Agentica is open-source and self-hostable — your automations and your data stay under your control, with no per-task meter capping how much your team can run.",
       },
     ],
     scenarios: [
@@ -271,37 +271,37 @@ export const COMPETITORS: Competitor[] = [
     faqs: [
       {
         q: "Isn't Zapier adding AI agents too?",
-        a: 'Yes, Zapier has added AI features. The core difference is structural: Zapier is built around fixed rules on its own cloud, while Kortix is an open-source agent platform you can host yourself — built from the ground up for adaptive work and data ownership.',
+        a: 'Yes, Zapier has added AI features. The core difference is structural: Zapier is built around fixed rules on its own cloud, while Agentica is an open-source agent platform you can host yourself — built from the ground up for adaptive work and data ownership.',
       },
       {
-        q: 'Can Kortix connect to my apps like Zapier does?',
-        a: 'Yes — Kortix agents work across your tools and services. The difference is they reason about what to do, rather than only following a pre-set rule.',
+        q: 'Can Agentica connect to my apps like Zapier does?',
+        a: 'Yes — Agentica agents work across your tools and services. The difference is they reason about what to do, rather than only following a pre-set rule.',
       },
       {
-        q: 'Is Kortix harder to set up than Zapier?',
-        a: 'Zapier wins on instant, no-setup convenience. Kortix asks more upfront — especially self-hosting — in exchange for ownership, privacy, and agents that adapt.',
+        q: 'Is Agentica harder to set up than Zapier?',
+        a: 'Zapier wins on instant, no-setup convenience. Agentica asks more upfront — especially self-hosting — in exchange for ownership, privacy, and agents that adapt.',
       },
       {
         q: 'Is it free?',
-        a: 'Kortix is open-source with no per-task pricing. You mainly pay for the AI usage your agents consume.',
+        a: 'Agentica is open-source with no per-task pricing. You mainly pay for the AI usage your agents consume.',
       },
     ],
     ctaTitle: 'When your work outgrows fixed rules, give it agents that adapt.',
     ctaBody:
-      'Connect your tools and hand a Kortix agent a real task. Free to start, free to self-host.',
+      'Connect your tools and hand a Agentica agent a real task. Free to start, free to self-host.',
     trademark:
-      'Zapier is a trademark of Zapier, Inc. Kortix is not affiliated with, endorsed by, or sponsored by Zapier. All product names, logos, and brands are the property of their respective owners and are used here for identification and comparison only. Comparisons reflect publicly available information as of June 2026 and may change.',
+      'Zapier is a trademark of Zapier, Inc. Agentica is not affiliated with, endorsed by, or sponsored by Zapier. All product names, logos, and brands are the property of their respective owners and are used here for identification and comparison only. Comparisons reflect publicly available information as of June 2026 and may change.',
   },
   {
     slug: 'viktor',
     name: 'Viktor',
     relation: 'direct',
-    headline: 'Kortix vs Viktor',
-    sub: "Viktor is a capable AI coworker — but it's a managed service you rent on someone else's cloud. Kortix gives you the same do-the-work power as agents you host, own, and control.",
+    headline: 'Agentica vs Viktor',
+    sub: "Viktor is a capable AI coworker — but it's a managed service you rent on someone else's cloud. Agentica gives you the same do-the-work power as agents you host, own, and control.",
     seo: {
-      title: 'Kortix vs Viktor — An AI coworker you rent, or a team you own?',
+      title: 'Agentica vs Viktor — An AI coworker you rent, or a team you own?',
       description:
-        'Viktor is a managed AI coworker in Slack you pay by the credit. Kortix gives you the same do-the-work power as open-source agents you host and own — no lock-in, no meter.',
+        'Viktor is a managed AI coworker in Slack you pay by the credit. Agentica gives you the same do-the-work power as open-source agents you host and own — no lock-in, no meter.',
       keywords: [
         'kortix vs viktor',
         'viktor alternative',
@@ -309,7 +309,7 @@ export const COMPETITORS: Competitor[] = [
         'self-hosted ai agent',
         'ai agent without vendor lock-in',
       ],
-      ogTitle: 'Kortix vs Viktor',
+      ogTitle: 'Agentica vs Viktor',
       ogDescription: 'Same do-the-work power — but owned, not rented.',
     },
     verdictThem:
@@ -358,23 +358,23 @@ export const COMPETITORS: Competitor[] = [
     builtForThem:
       "Viktor has nailed a real insight: people don't want another chatbot, they want something that does the job. It installs into Slack or Teams in minutes, connects to thousands of tools, and executes tasks end to end. For a team that wants results fast with nothing to manage, that convenience is genuinely valuable.",
     builtForKortix:
-      "The trade-off is ownership. Viktor is a managed, closed service: your work runs on their cloud, you pay by the credit, and you're tied to their platform. Kortix delivers the same fundamental capability — agents that take action — as something you actually own.",
+      "The trade-off is ownership. Viktor is a managed, closed service: your work runs on their cloud, you pay by the credit, and you're tied to their platform. Agentica delivers the same fundamental capability — agents that take action — as something you actually own.",
     differentiators: [
       {
         title: 'Own it instead of renting it.',
-        body: "Viktor is a service you subscribe to; the moment you stop paying, the capability is gone, and your work has been running on their infrastructure the whole time. Kortix is open-source — your agents run on your cloud or servers, and they're yours to keep, change, and control.",
+        body: "Viktor is a service you subscribe to; the moment you stop paying, the capability is gone, and your work has been running on their infrastructure the whole time. Agentica is open-source — your agents run on your cloud or servers, and they're yours to keep, change, and control.",
       },
       {
         title: 'Your data stays in your walls.',
-        body: 'With Viktor, your tasks and data flow through their cloud. With Kortix, you can keep everything inside your own infrastructure — which matters a lot if you handle sensitive or regulated information.',
+        body: 'With Viktor, your tasks and data flow through their cloud. With Agentica, you can keep everything inside your own infrastructure — which matters a lot if you handle sensitive or regulated information.',
       },
       {
         title: "No credit meter on your team's work.",
-        body: "Viktor's credit-based pricing means usage has a running cost that climbs as your team leans on it. Because Kortix is open-source, there's no per-credit meter — you pay for the underlying AI usage and nothing more, so you're never rationing how much real work your agents do.",
+        body: "Viktor's credit-based pricing means usage has a running cost that climbs as your team leans on it. Because Agentica is open-source, there's no per-credit meter — you pay for the underlying AI usage and nothing more, so you're never rationing how much real work your agents do.",
       },
       {
         title: 'Real control over every agent.',
-        body: 'Kortix lets you decide exactly what each agent can touch, runs tasks in sealed workspaces, and keeps every change tracked and reversible — the kind of governance a business needs when AI is doing real work, not just demos.',
+        body: 'Agentica lets you decide exactly what each agent can touch, runs tasks in sealed workspaces, and keeps every change tracked and reversible — the kind of governance a business needs when AI is doing real work, not just demos.',
       },
     ],
     scenarios: [
@@ -385,38 +385,38 @@ export const COMPETITORS: Competitor[] = [
     ],
     faqs: [
       {
-        q: 'Does Kortix do the same kind of work as Viktor?',
-        a: 'Yes — both go beyond chat to complete real tasks across your tools. The difference is ownership: Kortix is open-source and self-hosted; Viktor is a managed service on its own cloud.',
+        q: 'Does Agentica do the same kind of work as Viktor?',
+        a: 'Yes — both go beyond chat to complete real tasks across your tools. The difference is ownership: Agentica is open-source and self-hosted; Viktor is a managed service on its own cloud.',
       },
       {
         q: 'Is Viktor easier to get started with?',
-        a: 'Yes, if you want zero setup. Viktor installs into Slack and runs. Kortix asks more upfront, especially if you self-host, in exchange for ownership, privacy, and control.',
+        a: 'Yes, if you want zero setup. Viktor installs into Slack and runs. Agentica asks more upfront, especially if you self-host, in exchange for ownership, privacy, and control.',
       },
       {
-        q: 'Will Kortix get expensive as my team grows?',
-        a: 'Kortix has no per-seat or per-credit pricing. Your cost is mainly the AI usage your agents consume, so growing your team doesn’t trigger a new pricing tier.',
+        q: 'Will Agentica get expensive as my team grows?',
+        a: 'Agentica has no per-seat or per-credit pricing. Your cost is mainly the AI usage your agents consume, so growing your team doesn’t trigger a new pricing tier.',
       },
       {
         q: 'Can I keep my data off a third-party cloud?',
-        a: 'Yes — that’s a core reason teams choose Kortix. Self-host it and your data stays entirely within your own infrastructure.',
+        a: 'Yes — that’s a core reason teams choose Agentica. Self-host it and your data stays entirely within your own infrastructure.',
       },
     ],
     ctaTitle: 'The same AI coworker capability — owned, private, and yours to keep.',
     ctaBody:
-      'Connect your tools and hand a Kortix agent a real task. Free to start, free to self-host.',
+      'Connect your tools and hand a Agentica agent a real task. Free to start, free to self-host.',
     trademark:
-      'Viktor is a trademark of its respective owner (Zeta Labs). Slack is a trademark of Salesforce, Inc.; Microsoft Teams is a trademark of Microsoft Corporation. Kortix is not affiliated with, endorsed by, or sponsored by any of these companies. All product names, logos, and brands are the property of their respective owners and are used here for identification and comparison only. Comparisons reflect publicly available information as of June 2026 and may change.',
+      'Viktor is a trademark of its respective owner (Zeta Labs). Slack is a trademark of Salesforce, Inc.; Microsoft Teams is a trademark of Microsoft Corporation. Agentica is not affiliated with, endorsed by, or sponsored by any of these companies. All product names, logos, and brands are the property of their respective owners and are used here for identification and comparison only. Comparisons reflect publicly available information as of June 2026 and may change.',
   },
   {
     slug: 'openclaw',
     name: 'OpenClaw',
     relation: 'direct',
-    headline: 'Kortix vs OpenClaw',
-    sub: 'Both are open-source and self-hosted — but OpenClaw is built as a personal "Jarvis" on your own machine. Kortix is the team-grade platform for running AI agents across a business, with the control that requires.',
+    headline: 'Agentica vs OpenClaw',
+    sub: 'Both are open-source and self-hosted — but OpenClaw is built as a personal "Jarvis" on your own machine. Agentica is the team-grade platform for running AI agents across a business, with the control that requires.',
     seo: {
-      title: 'Kortix vs OpenClaw — A personal Jarvis, or a team-grade platform?',
+      title: 'Agentica vs OpenClaw — A personal Jarvis, or a team-grade platform?',
       description:
-        'OpenClaw is a brilliant personal AI assistant for your own machine. Kortix is the open-source, team-grade platform for running governed AI agents across your business.',
+        'OpenClaw is a brilliant personal AI assistant for your own machine. Agentica is the open-source, team-grade platform for running governed AI agents across your business.',
       keywords: [
         'kortix vs openclaw',
         'openclaw alternative',
@@ -424,7 +424,7 @@ export const COMPETITORS: Competitor[] = [
         'self-hosted ai agent platform',
         'business ai agents',
       ],
-      ogTitle: 'Kortix vs OpenClaw',
+      ogTitle: 'Agentica vs OpenClaw',
       ogDescription:
         "Both open-source and self-hosted — one's a personal Jarvis, one's built for teams.",
     },
@@ -471,25 +471,25 @@ export const COMPETITORS: Competitor[] = [
       },
     ],
     builtForThem:
-      'OpenClaw is a genuine open-source phenomenon — it earned its huge following by giving individuals a private, always-on assistant that lives on their own hardware and connects to the messaging apps they already use. As a personal "Jarvis," it\'s excellent, and it shares Kortix\'s core values: open-source, self-hosted, your data stays yours.',
+      'OpenClaw is a genuine open-source phenomenon — it earned its huge following by giving individuals a private, always-on assistant that lives on their own hardware and connects to the messaging apps they already use. As a personal "Jarvis," it\'s excellent, and it shares Agentica\'s core values: open-source, self-hosted, your data stays yours.',
     builtForKortix:
-      "Kortix takes those same values and builds for a different scale: a business running AI agents as part of how it operates. That shift — from one person's assistant to a team's shared, governed workforce — is where the two diverge.",
+      "Agentica takes those same values and builds for a different scale: a business running AI agents as part of how it operates. That shift — from one person's assistant to a team's shared, governed workforce — is where the two diverge.",
     differentiators: [
       {
         title: 'Built for a team, not just one person.',
-        body: 'OpenClaw is designed around a single personal assistant. Kortix lets you run a whole fleet of agents — different ones for different jobs — managed together as part of how your business works.',
+        body: 'OpenClaw is designed around a single personal assistant. Agentica lets you run a whole fleet of agents — different ones for different jobs — managed together as part of how your business works.',
       },
       {
         title: 'Control that a business actually needs.',
-        body: 'When AI is doing real work for a company, "it just runs on my laptop" isn\'t enough. Kortix lets you decide exactly what each agent can access, runs each task in its own sealed workspace so nothing collides, and keeps every change tracked and reversible — so a mistake is easy to undo and nothing happens silently.',
+        body: 'When AI is doing real work for a company, "it just runs on my laptop" isn\'t enough. Agentica lets you decide exactly what each agent can access, runs each task in its own sealed workspace so nothing collides, and keeps every change tracked and reversible — so a mistake is easy to undo and nothing happens silently.',
       },
       {
         title: 'Runs where a business runs.',
-        body: 'OpenClaw typically lives on a personal machine or a single server. Kortix is built to run on your company cloud, private network, or on-premises — the environments a business needs for security and scale.',
+        body: 'OpenClaw typically lives on a personal machine or a single server. Agentica is built to run on your company cloud, private network, or on-premises — the environments a business needs for security and scale.',
       },
       {
         title: 'Same open-source freedom — without the DIY safety burden.',
-        body: "You keep everything you love about OpenClaw — open-source, self-hosted, no lock-in — but you don't have to hand-build the guardrails. Kortix brings the access controls, isolation, and change tracking already in place.",
+        body: "You keep everything you love about OpenClaw — open-source, self-hosted, no lock-in — but you don't have to hand-build the guardrails. Agentica brings the access controls, isolation, and change tracking already in place.",
       },
     ],
     scenarios: [
@@ -500,27 +500,27 @@ export const COMPETITORS: Competitor[] = [
     ],
     faqs: [
       {
-        q: "Aren't Kortix and OpenClaw both open-source and self-hosted?",
-        a: 'Yes — they share those values. The difference is focus: OpenClaw is built as a personal assistant for one person; Kortix is built for teams, with the management, access control, and governance a business needs.',
+        q: "Aren't Agentica and OpenClaw both open-source and self-hosted?",
+        a: 'Yes — they share those values. The difference is focus: OpenClaw is built as a personal assistant for one person; Agentica is built for teams, with the management, access control, and governance a business needs.',
       },
       {
         q: 'Can OpenClaw be used by a team?',
-        a: "It can be configured for more than one person, but it's designed and documented primarily for personal use, so team governance and control are largely something you build yourself. Kortix is built for that from the start.",
+        a: "It can be configured for more than one person, but it's designed and documented primarily for personal use, so team governance and control are largely something you build yourself. Agentica is built for that from the start.",
       },
       {
-        q: 'Is Kortix harder to run than OpenClaw?',
-        a: 'Both are self-hosted. Kortix includes more team-grade structure out of the box — controls, isolation, change tracking — which is exactly what you want once AI is doing real work for a business.',
+        q: 'Is Agentica harder to run than OpenClaw?',
+        a: 'Both are self-hosted. Agentica includes more team-grade structure out of the box — controls, isolation, change tracking — which is exactly what you want once AI is doing real work for a business.',
       },
       {
         q: 'Will I lose the freedom OpenClaw gives me?',
-        a: 'No. Kortix is also open-source with no vendor lock-in — you keep ownership and portability, and gain the controls a team needs.',
+        a: 'No. Agentica is also open-source with no vendor lock-in — you keep ownership and portability, and gain the controls a team needs.',
       },
     ],
     ctaTitle: 'Love the open-source freedom of OpenClaw? Get it built for teams.',
     ctaBody:
-      'Connect your tools and hand a Kortix agent a real task. Free to start, free to self-host.',
+      'Connect your tools and hand a Agentica agent a real task. Free to start, free to self-host.',
     trademark:
-      'OpenClaw is a trademark of its respective owner. Kortix is not affiliated with, endorsed by, or sponsored by OpenClaw or its maintainers. All product names, logos, and brands are the property of their respective owners and are used here for identification and comparison only. Comparisons reflect publicly available information as of June 2026 and may change.',
+      'OpenClaw is a trademark of its respective owner. Agentica is not affiliated with, endorsed by, or sponsored by OpenClaw or its maintainers. All product names, logos, and brands are the property of their respective owners and are used here for identification and comparison only. Comparisons reflect publicly available information as of June 2026 and may change.',
   },
 ];
 

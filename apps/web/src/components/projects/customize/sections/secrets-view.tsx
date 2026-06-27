@@ -493,7 +493,7 @@ function SecretListRow({
         }
         subtitle={
           <span className="text-muted-foreground truncate text-xs leading-none">
-            {row.sharedConfigured ? 'Managed by Kortix' : 'Not set'}
+            {row.sharedConfigured ? 'Managed by Agentica' : 'Not set'}
           </span>
         }
       />

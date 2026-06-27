@@ -638,7 +638,7 @@ export async function authorizeGitProxy(
     return { ok: true, project };
   }
 
-  return { ok: false, status: 401, message: 'git proxy requires a Kortix token' };
+  return { ok: false, status: 401, message: 'git proxy requires an Agentica token' };
 }
 
 
@@ -678,7 +678,7 @@ export async function resolveGitHubImport(input: {
   }
   if (parsed.owner.toLowerCase() !== installation.ownerLogin.toLowerCase()) {
     throw new Error(
-      `GitHub App installation is for ${installation.ownerLogin}; install Kortix on ${parsed.owner} to link this repo`,
+      `GitHub App installation is for ${installation.ownerLogin}; install Agentica on ${parsed.owner} to link this repo`,
     );
   }
 

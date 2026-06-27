@@ -440,7 +440,7 @@ export function useSlides(): SlideDef[] {
                 </Pill>
               </div>
             </div>
-            <Shot src={`${SHOT}/06-channels.png`} alt="Kortix inside Slack and Teams" />
+            <Shot src={`${SHOT}/06-channels.png`} alt="Agentica inside Slack and Teams" />
           </div>
         </Slide>
       ),

@@ -129,9 +129,9 @@ function makeEntry(
   return { item, registry, external, sourceUrl, sourceId, capabilities: capabilitiesOf(item) };
 }
 
-/** Display label for a registry/marketplace (base → "Kortix", external → owner/repo). */
+/** Display label for a registry/marketplace (base → "Agentica", external → owner/repo). */
 export function marketplaceLabelOf(registry: string): string {
-  return marketplaceIdOf(registry) === 'kortix' ? 'Kortix' : registry;
+  return marketplaceIdOf(registry) === 'kortix' ? 'Agentica' : registry;
 }
 
 /** GitHub owner from a marketplace id, when it looks like `owner/repo` (for avatars). */
@@ -192,7 +192,7 @@ function memSource(map: Map<string, string>): BuildSource {
 }
 
 function buildStarterRegistry(): RegistryJson {
-  const files = getStarterFiles({ projectName: 'Kortix Starter', template: 'general-knowledge-worker' });
+  const files = getStarterFiles({ projectName: 'Agentica Starter', template: 'general-knowledge-worker' });
   const map = new Map(files.map((f) => [f.path, f.content] as const));
   const { registry } = buildRegistry({ name: 'kortix-starter', source: memSource(map) });
   for (const item of registry.items ?? []) {
