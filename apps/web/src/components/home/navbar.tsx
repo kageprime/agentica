@@ -154,8 +154,8 @@ export function Navbar({ isAbsolute = false }: NavbarProps) {
         <div className="mx-auto flex h-[52px] max-w-6xl items-center justify-between">
           <div className="flex flex-1 items-center gap-8">
             <Link href="/" aria-label="Agentica home" className="hit-area-4 flex shrink-0 items-center gap-2">
-              <span className="text-foreground text-lg font-semibold tracking-tight">火</span>
-              <Image src="/logo_black.svg" alt="Agentica" width={100} height={24} className="h-6 w-auto" priority />
+              <span className="text-foreground text-xl font-bold tracking-tight">火</span>
+              <span className="text-foreground text-lg font-semibold tracking-tight">Agentica</span>
             </Link>
 
             <nav className="hidden items-center justify-center gap-2 md:flex">

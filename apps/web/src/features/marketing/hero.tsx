@@ -7,7 +7,6 @@ import { MessageSquare, PanelTop, Terminal } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useCallback } from 'react';
-import { HiArrowRight } from 'react-icons/hi2';
 
 const SURFACES = [
   { label: 'Slack', icon: MessageSquare },
@@ -47,8 +46,8 @@ const Hero = () => {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Button size="xl" onClick={handleLaunch}>
+              <span className="text-base">火</span>
               {tHome('startBuildingCta')}
-              <HiArrowRight className="size-4" />
             </Button>
             <Button size="xl" variant="secondary" asChild>
               <Link href={'/enterprise'}>{tHome('line149JsxTextTalkToSales')}</Link>
