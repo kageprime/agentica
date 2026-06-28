@@ -289,7 +289,7 @@ function CreateAuditWebhookDialog({
           <DialogDescription>
             {created
               ? 'Save the signing secret now. You will not see it again — to rotate, delete this webhook and create a new one.'
-              : 'Each event is POSTed to the URL with an X-Kortix-Signature header (HMAC-SHA256 of the body using the secret).'}
+              : 'Each event is POSTed to the URL with an X-Agentica-Signature header (HMAC-SHA256 of the body using the secret).'}
           </DialogDescription>
         </DialogHeader>
 
@@ -347,7 +347,7 @@ function CreateAuditWebhookDialog({
                 id="hook-url"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                placeholder="https://siem.corp.example/kortix/audit"
+                placeholder="https://siem.corp.example/agentica/audit"
                 type="url"
                 required
                 disabled={mutation.isPending}

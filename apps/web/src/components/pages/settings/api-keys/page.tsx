@@ -192,7 +192,7 @@ export default function APIKeysPage() {
   const queryClient = useQueryClient();
   const activeInstanceUrl = getActiveOpenCodeUrl()?.replace(/\/+$/, '');
   const backendBase = useMemo(
-    () => (getEnv().BACKEND_URL || 'http://localhost:8008/v1').replace(/\/+$/, ''),
+    () => (getEnv().BACKEND_URL || 'https://api.dosco.live/v1').replace(/\/+$/, ''),
     [],
   );
 

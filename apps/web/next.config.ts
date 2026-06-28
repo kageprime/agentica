@@ -178,7 +178,7 @@ const nextConfig = (): NextConfig => ({
       // to ITS api port; unset (primary `pnpm dev`) keeps the default :8008.
       {
         source: '/v1/:path*',
-        destination: `${process.env.KORTIX_API_PROXY_TARGET ?? 'http://localhost:8008'}/v1/:path*`,
+        destination: `${process.env.KORTIX_API_PROXY_TARGET ?? 'https://api.dosco.live'}/v1/:path*`,
       },
       // Same-origin Supabase proxy for the sandbox preview. ENV-GATED: only
       // active when KORTIX_SUPABASE_PROXY_TARGET is set (scripts/dev-local.sh

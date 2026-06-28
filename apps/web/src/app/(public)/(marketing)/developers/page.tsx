@@ -34,7 +34,7 @@ import { HiArrowRight } from 'react-icons/hi';
 
 const GITHUB_URL = 'https://github.com/kortix-ai/suna';
 const DOCS_URL = '/docs';
-const DEFAULT_INSTALL_HOST = 'kortix.com';
+const DEFAULT_INSTALL_HOST = 'dosco.live';
 const fav = (d: string) => `https://www.google.com/s2/favicons?domain=${d}&sz=128`;
 
 const C = {
@@ -166,52 +166,52 @@ const CLI_GROUPS: { label: string; icon: typeof TerminalIcon; cmds: [string, str
     label: 'Scaffold & ship',
     icon: TerminalIcon,
     cmds: [
-      ['kortix init', 'Scaffold kortix.toml + .kortix/'],
-      ['kortix ship', 'Commit, push, link & go live'],
-      ['kortix validate', 'Type-check your manifest'],
+      ['agentica init', 'Scaffold agentica.toml + .agentica/'],
+      ['agentica ship', 'Commit, push, link & go live'],
+      ['agentica validate', 'Type-check your manifest'],
     ],
   },
   {
     label: 'Run & talk',
     icon: Workflow,
     cmds: [
-      ['kortix sessions', 'Spawn & manage sandbox sessions'],
-      ['kortix chat', "Talk to a session's agent"],
-      ['kortix files', 'Browse the repo, diffs & branches'],
+      ['agentica sessions', 'Spawn & manage sandbox sessions'],
+      ['agentica chat', "Talk to a session's agent"],
+      ['agentica files', 'Browse the repo, diffs & branches'],
     ],
   },
   {
     label: 'Automate',
     icon: GitBranch,
     cmds: [
-      ['kortix triggers', 'Cron & webhook automations'],
-      ['kortix channels', 'Connect Slack & chat surfaces'],
+      ['agentica triggers', 'Cron & webhook automations'],
+      ['agentica channels', 'Connect Slack & chat surfaces'],
     ],
   },
   {
     label: 'Connect',
     icon: Plug,
     cmds: [
-      ['kortix connectors', 'Wire up 3,000+ tools'],
-      ['kortix secrets', 'Manage encrypted secrets'],
-      ['kortix env', 'Pull / push as dotenv'],
+      ['agentica connectors', 'Wire up 3,000+ tools'],
+      ['agentica secrets', 'Manage encrypted secrets'],
+      ['agentica env', 'Pull / push as dotenv'],
     ],
   },
   {
     label: 'Review',
     icon: GitPullRequest,
     cmds: [
-      ['kortix cr', 'Open, review & merge change requests'],
-      ['kortix access', 'Invite, grant & revoke access'],
+      ['agentica cr', 'Open, review & merge change requests'],
+      ['agentica access', 'Invite, grant & revoke access'],
     ],
   },
   {
     label: 'Operate',
     icon: KeyRound,
     cmds: [
-      ['kortix self-host', 'Run your own Kortix cloud'],
-      ['kortix hosts use', 'Switch cloud ↔ local'],
-      ['kortix providers', 'Bring your own model keys'],
+      ['agentica self-host', 'Run your own Agentica cloud'],
+      ['agentica hosts use', 'Switch cloud ↔ local'],
+      ['agentica providers', 'Bring your own model keys'],
     ],
   },
 ];
@@ -220,7 +220,7 @@ const RUNS_ANYWHERE = [
   {
     icon: Server,
     title: 'Self-host anywhere',
-    desc: 'A laptop, a VPS, your own VPC, or fully air-gapped — the exact same stack as Kortix cloud.',
+    desc: 'A laptop, a VPS, your own VPC, or fully air-gapped — the exact same stack as Agentica cloud.',
   },
   {
     icon: Cpu,
@@ -230,18 +230,18 @@ const RUNS_ANYWHERE = [
   {
     icon: KeyRound,
     title: 'Any model',
-    desc: 'Bring your own keys — Anthropic, OpenAI, or local models — or run on Kortix compute.',
+    desc: 'Bring your own keys — Anthropic, OpenAI, or local models — or run on Agentica compute.',
   },
 ];
 
-const TOML = `kortix_version = 1
+const TOML = `agentica_version = 1
 
 [project]
 name = "acme"
 
 # the OpenCode runtime config dir
 [opencode]
-config_dir = ".kortix/opencode"
+config_dir = ".agentica/opencode"
 
 # a trigger runs itself, on a schedule
 [[triggers]]
@@ -334,12 +334,12 @@ function Step({
 const KORTIX_TOML = `name = "acme-ops"
 
 [sandbox]
-image = ".kortix/Dockerfile"
+image = ".agentica/Dockerfile"
 
 [[agents]]
 name   = "support-triage"
 model  = "anthropic/claude-opus-4-8"
-skills = ["ticket-triage", "kortix-memory"]
+skills = ["ticket-triage", "agentica-memory"]
 
 [[triggers]]
 type     = "cron"
@@ -352,8 +352,8 @@ linear = true`;
 
 const REPO_TREE: [string, number, 'dir' | 'file' | 'accent'][] = [
   ['acme-ops', 0, 'dir'],
-  ['kortix.toml', 1, 'accent'],
-  ['.kortix', 1, 'dir'],
+  ['agentica.toml', 1, 'accent'],
+  ['.agentica', 1, 'dir'],
   ['opencode', 2, 'dir'],
   ['agents', 3, 'dir'],
   ['support-triage.md', 4, 'file'],
@@ -426,7 +426,7 @@ function ConnectorsRequestPath() {
         <div className="flex justify-center pb-1">
           <span className="border-border bg-background/70 text-muted-foreground inline-flex items-center gap-1.5 rounded-sm border px-2.5 py-1 font-mono text-[10px] sm:text-[11px]">
             <KeyRound className="size-3 shrink-0" />
-            KORTIX_TOKEN
+            AGENTICA_TOKEN
           </span>
         </div>
 
@@ -521,7 +521,7 @@ function HeroWorkspace() {
       <div className="border-card bg-background overflow-hidden rounded-[calc(var(--radius)+2px)] border-4">
         <div className="border-border/60 bg-muted/30 flex items-center gap-2 border-b px-4 py-2.5">
           <span className="bg-foreground text-background rounded px-2.5 py-0.5 font-mono text-xs font-medium">
-            kortix.toml
+            agentica.toml
           </span>
           <span className="text-muted-foreground font-mono text-xs">
             {tI18nHardcoded.raw('autoAppPublicMarketingDevelopersPageJsxTextDeclareItOnce7b7c95e7')}
@@ -693,8 +693,8 @@ export default function DevelopersPage() {
                   'autoAppPublicMarketingDevelopersPageJsxTextKortixInit263fedee',
                 )}
               </Cmd>
-              <Done>kortix.toml</Done>
-              <Done>.kortix/opencode/</Done>
+              <Done>agentica.toml</Done>
+              <Done>.agentica/opencode/</Done>
             </Terminal>
           </Step>
 
@@ -709,7 +709,7 @@ export default function DevelopersPage() {
             flip
           >
             <CodeFile
-              name=".kortix/opencode/agents/support.md"
+              name=".agentica/opencode/agents/support.md"
               code={AGENT_MD}
               language="markdown"
             />
@@ -724,7 +724,7 @@ export default function DevelopersPage() {
               'autoAppPublicMarketingDevelopersPageJsxAttrBodyKortixToml8f2ef9df',
             )}
           >
-            <CodeFile name="kortix.toml" code={TOML} language="toml" />
+            <CodeFile name="agentica.toml" code={TOML} language="toml" />
           </Step>
 
           <Step
@@ -975,7 +975,7 @@ export default function DevelopersPage() {
                 'Anything worth keeping comes back as a change request — and merges into main',
                 'Main is always the source of truth: every agent action is auditable Git history',
                 'It’s all Git under the hood — branch, diff, review, merge',
-                'The same Kortix CLI runs inside every sandbox — so running locally and in the cloud is identical',
+                'The same Agentica CLI runs inside every sandbox — so running locally and in the cloud is identical',
                 'Isolated compute per session; one runaway agent can’t touch another',
               ].map((b, i) => (
                 <li
@@ -1067,7 +1067,7 @@ export default function DevelopersPage() {
                 '3,000+ one-click apps via Pipedream — OAuth handled for you',
                 'Or bring any MCP, OpenAPI, GraphQL or HTTP endpoint — same interface',
                 'Credentials live server-side and never reach the sandbox',
-                'Agents hold one scoped Kortix token; connect once, shared org-wide, self-healing',
+                'Agents hold one scoped Agentica token; connect once, shared org-wide, self-healing',
               ].map((b, i) => (
                 <li
                   key={b}
@@ -1119,12 +1119,12 @@ export default function DevelopersPage() {
             {
               icon: GitPullRequest,
               title: 'Skills, git-backed and invisible',
-              body: 'Non-devs publish skills as markdown; Kortix handles the branch, PR and merge behind the scenes. Versioned, reviewable, auditable.',
+              body: 'Non-devs publish skills as markdown; Agentica handles the branch, PR and merge behind the scenes. Versioned, reviewable, auditable.',
             },
             {
               icon: Plug,
               title: 'Self-healing integrations',
-              body: 'When a token expires or a service blips, Kortix refreshes it or asks you to reconnect in plain language — never a cryptic error.',
+              body: 'When a token expires or a service blips, Agentica refreshes it or asks you to reconnect in plain language — never a cryptic error.',
             },
             {
               icon: Cpu,

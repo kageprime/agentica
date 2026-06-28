@@ -155,7 +155,7 @@ function ForbiddenProjectState({ projectId }: { projectId: string }) {
       description={
         sent
           ? 'A project manager can approve you from the Members screen. Keep this page open and check again once they approve the request.'
-          : 'This Kortix workspace is private. Send a short note and a project manager can add you as a viewer.'
+          : 'This Agentica workspace is private. Send a short note and a project manager can add you as a viewer.'
       }
       panelTitle={sent ? 'Waiting for approval' : 'Access request'}
       panelDescription={

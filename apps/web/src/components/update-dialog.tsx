@@ -120,7 +120,7 @@ export function UpdateDialog({
     const active = state.servers.find((s) => s.id === state.activeServerId);
     if (!active?.sandboxId) return false;
 
-    const backendUrl = (getEnv().BACKEND_URL || 'http://localhost:8008/v1').replace(/\/+$/, '');
+    const backendUrl = (getEnv().BACKEND_URL || 'https://api.dosco.live/v1').replace(/\/+$/, '');
     const url = `${backendUrl}/p/${active.sandboxId}/8000/global/health`;
 
     try {

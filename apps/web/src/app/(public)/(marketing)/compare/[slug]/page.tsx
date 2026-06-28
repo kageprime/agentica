@@ -55,7 +55,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
       title: c.seo.ogTitle,
       description: c.seo.ogDescription,
       url,
-      siteName: 'Kortix',
+      siteName: 'Agentica',
       images: [{ url: ogImage, width: 1200, height: 630, alt: c.headline }],
     },
     twitter: {
@@ -252,7 +252,7 @@ export default async function ComparePage(props: PageProps) {
           <Reveal delay={0.08}>
             <div className="md:pl-12">
               <span className="text-foreground flex items-center gap-2 text-sm font-semibold">
-                <span className="bg-kortix-green size-2 rounded-full" /> Kortix
+                <span className="bg-kortix-green size-2 rounded-full" /> Agentica
               </span>
               <p className="text-foreground mt-4 text-base leading-relaxed text-pretty">
                 {c.builtForKortix}

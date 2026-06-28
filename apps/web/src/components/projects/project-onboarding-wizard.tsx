@@ -41,8 +41,8 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-const CAL_LINK = 'team/kortix/demo';
-const CAL_NAMESPACE = 'kortix-onboarding-wizard';
+const CAL_LINK = 'team/agentica/demo';
+const CAL_NAMESPACE = 'agentica-onboarding-wizard';
 
 const Q = { staleTime: 60_000, refetchOnWindowFocus: false } as const;
 
@@ -194,7 +194,7 @@ export function ProjectOnboardingWizard({ projectId }: { projectId: string }) {
       {
         id: 'agents',
         icon: LayersTwoSolid,
-        title: 'Make it your Kortix',
+        title: 'Make it your Agentica',
         informational: true,
         done: false,
         description:

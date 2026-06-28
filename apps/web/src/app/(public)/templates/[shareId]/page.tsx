@@ -183,7 +183,7 @@ export default function TemplateSharePage() {
   const { data: template, isLoading, error } = useQuery({
     queryKey: ['template-public', templateId],
     queryFn: async () => {
-      const backendUrl = getEnv().BACKEND_URL || 'http://localhost:8008/v1';
+      const backendUrl = getEnv().BACKEND_URL || 'https://api.dosco.live/v1';
       const response = await fetch(`${backendUrl}/templates/public/${templateId}`);
       if (!response.ok) {
         throw new Error('Template not found');

@@ -50,7 +50,7 @@ export default function SlackLoginPage() {
         <ResultCard
           ok={false}
           title="Missing link"
-          message="This page is opened from a Kortix Slack message. Run `/kortix login` in Slack to get a fresh link."
+          message="This page is opened from an Agentica Slack message. Run `/agentica login` in Slack to get a fresh link."
         />
       </Centered>
     );
@@ -91,19 +91,19 @@ export default function SlackLoginPage() {
               <Slack className="size-5" />
             </div>
             <div>
-              <div className="text-base font-semibold">Connect Slack to Kortix</div>
-              <div className="text-muted-foreground text-xs">kortix.com · Slack</div>
+              <div className="text-base font-semibold">Connect Slack to Agentica</div>
+              <div className="text-muted-foreground text-xs">dosco.live · Slack</div>
             </div>
           </div>
 
           <p className="text-muted-foreground text-sm">
-            Connecting lets the Kortix bot run as <strong className="text-foreground">your</strong> account when you
+            Connecting lets the Agentica bot run as <strong className="text-foreground">your</strong> account when you
             message it in Slack — using your own credentials, secrets, and connected apps instead of the installer&apos;s.
           </p>
 
           <dl className="bg-muted/30 mt-5 space-y-2 rounded-2xl border p-4 text-sm">
             <div className="flex items-center justify-between gap-3">
-              <dt className="text-muted-foreground">Kortix account</dt>
+              <dt className="text-muted-foreground">Agentica account</dt>
               <dd className="truncate font-mono text-xs">{user.email ?? 'You'}</dd>
             </div>
           </dl>
@@ -134,7 +134,7 @@ export default function SlackLoginPage() {
         </div>
 
         <div className="bg-muted/30 text-muted-foreground border-t px-7 py-3 text-xs">
-          You can disconnect anytime with <strong className="text-foreground">/kortix logout</strong> in Slack.
+          You can disconnect anytime with <strong className="text-foreground">/agentica logout</strong> in Slack.
         </div>
       </div>
     </Centered>

@@ -33,7 +33,7 @@ function Cover({ post, className }: { post: Post; className?: string }) {
       <div className="absolute inset-0 bg-[url('/grain-texture.png')] bg-repeat opacity-[0.12]" />
       <div className="absolute inset-0 flex items-center justify-center">
         <span className="text-muted-foreground/45 text-xs font-medium tracking-[0.25em] uppercase">
-          Kortix
+          Agentica
         </span>
       </div>
     </div>

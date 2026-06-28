@@ -10,7 +10,7 @@
 # ║                                                                            ║
 # ║    NEXT_PUBLIC_SUPABASE_URL      = https://placeholder.supabase.co         ║
 # ║    NEXT_PUBLIC_SUPABASE_ANON_KEY = local-build-placeholder-anon-key        ║
-# ║    NEXT_PUBLIC_BACKEND_URL       = http://localhost:8008/v1                 ║
+# ║    NEXT_PUBLIC_BACKEND_URL       = https://api.dosco.live/v1                ║
 # ║    NEXT_PUBLIC_BILLING_ENABLED   = false                                   ║
 # ║                                                                            ║
 # ║  At container startup, this script replaces those placeholders with the    ║
@@ -24,8 +24,8 @@ BUNDLE_DIR="/app/apps/web/.next"
 # ── Well-known build-time placeholders (must match build-local-images.sh) ──────
 BAKED_SUPABASE_URL="https://placeholder.supabase.co"
 BAKED_ANON_KEY="local-build-placeholder-anon-key"
-BAKED_BACKEND_URL="http://localhost:8008/v1"
-BAKED_BACKEND_HOST="http://localhost:8008"
+BAKED_BACKEND_URL="https://api.dosco.live/v1"
+BAKED_BACKEND_HOST="https://api.dosco.live"
 
 # Also handle local dev builds that may have localhost:54321 (Supabase CLI default)
 # or 127.0.0.1:54321 baked in instead of the placeholder

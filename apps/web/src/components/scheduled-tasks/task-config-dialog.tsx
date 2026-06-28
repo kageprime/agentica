@@ -362,7 +362,7 @@ export function TaskConfigDialog({
                       {webhookSecret
                         ? ' Include the secret in the '
                         : ' Optionally protect with a secret via '}
-                      <code className="font-mono text-xs">X-Kortix-Trigger-Secret</code> header.
+                      <code className="font-mono text-xs">X-Agentica-Trigger-Secret</code> header.
                     </p>
                   </div>
 

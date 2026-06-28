@@ -43,7 +43,7 @@ function backendUrl(): string {
   return (
     process.env.BACKEND_URL ||
     process.env.NEXT_PUBLIC_BACKEND_URL ||
-    'http://localhost:8008/v1'
+    'https://api.dosco.live/v1'
   ).replace(/\/$/, '');
 }
 

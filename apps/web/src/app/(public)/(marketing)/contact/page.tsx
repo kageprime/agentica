@@ -19,8 +19,8 @@ import { DemoQualifierModal } from '@/features/contact/demo-qualifier-modal';
 const CONTACT_EMAIL = 'hey@kortix.ai';
 
 // Public demo event (cal.com/team/kortix/demo) + a namespace unique to it.
-const CAL_LINK = 'team/kortix/demo';
-const CAL_NAMESPACE = 'kortix-enterprise-demo';
+const CAL_LINK = 'team/agentica/demo';
+const CAL_NAMESPACE = 'agentica-enterprise-demo';
 
 const VALUE_PROPS = [
   {

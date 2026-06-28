@@ -155,7 +155,7 @@ export async function signUp(prevState: any, formData: FormData) {
   // Check access control — if signups are closed and email isn't allowlisted, block
   let shouldCreateUser = true;
   try {
-    const backendUrl = getServerPublicEnv().BACKEND_URL || 'http://localhost:8008/v1';
+    const backendUrl = getServerPublicEnv().BACKEND_URL || 'https://api.dosco.live/v1';
     const res = await fetch(`${backendUrl}/access/check-email`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -228,7 +228,7 @@ export async function requestAccess(prevState: any, formData: FormData) {
   }
 
   try {
-    const backendUrl = getServerPublicEnv().BACKEND_URL || 'http://localhost:8008/v1';
+    const backendUrl = getServerPublicEnv().BACKEND_URL || 'https://api.dosco.live/v1';
     const res = await fetch(`${backendUrl}/access/request-access`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -581,7 +581,7 @@ export async function signOut() {
       data: { session },
     } = await supabase.auth.getSession();
     if (session?.access_token) {
-      const backendUrl = getServerPublicEnv().BACKEND_URL || 'http://localhost:8008/v1';
+      const backendUrl = getServerPublicEnv().BACKEND_URL || 'https://api.dosco.live/v1';
       await fetch(`${backendUrl}/auth/logout`, {
         method: 'POST',
         headers: {

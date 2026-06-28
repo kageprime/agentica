@@ -1073,9 +1073,9 @@ export function InstanceManagerDialog({
 
   // Compute description text based on mode
   const modeDescription: Record<string, string> = {
-    list: 'Manage your Kortix instances.',
+    list: 'Manage your Agentica instances.',
     add: 'Choose how to connect.',
-    custom: 'Connect to a Kortix instance by entering its address.',
+    custom: 'Connect to an Agentica instance by entering its address.',
     edit: 'Update the connection details for this instance.',
     ssh: 'Connect via SSH or VS Code Remote SSH.',
   };
@@ -1462,7 +1462,7 @@ export function InstanceManagerDialog({
                   <Input
                     type="text"
                     ref={urlInputRef}
-                    placeholder="http://localhost:8008/v1/p/kortix-sandbox/8000"
+                    placeholder="https://api.dosco.live/v1/p/kortix-sandbox/8000"
                     value={formUrl}
                     onChange={(e) => setFormUrl(e.target.value)}
                     className="h-9 font-mono text-sm"

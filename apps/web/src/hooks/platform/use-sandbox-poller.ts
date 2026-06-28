@@ -95,7 +95,7 @@ function interpolateProgress(stage: string, stageEnteredAt: number, baseProgress
 }
 
 function getPlatformUrl(): string {
-  return getEnv().BACKEND_URL || 'http://localhost:8008/v1';
+  return getEnv().BACKEND_URL || 'https://api.dosco.live/v1';
 }
 
 function getSandboxUrl(sandboxId: string): string {

@@ -2526,7 +2526,7 @@ function MultiSelectToolbar({
       );
 
       // Send to backend - use correct backend URL
-      const backendUrl = getEnv().BACKEND_URL || 'http://localhost:8008';
+      const backendUrl = getEnv().BACKEND_URL || 'https://api.dosco.live';
       const response = await fetch(`${backendUrl}/canvas-ai/merge`, {
         method: 'POST',
         headers: {

@@ -45,7 +45,7 @@ const TAB_DESCRIPTIONS: Partial<Record<TabId, string>> = {
   sounds: 'Choose sound packs and preview notification sounds.',
   notifications: 'Control browser notifications and delivery preferences.',
   shortcuts: 'View keyboard shortcuts available across the app.',
-  tokens: 'Create and manage CLI tokens for the Kortix command line.',
+  tokens: 'Create and manage CLI tokens for the Agentica command line.',
   'instance-members': 'Manage who has access to this instance.',
 };
 

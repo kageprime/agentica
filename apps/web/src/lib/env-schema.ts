@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 /**
  * BACKEND_URL may be EITHER:
- *  - an absolute http(s) URL (e.g. "http://localhost:8008/v1") — used server-side
+ *  - an absolute http(s) URL (e.g. "https://api.dosco.live/v1") — used server-side
  *    where `new URL(...)` needs an absolute base, and in normal deployments; or
  *  - a root-relative path (e.g. "/v1") — used in the sandbox preview so the
  *    BROWSER hits the SAME origin it's served from and the preview proxy rewrites

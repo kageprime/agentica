@@ -243,9 +243,9 @@ export function CliTokensTab() {
           </span>
         </div>
         <pre className="bg-foreground text-background overflow-x-auto rounded-t-lg px-4 py-3 font-mono text-xs">
-          {`kortix login --token <paste-from-above>
-kortix whoami
-kortix projects ls`}
+          {`agentica login --token <paste-from-above>
+agentica whoami
+agentica projects ls`}
         </pre>
       </div>
     </div>

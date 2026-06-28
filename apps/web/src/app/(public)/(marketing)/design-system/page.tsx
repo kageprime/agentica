@@ -637,7 +637,7 @@ function Hex({ value }: { value: string }) {
 function LogoCard({ asset, fmt }: { asset: LogoAsset; fmt: LogoFormat }) {
   const isWide = asset.label !== 'Symbol';
   const downloadHref = fmt === 'png' ? asset.pngSrc : asset.svgSrc;
-  const downloadName = `kortix-${asset.label.toLowerCase()}-${asset.variant.toLowerCase()}.${fmt}`;
+  const downloadName = `agentica-${asset.label.toLowerCase()}-${asset.variant.toLowerCase()}.${fmt}`;
 
   return (
     <div className="group relative">
@@ -653,7 +653,7 @@ function LogoCard({ asset, fmt }: { asset: LogoAsset; fmt: LogoFormat }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={asset.svgSrc}
-          alt={`Kortix ${asset.label} ${asset.variant}`}
+          alt={`Agentica ${asset.label} ${asset.variant}`}
           className={cn(
             'object-contain',
             isWide ? 'max-h-8 w-full md:max-h-10' : 'max-h-10 w-auto md:max-h-12',
@@ -680,7 +680,7 @@ function LogoCard({ asset, fmt }: { asset: LogoAsset; fmt: LogoFormat }) {
 }
 
 function SocialCard({ asset }: { asset: SocialAsset }) {
-  const downloadName = `kortix-avatar-${asset.variant.toLowerCase()}.png`;
+  const downloadName = `agentica-avatar-${asset.variant.toLowerCase()}.png`;
 
   return (
     <div className="group relative">
@@ -693,7 +693,7 @@ function SocialCard({ asset }: { asset: SocialAsset }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={asset.pngSrc}
-          alt={`Kortix avatar ${asset.variant}`}
+          alt={`Agentica avatar ${asset.variant}`}
           className="size-full object-cover"
         />
 

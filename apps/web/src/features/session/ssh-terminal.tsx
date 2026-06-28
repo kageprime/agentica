@@ -68,7 +68,7 @@ const lightTheme: ITheme = {
 };
 
 const getWebSocketUrl = () => {
-  const baseUrl = getEnv().BACKEND_URL || 'http://localhost:8008';
+  const baseUrl = getEnv().BACKEND_URL || 'https://api.dosco.live';
   return baseUrl.replace('https://', 'wss://').replace('http://', 'ws://');
 };
 

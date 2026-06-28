@@ -134,7 +134,7 @@ function DevSteps({ project }: { project: Awaited<ReturnType<typeof getProject>>
           'autoComponentsProjectsCustomizeSectionsDevViewJsxAttrHintManages9608753c',
         )}
       >
-        <CommandBlock lines={['curl -fsSL https://kortix.com/install | bash', 'kortix login']} />
+        <CommandBlock lines={['curl -fsSL https://dosco.live/install | bash', 'agentica login']} />
       </Step>
 
       <Step
@@ -146,7 +146,7 @@ function DevSteps({ project }: { project: Awaited<ReturnType<typeof getProject>>
           'autoComponentsProjectsCustomizeSectionsDevViewJsxAttrHintWires03f7d392',
         )}
       >
-        <CommandBlock lines={['kortix init --force']} />
+        <CommandBlock lines={['agentica init --force']} />
       </Step>
 
       <Step
@@ -158,7 +158,7 @@ function DevSteps({ project }: { project: Awaited<ReturnType<typeof getProject>>
           'autoComponentsProjectsCustomizeSectionsDevViewJsxAttrHintWritese14f4d88',
         )}
       >
-        <CommandBlock lines={['kortix env pull']} />
+        <CommandBlock lines={['agentica env pull']} />
       </Step>
 
       <Step
@@ -187,7 +187,7 @@ function DevSteps({ project }: { project: Awaited<ReturnType<typeof getProject>>
             'git checkout -b my-change',
             'git commit -am "Describe your change"',
             `git push origin HEAD`,
-            'kortix cr open --title "Describe your change"',
+            'agentica cr open --title "Describe your change"',
           ]}
         />
         <p className="text-muted-foreground mt-2 text-xs">

@@ -200,7 +200,7 @@ export function ProjectProviderModal({
       }));
     return {
       id: 'kortix',
-      label: kortix.name || 'Kortix',
+      label: kortix.name || 'Agentica',
       envVars: [],
       helpUrl: null,
       hint: 'Included with your plan',

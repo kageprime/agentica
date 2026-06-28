@@ -152,7 +152,7 @@ interface ServerStore {
  * Same URL pattern for all providers: /v1/p/{sandboxId}/{port}/*
  */
 function getBackendUrl(): string {
-  return (getEnv().BACKEND_URL || 'http://localhost:8008/v1').replace(/\/+$/, '');
+  return (getEnv().BACKEND_URL || 'https://api.dosco.live/v1').replace(/\/+$/, '');
 }
 
 function getDefaultSandboxUrl(): string {

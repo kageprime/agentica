@@ -14,7 +14,6 @@ import { trackCtaSignup } from '@/lib/analytics/gtm';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useCallback } from 'react';
-import { HiArrowRight } from 'react-icons/hi2';
 
 export default function Home() {
   const { user } = useAuth();
@@ -87,8 +86,8 @@ export default function Home() {
 
                   <div className="mt-auto grid w-full grid-cols-1 gap-2">
                     <Button size="lg" className="w-full" onClick={handleLaunch}>
+                      <span className="text-base">火</span>
                       {tHome('line337JsxTextGetStarted')}
-                      <HiArrowRight className="size-4" />
                     </Button>
                     <Button asChild size="lg" className="w-full" variant="accent">
                       <Link href={'/enterprise'}>{tHome('line338JsxTextTalkToSales')}</Link>
@@ -96,9 +95,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="col-span-1 hidden md:block" />
-                <div className="col-span-7 flex items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--kortix-blue)_0%,_transparent_70%)] opacity-30">
+                <div className="col-span-7 flex items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--agentica-blue)_0%,_transparent_70%)] opacity-30">
                   <span className="font-mono text-[clamp(6rem,20vw,12rem)] font-bold text-foreground select-none">
-                    A
+                    火
                   </span>
                 </div>
               </div>

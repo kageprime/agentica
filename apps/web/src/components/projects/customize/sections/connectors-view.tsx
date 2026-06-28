@@ -1752,7 +1752,7 @@ function SlackConnectForm({
         <InfoBanner
           tone="info"
           icon={Slack}
-          title="Add Kortix to your Slack workspace"
+          title="Add Agentica to your Slack workspace"
           action={
             <Button size="sm" className="shrink-0 gap-1.5" asChild>
               <a href={installUrl}>
@@ -3141,13 +3141,13 @@ function AddSlackProfileCard({
           <Plus className="text-muted-foreground/40 group-hover:text-primary size-4 shrink-0 transition-colors" />
         </div>
         <p className="text-muted-foreground mt-2 line-clamp-3 min-h-[3rem] text-xs leading-relaxed">
-          Add Kortix to Slack so mentions and threaded replies route into Kortix agent sessions.
+          Add Agentica to Slack so mentions and threaded replies route into Agentica agent sessions.
         </p>
       </button>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="gap-0 overflow-hidden p-0 sm:max-w-2xl">
           <DialogHeader className="border-border/60 border-b px-6 pt-6 pb-4">
-            <DialogTitle>Add Kortix to Slack</DialogTitle>
+            <DialogTitle>Add Agentica to Slack</DialogTitle>
             <DialogDescription>
               Connect the built-in Slack channel. The connector profile appears automatically after
               installation.

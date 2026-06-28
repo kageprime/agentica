@@ -35,7 +35,7 @@ interface MigrationResult {
 
 function getApiUrl(): string {
   const backendUrl = getEnv().BACKEND_URL;
-  return backendUrl || 'http://localhost:8008/v1';
+  return backendUrl || 'https://api.dosco.live/v1';
 }
 
 async function legacyFetch<T>(path: string, options: RequestInit = {}): Promise<T> {

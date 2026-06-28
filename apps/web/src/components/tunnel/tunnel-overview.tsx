@@ -213,7 +213,7 @@ function ConnectButton() {
             </button>
             <InfoBanner tone="info" icon={ShieldCheck} title="Interactive setup">
               After approval, the terminal asks whether this computer should stay
-              always online in the background, then separately whether Kortix
+              always online in the background, then separately whether Agentica
               should keep it awake.
             </InfoBanner>
             <div className="grid gap-2 text-xs text-muted-foreground sm:grid-cols-3">
