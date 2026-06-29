@@ -41,7 +41,7 @@ services:
       KORTIX_WARM_POOL_SIZE: "1"
       KORTIX_WARM_POOL_CLONE_AT_PARK: "true"
       KORTIX_WARM_SNAPSHOT_ENABLED: "true"
-      DAYTONA_WARM_TARGET: "experimental"
+      DAYTONA_WARM_TARGET: "us"
       SCHEDULER_ENABLED: "false"
       TUNNEL_ENABLED: "true"
     networks:
