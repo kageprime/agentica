@@ -1,4 +1,4 @@
-package com.kortix.app
+package com.agentica.app
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

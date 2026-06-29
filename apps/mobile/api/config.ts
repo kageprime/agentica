@@ -29,6 +29,9 @@ export function getFrontendUrl(): string {
   }
 
   // Infer from backend URL - if backend is production, frontend should be too
+  if (BACKEND_URL.includes('api.dosco.live')) {
+    return 'https://dosco.live';
+  }
   if (BACKEND_URL.includes('api.kortix.com')) {
     return 'https://kortix.com';
   }

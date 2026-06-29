@@ -9,6 +9,7 @@ import Animated, { FadeIn } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useColorScheme } from 'nativewind';
 import { log } from '@/lib/logger';
+import { API_URL } from '@/api/config';
 
 interface TemplatePreviewModalProps {
   visible: boolean;
@@ -21,8 +22,6 @@ interface TemplatePreviewModalProps {
  * Gets the PDF URL for a presentation template
  */
 const getPdfUrl = (templateId: string): string => {
-  // Use the backend URL from environment or default
-  const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || 'https://api.agentpress.ai';
   return `${API_URL}/presentation-templates/${templateId}/pdf`;
 };
 

@@ -1,4 +1,4 @@
-package com.kortix.app
+package com.agentica.app
 
 import android.app.Application
 import android.content.res.Configuration
