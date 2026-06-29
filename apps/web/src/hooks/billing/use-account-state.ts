@@ -506,14 +506,12 @@ export const accountStateSelectors = {
   tierDisplayName: (state: AccountState | undefined) =>
     state?.subscription?.tier_display_name ?? 'No Plan',
 
-  /** Get plan name for TierBadge (e.g., 'Plus', 'Pro', 'Ultra', 'Basic') */
+  /** Get plan name for TierBadge (e.g., 'Pro', 'Enterprise', 'Basic') */
   planName: (state: AccountState | undefined) => {
     if (!state?.subscription) return 'Basic';
     const tierKey = state.subscription.tier_key || state.tier?.name;
     if (!tierKey || tierKey === 'none' || tierKey === 'free') return 'Basic';
-
-    if (tierKey === 'pro') return 'Pro';
-    return 'Basic';
+    return state.subscription.tier_display_name || 'Basic';
   },
 
   /** Check if subscription is cancelled */

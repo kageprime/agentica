@@ -1,5 +1,5 @@
 {
-  "name": "kortix-opencode-config",
+  "name": "agentica-opencode-config",
   "private": true,
   "//": "Dependencies for the custom tools in tools/. OpenCode runs `bun install` here at startup so tools can import them. The sandbox image pre-warms Bun's cache with these so the boot-time install is offline and fast.",
   "dependencies": {

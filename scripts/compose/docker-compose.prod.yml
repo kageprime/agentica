@@ -36,10 +36,14 @@ services:
       DAYTONA_ORGANIZATION_ID: "c8e3f05c-b666-4f6d-b5db-55cc7736c8c4"
       KORTIX_SKIP_ENSURE_SCHEMA: "0"
       KORTIX_LOCAL_DEV: "0"
-      KORTIX_BILLING_INTERNAL_ENABLED: "false"
-      KORTIX_WARM_SNAPSHOT_ENABLED: "false"
+      KORTIX_BILLING_INTERNAL_ENABLED: "true"
+      KORTIX_WARM_POOL_ENABLED: "true"
+      KORTIX_WARM_POOL_SIZE: "1"
+      KORTIX_WARM_POOL_CLONE_AT_PARK: "true"
+      KORTIX_WARM_SNAPSHOT_ENABLED: "true"
+      DAYTONA_WARM_TARGET: "experimental"
       SCHEDULER_ENABLED: "false"
-      TUNNEL_ENABLED: "false"
+      TUNNEL_ENABLED: "true"
     networks:
       - supabase
 
@@ -48,14 +52,14 @@ services:
     restart: unless-stopped
     build:
       context: ../..
-      dockerfile: scripts/compose/prod-web.Dockerfile
+      dockerfile: scripts/compose/prod-web-fast.Dockerfile
       args:
         NEXT_PUBLIC_APP_URL: https://dosco.live
         NEXT_PUBLIC_URL: https://dosco.live
         NEXT_PUBLIC_BACKEND_URL: https://dosco.live/v1
         NEXT_PUBLIC_SUPABASE_URL: https://dosco.live/supabase
         NEXT_PUBLIC_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
-        NEXT_PUBLIC_BILLING_ENABLED: "false"
+        NEXT_PUBLIC_BILLING_ENABLED: "true"
     ports:
       - "3000:3000"
     environment:
@@ -66,7 +70,7 @@ services:
       NEXT_PUBLIC_URL: https://dosco.live
       NEXT_PUBLIC_BACKEND_URL: https://dosco.live/v1
       NEXT_PUBLIC_SUPABASE_URL: https://dosco.live/supabase
-      NEXT_PUBLIC_BILLING_ENABLED: "false"
+      NEXT_PUBLIC_BILLING_ENABLED: "true"
       BACKEND_URL: https://dosco.live/v1
       SUPABASE_URL: http://supabase_kong_kortix-local:8000
       SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0

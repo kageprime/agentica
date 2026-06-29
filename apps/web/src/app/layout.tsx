@@ -23,14 +23,6 @@ import './globals.css';
 import { ReactQueryProvider } from './react-query-provider';
 
 // Lazy load non-critical analytics and global components
-const Analytics = lazy(() =>
-  import('@vercel/analytics/react').then((mod) => ({ default: mod.Analytics })),
-);
-const SpeedInsights = lazy(() =>
-  import('@vercel/speed-insights/next').then((mod) => ({
-    default: mod.SpeedInsights,
-  })),
-);
 const GoogleTagManager = lazy(() =>
   import('@next/third-parties/google').then((mod) => ({
     default: mod.GoogleTagManager,
@@ -373,18 +365,11 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
                   <Toaster />
                   {children}
                 </ReactQueryProvider>
-                {/* Analytics - lazy loaded to not block FCP */}
-                <Suspense fallback={null}>
-                  <Analytics />
-                </Suspense>
                 {process.env.NEXT_PUBLIC_GTM_ID && !isDesktopApp && (
                   <Suspense fallback={null}>
                     <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
                   </Suspense>
                 )}
-                <Suspense fallback={null}>
-                  <SpeedInsights />
-                </Suspense>
                 <Suspense fallback={null}>
                   <PostHogIdentify />
                 </Suspense>
