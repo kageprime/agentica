@@ -173,13 +173,14 @@
     },
     "extra": {
       "eas": {
-        "projectId": "9fca3cff-a291-41c9-88b9-feb8053b990f"
-      }
+        "projectId": "c14f3444-cb7d-4390-9c7c-9da07640d8f7"
+      },
+      "router": {}
     },
-    "owner": "kortix",
+    "owner": "ka9e",
     "runtimeVersion": "1.0.0",
     "updates": {
-      "url": "https://u.expo.dev/9fca3cff-a291-41c9-88b9-feb8053b990f",
+      "url": "https://u.expo.dev/c14f3444-cb7d-4390-9c7c-9da07640d8f7",
       "checkAutomatically": "ON_LOAD",
       "fallbackToCacheTimeout": 0
     }

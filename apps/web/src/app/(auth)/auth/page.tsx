@@ -22,7 +22,7 @@ import { AuthBrowserNoiseGuard } from '@/components/auth/auth-browser-noise-guar
 import { ConnectingScreen } from '@/components/dashboard/connecting-screen';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { WallpaperBackground } from '@/components/ui/wallpaper-background';
+import { UnicornBackground } from '@/components/ui/unicorn-background';
 import { useAuth } from '@/features/providers/auth-provider';
 import { invalidateTokenCache, setBootstrapAuthToken } from '@/lib/auth-token';
 import { buildMobileSessionHandoffUrl } from '@/lib/auth/mobile-handoff';
@@ -627,7 +627,7 @@ function AuthContent() {
       className="fixed inset-0 cursor-pointer overflow-hidden"
       onClick={() => phase === 'lock' && setPhase('form')}
     >
-      <WallpaperBackground wallpaperId="brandmark" />
+      <UnicornBackground />
 
       {/* Lock phase: clock + hint */}
       <AnimatePresence>

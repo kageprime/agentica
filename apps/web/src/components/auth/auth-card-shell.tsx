@@ -14,7 +14,7 @@ import { motion } from 'motion/react';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
-import { WallpaperBackground } from '@/components/ui/wallpaper-background';
+import { UnicornBackground } from '@/components/ui/unicorn-background';
 
 export function AuthCardShell({
   title,
@@ -30,7 +30,7 @@ export function AuthCardShell({
 }) {
   return (
     <div className="fixed inset-0 overflow-hidden">
-      <WallpaperBackground wallpaperId="brandmark" />
+      <UnicornBackground />
       <div className="absolute inset-0 bg-background/20 backdrop-blur-[2px]" />
 
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-4">

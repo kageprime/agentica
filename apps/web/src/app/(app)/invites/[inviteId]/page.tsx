@@ -12,7 +12,7 @@ import { KortixLogo } from '@/components/sidebar/kortix-logo';
 import { Button } from '@/components/ui/button';
 import { InfoBanner } from '@/components/ui/info-banner';
 import { UserAvatar } from '@/components/ui/user-avatar';
-import { WallpaperBackground } from '@/components/ui/wallpaper-background';
+import { UnicornBackground } from '@/components/ui/unicorn-background';
 import { useAuth } from '@/features/providers/auth-provider';
 import {
   acceptAccountInvite,
@@ -267,7 +267,7 @@ export default function InvitePage() {
 function BrandSurface({ children }: { children: React.ReactNode }) {
   return (
     <div className="fixed inset-0 overflow-hidden">
-      <WallpaperBackground wallpaperId="brandmark" />
+      <UnicornBackground />
       <div className="bg-background/20 absolute inset-0 backdrop-blur-[2px]" />
       <div className="relative z-10 flex h-full items-center justify-center px-4">{children}</div>
     </div>

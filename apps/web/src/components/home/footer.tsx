@@ -1,6 +1,5 @@
 'use client';
 
-import { siteConfig } from '@/lib/site-config';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
@@ -17,16 +16,10 @@ type FooterSection = {
   links: FooterLinkItem[];
 };
 
-const compareNavItem = siteConfig.nav.links.find(
-  (item) => typeof item.href !== 'string' && item.name === 'Compare',
-);
-
 const FOOTER_SECTIONS: FooterSection[] = [
   {
     title: 'Product',
     links: [
-      { label: 'CLI', href: '/developers' },
-      { label: 'Developer', href: '/developers' },
       { label: 'Enterprise', href: '/enterprise' },
       { label: 'Pricing', href: '/pricing' },
     ],
@@ -35,21 +28,9 @@ const FOOTER_SECTIONS: FooterSection[] = [
     title: 'Resources',
     links: [
       { label: 'Docs', href: '/docs' },
-      { label: 'Brand', href: '/design-system' },
       { label: 'Status', href: 'https://status.dosco.live', external: true },
     ],
   },
-  ...(compareNavItem && typeof compareNavItem.href !== 'string'
-    ? [
-        {
-          title: compareNavItem.name,
-          links: compareNavItem.href.map((link) => ({
-            label: link.name,
-            href: link.href,
-          })),
-        },
-      ]
-    : []),
   {
     title: 'Legal',
     links: [

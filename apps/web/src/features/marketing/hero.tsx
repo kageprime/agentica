@@ -1,63 +1,54 @@
-import { InteractiveDemoSection } from '@/components/home/interactive-demo-section';
-import { Button } from '@/components/ui/marketing/button';
-import { WallpaperBackground } from '@/components/ui/wallpaper-background';
-import { useAuth } from '@/features/providers/auth-provider';
-import { trackCtaSignup } from '@/lib/analytics/gtm';
-import { MessageSquare, PanelTop, Terminal } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
-import { useCallback } from 'react';
+'use client';
 
-const SURFACES = [
-  { label: 'Slack', icon: MessageSquare },
-  { label: 'Web workspace', icon: PanelTop },
-  { label: 'CLI', icon: Terminal },
-] as const;
+import { AnimatePresence, motion } from 'motion/react';
+import { useEffect, useState } from 'react';
 
-const Hero = () => {
-  const { user } = useAuth();
-  const tHardcodedUi = useTranslations('hardcodedUi');
-  const tHome = useCallback(
-    (key: string) => tHardcodedUi.raw(`appHomePage.${key}`),
-    [tHardcodedUi],
-  );
+import { UnicornBackground } from '@/components/ui/unicorn-background';
 
-  const handleLaunch = useCallback(() => {
-    trackCtaSignup();
-    window.location.href = user ? '/projects' : '/auth';
-  }, [user]);
+const ACTIONS = ['Work', 'Design', 'Prototype', 'Automate'];
+
+function BlinkingActions() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % ACTIONS.length), 2000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
-    <section id="hero" className="relative overflow-hidden px-6 pt-32 pb-12 sm:py-36">
-      <div className="inset-0 z-0 hidden opacity-40 mask-t-from-70% lg:absolute">
-        <WallpaperBackground wallpaperId="brandmark" />
+    <span className="relative inline-block w-[2.8em] text-left align-top">
+      <span className="invisible">{ACTIONS.reduce((a, b) => (a.length > b.length ? a : b))}</span>
+      <AnimatePresence mode="popLayout">
+        <motion.span
+          key={ACTIONS[index]}
+          className="absolute inset-0 text-left"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -12 }}
+          transition={{ duration: 0.25, ease: 'easeInOut' }}
+        >
+          {ACTIONS[index]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+}
+
+const Hero = () => {
+  return (
+    <section id="hero" className="relative h-screen w-full overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <UnicornBackground />
       </div>
 
-      <div className="z-20">
-        <section className="mx-auto w-full max-w-6xl">
-          <h1 className="text-foreground mt-5 text-4xl leading-[1.1] font-medium tracking-tight md:text-5xl">
-            {tHome('heroCommandCenter')}
-            <br />
-            <span className="text-muted-foreground">{tHome('heroAiWorkforce')}</span>
-          </h1>
-          <p className="text-muted-foreground mt-6 max-w-xl text-lg leading-relaxed">
-            {tHome('heroDescription')}
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button size="xl" onClick={handleLaunch}>
-              <span className="text-base">火</span>
-              {tHome('startBuildingCta')}
-            </Button>
-            <Button size="xl" variant="secondary" asChild>
-              <Link href={'/enterprise'}>{tHome('line149JsxTextTalkToSales')}</Link>
-            </Button>
-          </div>
-        </section>
-
-        <div id="demo" className="relative z-10 mx-auto mt-14 max-w-6xl scroll-mt-24 sm:mt-20">
-          <InteractiveDemoSection />
-        </div>
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6">
+        <h1 className="text-foreground text-center text-4xl leading-tight font-light tracking-tight md:text-6xl lg:text-7xl">
+          Agentica for{' '}
+          <BlinkingActions />
+        </h1>
+        <p className="text-muted-foreground mt-5 max-w-xl text-center text-base text-balance md:text-lg">
+          The first AI coworker your team will actually use.
+        </p>
       </div>
     </section>
   );

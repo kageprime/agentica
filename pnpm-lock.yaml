@@ -1067,6 +1067,9 @@ importers:
       typescript:
         specifier: ^5
         version: 5.9.3
+      unicornstudio-react:
+        specifier: 2.1.12-1
+        version: 2.1.12-1(next@15.5.18)(react-dom@19.1.0)(react@19.1.0)
       unified:
         specifier: ^11.0.5
         version: 11.0.5
@@ -24737,6 +24740,22 @@ packages:
     engines: {node: '>=16'}
     dependencies:
       regexp-util: 2.0.3
+    dev: false
+
+  /unicornstudio-react@2.1.12-1(next@15.5.18)(react-dom@19.1.0)(react@19.1.0):
+    resolution: {integrity: sha512-0DWD87ZlbKmiw5hAc/7wy4YRcjm7fXFG0wYVxFuDIS7tOIMqsk+uIVsl9Xkxl+HPWFVhR3TOGmWRNX5loXUZ9w==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      next: '*'
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+    peerDependenciesMeta:
+      next:
+        optional: true
+    dependencies:
+      next: 15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.61.0)(react-dom@19.1.0)(react@19.1.0)
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
     dev: false
 
   /unicount@1.1.0:
