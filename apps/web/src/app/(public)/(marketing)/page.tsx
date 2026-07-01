@@ -1,9 +1,10 @@
 import { Separator } from '@/components/ui/separator';
+import { HowItWorks } from '@/features/marketing/how-it-work/how-it-works';
+import { SurfacesSection } from '@/features/marketing/story-sections';
+import { WhyAgentica } from '@/features/marketing/why-kortix';
 import Hero from '@/features/marketing/hero';
 import { CtaSection } from '@/features/marketing/cta-section';
 import Security from '@/features/marketing/security/security';
-import { SurfacesSection } from '@/features/marketing/surfaces-section';
-import { ValueSection } from '@/features/marketing/value-section';
 
 export default function Home() {
   return (
@@ -14,13 +15,19 @@ export default function Home() {
         <Separator />
       </div>
 
-      <ValueSection />
+      <HowItWorks />
 
       <div className="mx-auto max-w-6xl">
         <Separator />
       </div>
 
       <SurfacesSection />
+
+      <div className="mx-auto max-w-6xl">
+        <Separator />
+      </div>
+
+      <WhyAgentica />
 
       <div className="mx-auto max-w-6xl">
         <Separator />

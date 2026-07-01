@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
 import { UnicornBackground } from '@/components/ui/unicorn-background';
+import { vujahdayScript } from '@/app/(system)/fonts/vujahday-script';
 
 const ACTIONS = ['Work', 'Design', 'Prototype', 'Automate'];
 
@@ -21,7 +22,7 @@ function BlinkingActions() {
       <AnimatePresence mode="popLayout">
         <motion.span
           key={ACTIONS[index]}
-          className="absolute inset-0 text-left"
+          className={`absolute inset-0 text-left italic ${vujahdayScript.className}`}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
@@ -42,13 +43,25 @@ const Hero = () => {
       </div>
 
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6">
-        <h1 className="text-foreground text-center text-4xl leading-tight font-light tracking-tight md:text-6xl lg:text-7xl">
+        <motion.h1
+          className="text-foreground text-center text-4xl leading-tight font-light tracking-tight md:text-6xl lg:text-7xl"
+          initial={{ opacity: 0, filter: 'blur(4px)' }}
+          animate={{ opacity: 1, filter: 'blur(0px)' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          style={{ willChange: 'opacity, filter', transform: 'translateZ(0)' }}
+        >
           Agentica for{' '}
           <BlinkingActions />
-        </h1>
-        <p className="text-muted-foreground mt-5 max-w-xl text-center text-base text-balance md:text-lg">
+        </motion.h1>
+        <motion.p
+          className="text-muted-foreground mt-5 max-w-xl text-center text-base text-balance md:text-lg"
+          initial={{ opacity: 0, filter: 'blur(4px)' }}
+          animate={{ opacity: 1, filter: 'blur(0px)' }}
+          transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
+          style={{ willChange: 'opacity, filter', transform: 'translateZ(0)' }}
+        >
           The first AI coworker your team will actually use.
-        </p>
+        </motion.p>
       </div>
     </section>
   );
