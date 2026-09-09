@@ -257,6 +257,12 @@ const envSchema = z.object({
   // ── Search Providers (optional — features degrade gracefully) ────────────
   TAVILY_API_URL: optUrl('https://api.tavily.com'),
   TAVILY_API_KEY: optStr,
+  // Paystack (Nigerian market billing) — optional; billing routes degrade to a
+  // clear 400 when unset. Charges in USD (Paystack subunits = cents).
+  PAYSTACK_API_URL: optUrl('https://api.paystack.co'),
+  PAYSTACK_PUBLIC_KEY: optStr,
+  PAYSTACK_SECRET_KEY: optStr,
+  PAYSTACK_WEBHOOK_SECRET: optStr,
   SERPER_API_URL: optUrl('https://google.serper.dev'),
   SERPER_API_KEY: optStr,
 
@@ -1076,6 +1082,10 @@ export const config = {
   // ─── Search Providers ──────────────────────────────────────────────────────
   TAVILY_API_URL: env.TAVILY_API_URL,
   TAVILY_API_KEY: env.TAVILY_API_KEY,
+  PAYSTACK_API_URL: env.PAYSTACK_API_URL,
+  PAYSTACK_PUBLIC_KEY: env.PAYSTACK_PUBLIC_KEY,
+  PAYSTACK_SECRET_KEY: env.PAYSTACK_SECRET_KEY,
+  PAYSTACK_WEBHOOK_SECRET: env.PAYSTACK_WEBHOOK_SECRET,
   SERPER_API_URL: env.SERPER_API_URL,
   SERPER_API_KEY: env.SERPER_API_KEY,
 
