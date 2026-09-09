@@ -257,12 +257,18 @@ const envSchema = z.object({
   // ── Search Providers (optional — features degrade gracefully) ────────────
   TAVILY_API_URL: optUrl('https://api.tavily.com'),
   TAVILY_API_KEY: optStr,
-  // Paystack (Nigerian market billing) — optional; billing routes degrade to a
-  // clear 400 when unset. Charges in USD (Paystack subunits = cents).
+  // Paystack (Nigerian-market billing) — optional; billing routes degrade to
+  // a clear 400 when unset.
+  // Charges bill in NGN (the merchant account cannot transact in USD):
+  // PAYSTACK_USD_NGN_RATE is the naira per 1 USD used to convert the
+  // USD-denominated prices. 0/unset means "no rate" — checkout paths fail
+  // with a clear 400 rather than charging a wrong amount. Never a boot
+  // error: a missing rate must not take the whole API down.
   PAYSTACK_API_URL: optUrl('https://api.paystack.co'),
   PAYSTACK_PUBLIC_KEY: optStr,
   PAYSTACK_SECRET_KEY: optStr,
   PAYSTACK_WEBHOOK_SECRET: optStr,
+  PAYSTACK_USD_NGN_RATE: optNum(0),
   SERPER_API_URL: optUrl('https://google.serper.dev'),
   SERPER_API_KEY: optStr,
 
@@ -1107,6 +1113,7 @@ export const config = {
   PAYSTACK_PUBLIC_KEY: env.PAYSTACK_PUBLIC_KEY,
   PAYSTACK_SECRET_KEY: env.PAYSTACK_SECRET_KEY,
   PAYSTACK_WEBHOOK_SECRET: env.PAYSTACK_WEBHOOK_SECRET,
+  PAYSTACK_USD_NGN_RATE: env.PAYSTACK_USD_NGN_RATE,
   SERPER_API_URL: env.SERPER_API_URL,
   SERPER_API_KEY: env.SERPER_API_KEY,
 
