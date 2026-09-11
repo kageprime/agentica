@@ -16,7 +16,7 @@ summary and the other half forgets. The information already exists in Linear and
 GitHub; someone just has to gather it, format it, and chase the people who didn't
 post.
 
-We run a daily agent on Kortix that does the gathering. It reads each person's
+We run a daily agent on the platform that does the gathering. It reads each person's
 Linear and GitHub activity, nudges anyone with nothing recorded, and posts a
 concise standup to a Slack channel. This is how we run our own standups, and the
 same setup works for any team.
@@ -43,7 +43,7 @@ it in.
 
 ## What we built
 
-On Kortix, a cron fires once each weekday morning and spawns an agent. It reads
+On the platform, a cron fires once each weekday morning and spawns an agent. It reads
 each team member's recent Linear issues and GitHub activity, builds a short
 per-person summary, checks who has nothing recorded, and posts the standup to a
 Slack channel. Anyone with a quiet day gets a light prompt so they can add

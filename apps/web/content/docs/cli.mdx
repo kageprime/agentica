@@ -3,12 +3,12 @@ title: CLI
 description: The kortix command line, its auth model, the dev loop, and every command.
 ---
 
-The `kortix` command line interface (CLI) controls Kortix from a terminal — your laptop or a session sandbox. This page shows the everyday dev loop, then lists every stable command and flag.
+The `kortix` command line interface (CLI) controls the platform from a terminal — your laptop or a session sandbox. This page shows the everyday dev loop, then lists every stable command and flag.
 
 ## Install
 
 ```sh
-curl -fsSL https://kortix.com/install | bash
+curl -fsSL https://dosco.live/install | bash
 ```
 
 The installer downloads a prebuilt binary for macOS and Linux. Windows is not supported.
@@ -21,7 +21,7 @@ The installer downloads a prebuilt binary for macOS and Linux. Windows is not su
 
 ## Auth model
 
-Kortix stores authentication per host, not globally. A host is one Kortix API endpoint. Four hosts exist by default: `cloud` (Kortix Cloud), `selfhost` (your self-hosted stack), `local-dev`, and `kortix-internal-dev`. You can add more.
+The platform stores authentication per host, not globally. A host is one API endpoint. Four hosts exist by default: `cloud` (Cloud), `selfhost` (your self-hosted stack), `local-dev`, and `kortix-internal-dev`. You can add more.
 
 The config file lives at `~/.config/kortix/config.json`, mode `0600`. Override its path with `KORTIX_CONFIG_FILE`.
 
@@ -54,7 +54,7 @@ To link an existing cloned repo to a project you already created:
 kortix projects link <project-id>
 ```
 
-This command writes `.kortix/link.json` in the current directory. Kortix reads this file to find your project on every command run from this folder. If you plan to run `kortix ship` first, skip this step. It links a new project for you when none exists.
+This command writes `.kortix/link.json` in the current directory. The platform reads this file to find your project on every command run from this folder. If you plan to run `kortix ship` first, skip this step. It links a new project for you when none exists.
 </Step>
 
 <Step title="Ship your code">
@@ -172,7 +172,7 @@ project, so `member` is the only role that takes per-project grants.
 | Command | Effect |
 | --- | --- |
 | `kortix members ls [--json]` | List members, roles, and project counts. |
-| `kortix members invite <email> --role admin\|member [--project <id>:<role>]` | Invite by email. An existing Kortix user is added immediately; anyone else is mailed an invite link. `--project` is repeatable and applies on accept. Needs `member.invite`. |
+| `kortix members invite <email> --role admin\|member [--project <id>:<role>]` | Invite by email. An existing user is added immediately; anyone else is mailed an invite link. `--project` is repeatable and applies on accept. Needs `member.invite`. |
 | `kortix members set-role <user\|email> --role owner\|admin\|member` | Change an account role. Needs `member.update`; the `owner` role is owner-only. |
 | `kortix members rm <user\|email> [-y\|--yes]` | Remove a member and revoke their tokens. Needs `member.remove`. |
 | `kortix members super-admin <user\|email> on\|off` | Grant or revoke the super-admin bypass. Needs `member.super_admin.grant`. |
@@ -259,7 +259,7 @@ A command resolves "the project" in this order:
 | `kortix projects link [<id>]` | Bind the current directory to a project. Writes `.kortix/link.json`. |
 | `kortix projects unlink` | Remove `.kortix/link.json`. |
 | `kortix projects open [<id>]` | Open a project's dashboard page in your browser. |
-| `kortix projects clone [<id>] [dir]` | Clone a project's repo through the authenticated Kortix git proxy. |
+| `kortix projects clone [<id>] [dir]` | Clone a project's repo through the authenticated git proxy. |
 | `kortix projects rm [<id>] [--purge] [-y\|--yes]` | Archive a project. `--purge` also deletes its managed git repo. |
 | `kortix projects set [<id>] [--name <n>] [--branch <b>] [--manifest <path>] [--json]` | Update one project's settings. Only the fields you pass are written. Passing no field exits `2`. Alias: `update`. |
 | `kortix projects set [<id>] --icon <emoji>\|--no-icon\|--glyph <name>:<color>\|--no-glyph` | Set or remove the project's icon. |
@@ -320,7 +320,7 @@ Each run:
 - Pushes the current branch to the same-named remote branch.
 - Connects any declared connector that still needs auth (skip with `--no-connect`).
 
-An existing GitHub `origin` links through the Kortix GitHub App. Any other existing `origin` is registered as-is. No `origin` creates a managed Kortix git repo.
+An existing GitHub `origin` links through the GitHub App. Any other existing `origin` is registered as-is. No `origin` creates a managed git repo.
 
 | Option | Effect |
 | --- | --- |
@@ -372,7 +372,7 @@ Each session runs in one sandbox on its own branch.
 | `kortix sessions approvals <id> [ls] [--json]` | List the governed connector calls this session is waiting on a human for. |
 | `kortix sessions approvals <id> approve\|deny <execution-id>` | Let one governed connector call run, or refuse it. The agent is told and continues without it. |
 | `kortix sessions files <id> <subcommand> [--json]` | Read and edit the sandbox's live workspace: `ls [<path>]`, `status`, `find <query>`, `write <path>`, `touch <path>`, `mkdir <path>`, `mv <from> <to>`, `rm <path>`. |
-| `kortix sessions share <id> [--mode private\|project\|members] [--member <id\|email>] [--group <id>] [--show] [--json]` | Set who inside Kortix can open this session. With no `--mode` it prints the current setting and changes nothing. `--member` and `--group` are repeatable. |
+| `kortix sessions share <id> [--mode private\|project\|members] [--member <id\|email>] [--group <id>] [--show] [--json]` | Set who inside the platform can open this session. With no `--mode` it prints the current setting and changes nothing. `--member` and `--group` are repeatable. |
 | `kortix sessions links <id> ls [--json]` | List every public link ever minted on the session, newest first. |
 | `kortix sessions links <id> create [options]` | Mint one public, unauthenticated link onto a preview port or one workspace file. |
 | `kortix sessions links <id> revoke <share-id>` | Kill one public link. |
@@ -473,7 +473,7 @@ Reads need `project.review.read`, verdicts need `project.review.act`, and
 
 ### Secrets
 
-Encrypted values stored on the project. By default a secret injects as a plain environment variable into every session sandbox at boot (environment exposure). Enforced delivery — where the sandbox holds a handle and Kortix substitutes the real value outside it (egress-enforced exposure, and `kortix secrets call`) — is experimental. Enable the `secrets_egress` feature flag (Settings → Feature flags) to use it; with the flag off, `kortix secrets delivery … egress` returns `403` `feature_disabled`. See [Secrets](/docs/project/secrets).
+Encrypted values stored on the project. By default a secret injects as a plain environment variable into every session sandbox at boot (environment exposure). Enforced delivery — where the sandbox holds a handle and the platform substitutes the real value outside it (egress-enforced exposure, and `kortix secrets call`) — is experimental. Enable the `secrets_egress` feature flag (Settings → Feature flags) to use it; with the flag off, `kortix secrets delivery … egress` returns `403` `feature_disabled`. See [Secrets](/docs/project/secrets).
 
 | Command | Effect |
 | --- | --- |
@@ -600,7 +600,7 @@ Connectors an agent calls as tools. `add`, `rm`, and `policy set` edit the local
 | `kortix connectors sensitive <slug> on\|off` | Gate this connector's reads too — every call then needs approval. Applies now. |
 | `kortix connectors owner <slug> project\|user` | Who authorizes: one project connection, or each member's own. Applies now. |
 | `kortix connectors machines <slug> [--show] [--add <id>] [--rm <id>]` | Which paired computers a `computer` connector may target. Applies now. |
-| `kortix connectors authorize <slug> [--status] [--scope "<a b>"] [--client-id <id>] [--client-secret <s>] [--success-redirect <url>] [--error-redirect <url>] [--json]` | OAuth 2.1 a connector end to end: discover the server's authorization metadata, register Kortix as a client (RFC 7591) where the server supports it, and print the URL to approve. `--status` reports the result instead. |
+| `kortix connectors authorize <slug> [--status] [--scope "<a b>"] [--client-id <id>] [--client-secret <s>] [--success-redirect <url>] [--error-redirect <url>] [--json]` | OAuth 2.1 a connector end to end: discover the server's authorization metadata, register the platform as a client (RFC 7591) where the server supports it, and print the URL to approve. `--status` reports the result instead. |
 | `kortix connectors authorize <slug> --device` | Same, using the OAuth 2.0 device flow (RFC 8628): print a code and a URL, then poll until it is approved, denied, or expired. |
 | `kortix connectors policy ls [--json]` | Show project-wide execution policy. Alias: `show`. |
 | `kortix connectors policy set --default <risk\|allow_all> [--apply]` | Set the default execution mode in `kortix.yaml`. `--apply` sets it live instead. |
@@ -640,7 +640,7 @@ Pinning a provider needs `project.customize.write`.
 
 ### Marketplace
 
-Browse the Kortix marketplace, and install an item into a project.
+Browse the marketplace, and install an item into a project.
 
 | Command | Effect |
 | --- | --- |
@@ -657,14 +657,14 @@ deterministic install/update/remove machinery.
 
 ### System skills
 
-The Kortix system skills are the platform's own documentation. They cover
+The system skills are the platform's own documentation. They cover
 sessions, sandboxes, OpenCode, the connector, memory, and
 channels. The API serves them live, so they match the deployed host version.
 The binary and a token are enough for an agent to retrieve this context.
 
 | Command | Effect |
 | --- | --- |
-| `kortix system-skills list` | List the Kortix system skills. Default subcommand. |
+| `kortix system-skills list` | List the system skills. Default subcommand. |
 | `kortix system-skills get <name> [--full]` | Print one skill's current `SKILL.md`. `--full` adds its referenced files. |
 | `kortix system-skills path [name]` | Print a skill's on-disk directory in this project. |
 
@@ -782,8 +782,8 @@ The project member verbs are a read model over the same assignments:
 
 Every verb in the two blocks above needs `project.members.manage`.
 
-A person, a group, or an agent gets roles from Kortix; an agent additionally
-carries Kortix CLI scopes in `kortix.yaml`, and a session can only do what both
+A person, a group, or an agent gets roles from the platform; an agent additionally
+carries CLI scopes in `kortix.yaml`, and a session can only do what both
 allow. See [One vocabulary, two bindings](/docs/accounts#one-vocabulary-two-bindings).
 
 ### Audit
@@ -840,7 +840,7 @@ assign` / `unassign` / `assignments` verbs still work and write the same table,
 but `kortix access` is the documented path. `kortix roles actions` is superseded
 by `kortix permissions ls`.
 
-A custom role only adds permissions. Kortix has no deny rule, so a role cannot
+A custom role only adds permissions. The platform has no deny rule, so a role cannot
 withhold a permission from a manager.
 
 ### Permissions

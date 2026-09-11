@@ -9,7 +9,7 @@ same thread.
 
 ## Live channels
 
-Kortix supports four channel platforms today:
+The platform supports four channel platforms today:
 
 - **Slack** — connect with one click through the Kortix-managed app, or bring
   your own bot token.
@@ -35,7 +35,7 @@ project shows a project picker on the first mention.
 
 ## Identity linking
 
-Kortix links each chat sender to a Kortix account before the agent runs for
+The platform links each chat sender to an account before the agent runs for
 them. Run `/kortix login` in Slack and follow the link to sign in. Teams uses
 the same requirement. An unlinked sender gets a prompt to link instead of a
 session run.
@@ -44,7 +44,7 @@ session run.
 
 A connected channel's bot token is a connector-scoped
 [secret](/docs/project/secrets). It does not appear on the project's Secrets
-page. Kortix never injects it into a sandbox. Kortix resolves the token
+page. The platform never injects it into a sandbox. The platform resolves the token
 server-side when the agent sends a chat message.
 
 ## Connect Slack
@@ -58,7 +58,7 @@ From the CLI, run:
 kortix channels connect
 ```
 
-On a host with the shared Slack app configured (Kortix Cloud, for example),
+On a host with the shared Slack app configured (Cloud, for example),
 this prints a one-click install link. Open the link and pick the workspace.
 Click **Allow**. Add `--wait` to make the command poll until the install
 lands.
@@ -102,7 +102,7 @@ no task gets a reminder to add one instead of starting a session.
 ## Control a session with slash commands
 
 Type these as `/kortix <command>` in Slack, or as plain text in a DM. Slash
-commands do not run inside the Assistant DM pane, so Kortix parses the same
+commands do not run inside the Assistant DM pane, so the platform parses the same
 words from plain text there.
 
 | Command | What it does |

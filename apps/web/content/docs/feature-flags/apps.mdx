@@ -1,9 +1,9 @@
 ---
 title: Apps
-description: Deploy static sites, bundles, Dockerfiles, and OCI images to stable Kortix URLs.
+description: Deploy static sites, bundles, Dockerfiles, and OCI images to stable URLs.
 ---
 
-A Kortix App is a provider-neutral serverless deployment owned by one project.
+An App is a provider-neutral serverless deployment owned by one project.
 An App owns one stable URL. Each deployment is immutable and numbered. A failed
 deployment never replaces live traffic.
 
@@ -29,11 +29,11 @@ While the flag is off:
 
 ## Source kinds
 
-All four source kinds run on the same Kortix sandbox hosting backend. Kortix
+All four source kinds run on the same sandbox hosting backend. Kortix
 selects Daytona, Platinum, or E2B. They therefore share one deployment contract
 and one cold-wake contract.
 
-| Kind | Deploy this | Kortix does |
+| Kind | Deploy this | The platform does |
 |---|---|---|
 | `static` | Plain HTML, CSS, JS, or a prebuilt SPA or `dist/` | Serves the files |
 | `bundle` | A package source | Runs the install and build commands, then serves the output directory |
@@ -115,7 +115,7 @@ apps:
       memory_gb: 2
       disk_gb: 10
     env:
-      PUBLIC_BASE: https://kortix.com
+      PUBLIC_BASE: https://dosco.live
     secrets:
       API_TOKEN: docs_api_token
 ```
@@ -145,7 +145,7 @@ Creating an App past the account's App quota answers `402` with
 ## The stable URL
 
 Kortix assigns the hostname when the App is created and never changes it. On
-Kortix cloud it is `<env>-<slug>-<route-key>.apps.kortix.com`. Self-hosted
+Cloud it is `<env>-<slug>-<route-key>.apps.kortix.com`. Self-hosted
 deployments serve their own wildcard domain from `KORTIX_APPS_BASE_DOMAIN`.
 
 An authorized request to a suspended App resumes its sandbox, waits for
@@ -204,7 +204,7 @@ kortix apps access docs --mode password --password 's3cret'
 kortix apps access-link docs --json
 ```
 
-Kortix access uses a five-minute exchange URL and an eight-hour, host-only,
+Access uses a five-minute exchange URL and an eight-hour, host-only,
 secure cookie. `access-link` mints that exchange URL without changing the
 policy — treat it as a secret.
 
@@ -243,7 +243,7 @@ Rollback starts the target deployment's runtime first, then stops the previous
 one. A target that fails to start leaves the current deployment serving.
 
 Each cold start compares the active deployment's runtime version against the
-current Kortix App runtime. The old deployment keeps serving while Kortix
+current App runtime. The old deployment keeps serving while Kortix
 asynchronously builds one immutable replacement with the latest `kortix-appd`
 and Caddy binaries. A PostgreSQL advisory lock prevents duplicate refreshes.
 

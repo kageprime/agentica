@@ -16,7 +16,7 @@ list. It's fast and it's ignored. Real personalization means researching each
 account and writing to its actual context, which is exactly the part that doesn't
 scale.
 
-We run an agent on Kortix that does the research and the writing per contact, then
+We run an agent on the platform that does the research and the writing per contact, then
 holds every send behind a person. It enriches each lead, drafts a first-touch and
 follow-up grounded in the account's real context, logs every draft to the CRM, and
 sends nothing without approval, capped daily. This is how we run our own outbound.
@@ -42,7 +42,7 @@ segment away from putting unreviewed email in front of thousands of people.
 
 ## What we built
 
-On Kortix, a periodic sweep triggers the agent in a fresh session (a cloud
+On the platform, a periodic sweep triggers the agent in a fresh session (a cloud
 sandbox) with scoped access to enrichment, the CRM, and email. The agent works
 through the batch of new contacts one by one, researches each account, drafts
 a first-touch and a follow-up sequence grounded in what it found, and logs

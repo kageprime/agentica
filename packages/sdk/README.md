@@ -10,10 +10,10 @@ road.)
 > Philosophy: **one Kortix token, one client, every action a method.** Keys never
 > leave the server; mutations own their side-effects there; the host states intent.
 
-📖 **Full documentation:** [kortix.com/docs/sdk](https://kortix.com/docs/sdk) —
+📖 **Full documentation:** [dosco.live/docs/sdk](https://dosco.live/docs/sdk) —
 getting started, the full client, sessions, React hooks, and the subpath modules.
 The REST API has an auto-generated reference at
-[api.kortix.com/v1/docs](https://api.kortix.com/v1/docs).
+[api.dosco.live/v1/docs](https://api.dosco.live/v1/docs).
 
 ---
 
@@ -27,7 +27,7 @@ npm install @kortix/sdk
 import { createKortix } from "@kortix/sdk";
 
 const kortix = createKortix({
-  backendUrl: "https://api.kortix.com/v1",
+  backendUrl: "https://api.dosco.live/v1",
   getToken,
 });
 await kortix.projects.list();
@@ -108,7 +108,7 @@ list of aliases (20 of them).
 import { createKortix } from "@kortix/sdk";
 
 const kortix = createKortix({
-  backendUrl: "https://api.kortix.com/v1",
+  backendUrl: "https://api.dosco.live/v1",
   getToken: () =>
     supabase.auth
       .getSession()
@@ -586,7 +586,7 @@ Make Kortix the identity provider for an app you run. Register the app once
 import { createKortixAuth } from '@kortix/sdk/server';
 
 export const auth = createKortixAuth({
-  backendUrl: 'https://api.kortix.com/v1',
+  backendUrl: 'https://api.dosco.live/v1',
   clientId: process.env.KORTIX_OAUTH_CLIENT_ID!,
   clientSecret: process.env.KORTIX_OAUTH_CLIENT_SECRET,   // omit for a public (PKCE-only) client
   redirectUri: 'https://app.example.com/api/kortix/auth/callback',

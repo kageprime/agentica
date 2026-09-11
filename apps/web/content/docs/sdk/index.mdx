@@ -3,7 +3,7 @@ title: TypeScript SDK
 description: Install, authenticate, and send your first message with the typed SDK.
 ---
 
-`@kortix/sdk` is the typed client for the Kortix platform. It wraps the Kortix
+`@kortix/sdk` is the typed client for the platform. It wraps the platform
 REST API and OpenCode REST runtime in one interface. The core client is
 fetch-based and runs in Node, Bun, and browsers.
 
@@ -23,7 +23,7 @@ Call `createKortix` once, with your API base URL and a function that returns you
 import { createKortix } from '@kortix/sdk';
 
 export const kortix = createKortix({
-  backendUrl: 'https://api.kortix.com/v1',
+  backendUrl: 'https://api.dosco.live/v1',
   getToken: async () => process.env.KORTIX_API_KEY!,
 });
 ```

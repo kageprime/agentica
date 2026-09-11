@@ -72,7 +72,7 @@ bounded argument preview that redacts credential-shaped fields and opaque data.
 
 ### Access assignments
 
-Kortix has one grant record: an **assignment**. It binds one principal (`user`,
+The platform has one grant record: an **assignment**. It binds one principal (`user`,
 `group`, `service_account`, or `pending`) to one role, at one scope (`account`,
 or one `project`), optionally narrowed to one object (`agent`, `skill`, `secret`,
 `app`, or `trigger`) and optionally carrying an `expires_at`. Group access,
@@ -247,7 +247,7 @@ project access.
 `runtime` with consumer `sandbox` is **environment** exposure — the default,
 and the only policy that puts a plaintext value in the session. `egress` with
 consumer `network` is **egress-enforced** exposure: the session holds a handle
-and Kortix substitutes the real value outside the sandbox, for the exact HTTPS
+and the platform substitutes the real value outside the sandbox, for the exact HTTPS
 hosts the policy lists. Egress-enforced exposure is experimental; it needs the
 `secrets_egress` feature flag (Settings → Feature flags). With the flag off,
 `setStrategy(identifier, 'egress', …)` and `upsert(...)` with an egress policy
@@ -987,7 +987,7 @@ runtimes.
 | `@kortix/sdk/react` | Supported | React hooks. The only entry that imports React. |
 | `@kortix/sdk/server` | Supported | Per-request config isolation for Node and Bun servers, via `node:async_hooks`. Never bundle it into a browser. |
 | Legacy subpaths (`/projects-client`, `/turns`, `/files`, and more) | Deprecated | Still work. Each re-exports from the root. Import from the root instead. |
-| `@kortix/sdk/internal/*` | Internal | Used by the Kortix web app only. Not a supported API. |
+| `@kortix/sdk/internal/*` | Internal | Used by the web app only. Not a supported API. |
 
 ### CDN bundles
 
@@ -999,7 +999,7 @@ defines `window.Kortix`.
 <script src="https://unpkg.com/@kortix/sdk/dist/kortix.global.js"></script>
 <script>
   const kortix = Kortix.createKortix({
-    backendUrl: 'https://api.kortix.com/v1',
+    backendUrl: 'https://api.dosco.live/v1',
     getToken: async () => KEY,
   });
 </script>

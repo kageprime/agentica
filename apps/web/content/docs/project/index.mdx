@@ -8,7 +8,7 @@ state your agent produces. No separate database exists to keep in sync.
 
 Kortix backs a project two ways:
 
-- **Kortix-managed repo** — Kortix creates and hosts a private repo. Default.
+- **Kortix-managed repo** — the platform creates and hosts a private repo. Default.
 - **Imported GitHub repo** — connect an existing repo. Kortix operates on it
   through the GitHub API.
 
@@ -22,7 +22,7 @@ separate projects, each with its own sessions and change requests.
 
 A project holds your agent's instructions, its
 [connectors](/docs/connect/connectors), its [triggers](/docs/connect/triggers),
-and its memory. Keep it small — Kortix clones it into every session.
+and its memory. Keep it small — the platform clones it into every session.
 
 Your code lives elsewhere. When a task needs a codebase, the agent clones
 that repository, does the work, and opens a change request back to it. Do
@@ -38,7 +38,7 @@ platform reads these top-level keys:
 | Key | Configures |
 |---|---|
 | `default_agent` | which agent runs by default |
-| `agents` | per-agent grants: connectors, secrets, skills, Kortix CLI permissions |
+| `agents` | per-agent grants: connectors, secrets, skills, CLI permissions |
 | `sandbox` | the sandbox image and hardware |
 | `triggers` | scheduled and webhook automation |
 | `connectors` | which external tools the project can reach |

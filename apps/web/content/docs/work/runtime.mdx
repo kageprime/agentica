@@ -3,7 +3,7 @@ title: Runtime & sandbox
 description: Sandbox lifecycle, injected environment, token families, and the image a session boots from.
 ---
 
-A session runs in an isolated sandbox on Daytona, Platinum, or E2B Cloud, built from a layered image. This page is the reference for the sandbox lifecycle, the environment Kortix injects at boot, the token families, and the sandbox image itself. For the session concept, see [Sessions](/docs/work/sessions).
+A session runs in an isolated sandbox on Daytona, Platinum, or E2B Cloud, built from a layered image. This page is the reference for the sandbox lifecycle, the environment the platform injects at boot, the token families, and the sandbox image itself. For the session concept, see [Sessions](/docs/work/sessions).
 
 ## Sandbox lifecycle
 
@@ -11,7 +11,7 @@ A session row carries a `status`. The enum defines `queued`, `branching`, `provi
 
 | Status | Set when |
 | --- | --- |
-| `provisioning` | At session create. Kortix creates the session branch and requests the sandbox. |
+| `provisioning` | At session create. The platform creates the session branch and requests the sandbox. |
 | `running` | Once the sandbox is live and reachable. |
 | `stopped` | On explicit stop, or by the idle sweep that hibernates inactive sandboxes. |
 | `failed` | If provisioning fails. |
@@ -28,7 +28,7 @@ The sandbox itself carries a separate `status` in its own row, with its own enum
 | `error` | The provider reports a boot or runtime failure. |
 | `archived` | Terminal. You deleted the session and the provider destroyed the sandbox, not paused it. |
 
-Kortix enforces a concurrent-session limit per account. Exceeding your tier's limit returns `429`.
+The platform enforces a concurrent-session limit per account. Exceeding your tier's limit returns `429`.
 
 ### Active-turn protection
 
@@ -39,13 +39,13 @@ An open dashboard tab, preview, SSE connection, or health poll does not create a
 ### Branch model
 
 - The session branch is named after the session id (a UUID). `KORTIX_SESSION_ID` and `KORTIX_BRANCH_NAME` carry the same value.
-- Kortix cuts the branch from `base_ref`, which defaults to the project's default branch, at session-create time.
+- The platform cuts the branch from `base_ref`, which defaults to the project's default branch, at session-create time.
 - Triggers create their session branch the same way an interactive session does.
 - Nothing writes the default branch directly. Only a merged [change request](/docs/work/change-requests) does.
 
 ### Reconcile a session branch
 
-Use **Ask Agent: Sync Branch & Reload** from the session command palette when the base branch changed. The agent inspects the session branch, preserves local work, fetches the latest `base_ref`, resolves conflicts, runs the relevant tests, and commits the reconciliation. Kortix does not choose one side of a conflict or reset the working tree.
+Use **Ask Agent: Sync Branch & Reload** from the session command palette when the base branch changed. The agent inspects the session branch, preserves local work, fetches the latest `base_ref`, resolves conflicts, runs the relevant tests, and commits the reconciliation. The platform does not choose one side of a conflict or reset the working tree.
 
 The agent finishes with `kortix sessions reload "$KORTIX_SESSION_ID" --project "$KORTIX_PROJECT_ID" --no-repo --force --yes`. `--no-repo` is required because the agent already reconciled the branch. The reload replaces the OpenCode runtime after the replacement becomes healthy. It ends the current turn, so send `continue` after the runtime returns.
 
@@ -65,7 +65,7 @@ OpenCode's `HOME` is `/opt/kortix/home`, not `/workspace`. Its object store neve
 
 ## Injected environment
 
-Kortix injects these variables at boot. Only a project secret explicitly configured for `runtime` delivery enters the sandbox. Connector and model-provider credentials stay on the Kortix server.
+The platform injects these variables at boot. Only a project secret explicitly configured for `runtime` delivery enters the sandbox. Connector and model-provider credentials stay on the server.
 
 | Variable | What |
 | --- | --- |
@@ -83,28 +83,28 @@ Kortix injects these variables at boot. Only a project secret explicitly configu
 | `KORTIX_PROJECT_SECRET_NAMES` | Comma-separated names of the project's secrets. |
 | `KORTIX_PROJECT_SECRETS_REVISION` | Revision marker for the secret set. |
 | `KORTIX_BOOTSTRAP_OPENCODE_SESSION` | `1` — always set. Tells the daemon to create the OpenCode root on cold boot. |
-| `KORTIX_LLM_BASE_URL` | Kortix LLM-gateway base URL. The gateway resolves provider credentials server-side. |
-| `KORTIX_TOKEN` | The session-bound Kortix credential. See below. |
+| `KORTIX_LLM_BASE_URL` | LLM-gateway base URL. The gateway resolves provider credentials server-side. |
+| `KORTIX_TOKEN` | The session-bound credential. See below. |
 
-Kortix does not inject `KORTIX_WORKSPACE`. The image bakes in `/workspace` and no per-session step sets it. Kortix does not inject a git token either — the daemon fetches a short-lived clone credential when it needs one; see [Pushing from a session](#pushing-from-a-session) below. Kortix rejects a user secret named with the `KORTIX_*` prefix, because it reserves that prefix for platform variables.
+The platform does not inject `KORTIX_WORKSPACE`. The image bakes in `/workspace` and no per-session step sets it. The platform does not inject a git token either — the daemon fetches a short-lived clone credential when it needs one; see [Pushing from a session](#pushing-from-a-session) below. The platform rejects a user secret named with the `KORTIX_*` prefix, because it reserves that prefix for platform variables.
 
 ## Session credential
 
-Kortix has external tokens you create yourself and one credential inside each sandbox.
+The platform has external tokens you create yourself and one credential inside each sandbox.
 
 ### External tokens
 
-A personal access token (PAT, prefixed `kortix_pat_`) or a service account (prefixed `kortix_sa_`) authenticates calls to the Kortix API, the SDK, and the CLI from outside a sandbox. See [Authentication](/docs/sdk/auth) for PAT scope, service-account setup, and how to choose between them.
+A personal access token (PAT, prefixed `kortix_pat_`) or a service account (prefixed `kortix_sa_`) authenticates calls to the API, the SDK, and the CLI from outside a sandbox. See [Authentication](/docs/sdk/auth) for PAT scope, service-account setup, and how to choose between them.
 
 ### In-sandbox token
 
-`KORTIX_TOKEN` is minted when Kortix starts the session environment. It is bound to the launching user, project, session, and agent grant. The daemon, CLI, Git credential helper, LLM gateway, and connector gateway use this same credential. Each API route still applies its own capability check.
+`KORTIX_TOKEN` is minted when the platform starts the session environment. It is bound to the launching user, project, session, and agent grant. The daemon, CLI, Git credential helper, LLM gateway, and connector gateway use this same credential. Each API route still applies its own capability check.
 
 The initial prompt and turn-ledger identifiers are not environment variables. The daemon claims them from the API with `KORTIX_TOKEN` after boot.
 
 ## Pushing from a session
 
-The daemon sends `KORTIX_TOKEN` only to the Kortix Git proxy. The proxy resolves the upstream Git credential on the server. No upstream Git token enters the sandbox. `git push origin HEAD` sends commits to the session branch. Landing on the default branch requires a merged [change request](/docs/work/change-requests).
+The daemon sends `KORTIX_TOKEN` only to the Git proxy. The proxy resolves the upstream Git credential on the server. No upstream Git token enters the sandbox. `git push origin HEAD` sends commits to the session branch. Landing on the default branch requires a merged [change request](/docs/work/change-requests).
 
 ## The agent runtime
 
@@ -139,17 +139,17 @@ Run `/kortix/refresh` to apply an out-of-band change, such as a manifest edit co
 
 ## The sandbox image
 
-Every sandbox boots from an image built in two layers. Your Dockerfile defines the base environment. The Kortix runtime layer is added on top, so the dashboard can connect to the sandbox.
+Every sandbox boots from an image built in two layers. Your Dockerfile defines the base environment. The runtime layer is added on top, so the dashboard can connect to the sandbox.
 
 ```
 ┌─────────────────────────────────────────┐
-│  Kortix runtime layer (added on top)    │  ← opencode + kortix-agent + entrypoint
+│  runtime layer (added on top)    │  ← opencode + kortix-agent + entrypoint
 ├─────────────────────────────────────────┤
 │  Your Dockerfile                        │  ← .kortix/Dockerfile
 └─────────────────────────────────────────┘
 ```
 
-If your project has no Dockerfile, Kortix builds sessions from a bare `ubuntu:24.04` image plus the runtime layer below.
+If your project has no Dockerfile, the platform builds sessions from a bare `ubuntu:24.04` image plus the runtime layer below.
 
 ### Declare a template
 
@@ -178,7 +178,7 @@ Kortix appends this layer on top of your Dockerfile's final stage.
 - The `kortix-agent` daemon, the `kortix` CLI, and the entrypoint script.
 - `ENV KORTIX_WORKSPACE=/workspace`, `WORKDIR /workspace`, `EXPOSE 8000`, and the entrypoint that starts the daemon.
 
-Everything you install in your own Dockerfile stays on `PATH`. Kortix does not remove or relocate it.
+Everything you install in your own Dockerfile stays on `PATH`. The platform does not remove or relocate it.
 
 ### Constraints
 
@@ -188,7 +188,7 @@ Everything you install in your own Dockerfile stays on `PATH`. Kortix does not r
 | Don't claim port `8000`. | Reserved for the daemon's reverse proxy. Run dev servers on other ports. |
 | `FROM` a Debian or Ubuntu base. | The runtime layer runs `apt-get`. Alpine, Fedora, and Arch fail the build. |
 | Don't run `apt-get clean` without `rm -rf /var/lib/apt/lists/*`. | The runtime layer re-runs `apt-get update`; a broken cache breaks the build. |
-| Don't bake credentials into the image. | Declare the name in `env:` and set the value as a project secret. Kortix injects it at session start. |
+| Don't bake credentials into the image. | Declare the name in `env:` and set the value as a project secret. The platform injects it at session start. |
 
 ### Hardware spec
 
@@ -204,7 +204,7 @@ sandbox:
       disk: 50
 ```
 
-`cpu` takes 1–32 cores, `memory` takes 1–128 GiB, and `disk` takes 1–500 GiB. Kortix clamps any value above these limits down to the limit. Kortix does not support GPUs; a `gpu` key on a template produces a warning, not an error.
+`cpu` takes 1–32 cores, `memory` takes 1–128 GiB, and `disk` takes 1–500 GiB. Kortix clamps any value above these limits down to the limit. The platform does not support GPUs; a `gpu` key on a template produces a warning, not an error.
 
 The spec is part of the template's snapshot, not a per-session setting. Changing it rebuilds the snapshot and applies to the next session. The current session keeps its already-booted spec.
 

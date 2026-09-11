@@ -3,7 +3,7 @@ title: Sessions
 description: A session is a git branch and a sandbox where the agent works.
 ---
 
-A session is one unit of agent work. Kortix cuts a git branch and provisions
+A session is one unit of agent work. The platform cuts a git branch and provisions
 a sandbox for it. The session id, the branch name, and the sandbox id are the
 same value.
 
@@ -13,13 +13,13 @@ A session reaches one of 4 states in practice.
 
 | Status | Meaning |
 |---|---|
-| `provisioning` | Kortix cuts the branch and requests the sandbox. |
+| `provisioning` | The platform cuts the branch and requests the sandbox. |
 | `running` | The sandbox is live and reachable. |
 | `stopped` | The session is paused, by you or by idle auto-stop. |
 | `failed` | Provisioning failed. |
 
 The database defines 3 more values (`queued`, `branching`, `completed`).
-Kortix does not write them for a session today.
+The platform does not write them for a session today.
 
 ## Stop, resume, and idle auto-stop
 
@@ -42,7 +42,7 @@ normal idle grace. This setting does not change active-turn protection.
 ## What stop and delete keep
 
 :::warning[Deletion is permanent]
-Deleting a session destroys its sandbox for good. Kortix keeps the session
+Deleting a session destroys its sandbox for good. The platform keeps the session
 record and the git branch, so you can still recover pushed work. Anything not
 pushed is gone.
 :::
@@ -53,7 +53,7 @@ pushes survives; everything else does not.
 
 ## Runtime
 
-Every session uses OpenCode REST. Kortix stores the selected OpenCode agent and
+Every session uses OpenCode REST. The platform stores the selected OpenCode agent and
 model when the session starts. Restart and resume keep the same session runtime.
 
 ## Session access
@@ -96,7 +96,7 @@ links without owning it — revoking only ever removes access.
 
 ## Providers
 
-Kortix runs sessions on Daytona, Platinum, or E2B Cloud. A project follows
+The platform runs sessions on Daytona, Platinum, or E2B Cloud. A project follows
 the platform default, or requests a provider switch through the SDK — see
 [SDK reference](/docs/sdk/reference). A switch to a different provider is
 durable: the current provider keeps serving while the target warms, then

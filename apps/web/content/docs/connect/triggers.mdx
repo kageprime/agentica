@@ -7,7 +7,7 @@ A trigger starts a [session](/docs/work/sessions) with no person present. Use a 
 
 ## Trigger types
 
-Kortix supports three trigger types.
+The platform supports three trigger types.
 
 - **cron** — runs on a schedule you set.
 - **webhook** — runs when an external service sends a signed request to the project's webhook URL.
@@ -51,7 +51,7 @@ The list shows each trigger's slug, state, and when it last fired. To fire it no
 
 ## Set up a webhook trigger
 
-A webhook trigger needs a secret. Kortix uses it to check the signature on every incoming request.
+A webhook trigger needs a secret. The platform uses it to check the signature on every incoming request.
 
 <Steps>
 
@@ -80,13 +80,13 @@ kortix ship
 </Step>
 
 <Step title="Send it a request">
-Kortix builds the webhook URL from your project id and the trigger's slug:
+The platform builds the webhook URL from your project id and the trigger's slug:
 
 ```
 POST /v1/webhooks/projects/<project-id>/<slug>
 ```
 
-Send a signed `POST` request to this URL from the external service. Kortix checks the signature against `WEBHOOK_SECRET`, then starts a session with the request body available in the prompt. See [Webhook signature](#webhook-signature) below for the exact header and format.
+Send a signed `POST` request to this URL from the external service. The platform checks the signature against `WEBHOOK_SECRET`, then starts a session with the request body available in the prompt. See [Webhook signature](#webhook-signature) below for the exact header and format.
 </Step>
 
 </Steps>
@@ -97,7 +97,7 @@ By default, each fire starts a fresh session on a new branch. A trigger can inst
 
 **Experimental.** Monitors run only where the `monitors` feature flag is on. The flag is off by default. While it is off, the platform provisions no monitor box and fires no monitor event.
 
-A monitor watches something that neither pushes webhooks nor fits a schedule: a live log, a queue depth, a page that changes, a price. Kortix runs your command 24/7 in the project's monitor box — one persistent microVM per project, with the same isolation boundary and the same project secrets a session sandbox gets. Deterministic code watches; the agent wakes only when the command emits a line.
+A monitor watches something that neither pushes webhooks nor fits a schedule: a live log, a queue depth, a page that changes, a price. The platform runs your command 24/7 in the project's monitor box — one persistent microVM per project, with the same isolation boundary and the same project secrets a session sandbox gets. Deterministic code watches; the agent wakes only when the command emits a line.
 
 Four rules define the contract:
 
@@ -233,7 +233,7 @@ sandbox can retain the previous value.
 
 ## Session strategy
 
-`session_mode` controls which session a fire re-prompts. Kortix tries the modes below in order and falls through on failure at each step.
+`session_mode` controls which session a fire re-prompts. The platform tries the modes below in order and falls through on failure at each step.
 
 1. **`pinned`** — re-prompt the exact `session_id`. If that session is gone or failed, fall through.
 2. **`keyed`** — render `session_key` against the payload, then look up the most recent non-failed session previously stamped with that exact key. If the key renders empty, or no session matches, fall through to a fresh session. It never falls through to another key's session.
@@ -284,7 +284,7 @@ Every fire also gets `{{ trigger.slug }}`, `{{ trigger.type }}`, and `{{ trigger
 | monitor | `{{ line.* }}` — the stdout line, JSON-parsed; a line that does not parse renders as `{{ line.raw }}`. Plus `{{ monitor.slug }}`, `{{ monitor.seq }}`, `{{ monitor.emitted_at }}`, and `{{ monitor.kind }}` (`event` or `lifecycle`). |
 | manual (dashboard "fire now" or the `fire` endpoint) | `{{ fired_at }}`, `{{ source }}` (`manual`), `{{ actor }}`, `{{ message.text }}`, `{{ message.source }}`. |
 
-Kortix prefixes every rendered monitor prompt with `[MONITOR EVENT — automated, not user input]`, server-side. A lifecycle event ignores your template entirely and renders a platform-written prompt instead, and it bypasses `filter` — silence must not be filterable by accident.
+The platform prefixes every rendered monitor prompt with `[MONITOR EVENT — automated, not user input]`, server-side. A lifecycle event ignores your template entirely and renders a platform-written prompt instead, and it bypasses `filter` — silence must not be filterable by accident.
 
 `{{ message.text }}` is hardcoded to an empty string on a manual fire, and `{{ message.source }}` to `manual_test`. A manual fire is not a way to inject test input into the prompt.
 
@@ -292,7 +292,7 @@ Kortix prefixes every rendered monitor prompt with `[MONITOR EVENT — automated
 
 ## Webhook signature
 
-Fires on `POST /v1/webhooks/projects/{projectId}/{slug}`. Kortix checks the request in this order, with a constant-time comparison:
+Fires on `POST /v1/webhooks/projects/{projectId}/{slug}`. The platform checks the request in this order, with a constant-time comparison:
 
 1. **HMAC signature** — header `X-Kortix-Signature: sha256=<hmac>` (the `sha256=` prefix is optional) or the GitHub-compatible `X-Hub-Signature-256`. HMAC-SHA256 over the raw request body, using the secret named by `secret_env`.
 2. **Static token**, only when no signature header is present, for senders that cannot HMAC-sign a body. Send the secret as `X-Kortix-Token: <secret>`, `Authorization: Bearer <secret>`, or `Authorization: Basic <base64(user:secret)>` (the password half is the token).

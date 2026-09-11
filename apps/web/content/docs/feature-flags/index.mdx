@@ -1,9 +1,9 @@
 ---
 title: Feature flags
-description: Turn a Kortix surface on for one project, and read what every flag gates.
+description: Turn a surface on for one project, and read what every flag gates.
 ---
 
-A feature flag turns one Kortix surface on for one project. Any surface can
+A feature flag turns one surface on for one project. Any surface can
 ship behind a flag — experimental, beta, or fully stable. "Experimental" is a
 stability badge on a flag, not the name of the system.
 
@@ -147,7 +147,7 @@ refs). An explicit project choice always wins.
   continue sessions. See [Slack & channels](/docs/connect/slack).
 - **`voice`** — give the agent a live voice call it can start and hold. See
   [Slack & channels](/docs/connect/slack).
-- **`llm_gateway`** — route the project through the managed Kortix LLM
+- **`llm_gateway`** — route the project through the managed LLM
   gateway. See [Models](/docs/project/models).
 - **`review_center`** — one inbox for change requests, approvals, and agent
   output.
@@ -166,7 +166,7 @@ Some flags converge platform state after the write commits.
 
 | Flag | Effect after the toggle |
 |---|---|
-| `voice`, `teams`, `agentmail_email` | Kortix re-runs channel-connector materialization, so the connector appears or disappears with the flag. |
+| `voice`, `teams`, `agentmail_email` | The platform re-runs channel-connector materialization, so the connector appears or disappears with the flag. |
 | `agent_tunnel` | Kortix re-syncs the account's computer connectors. |
 | `llm_gateway` | Kortix propagates the new provider mode to active sandboxes. |
 

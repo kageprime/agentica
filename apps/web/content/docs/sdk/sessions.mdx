@@ -79,7 +79,7 @@ retry.
 ### Seed a server-authorized OpenCode pin
 
 A server-rendered React host can supply the OpenCode pin already persisted for
-the same Kortix session:
+the same session:
 
 ```tsx
 const session = useSession(projectId, sessionId, {
@@ -92,7 +92,7 @@ not override the runtime identity. The pin returned by `/start` is
 authoritative and replaces a stale seed.
 
 Do not accept this value from an untrusted tenant selector. Do not create an
-OpenCode session in the host. Kortix creates and persists the root session.
+OpenCode session in the host. The platform creates and persists the root session.
 OpenCode query caches and transcript controllers are scoped to the sandbox
 runtime, so equal OpenCode ids from different sandboxes do not share cache
 entries.
@@ -109,14 +109,14 @@ await s.abort(); // stop the current run
 ```
 
 For OpenCode REST sessions, the first `send()` on a handle reads the model and
-agent persisted on the Kortix session. This prevents a snapshot-inherited
+agent persisted on the session. This prevents a snapshot-inherited
 OpenCode session from reusing stale snapshot defaults.
 
 Prompt choice precedence is:
 
 1. The `send()` call.
 2. The handle's `setModel()` or `setAgent()` value.
-3. The persisted Kortix session default.
+3. The persisted session default.
 
 `setModel` only chooses what the next local `send` asks for — it never leaves the
 handle. To **persist** a new model for a running session server-side, use
@@ -214,7 +214,7 @@ Use `s.stream()` to receive live events in a script or server. In a React
 app, use [`useSession`](/docs/sdk/react) instead — it manages the whole
 session lifecycle for you.
 
-`s.stream()` is the OpenCode REST compatibility event stream. The Kortix API
+`s.stream()` is the OpenCode REST compatibility event stream. The API
 proxies it from the sandbox. There is no separate WebSocket endpoint. The
 transport is `fetch` with a streaming response body, read through
 `ReadableStream` and `TextDecoderStream`. The SDK handles reconnection,
@@ -453,7 +453,7 @@ try {
 | Class                  | Extends    | When it throws                                                                 | Key fields                                                           |
 | ---------------------- | ---------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------- |
 | `ApiError`             | `Error`    | Default for any failed request: bad status, network failure, timeout, or abort | `status`, `code`, `detail`, `response`, `url`, `endpoint`, `timeout` |
-| `AuthError`            | `ApiError` | `getToken` returned `null`. Kortix never sent the request                      | `code` is always `'NO_SESSION'`                                      |
+| `AuthError`            | `ApiError` | `getToken` returned `null`. The platform never sent the request                      | `code` is always `'NO_SESSION'`                                      |
 | `BillingError`         | `Error`    | HTTP `402`. The only billing error class                                       | `status` (`402`), `detail.message`                                   |
 | `RequestTooLargeError` | `Error`    | HTTP `431`. Usually too many files in one request                              | `detail.suggestion`                                                  |
 | `SessionNotReadyError` | `Error`    | A runtime accessor ran before `ensureReady()`                                  | `name` is `'SessionNotReadyError'`                                   |
@@ -465,13 +465,13 @@ try {
 
 For any other failure, `status` holds the HTTP status code. `code` comes from the backend's `error_code`, or falls back to the status as a string. `message` is an enumerable own property on `ApiError`, so it survives `JSON.stringify` and object spread.
 
-Kortix retries some requests before your code sees an error. If a `GET` or `HEAD` request returns `502`, `503`, or `504`, Kortix retries it up to 2 times, with a 250ms then 500ms delay. A transient transport failure on a `GET` or `HEAD` — a network error, not a status code — is retried the same way. A retry that succeeds never reaches `onError`. Kortix never retries `POST`, `PUT`, `PATCH`, or `DELETE` requests, or a `500` response.
+The platform retries some requests before your code sees an error. If a `GET` or `HEAD` request returns `502`, `503`, or `504`, the platform retries it up to 2 times, with a 250ms then 500ms delay. A transient transport failure on a `GET` or `HEAD` — a network error, not a status code — is retried the same way. A retry that succeeds never reaches `onError`. The platform never retries `POST`, `PUT`, `PATCH`, or `DELETE` requests, or a `500` response.
 
-Kortix throws `AuthError` on the client, before it sends a request, when `getToken()` returns `null`. `AuthError` extends `ApiError`, so `err instanceof ApiError` still matches. Check `err instanceof AuthError`, or `err.code === 'NO_SESSION'`, to treat "not signed in" as a separate case from a backend failure.
+The platform throws `AuthError` on the client, before it sends a request, when `getToken()` returns `null`. `AuthError` extends `ApiError`, so `err instanceof ApiError` still matches. Check `err instanceof AuthError`, or `err.code === 'NO_SESSION'`, to treat "not signed in" as a separate case from a backend failure.
 
-Kortix throws `BillingError` for every HTTP `402` response: out of credits, over a plan limit, or another billing gate. `detail.message` holds the reason from the backend.
+The platform throws `BillingError` for every HTTP `402` response: out of credits, over a plan limit, or another billing gate. `detail.message` holds the reason from the backend.
 
-Kortix throws `RequestTooLargeError` for HTTP `431`. This usually means the request carried too many files. `detail.suggestion` holds a ready-to-show hint for the user.
+The platform throws `RequestTooLargeError` for HTTP `431`. This usually means the request carried too many files. `detail.suggestion` holds a ready-to-show hint for the user.
 
 ### Session readiness errors
 

@@ -2,7 +2,7 @@ export type NavSubLink = {
   href: string;
   name: string;
   description?: string;
-  /** Absolute destination off kortix.com — opens in a new tab. */
+  /** Absolute destination off dosco.live — opens in a new tab. */
   external?: boolean;
   /**
    * Icon slug rendered as a leading tile in the desktop dropdown. A string, not

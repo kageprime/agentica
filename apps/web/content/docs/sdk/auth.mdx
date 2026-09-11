@@ -10,7 +10,7 @@ Kortix accepts one bearer token per request. Pass it through `getToken` in
 import { createKortix } from '@kortix/sdk';
 
 const kortix = createKortix({
-  backendUrl: 'https://api.kortix.com/v1',
+  backendUrl: 'https://api.dosco.live/v1',
   getToken: async () => process.env.KORTIX_API_KEY!,
 });
 ```
@@ -62,13 +62,13 @@ role to an agent. See
   instead.
 :::
 
-## OAuth access tokens (Sign in with Kortix)
+## OAuth access tokens (Sign in with Dosco)
 
 A third-party app that signs users in through Kortix receives a `kortix_oat_`
 token per user. With the `kortix` scope it acts as that user on the whole API,
 exactly like a personal access token, but it expires after an hour and rotates
 through a refresh token. `createKortixAuth` in `@kortix/sdk/server` owns the
-whole lifecycle — see [Sign in with Kortix](/docs/sdk/sign-in).
+whole lifecycle — see [Sign in with Dosco](/docs/sdk/sign-in).
 
 ## Supabase JWT
 
@@ -85,9 +85,9 @@ automatically.
 
 ## Headless sign-in (email, password, magic link, social)
 
-Every ordinary sign-in flow is available through the Kortix API, so a CLI, a
+Every ordinary sign-in flow is available through the API, so a CLI, a
 native app, a script, or your own backend signs users up and in without a
-Supabase URL or key — on kortix.com and on a self-host alike.
+Supabase URL or key — on dosco.live and on a self-host alike.
 
 ```ts
 import { createKortix } from '@kortix/sdk';
@@ -114,19 +114,19 @@ await kortix.projects.list();                   // as that user
 | `auth.signInWithProvider({ provider, redirect_to })` → `auth.exchangeCode({ code, code_verifier })` | `/sign-in/oauth`, `/oauth/exchange` | PKCE: keep `code_verifier` until the provider redirects back with `?code=`. `redirect_to` must be on the instance's redirect allow-list. |
 | `auth.refresh({ refresh_token })` | `POST /v1/auth/refresh` | `createKortixSession` calls it for you. |
 | `auth.resetPassword({ email, redirect_to? })` → `auth.verifyOtp({ type: 'recovery' })` → `auth.updatePassword({ password }, token)` | `/password/reset`, `/verify-otp`, `/password/update` | |
-| `auth.user(token)` / `auth.signOut(token)` | `GET /v1/auth/user`, `POST /v1/auth/sign-out` | Sign-out revokes at Supabase and in the Kortix session gate. |
+| `auth.user(token)` / `auth.signOut(token)` | `GET /v1/auth/user`, `POST /v1/auth/sign-out` | Sign-out revokes at Supabase and in the session gate. |
 
 Errors throw `HeadlessAuthError` with `code`, `message` and the upstream `status`
 (`invalid_credentials`, `over_request_rate_limit`, …). Each route is limited to
 30 attempts per minute per IP. Multi-factor enrolment/challenge is not on the
-API yet — it stays on the Kortix web app.
+API yet — it stays on the web app.
 
 ## Choose a credential
 
 | You are building | Use |
 |---|---|
 | A backend, script, or CI job | A personal access token, account-wide or project-scoped |
-| The Kortix CLI | `kortix login` (mints a personal access token) |
+| The CLI | `kortix login` (mints a personal access token) |
 | A web app, CLI, or native app signing users in itself | `kortix.auth.*` + `createKortixSession` (headless sign-in, above) |
 | An automated caller with its own project assignment | A service account |
-| Your own app, signed in by its users with their Kortix account | [Sign in with Kortix](/docs/sdk/sign-in) — an OAuth access token the SDK manages for you |
+| Your own app, signed in by its users with their account | [Sign in with Dosco](/docs/sdk/sign-in) — an OAuth access token the SDK manages for you |

@@ -61,8 +61,8 @@ function toSidebarItem(id: string) {
 // The docs render through Blume, not through the Next app. Nothing in
 // content/docs may import an app component. Blume built-ins only.
 export default defineConfig({
-  title: 'Kortix',
-  description: 'Kortix is the AI command center for your company.',
+  title: 'Dosco',
+  description: 'Dosco is the AI command center for your company.',
 
   // Content stays where it has always been. src/lib/seo/public-content.ts
   // reads these same files off disk for /llms.txt, /markdown/docs/*.md and
@@ -80,7 +80,7 @@ export default defineConfig({
     // canonical home, not at whichever host rendered the page.
     // seo.sitemap stays false: the Next app owns /sitemap.xml for the whole
     // domain, so setting `site` must not hand that surface to Blume.
-    site: 'https://kortix.com',
+    site: 'https://dosco.live',
   },
 
   // Stock theme, deliberately. A Kortix skin is a separate follow-up; see
@@ -103,7 +103,7 @@ export default defineConfig({
       // correct. Keep both slots symbol-only.
       light: '/kortix-symbol.svg',
       dark: '/kortix-symbol-white.svg',
-      alt: 'Kortix',
+      alt: 'Dosco',
     },
   },
 
@@ -123,14 +123,8 @@ export default defineConfig({
   export: { pdf: true },
 
 
-  // Source repo. Powers the header repo link (navigation.repo) and the
-  // per-page "Edit this page" target. `dir` is required because this is a
-  // monorepo: the Blume project root is apps/web, not the repo root.
-  github: {
-    owner: 'kortix-ai',
-    repo: 'suna',
-    dir: 'apps/web',
-  },
+  // Source repo config removed: no header repo link and no per-page
+  // "Edit this page" git targets.
 
   seo: {
     // D2: the Next app owns every domain-wide discovery surface, and these two
@@ -200,8 +194,9 @@ export default defineConfig({
   // meta.ts module — this file adds only the one thing meta.ts cannot
   // express: which ids sit under "Develop", and the external link.
   navigation: {
-    // GitHub link in the header, after the search.
-    repo: true,
+    // Git link removed from the header (was: repo: true). Search sits
+    // at the right of the header on its own now.
+    repo: false,
     // Header tabs render immediately after the logo, before the spacer that
     // pushes search and the repo link right (Header.astro) — so this is the
     // extreme-left cluster. `path` is what scopes the sidebar and marks the
@@ -217,7 +212,7 @@ export default defineConfig({
         // supported way to point a tab off-site. `href` would be redundant:
         // Header.astro renders `tab.href ?? tab.path`.
         label: 'API reference',
-        path: 'https://api.kortix.com/v1/docs',
+        path: 'https://api.dosco.live/v1/docs',
       },
     ],
     sidebar: {

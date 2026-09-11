@@ -1,7 +1,7 @@
 import { defineMeta } from 'blume';
 
 // The old meta.json also carried a "---Develop---" fumadocs separator and the
-// external API-reference link ("[API reference](https://api.kortix.com/v1/docs)").
+// external API-reference link ("[API reference](https://api.dosco.live/v1/docs)").
 // Blume's meta.ts `pages` field is a plain string array (folderMetaSchema:
 // pages: ZodArray<ZodString>) — no divider or link syntax, so both moved to
 // blume.config.ts's `navigation` config; see that file for the decision.

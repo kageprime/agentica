@@ -4,18 +4,18 @@ description: How connectors and connections give agents scoped access to externa
 ---
 
 A connector links a project to an external tool or service. The agent
-calls it as a tool. Kortix brokers each call, so the sandbox never holds the
+calls it as a tool. The platform brokers each call, so the sandbox never holds the
 connector credential.
 
 You declare most connectors in `kortix.yaml`. See the
-[manifest reference](/docs/project/manifest) for every field. Kortix declares
+[manifest reference](/docs/project/manifest) for every field. The platform declares
 channel and computer connectors when you connect a chat platform or a
 machine.
 
 ## Connectors and connections
 
 A connector is the agent-facing reach package. It is not a role, and it holds no
-Kortix permission: an agent reaches a connector only when its manifest grant
+Permission: an agent reaches a connector only when its manifest grant
 lists the slug and the role verdict allows the call. See
 [One vocabulary, two bindings](/docs/accounts#one-vocabulary-two-bindings). A
 connector contains:
@@ -59,8 +59,8 @@ A connection authenticates with:
 - OAuth through Pipedream, a channel install, or a native OAuth2 grant
 - an API key or token entered through the dashboard or SDK
 
-Kortix encrypts connection data and resolves it server-side for each tool
-call. The agent requests an action. Kortix attaches the credential, checks the
+The platform encrypts connection data and resolves it server-side for each tool
+call. The agent requests an action. The platform attaches the credential, checks the
 agent grant and connector-connection policy, calls the external API, and returns
 the result.
 
@@ -80,11 +80,11 @@ returns `202 pending_approval` with `approval_url`, `approval_summary`, and
 `execution_id`. It does not keep an HTTP request open.
 
 Share `approval_url` with any teammate. The URL identifies the request but does
-not grant authority. The page requires a signed-in Kortix account. Kortix then
+not grant authority. The page requires a signed-in account. The platform then
 verifies that the account can access and approve actions in the project.
 
 The approval page shows the redacted parameters that the connector will receive.
-Approve or deny the call once. Kortix sends the decision back into the session
+Approve or deny the call once. The platform sends the decision back into the session
 through a durable callback. An approval applies only to the exact request
 digest. A changed recipient, subject, body, channel, URL, or other parameter
 requires a new decision.
@@ -106,7 +106,7 @@ connection owned by the acting project member.
 
 </Step>
 <Step title="Complete authorization">
-Complete the OAuth flow. Kortix stores the connected account as a connection.
+Complete the OAuth flow. The platform stores the connected account as a connection.
 
 </Step>
 </Steps>
@@ -119,21 +119,21 @@ server and reads its metadata:
 
 1. The unauthenticated probe returns `401` with
    `WWW-Authenticate: Bearer resource_metadata="…"`.
-2. Kortix reads the protected resource metadata (RFC 9728) at that URL, or at
+2. The platform reads the protected resource metadata (RFC 9728) at that URL, or at
    `/.well-known/oauth-protected-resource`.
-3. Kortix reads the authorization server metadata (RFC 8414 or OpenID Connect
+3. The platform reads the authorization server metadata (RFC 8414 or OpenID Connect
    discovery) for the first authorization server the resource names.
 
 When that server advertises `registration_endpoint`, Kortix registers itself as
 an OAuth client (RFC 7591) and shows one button: **Connect &lt;server&gt;**. You
-create no application, and you copy no client ID or secret. Kortix then runs
+create no application, and you copy no client ID or secret. The platform then runs
 Authorization Code with PKCE (S256) and binds the token to the server with the
 `resource` parameter (RFC 8707).
 
 Register this redirect URI when a server needs one in advance:
 
 ```text
-https://api.kortix.com/v1/connectors/oauth2/callback
+https://api.dosco.live/v1/connectors/oauth2/callback
 ```
 
 When the server publishes endpoints but no `registration_endpoint`, Kortix
@@ -141,12 +141,12 @@ prefills the authorization URL, token URL, and scopes. Enter the client ID of an
 app you create with that provider. When the server publishes no metadata, enter
 every field.
 
-Kortix keeps the MCP session: it runs `initialize` and
+The platform keeps the MCP session: it runs `initialize` and
 `notifications/initialized` on demand, then sends `Mcp-Session-Id` on later
 calls. A server that answers without a session never sees the handshake.
 
 Kortix binds each connection to the authorization server that issued it. When
-the callback carries an `iss` parameter (RFC 9207), Kortix rejects it unless it
+the callback carries an `iss` parameter (RFC 9207), the platform rejects it unless it
 matches the recorded issuer — a code minted by a different server is refused
 before it is redeemed.
 
@@ -239,7 +239,7 @@ For authorization code, enter the authorization URL and token URL. For device
 authorization, enter the device-authorization URL and token URL. An RFC 8414
 discovery URL can provide these endpoints.
 
-Kortix encrypts the OAuth2 configuration and tokens. It refreshes access tokens
+The platform encrypts the OAuth2 configuration and tokens. It refreshes access tokens
 before expiry, and it stores each rotated refresh token. Revoking the connection
 blocks the next connector call.
 
@@ -280,12 +280,12 @@ connectors:
 
 </Step>
 <Step title="Merge the change request">
-Kortix reads the manifest from the default branch. The connector becomes
+The platform reads the manifest from the default branch. The connector becomes
 active after the change request merges.
 
 </Step>
 <Step title="Add the connection">
-Open the connector and set its credential. Kortix stores the value
+Open the connector and set its credential. The platform stores the value
 encrypted. It does not write the value to the manifest.
 
 </Step>

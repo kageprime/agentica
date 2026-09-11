@@ -20,7 +20,7 @@ Each agent has two parts:
 - **Behavior** — a markdown file at `.kortix/opencode/agents/<name>.md`. Its
   frontmatter sets the model, mode, and tools. Its body is the system prompt.
 - **Governance** — an entry in `kortix.yaml`'s `agents` map, keyed by the same
-  name. It sets what the agent may access on Kortix: connectors, secrets,
+  name. It sets what the agent may access on the platform: connectors, secrets,
   skills, and CLI actions.
 
 The manifest never sets a prompt, mode, or tool. The `.md` file never sets
@@ -44,14 +44,14 @@ grant full access by default. Set specific grants to restrict access. See
 ## Skills give an agent know-how
 
 A skill is a markdown file at `.kortix/opencode/skills/<name>/SKILL.md`.
-OpenCode loads a skill on demand when the agent calls it — Kortix does not
+OpenCode loads a skill on demand when the agent calls it — the platform does not
 inject skills into every prompt. An agent's `skills` grant in `kortix.yaml`
 controls which skills it may load.
 
 ## How a session picks its agent
 
-Creating a session accepts an `agent_name`. Kortix starts that agent for the
-session. If you omit `agent_name`, Kortix uses the project's `default_agent`.
+Creating a session accepts an `agent_name`. The platform starts that agent for the
+session. If you omit `agent_name`, the platform uses the project's `default_agent`.
 Set the default agent from the dashboard, the API, or the SDK. Each writes
 `default_agent` to `kortix.yaml` and commits the change to the project's
 default branch.

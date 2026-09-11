@@ -17,7 +17,7 @@ async function main() {
   // 1. One client, one auth seam. getToken returns your API key
   //    (kortix_pat_…) or a logged-in user's Supabase JWT — nothing else.
   const kortix = createKortix({
-    backendUrl: 'https://api.kortix.com/v1',
+    backendUrl: 'https://api.dosco.live/v1',
     getToken: async () => process.env.KORTIX_API_KEY!,
   });
 
@@ -141,7 +141,7 @@ await project.secrets.upsert({
   consumer: 'sandbox',
 });
 
-// Managed provider credentials stay on the Kortix LLM gateway.
+// Managed provider credentials stay on the LLM gateway.
 await project.secrets.upsert({
   identifier: 'anthropic-primary',
   name: 'ANTHROPIC_API_KEY',
@@ -164,5 +164,5 @@ const routing = await project.gateway.routing.get();
 
 The package ships runnable examples that cover each of these steps, in
 `packages/sdk/examples/`. They include a minimal client, streaming, a server
-wrapper, a Kortix-as-a-Backend multi-tenant wrapper, transcript rendering, and
+wrapper, a platform-as-a-Backend multi-tenant wrapper, transcript rendering, and
 files and secrets.

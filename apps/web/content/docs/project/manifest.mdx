@@ -7,9 +7,9 @@ The manifest is the file the platform treats as authoritative for a project. Thi
 
 ## Two configuration surfaces
 
-A Kortix project has two configuration surfaces with strict, non-overlapping ownership.
+A project has two configuration surfaces with strict, non-overlapping ownership.
 
-- **Kortix config** — `kortix.yaml` at the repo root, plus `.kortix/Dockerfile`. The platform reads this: the trigger sweep, the sandbox builder, session token minting, and the dashboard.
+- **Config** — `kortix.yaml` at the repo root, plus `.kortix/Dockerfile`. The platform reads this: the trigger sweep, the sandbox builder, session token minting, and the dashboard.
 - **OpenCode config** — everything under `.kortix/opencode/` (`opencode.jsonc`, `agents/`, `skills/`, `commands/`, `tools/`, `plugins/`). The OpenCode runtime reads this, in the sandbox and locally.
 
 The join between the two halves is the agent name. A manifest key `agents.<name>` must match the filename `.kortix/opencode/agents/<name>.md`. Every behavioral field lives only in that `.md` file's frontmatter and body, never in `kortix.yaml`:
@@ -23,7 +23,7 @@ The manifest's `agents:` block sets governance only: which agents may launch, an
 
 ## Location and versions
 
-Any repo with a valid manifest at its root is a Kortix project. `kortix.yaml` (v2, YAML only) is the current format for new projects, created by the web "Create project" flow and by `kortix init`. `kortix.toml` (v1) still works for existing projects, but the platform accepts no new v2 features on it. See [Legacy TOML](/docs/project/legacy-toml) for the v1 schema and the v1-to-v2 migration steps.
+Any repo with a valid manifest at its root is a project. `kortix.yaml` (v2, YAML only) is the current format for new projects, created by the web "Create project" flow and by `kortix init`. `kortix.toml` (v1) still works for existing projects, but the platform accepts no new v2 features on it. See [Legacy TOML](/docs/project/legacy-toml) for the v1 schema and the v1-to-v2 migration steps.
 
 `kortix_version: 2` requires YAML — a `.toml` file that declares `kortix_version: 2` fails validation. A manifest that declares a version higher than `2` is rejected outright, so the platform never silently misreads a future field. Unknown top-level keys are ignored, so you can park your own metadata in the file.
 
@@ -36,7 +36,7 @@ Any repo with a valid manifest at its root is a Kortix project. `kortix.yaml` (v
 Point a `kortix.yaml` at the v2 schema for editor validation, or fetch it from the CLI:
 
 ```yaml
-# yaml-language-server: $schema=https://kortix.com/schema/kortix.v2.schema.json
+# yaml-language-server: $schema=https://dosco.live/schema/kortix.v2.schema.json
 kortix_version: 2
 ```
 
@@ -289,7 +289,7 @@ v2 removes `channels:` from the schema. Channel-to-agent routing (Slack, Microso
 
 A name-to-block map, keyed by agent name. This map is governance only — it grants what an agent may touch, never what it says or does.
 
-This block is the **second of the two bindings**: a principal gets roles from Kortix, and an agent additionally carries the Kortix CLI scopes declared here. A session can only do what both allow. See [One vocabulary, two bindings](/docs/accounts#one-vocabulary-two-bindings).
+This block is the **second of the two bindings**: a principal gets roles from the platform, and an agent additionally carries the CLI scopes declared here. A session can only do what both allow. See [One vocabulary, two bindings](/docs/accounts#one-vocabulary-two-bindings).
 
 ```yaml
 default_agent: kortix
@@ -315,7 +315,7 @@ agents:
 | `connectors`          | `none`  | Which connector slugs this agent may call. `all` means every connector.                                                                                                                                   |
 | `connectors_required` | `none`  | Connector slugs that must resolve an active, strategy-compatible authorization before sandbox startup. Must be a subset of `connectors`. A missing authorization returns `CONNECTOR_CONNECTION_REQUIRED`. |
 | `secrets`             | `none`  | Which project secrets this agent receives as sandbox env vars. Renamed from v1's `env`.                                                                                                                   |
-| `kortix_cli`          | `none`  | Which Kortix CLI and API permissions this agent may exercise. `all` means everything the launching user's roles allow — an agent can never exceed its launcher.                                            |
+| `kortix_cli`          | `none`  | Which CLI and API permissions this agent may exercise. `all` means everything the launching user's roles allow — an agent can never exceed its launcher.                                            |
 | `skills`              | `none`  | Which skills this agent may load.                                                                                                                                                                         |
 | `workspace`           | —       | Git-boundary mode: `runtime`, `read`, or `branch`. Validated against the enum; any other value is rejected.                                                                                               |
 

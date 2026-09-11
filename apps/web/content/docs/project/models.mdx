@@ -1,9 +1,9 @@
 ---
 title: Models
-description: How Kortix picks a model, and how billing works for managed vs. your-own-key models.
+description: How the platform picks a model, and how billing works for managed vs. your-own-key models.
 ---
 
-Kortix runs each [session](/docs/work/sessions) on a model. This page
+The platform runs each [session](/docs/work/sessions) on a model. This page
 explains managed models vs. your own provider key (BYOK), how Kortix picks a
 model automatically, and two billing gotchas to know.
 
@@ -73,7 +73,7 @@ control. `Auto` clears the variant.
 
 ## How auto picks a model
 
-Set no model, and Kortix resolves one through five layers, in order. (The
+Set no model, and the platform resolves one through five layers, in order. (The
 id `auto` covers this same behavior, but it is not yet a selectable option
 in the model picker.)
 
@@ -83,7 +83,7 @@ in the model picker.)
 4. The account's default.
 5. The platform default.
 
-Kortix uses the first layer that has a value it can still serve. A saved
+The platform uses the first layer that has a value it can still serve. A saved
 default that stops working — a disconnected key, a retired model — is
 skipped automatically. A session never dies from a stale default. See the
 [manifest reference](/docs/project/manifest) for the trigger `model:`
@@ -92,10 +92,10 @@ field.
 :::warning[Billing surprises on BYOK]
 Two costs are easy to miss on a paid cloud account:
 
-- **Platform fee.** Kortix adds a 10% fee, billed as credits, on top of what
+- **Platform fee.** The platform adds a 10% fee, billed as credits, on top of what
   your own provider charges. Free-tier and self-hosted accounts are exempt.
 - **Silent failover.** If your BYOK key hits a rate limit or billing error
-  mid-turn, Kortix retries on a managed model and bills your credits instead
+  mid-turn, the platform retries on a managed model and bills your credits instead
   of failing the session.
 
 If you see credit charges on a BYOK-only project, check these two causes

@@ -1,21 +1,21 @@
 ---
-title: Sign in with Kortix
-description: Gate your own app behind Kortix identity with one route, and act as the signed-in user through the SDK.
+title: Sign in with Dosco
+description: Gate your own app behind Dosco identity with one route, and act as the signed-in user through the SDK.
 ---
 
-"Sign in with Kortix" makes Kortix the identity provider for an app you run:
-a dashboard, an internal tool, a vertical product built on Kortix. Your users
-sign in with their Kortix account, your server knows who they are, and every
-Kortix call your app makes runs as that user with that user's role
+"Sign in with Dosco" makes Dosco the identity provider for an app you run:
+a dashboard, an internal tool, a vertical product built on the platform. Your users
+sign in with their account, your server knows who they are, and every
+API call your app makes runs as that user with that user's role
 assignments. The whole flow lives in `@kortix/sdk`. Your app never stores a
-Kortix token in the browser and never talks to Supabase.
+Token in the browser and never talks to Supabase.
 
-It is standard OAuth 2.1 (authorization code + PKCE) served by the Kortix API,
-so it works the same against `api.kortix.com` and against a self-hosted
+It is standard OAuth 2.1 (authorization code + PKCE) served by the API,
+so it works the same against `api.dosco.live` and against a self-hosted
 instance.
 
 :::note
-  Building an App **hosted by Kortix** (`*.apps.kortix.com`)? You need none of
+  Building an App **hosted by Dosco** (`*.apps.kortix.com`)? You need none of
   this. The Apps gate already authenticated the viewer — read them with
   `kortixAppViewerToken()` / `readAppViewer()`. See
   [Apps → Your App already knows who is looking](/docs/sdk/apps).
@@ -42,7 +42,7 @@ byte for byte; `https` is required except on `localhost`.
 |---|---|
 | `profile` | The user's id, email and account memberships (`GET /v1/accounts/me`). |
 | `email` | The email address (an alias for OIDC-shaped clients). |
-| `kortix` | Acting as the user on the whole Kortix API — projects, sessions, files, IAM probes. Without it the token is identity-only. |
+| `kortix` | Acting as the user on the whole API — projects, sessions, files, IAM probes. Without it the token is identity-only. |
 
 ## 2. Mount the handler
 
@@ -51,7 +51,7 @@ byte for byte; `https` is required except on `localhost`.
 import { createKortixAuth } from '@kortix/sdk/server';
 
 export const auth = createKortixAuth({
-  backendUrl: 'https://api.kortix.com/v1',
+  backendUrl: 'https://api.dosco.live/v1',
   clientId: process.env.KORTIX_OAUTH_CLIENT_ID!,
   clientSecret: process.env.KORTIX_OAUTH_CLIENT_SECRET,   // omit for a public client
   redirectUri: 'https://dashboards.example.com/api/kortix/auth/callback',
@@ -71,12 +71,12 @@ URI — `/api/kortix/auth` above):
 
 | Path | Does |
 |---|---|
-| `/signin?return_to=/path` | Starts sign-in (PKCE S256 + state in a 10-minute cookie) and redirects to Kortix. |
+| `/signin?return_to=/path` | Starts sign-in (PKCE S256 + state in a 10-minute cookie) and redirects to the platform. |
 | `/callback` | Exchanges the code, sets the encrypted `HttpOnly` session cookie, redirects to `return_to`. |
 | `/refresh?return_to=` | Rotates the token pair and redirects. Used by `requireViewer`. |
 | `/signout?return_to=` | Revokes the refresh token at Kortix and clears the cookie. |
 | `/me` | The viewer as JSON, or `401`. Refreshes inline when the access token expired. |
-| `/proxy/*` | Forwards to the Kortix API as the viewer. The browser SDK's `backendUrl`. |
+| `/proxy/*` | Forwards to the API as the viewer. The browser SDK's `backendUrl`. |
 
 `return_to` is always confined to a same-origin path.
 
@@ -126,12 +126,12 @@ every other SDK call work unchanged through it.
 
 ## What the user sees
 
-The first time, Kortix shows a consent screen naming your app and the scopes.
-Kortix remembers the decision per user and app, so later sign-ins redirect
+The first time, Dosco shows a consent screen naming your app and the scopes.
+Dosco remembers the decision per user and app, so later sign-ins redirect
 straight back. Revoking an app deletes every token it minted.
 
 ## Discovery
 
-`GET https://api.kortix.com/.well-known/oauth-authorization-server` (also
+`GET https://api.dosco.live/.well-known/oauth-authorization-server` (also
 under `/v1/oauth/.well-known/…`) publishes the endpoints for a generic OAuth
 client. The SDK does not need it — it derives every endpoint from `backendUrl`.
