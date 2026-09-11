@@ -4,12 +4,14 @@ import { WallpaperBackground } from '@/components/ui/wallpaper-background';
 import { useRequestDemo } from '@/features/contact/request-demo-provider';
 import { Claude } from '@/features/icon/icons/claude';
 import { OpenAI } from '@/features/icon/icons/open-ai';
-import { DeliverableRow } from '@/features/marketing/hero-deliverables';
 import { getLocalizedLandingContent } from '@/features/marketing/landing/content';
 import { useAuth } from '@/features/providers/auth-provider';
 import { trackCtaSignup } from '@/lib/analytics/gtm';
+import { translateMenuText } from '@/lib/menu-registry';
 import { latestProjectPath } from '@/lib/onboarding/last-project-cookie';
+import { solutionsMenu } from '@/lib/site-config';
 import { useTranslations } from '@/i18n/use-translations';
+import Link from 'next/link';
 import { type ReactNode, useCallback } from 'react';
 
 /** `heroEyebrow.rivals[].icon` selects a logo by name at runtime, so it can't be
@@ -46,6 +48,47 @@ function RivalEyebrow({
         );
       })}
     </div>
+  );
+}
+
+/** Role chips. Labels + hrefs come from the solutions menu (same spelling as
+ *  the nav and the use-case cards) and go through the menu translator, so no
+ *  new copy is introduced here. Order follows the registry nav order. */
+const ROLE_CHIP_SLUGS = [
+  'sales',
+  'marketing',
+  'product',
+  'engineering',
+  'finance',
+  'people',
+  'it',
+  'data-science',
+] as const;
+
+function RoleChips() {
+  const tI18nComplete = useTranslations('hardcodedUi.i18nComplete');
+  const byHref = new Map(
+    solutionsMenu.columns.flatMap((column) =>
+      column.links.map((link) => [link.href, link.name] as const),
+    ),
+  );
+  return (
+    <ul className="flex flex-wrap items-center justify-center gap-2.5">
+      {ROLE_CHIP_SLUGS.map((slug) => {
+        const href = `/solutions/${slug}`;
+        const label = byHref.get(href) ?? slug;
+        return (
+          <li key={slug}>
+            <Link
+              href={href}
+              className="border-border text-muted-foreground hover:text-foreground hover:border-foreground/30 inline-flex items-center rounded-full border px-4 py-2 text-sm transition-colors"
+            >
+              {translateMenuText(label, tI18nComplete)}
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
@@ -159,11 +202,8 @@ const Hero = () => {
           </div>
         </div>
 
-        <div
-          id="demo"
-          className="kx-hero-frame relative z-10 mx-auto mt-12 max-w-4xl scroll-mt-24 px-6 [--kx-enter:290ms] sm:mt-14 lg:mt-10"
-        >
-          <DeliverableRow />
+        <div className="kx-hero-frame relative z-10 mx-auto mt-12 max-w-4xl px-6 [--kx-enter:290ms] sm:mt-14 lg:mt-10">
+          <RoleChips />
         </div>
         {/* 490ms + the 620ms text ramp lands this at 1110ms — the exact moment
             the frame (290ms + 820ms) finishes, so the fold closes on one beat. */}

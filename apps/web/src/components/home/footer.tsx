@@ -32,7 +32,7 @@ const FOOTER_SECTIONS: FooterSection[] = [
 
 function FooterLink({ label, href, external }: FooterLinkItem) {
   const className = cn(
-    'group flex w-full min-w-0 items-baseline py-1 text-sm hover:text-foreground text-muted-foreground/90 whitespace-nowrap',
+    'group flex min-w-0 items-baseline py-1 text-sm hover:text-foreground text-muted-foreground/90 whitespace-nowrap',
   );
 
   if (external) {
@@ -63,15 +63,21 @@ const Footer = () => {
       <footer id="site-footer" className="relative z-10">
         <div className="mx-auto mb-12 max-w-7xl px-6">
           <nav>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-5">
+            {/* One row across the full footer width: the section title and
+                its links sit inline and spread edge to edge instead of
+                stacking in a left column. */}
+            <div className="flex flex-wrap items-baseline gap-x-8 gap-y-3 md:justify-between">
               {footerSections.map((section) => (
-                <div key={section.title} className="min-w-0 space-y-2">
+                <div
+                  key={section.title}
+                  className="flex min-w-0 flex-wrap items-baseline gap-x-8 gap-y-3"
+                >
                   <h3 className="text-foreground text-sm">{section.title}</h3>
-                  <ul className="space-y-0">
+                  <ul className="flex min-w-0 flex-wrap items-baseline gap-x-8 gap-y-3">
                     {section.links.map((link) =>
                       process.env.NEXT_PUBLIC_USE_CASES_ENABLED === 'false' &&
                       link.href === '/use-cases' ? null : (
-                        <li key={link.label}>
+                        <li key={link.label} className="min-w-0">
                           <FooterLink {...link} />
                         </li>
                       ),
