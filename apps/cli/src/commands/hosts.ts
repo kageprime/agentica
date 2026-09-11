@@ -25,7 +25,7 @@ unless you pass \`--host <name>\` per invocation. Sign in with
 \`kortix hosts login\`; switch instance with \`kortix hosts use\`.
 
 Built-in hosts (always exist):
-  cloud                Kortix Cloud (https://api.kortix.com)
+  cloud                Cloud (https://api.kortix.com)
   selfhost             Your self-hosted stack (kortix self-host)
   local-dev            Local dev server (http://localhost:8008)
   kortix-internal-dev  Kortix-internal hosted dev (http://dev-api.kortix.com)

@@ -33,7 +33,7 @@ export const AUTHORS: Record<string, Author> = {
     email: 'marko@kortix.ai',
   },
   team: {
-    name: 'The Dosco Team',
+    name: 'The Team',
     role: 'Dosco',
     email: 'team@kortix.ai',
     isKortix: true,

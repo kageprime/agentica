@@ -43,7 +43,7 @@ export interface SlashCtx {
   // instead of `respondViaUrl`. Set only by the DM command runner.
   deferredDeliver?: (resp: SlashResponse) => Promise<void>;
   // Set for per-project/manual Slack apps. These apps do not switch projects:
-  // the webhook URL already scopes every event and command to one Kortix project.
+  // the webhook URL already scopes every event and command to one project.
   projectScopedProjectId?: string;
 }
 
@@ -127,8 +127,8 @@ function slashHelp(ctx: SlashCtx): SlashResponse {
     { cmd: `${command} sessions`, desc: 'Recent sessions started in this workspace.' },
     ...(config.SLACK_REQUIRE_USER_IDENTITY
       ? [
-          { cmd: `${command} login`,  desc: 'Connect your own Kortix account so the agent runs as you.' },
-          { cmd: `${command} logout`, desc: 'Disconnect your Kortix account.' },
+          { cmd: `${command} login`,  desc: 'Connect your own account so the agent runs as you.' },
+          { cmd: `${command} logout`, desc: 'Disconnect your account.' },
         ]
       : []),
   ];
@@ -171,7 +171,7 @@ async function slashProjectScopedInfo(ctx: SlashCtx): Promise<SlashResponse> {
           type: 'mrkdwn',
           text: project
             ? `This Slack app is already tied to *${escapeMrkdwn(project.name)}*.\nUse \`${ctx.command} agents\`, \`${ctx.command} models\`, or \`${ctx.command} policy\` to configure this channel.`
-            : `This Slack app is already tied to one Kortix project.\nUse \`${ctx.command} agents\`, \`${ctx.command} models\`, or \`${ctx.command} policy\` to configure this channel.`,
+            : `This Slack app is already tied to one project.\nUse \`${ctx.command} agents\`, \`${ctx.command} models\`, or \`${ctx.command} policy\` to configure this channel.`,
         },
       },
     ],
@@ -188,13 +188,13 @@ async function slashProjects(ctx: { teamId: string; channelId: string }): Promis
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: '*No Kortix projects connected yet.*\nHead to your Kortix dashboard to link one to this workspace.',
+            text: '*No projects connected yet.*\nHead to your dashboard to link one to this workspace.',
           },
           accessory: {
             type: 'button',
             text: { type: 'plain_text', text: 'Open dashboard', emoji: true },
             style: 'primary',
-            url: (config.FRONTEND_URL || 'https://kortix.com').replace(/\/$/, ''),
+            url: (config.FRONTEND_URL || 'https://dosco.live').replace(/\/$/, ''),
             action_id: 'projects_empty_dashboard',
           },
         },
@@ -202,7 +202,7 @@ async function slashProjects(ctx: { teamId: string; channelId: string }): Promis
     };
   }
   const current = await currentChannelProjectId(ctx);
-  const dashboardBase = (config.FRONTEND_URL || 'https://kortix.com').replace(/\/$/, '');
+  const dashboardBase = (config.FRONTEND_URL || 'https://dosco.live').replace(/\/$/, '');
   const blocks: Array<Record<string, unknown>> = [
     {
       type: 'header',
@@ -280,12 +280,12 @@ async function slashSwitch(ctx: { teamId: string; channelId: string }): Promise<
       blocks: [
         {
           type: 'section',
-          text: { type: 'mrkdwn', text: '*No projects to switch to.*\nLink a project to this workspace from your Kortix dashboard first.' },
+          text: { type: 'mrkdwn', text: '*No projects to switch to.*\nLink a project to this workspace from your dashboard first.' },
           accessory: {
             type: 'button',
             text: { type: 'plain_text', text: 'Open dashboard', emoji: true },
             style: 'primary',
-            url: (config.FRONTEND_URL || 'https://kortix.com').replace(/\/$/, ''),
+            url: (config.FRONTEND_URL || 'https://dosco.live').replace(/\/$/, ''),
             action_id: 'switch_empty_dashboard',
           },
         },
@@ -381,7 +381,7 @@ async function slashSessions(ctx: { teamId: string; channelId: string }): Promis
     return {
       response_type: 'ephemeral',
       blocks: [
-        { type: 'section', text: { type: 'mrkdwn', text: '*No recent Kortix sessions in this workspace.*\n`@`-mention me in any channel to start one.' } },
+        { type: 'section', text: { type: 'mrkdwn', text: '*No recent sessions in this workspace.*\n`@`-mention me in any channel to start one.' } },
       ],
     };
   }
@@ -391,7 +391,7 @@ async function slashSessions(ctx: { teamId: string; channelId: string }): Promis
     .from(projects)
     .where(inArray(projects.projectId, projectIds));
   const projectById = new Map(projectRows.map((p) => [p.projectId, p]));
-  const dashboardBase = (config.FRONTEND_URL || 'https://kortix.com').replace(/\/$/, '');
+  const dashboardBase = (config.FRONTEND_URL || 'https://dosco.live').replace(/\/$/, '');
   return {
     response_type: 'ephemeral',
     blocks: [
@@ -417,19 +417,19 @@ async function slashSessions(ctx: { teamId: string; channelId: string }): Promis
   };
 }
 
-// A context line stating whether the caller has linked their own Kortix account.
+// A context line stating whether the caller has linked their own account.
 async function buildIdentityContext(ctx: SlashCtx): Promise<Record<string, unknown>> {
   const identity = ctx.slackUserId ? await lookupSlackIdentity(ctx.teamId, ctx.slackUserId) : null;
   if (!identity) {
     return {
       type: 'context',
-      elements: [{ type: 'mrkdwn', text: `🔌  Not connected — run \`${ctx.command} login\` to run as your own Kortix account.` }],
+      elements: [{ type: 'mrkdwn', text: `🔌  Not connected — run \`${ctx.command} login\` to run as your own account.` }],
     };
   }
   const email = (await lookupEmailsByUserIds([identity.userId])).get(identity.userId);
   return {
     type: 'context',
-    elements: [{ type: 'mrkdwn', text: `🔗  Connected as *${email ? escapeMrkdwn(email) : 'your Kortix account'}*` }],
+    elements: [{ type: 'mrkdwn', text: `🔗  Connected as *${email ? escapeMrkdwn(email) : 'your account'}*` }],
   };
 }
 
@@ -460,7 +460,7 @@ async function slashPanel(ctx: SlashCtx): Promise<SlashResponse> {
   const identityBlocks = config.SLACK_REQUIRE_USER_IDENTITY ? [await buildIdentityContext(ctx)] : [];
   const selection = await currentChannelSelection(ctx);
   const currentId = selection?.projectId ?? null;
-  const dashboardBase = (config.FRONTEND_URL || 'https://kortix.com').replace(/\/$/, '');
+  const dashboardBase = (config.FRONTEND_URL || 'https://dosco.live').replace(/\/$/, '');
   if (!currentId) {
     return {
       response_type: 'ephemeral',
@@ -591,7 +591,7 @@ async function slashPanel(ctx: SlashCtx): Promise<SlashResponse> {
           },
           {
             type: 'button',
-            text: { type: 'plain_text', text: 'Open in Kortix ↗', emoji: true },
+            text: { type: 'plain_text', text: 'Open in the platform ↗', emoji: true },
             style: 'primary',
             url: `${dashboardBase}/projects/${p.projectId}`,
             action_id: `panel_open_${p.projectId}`,
@@ -669,7 +669,7 @@ async function slashPolicy(ctx: SlashCtx, arg: string): Promise<SlashResponse> {
   if (!(await canManageSlackPolicy(ctx, selection.projectId))) {
     return {
       response_type: 'ephemeral',
-      text: 'Only a linked Kortix account owner or admin for this project can change the Slack session policy.',
+      text: 'Only a linked account owner or admin for this project can change the Slack session policy.',
     };
   }
   const ok = await setChannelConversationPolicy(ctx, next);
@@ -682,13 +682,13 @@ async function slashPolicy(ctx: SlashCtx, arg: string): Promise<SlashResponse> {
 }
 
 // ── Link a bot sender ────────────────────────────────────────────────────────
-// A bot has no Kortix account and can never run `/login`, so resolveSlackActor
+// A bot has no account and can never run `/login`, so resolveSlackActor
 // answers `unlinked` for every message it sends and dispatch stops before the
 // turn. That is why an @-mention from another app looked like it did nothing at
 // all: the "connect your account" nudge is posted ephemerally AND DM'd to the
 // sender — a bot — where no human ever sees it.
 //
-// This binds a bot's Slack user id to the CALLER's Kortix account through the
+// This binds a bot's Slack user id to the CALLER's account through the
 // same chat_user_identities row `/login` writes, so the existing authorization
 // applies unchanged: the linked user must still be a member of the project's
 // account and pass PROJECT_WRITE inside resolveSlackActor. Nothing is granted
@@ -705,7 +705,7 @@ async function slashLinkBot(ctx: SlashCtx, arg: string): Promise<SlashResponse> 
   }
   const me = await lookupSlackIdentity(ctx.teamId, ctx.slackUserId);
   if (!me) {
-    return { response_type: 'ephemeral', text: `Connect your own Kortix account first: \`${ctx.command} login\`.` };
+    return { response_type: 'ephemeral', text: `Connect your own account first: \`${ctx.command} login\`.` };
   }
   const token = await loadSlackTokenForProject(selection.projectId);
   if (!token) {
@@ -760,7 +760,7 @@ async function slashLinkBot(ctx: SlashCtx, arg: string): Promise<SlashResponse> 
       response_type: 'ephemeral',
       text: actor.reason === 'not_member'
         ? "You're connected, but don't have access to this project yet."
-        : `Connect your Kortix account first: \`${ctx.command} login\`.`,
+        : `Connect your account first: \`${ctx.command} login\`.`,
     };
   }
   // A HUMAN's id must never be bound here. linkSlackIdentity upserts, and
@@ -771,7 +771,7 @@ async function slashLinkBot(ctx: SlashCtx, arg: string): Promise<SlashResponse> 
   // can tell them apart. Flagged on #6590 by review; it was a real hole.
   const existing = await lookupSlackIdentity(ctx.teamId, botUserId);
   if (existing && existing.userId !== me.userId) {
-    return { response_type: 'ephemeral', text: `<@${botUserId}> is already linked to a different Kortix account. Have them disconnect first.` };
+    return { response_type: 'ephemeral', text: `<@${botUserId}> is already linked to a different account. Have them disconnect first.` };
   }
   const bot = await isBotUser(token, botUserId);
   if (bot !== true) {
@@ -787,12 +787,12 @@ async function slashLinkBot(ctx: SlashCtx, arg: string): Promise<SlashResponse> 
   await linkSlackIdentity({ teamId: ctx.teamId, slackUserId: botUserId, userId: me.userId });
   return {
     response_type: 'ephemeral',
-    text: `Linked <@${botUserId}> to your Kortix account. Its @-mentions of Kortix in this workspace now run as you. Undo with \`${ctx.command} logout\` semantics via support, or re-link to someone else.`,
+    text: `Linked <@${botUserId}> to your account. Its @-mentions of Kortix in this workspace now run as you. Undo with \`${ctx.command} logout\` semantics via support, or re-link to someone else.`,
   };
 }
 
 // ── Login / Logout ───────────────────────────────────────────────────────────
-// Bind this Slack user to their OWN Kortix account so the agent runs as them
+// Bind this Slack user to their OWN account so the agent runs as them
 // (their credentials/secrets/connectors) instead of the workspace owner. The
 // link opens an authenticated web page that completes the bind; nothing is
 // stored until the user logs in there.
@@ -810,8 +810,8 @@ async function slashLogin(ctx: SlashCtx): Promise<SlashResponse> {
         text: {
           type: 'mrkdwn',
           text: existing
-            ? '*Your Slack is already connected to a Kortix account.*\nClick below to re-connect (e.g. to switch accounts). The link expires in 10 minutes.'
-            : '*Connect your Kortix account.*\nKortix needs access to your account before it can run from Slack. The link expires in 10 minutes and is private to you.',
+            ? '*Your Slack is already connected to an account.*\nClick below to re-connect (e.g. to switch accounts). The link expires in 10 minutes.'
+            : '*Connect your account.*\nThe platform needs access to your account before it can run from Slack. The link expires in 10 minutes and is private to you.',
         },
       },
       {
@@ -839,7 +839,7 @@ async function slashLogout(ctx: SlashCtx): Promise<SlashResponse> {
     response_type: 'ephemeral',
     text: revoked
       ? "Disconnected. Kortix will ask you to connect again before it runs on your behalf. Run `/kortix login` anytime."
-      : "You weren't connected. Run `/kortix login` to connect your Kortix account.",
+      : "You weren't connected. Run `/kortix login` to connect your account.",
   };
 }
 
@@ -1231,7 +1231,7 @@ async function slashSetModel(ctx: SlashCtx, arg: string): Promise<SlashResponse>
   if (!servable) {
     return {
       response_type: 'ephemeral',
-      text: `\`${escapeMrkdwn(id)}\` isn't available for this workspace. Pick one from \`${ctx.command} models\`, or connect that provider's API key in Kortix first.`,
+      text: `\`${escapeMrkdwn(id)}\` isn't available for this workspace. Pick one from \`${ctx.command} models\`, or connect that provider's API key in the platform first.`,
     };
   }
   const stored = toOpencodeModelRef(id);

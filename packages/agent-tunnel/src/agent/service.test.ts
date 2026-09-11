@@ -38,7 +38,7 @@ describe('agent tunnel service definitions', () => {
 
   test('systemd unit restarts on failure but not after a terminal exit', () => {
     const unit = renderSystemdUnit('exec /bin/echo tunnel');
-    expect(unit).toContain('Description=Kortix Agent Tunnel');
+    expect(unit).toContain('Description=Agent Tunnel');
     // Restart=always respawned the agent forever when the credential was
     // missing or revoked, which no restart can fix.
     expect(unit).toContain('Restart=on-failure');

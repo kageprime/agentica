@@ -75,7 +75,7 @@ async function jitSyncSso(
 // ═══════════════════════════════════════════════════════════════════════════════
 // Auth Middleware (3 middlewares — one per auth strategy)
 //
-//   1. apiKeyAuth      — Kortix API keys only (header)
+//   1. apiKeyAuth      — API keys only (header)
 //   2. supabaseAuth    — Supabase JWT only (header)
 //   3. combinedAuth    — Kortix OR Supabase (header + cookie fallback)
 //
@@ -96,7 +96,7 @@ async function jitSyncSso(
 
 /**
  * API key auth for search, LLM, and router routes.
- * Always validates Kortix tokens (kortix_, kortix_sb_) via validateSecretKey()
+ * Always validates tokens (kortix_, kortix_sb_) via validateSecretKey()
  * against the api_keys table.
  */
 export async function apiKeyAuth(c: Context, next: Next) {
@@ -286,7 +286,7 @@ async function resolveSupabaseAuth(c: Context, next: Next) {
     }
     if (result.tokenId) c.set('iamTokenId', result.tokenId);
     // Per-agent authorization grant (non-null only for agent-session tokens).
-    // Read by requireScope() to gate Kortix CLI/API actions on top of the
+    // Read by requireScope() to gate CLI/API actions on top of the
     // user's own role — net effect = userRole ∩ agentGrant.
     c.set('agentGrant', result.agentGrant ?? null);
     setSentryUser({ id: result.userId, accountId: result.accountId });
@@ -343,7 +343,7 @@ async function resolveSupabaseAuth(c: Context, next: Next) {
   if (isKortixToken(token) && sandboxTokenPathAllowed) {
     const result = await validateSecretKey(token);
     if (!result.isValid) {
-      throw new HTTPException(401, { message: result.error || 'Invalid Kortix token' });
+      throw new HTTPException(401, { message: result.error || 'Invalid token' });
     }
     if (result.type !== 'sandbox' || !result.sandboxId) {
       throw new HTTPException(403, { message: 'This route requires a sandbox token' });
@@ -464,7 +464,7 @@ async function resolveSupabaseAuth(c: Context, next: Next) {
 }
 
 /**
- * Combined auth — accepts Kortix tokens OR Supabase JWTs.
+ * Combined auth — accepts tokens OR Supabase JWTs.
  *
  * Token resolution order:
  *   1. Authorization: Bearer <token> header
@@ -634,7 +634,7 @@ async function resolveCombinedAuth(c: Context, next: Next) {
     return;
   }
 
-  // 2. Try Kortix token (kortix_ or kortix_sb_) — used by agents inside the sandbox
+  // 2. Try token (kortix_ or kortix_sb_) — used by agents inside the sandbox
   if (isKortixToken(token)) {
     const result = await validateSecretKey(token);
     if (!result.isValid) {
@@ -643,7 +643,7 @@ async function resolveCombinedAuth(c: Context, next: Next) {
         reason: result.error ?? 'invalid_kortix_token',
         authType: 'apiKey',
       });
-      throw new HTTPException(401, { message: result.error || 'Invalid Kortix token' });
+      throw new HTTPException(401, { message: result.error || 'Invalid token' });
     }
     if (
       previewSandboxId &&

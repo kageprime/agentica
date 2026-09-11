@@ -1,22 +1,22 @@
 // Generated from the user-visible fields in the SSO and SCIM guide catalogs.
 export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
-  '"Assign to People/Groups" makes the Assignments tab your allowlist: roll out team-by-team, and unassigning someone removes their Dosco access. There is no "sync everyone" toggle in Okta the way Entra has one — Assignments IS the scope, always.':
+  '"Assign to People/Groups" makes the Assignments tab your allowlist: roll out team-by-team, and unassigning someone removes their access. There is no "sync everyone" toggle in Okta the way Entra has one — Assignments IS the scope, always.':
     'textcb8b75d64e2e',
-  '"Sync only assigned users and groups" makes this app\'s Users and groups list your allowlist: roll out team-by-team, and unassigning someone removes their Dosco access. "Sync all users and groups" gives every person in your Entra tenant a Dosco account — fine for a small or dedicated tenant, rarely what a company tenant wants on day one.':
+  '"Sync only assigned users and groups" makes this app\'s Users and groups list your allowlist: roll out team-by-team, and unassigning someone removes their access. "Sync all users and groups" gives every person in your Entra tenant an account — fine for a small or dedicated tenant, rarely what a company tenant wants on day one.':
     'text9c3e31afd941',
   '"audience"': 'text40301f59f422',
   '"nameIdentifierFormat"': 'text93ff375b607b',
   '#1 Auth0 gotcha: two easy-to-miss values live inside the Settings JSON, not labeled fields — the audience (Entity ID) AND the NameID format. The addon defaults NameID to the Auth0 user_id (auth0|…), so without the emailAddress nameIdentifierFormat above, Dosco correlates on the wrong subject and every sign-in mis-identifies or fails.':
     'text896dc9e92487',
-  '#1 JumpCloud gotcha: Test Connection fails because the test-user email already exists in Dosco — it must be a brand-new address. (And click "Activate", not "Save", during that step.)':
+  '#1 JumpCloud gotcha: Test Connection fails because the test-user email already exists in the platform — it must be a brand-new address. (And click "Activate", not "Save", during that step.)':
     'text79c6ba1d813d',
   '#1 OneLogin gotcha: the "ACS (Consumer) URL Validator" is a regex, not a plain URL. Escape the dots and anchor it so it matches the ACS URL exactly, or login fails with no clear error.':
     'text582ee45bd6ee',
-  '#1 OneLogin gotcha: users seem to sync but nothing lands in Dosco — the actions are stuck in the Provisioning "pending" queue because "Require admin approval" is still checked. Uncheck it for Create/Update/Delete (or approve the queue).':
+  '#1 OneLogin gotcha: users seem to sync but nothing lands in the platform — the actions are stuck in the Provisioning "pending" queue because "Require admin approval" is still checked. Uncheck it for Create/Update/Delete (or approve the queue).':
     'text5bdaf14744e5',
   '#1 PingOne gotcha: everything looks configured but zero users sync — the CONNECTION toggle is still off (it defaults off), or PingOne is sending its internal username instead of the email. Enable the connection toggle, map "Username" → "Email Address", and set the filter `userName eq "%s"`.':
     'textad73038522f6',
-  '#1 failure mode: Test Connection fails. Almost always a hand-typed or truncated Tenant URL — re-copy it exactly from above (it is not the regular Dosco API URL and has no /v1 suffix). Assigning a whole GROUP (rather than individual users) needs Entra ID P1/P2; on Free, assign users one at a time.':
+  '#1 failure mode: Test Connection fails. Almost always a hand-typed or truncated Tenant URL — re-copy it exactly from above (it is not the regular API URL and has no /v1 suffix). Assigning a whole GROUP (rather than individual users) needs Entra ID P1/P2; on Free, assign users one at a time.':
     'texta442c279fce0',
   '+ /saml-metadata': 'text00495b4b8c8a',
   '+ Add New Application': 'text3c0b45ea3c2d',
@@ -159,7 +159,7 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'Automatic provisioning requires Entra ID P1/P2 (a trial works fine).': 'text840d62d0584a',
   'Back in "Provisioning" → "Settings", set "Scope" to "Sync only assigned users and groups" — it only appears here after credentials are saved. Then click "Start provisioning" at the top of the Provisioning overview page (or "Provision on demand" to push one assigned user instantly instead of waiting for the ~40-minute cycle).':
     'text9224d9e82502',
-  'Back in Dosco, watch the live status below while you push or wait for the sync — no need to tab back and forth to check.':
+  'Back in the platform, watch the live status below while you push or wait for the sync — no need to tab back and forth to check.':
     'text18d93a94d067',
   'Back on the app page, select "User access", set the service to ON for the org units or groups that may sign in, then click "Save".':
     'textf83190e0bc8c',
@@ -189,16 +189,16 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
     'text8c64de57e442',
   'Choose which identity provider(s) this application accepts — the upstream login method(s) you set up in the first step. Restrict to the one(s) you intend, or allow all configured methods.':
     'textff536bcd78f9',
-  'Click "Add user/group", click "None Selected" under Users and groups, select the users or groups that should sign in to Dosco, click "Select", then click "Assign".':
+  'Click "Add user/group", click "None Selected" under Users and groups, select the users or groups that should sign in to the platform, click "Select", then click "Assign".':
     'text7423c5dad8fc',
   'Click "Create App Integration".': 'textd800b1eb8a84',
   'Click "Show legacy configuration" to expand it, then click "Edit" next to "Profile attribute statements".':
     'texte98385522946',
   'Cloudflare Access is connected to my IdP': 'textefc784539cbc',
-  'Cloudflare Access passes email by default. Add the other attributes Dosco reads — id, firstName, lastName — as "SAML attribute statements": each is a Name plus the upstream IdP claim it maps to (a dropdown of your login method’s claims).':
+  'Cloudflare Access passes email by default. Add the other attributes the platform reads — id, firstName, lastName — as "SAML attribute statements": each is a Name plus the upstream IdP claim it maps to (a dropdown of your login method’s claims).':
     'textf27c4fdb823a',
   'Cloudflare Access policy configuration with rules': 'textdd69a8f7d8d9',
-  'Cloudflare Access sits BETWEEN Dosco and your real identity provider: it authenticates users against your IdP, then presents itself to Dosco as a SAML IdP. So set up the upstream connection first — in Zero Trust → Settings → Authentication, add a login method (Okta, Entra, Google, …) per Cloudflare’s docs.':
+  'Cloudflare Access sits BETWEEN Dosco and your real identity provider: it authenticates users against your IdP, then presents itself to the platform as a SAML IdP. So set up the upstream connection first — in Zero Trust → Settings → Authentication, add a login method (Okta, Entra, Google, …) per Cloudflare’s docs.':
     'text514650746440',
   'Cloudflare Add an application dialog with the SaaS type selected': 'text2191d96dabc7',
   'Cloudflare SAML attribute statements showing the groups attribute': 'text8e713f9ca03d',
@@ -209,7 +209,7 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
     'textbf1ebcb141c8',
   'Cloudflare Zero Trust Access Applications page with Add an application': 'text741f8fc72c03',
   'Cloudflare Zero Trust → Settings → Authentication → Login methods': 'text722467f3efa2',
-  'Cloudflare forwards the upstream IdP’s group NAMES on a "groups" SAML attribute (sent automatically for Okta, Entra ID, Google Workspace, and GitHub) — map those names in Dosco.':
+  'Cloudflare forwards the upstream IdP’s group NAMES on a "groups" SAML attribute (sent automatically for Okta, Entra ID, Google Workspace, and GitHub) — map those names in the platform.':
     'text1a146e36d3fc',
   'Cloudflare requires at least one Access policy or NOBODY can reach the app. Add a policy that allows the users/groups who may sign in (e.g. Action: Allow, Include: Emails ending in your domain, or a specific group).':
     'textf060ffc7f383',
@@ -231,7 +231,7 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
     'text0fb3ca669c74',
   'Connect SAML SSO first — provisioning creates accounts, but users still need SSO to sign in.':
     'texte1d84c99737d',
-  'Connect to Dosco': 'textb5307a649d34',
+  'Connect to the platform': 'textb5307a649d34',
   'Connections → Applications → +': 'text253923d0f0c5',
   Continue: 'text31fbef162594',
   Copy: 'texte21f935f11d7',
@@ -264,7 +264,7 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'Directory Sync pushes users and groups from Entra proactively — deactivations apply without waiting for a sign-in. It reuses the same enterprise application you already registered for SAML SSO; nothing new to create.':
     'textca3bcc681e99',
   'Display Name': 'text18d67c992b71',
-  'Display names and assigning groups to the app require Entra ID P1/P2 (check yours: Entra admin center → Overview → the License row). On the Free tier pick "Security groups" + "Group ID" instead — groups arrive as Object IDs (GUIDs; copy a group\'s Object ID from Entra ID → Groups) and you map those GUIDs in Dosco. EITHER WAY, you must still rename the claim to memberOf under "Advanced options" → "Customize the name of the group claim" — skipping the rename is the #1 cause of groups silently not syncing.':
+  'Display names and assigning groups to the app require Entra ID P1/P2 (check yours: Entra admin center → Overview → the License row). On the Free tier pick "Security groups" + "Group ID" instead — groups arrive as Object IDs (GUIDs; copy a group\'s Object ID from Entra ID → Groups) and you map those GUIDs in the platform. EITHER WAY, you must still rename the claim to memberOf under "Advanced options" → "Customize the name of the group claim" — skipping the rename is the #1 cause of groups silently not syncing.':
     'text6cf5816a3fba',
   'Do NOT enable the Advanced settings "SAML attribute transform (JSONata)" to build groups — a JSONata transform OVERRIDES all your SAML attribute statements, wiping out the email/id/firstName/lastName mappings from the previous step. Use plain attribute statements only.':
     'text292ad1466ce9',
@@ -322,7 +322,7 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'Entra sends group Object IDs (GUIDs) by default — map those GUIDs, or emit display names via "Groups assigned to the application" (needs Entra ID P1/P2).':
     'texta89c8f1d28bf',
   'Entra → Provisioning → Admin Credentials': 'textc4f7c4c468d5',
-  'Expand "Mappings" → "Provision Microsoft Entra ID Users". The one row that matters: "userName" must map to source attribute "user.userprincipalname" — that is how Dosco matches the SCIM user to a Dosco account. Leave the default "objectId → externalId" mapping as-is (that\'s how Entra recognizes a record it already pushed on later syncs) and leave the rest at their defaults.':
+  'Expand "Mappings" → "Provision Microsoft Entra ID Users". The one row that matters: "userName" must map to source attribute "user.userprincipalname" — that is how Dosco matches the SCIM user to an account. Leave the default "objectId → externalId" mapping as-is (that\'s how Entra recognizes a record it already pushed on later syncs) and leave the rest at their defaults.':
     'textb7b62fb8ba41',
   'Export your IdP’s SAML metadata — paste its metadata URL, or switch to Manual and paste the raw XML. It carries into the connect step automatically.':
     'text74d751461c37',
@@ -335,7 +335,7 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'First name': 'text702ef921ed1d',
   'For Okta, Microsoft Entra ID, Google Workspace, and GitHub, Cloudflare Access sends a "groups" SAML attribute automatically — there is nothing to add here, just confirm it is present. For any other upstream IdP, add one SAML attribute statement with Name "groups" and pick the IdP claim that carries group membership.':
     'text5918414053b3',
-  'For a single tester: Users → open the test user → Applications tab → "+" → add "Dosco". For a team: Users → Roles → create or edit a Role that includes the Dosco app, then add members to that Role.':
+  'For a single tester: Users → open the test user → Applications tab → "+" → add "Dosco". For a team: Users → Roles → create or edit a Role that includes the app, then add members to that Role.':
     'textb02bf1168f8c',
   'Four things, in order: paste credentials, check the one mapping, assign users, then start. Both values you need are shown above.':
     'textfb1f44091b66',
@@ -351,9 +351,9 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
     'text26bee86cde97',
   'Google custom SAML app dialog with the App name and icon fields': 'text9145379b9103',
   'Google groups': 'text085c8149fd05',
-  "Google only offers the XML download — there is no hosted metadata URL. Come back to re-download it if you change the app's configuration later; Dosco reads whatever is in the file at import time.":
+  "Google only offers the XML download — there is no hosted metadata URL. Come back to re-download it if you change the app's configuration later; The platform reads whatever is in the file at import time.":
     'textcf184a1c054a',
-  'Google only sends groups you EXPLICITLY select here (max 75). Add every group you plan to map in Dosco — an unselected group is silently omitted from the claim.':
+  'Google only sends groups you EXPLICITLY select here (max 75). Add every group you plan to map in the platform — an unselected group is silently omitted from the claim.':
     'textb963bfc5b85d',
   'Google sends group NAMES — and only for the groups you explicitly selected in the mapping (up to 75). A group you forgot to select is silently never sent.':
     'text4ba9e26cc819',
@@ -373,14 +373,14 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'Groups Resource': 'textaa000c983975',
   'Groups are off by default — without this mapping PingOne sends none. The attribute name (groups) must match the connect-step claim.':
     'text9c439825da55',
-  'Groups pushed from OneLogin Rules are created in Dosco under their OneLogin names.':
+  'Groups pushed from OneLogin Rules are created in the platform under their OneLogin names.':
     'text2f6c00ce1d58',
-  'Groups pushed via Push Groups are created in Dosco under their Okta names.': 'text437dee26bc75',
-  'Groups pushed via SCIM are created in Dosco under their Entra display names.':
+  'Groups pushed via Push Groups are created in the platform under their Okta names.': 'text437dee26bc75',
+  'Groups pushed via SCIM are created in the platform under their Entra display names.':
     'text284687df8e12',
   'Groups: if you left “Auto-provision groups” ON at the connect step (the default), your IdP groups appear automatically under Groups — just grant each one a project role. If you turned it off, map them yourself on the Identity page → SAML SSO card → “Group mappings” (IdP group name/ID → Dosco group).':
     'textbef5c2e7cce8',
-  'Groups: the default SAML2 Web App addon sends only email + name. To sync groups, add an Auth0 Action/Rule that emits a claim NAMED exactly "groups" (matching the connect-step claim). Auth0’s built-in group attribute URI "http://schemas.xmlsoap.org/claims/Group" will NOT match — map it to "groups". Then map those names in Dosco.':
+  'Groups: the default SAML2 Web App addon sends only email + name. To sync groups, add an Auth0 Action/Rule that emits a claim NAMED exactly "groups" (matching the connect-step claim). Auth0’s built-in group attribute URI "http://schemas.xmlsoap.org/claims/Group" will NOT match — map it to "groups". Then map those names in the platform.':
     'textf01e66b8c61a',
   'IdP Entity ID': 'text14a4ab8bf5c1',
   'IdP Metadata URL': 'text4ebe47eb8d93',
@@ -406,7 +406,7 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
     'text6c47e72cde49',
   'In the "Create a new app integration" dialog, select "SAML 2.0". Click "Next".':
     'text4cf9cff6cc72',
-  'In the "Settings" JSON object below the callback field, set TWO things: (1) "audience" = Dosco’s Entity ID, and (2) force the NameID to the user’s email — it defaults to the opaque Auth0 user_id (auth0|…), which Dosco can’t correlate. Add: "audience": "…/saml/metadata", "nameIdentifierFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress", "nameIdentifierProbes": ["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"]. Then scroll down and click "Enable".':
+  'In the "Settings" JSON object below the callback field, set TWO things: (1) "audience" = Dosco’s Entity ID, and (2) force the NameID to the user’s email — it defaults to the opaque Auth0 user_id (auth0|…), which the platform can’t correlate. Add: "audience": "…/saml/metadata", "nameIdentifierFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress", "nameIdentifierProbes": ["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"]. Then scroll down and click "Enable".':
     'texteca0eeacbef7',
   'In the Auth0 dashboard: Applications → Applications → open (or create) the application for Dosco. Creating a new one? Choose "Regular Web Application" — the SAML2 addon works regardless of type, but this avoids second-guessing the picker.':
     'text057a35b34fcb',
@@ -494,17 +494,17 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'JumpCloud admin → Access → SSO Applications → your app → Identity Management':
     'textbdee13d828b2',
   'JumpCloud include group attribute set to groups': 'text9f46497fbf67',
-  'JumpCloud only sends groups the application is BOUND to (User Groups tab). Bind each group you plan to map in Dosco; the name must match the connect-step claim.':
+  'JumpCloud only sends groups the application is BOUND to (User Groups tab). Bind each group you plan to map in the platform; the name must match the connect-step claim.':
     'textfc4ff3e38b06',
   'JumpCloud provisions the members of the user groups BOUND to this app — binding a group both scopes who is pushed and syncs the group itself.':
     'texte620ec0b0d1f',
   'JumpCloud pushes changes as they happen (group binds, membership changes) — a quiet period just means nothing changed.':
     'textde4066927089',
-  'JumpCloud pushes users and groups to Dosco from a "Custom Application" using its Identity Management (SCIM) tab. Provisioning needs the JumpCloud SSO entitlement.':
+  'JumpCloud pushes users and groups to the platform from a "Custom Application" using its Identity Management (SCIM) tab. Provisioning needs the JumpCloud SSO entitlement.':
     'text2d9da88db71f',
   'JumpCloud sends only the groups BOUND to this application, on the "groups" attribute — bind (and map) the groups you want before they appear.':
     'textc1682b5136e2',
-  'Dosco supports SCIM 2.0 Users + Groups, PATCH, and `attribute eq "value"` filters. Bulk operations are not supported.':
+  'The platform supports SCIM 2.0 Users + Groups, PATCH, and `attribute eq "value"` filters. Bulk operations are not supported.':
     'text7301076e877e',
   'Dosco → User access': 'text617ef6aeaa0d',
   'Dosco’s Entity ID IS the SP metadata endpoint, so importing it fills ACS + Audience for you. Pick "Manually Enter" instead and there is no "SP Metadata URL" field — you’d have to type the ACS URL and Entity ID by hand.':
@@ -551,9 +551,9 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
     'textafb837ec251a',
   'Okta sends group NAMES (the Okta GroupName), exactly as they appear in the Okta admin console — map those names.':
     'texte76b8dc1a636',
-  'Okta sends the matching groups by NAME — those names are what you map in Dosco. The attribute name (groups) is what Dosco reads as the group claim.':
+  'Okta sends the matching groups by NAME — those names are what you map in the platform. The attribute name (groups) is what the platform reads as the group claim.':
     'text1b10c2cfc647',
-  'On success the user lands in Dosco and appears under Members on the account’s Identity page.':
+  'On success the user lands in the platform and appears under Members on the account’s Identity page.':
     'textee9f51217082',
   'On the "Attribute mapping" step, click "Add mapping" for each row: pick the Google Directory field on the LEFT, and type the App attribute name (primaryEmail / firstName / lastName) on the RIGHT. In the end it should look like this:':
     'textecff14af6cf4',
@@ -563,7 +563,7 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
     'textde8d23760b6d',
   'On the "Google Identity Provider details" step, click "Download metadata", paste the XML file’s contents below, then click "Continue" IN GOOGLE to open the "Service provider details" screen (the next step).':
     'text2477d724436e',
-  'On the "Identity Management" tab itself (once Test Connection has succeeded), check "Enable management of User Groups and Group Membership in this application" so bound groups (and their members) are pushed to Dosco.':
+  'On the "Identity Management" tab itself (once Test Connection has succeeded), check "Enable management of User Groups and Group Membership in this application" so bound groups (and their members) are pushed to the platform.':
     'text53a46e4cc509',
   'On the "Parameters" tab, set the "SCIM Username" parameter’s value to the user’s Email — that makes SCIM userName the email Dosco correlates on. Leave the default externalId mapping as-is.':
     'text7acdd33eff33',
@@ -606,11 +606,11 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'OneLogin mapping a parameter to its value with Include in SAML assertion': 'textbed65ccdcd2f',
   'OneLogin pushes changes as they happen once provisioning is enabled — a quiet period just means nothing changed (or actions are held in the approval queue).':
     'textc8b4cda7a1c8',
-  'OneLogin pushes users and groups to Dosco with its "SCIM Provisioner with SAML" connector — a SEPARATE app from the SAML-only connector. Outbound provisioning is a paid OneLogin tier; the Provisioning tab only appears when your plan includes it.':
+  'OneLogin pushes users and groups to the platform with its "SCIM Provisioner with SAML" connector — a SEPARATE app from the SAML-only connector. Outbound provisioning is a paid OneLogin tier; the Provisioning tab only appears when your plan includes it.':
     'textd4e247cd9e30',
-  'OneLogin sends the user’s Role names on the "groups" parameter — map those names in Dosco. The parameter MUST be flagged multi-value, or OneLogin collapses every role into one string.':
+  'OneLogin sends the user’s Role names on the "groups" parameter — map those names in the platform. The parameter MUST be flagged multi-value, or OneLogin collapses every role into one string.':
     'text721d4177c1ee',
-  'Only assigned users are provisioned; users created directly in Dosco are not linked back to OneLogin.':
+  'Only assigned users are provisioned; users created directly in the platform are not linked back to OneLogin.':
     'textc8ad7b65129f',
   'Only internal PingOne groups can be pushed; membership scope follows the rule’s User Filter and Populations.':
     'text66ebce029c63',
@@ -634,7 +634,7 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'Parameters → groups': 'text3e583390b723',
   'Paste the Dosco Entity ID into "SP Entity ID" ONLY. Leave "IdP Entity ID" as the value JumpCloud pre-populates — that is JumpCloud’s own identifier and it flows into the exported metadata for you. Then check "Sign Assertion".':
     'text32d2efb69c25',
-  'Paste the Tenant URL into "Base URL" and the secret into "Token Key" (auth is HTTP Header → Authorization: Bearer). Enter a FRESH test-user email that does NOT already exist in Dosco, click "Test Connection", then click "Activate" — do NOT click Save during the test-user step or you lose the configuration.':
+  'Paste the Tenant URL into "Base URL" and the secret into "Token Key" (auth is HTTP Header → Authorization: Bearer). Enter a FRESH test-user email that does NOT already exist in the platform, click "Test Connection", then click "Activate" — do NOT click Save during the test-user step or you lose the configuration.':
     'textb460ebf34ddb',
   'Paste the Tenant URL into "SCIM Base URL", set "Users Resource" = /Users, "Groups Resource" = /Groups, "SCIM Version" = 2.0. Set "Authentication Method" = "OAuth 2 Bearer Token" and paste the secret into "OAuth Access Token". Click "Test connection", then Save.':
     'textbf2ddf28deeb',
@@ -645,7 +645,7 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'PingOne derives the ACS URL and Entity ID from Dosco’s SP metadata — you don’t type them separately. On the app’s SAML Configuration page, choose "Import from URL" (NOT the default "Manually Enter"), paste Dosco’s Identifier (Entity ID) into the metadata URL field, and click Import — PingOne auto-fills the ACS URLs and Entity ID.':
     'textb2932a4b2ce3',
   'PingOne groups attribute mapped to Group Names': 'text7936058bc9ef',
-  'PingOne pushes users and groups to Dosco through a generic "SCIM Outbound" connection under Integrations → Provisioning. Use the modern PingOne cloud console (Workforce) — the legacy "PingOne for Enterprise" product does not have this.':
+  'PingOne pushes users and groups to the platform through a generic "SCIM Outbound" connection under Integrations → Provisioning. Use the modern PingOne cloud console (Workforce) — the legacy "PingOne for Enterprise" product does not have this.':
     'text0b99f41d2759',
   'PingOne runs an initial full sync when the rule goes Active, then pushes incremental changes as your directory changes.':
     'textc0472b8d5a10',
@@ -682,19 +682,19 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'Push Groups tab → "+ Push Groups" → "Find groups by name" → search and select the group → check "Push Immediately" → "Save".':
     'text124bd4ab7857',
   'Push Immediately': 'textf9d46c1722ea',
-  'Push groups: on the app’s "Provisioning" tab, under "Entitlements", click "Refresh" so Dosco’s groups load. Then on the "Rules" tab add a Rule — a condition (e.g. member of a OneLogin Role) with the action "Set Groups in Dosco" → the group.':
+  'Push groups: on the app’s "Provisioning" tab, under "Entitlements", click "Refresh" so Dosco’s groups load. Then on the "Rules" tab add a Rule — a condition (e.g. member of a OneLogin Role) with the action "Set Groups in the platform" → the group.':
     'textb20e428d9c27',
   'Push groups: still in the rule’s "Directory" tab, click the pencil next to "Groups" → "Search Group Name" → pick the internal groups → review under "Selected Groups" → Save. PingOne pushes those groups and their memberships to /Groups.':
     'texte53bfff585aa',
   'Pushed groups appear under Groups — grant them project roles to confer access.':
     'text9c5c537db3fe',
-  'Pushed groups are created in Dosco under their displayName.': 'textbf8d3ae91a75',
+  'Pushed groups are created in the platform under their displayName.': 'textbf8d3ae91a75',
   'Put the ACS URL in both "Recipient" and "ACS (Consumer) URL". The "ACS (Consumer) URL Validator" is a REGEX field, not a plain URL: take the ACS URL above, escape every dot (. becomes \\.), and anchor it with ^ … $. For example, if the ACS URL is https://api.kortix.com/auth/v1/sso/saml/acs, paste ^https:\\/\\/api\\.kortix\\.com\\/auth\\/v1\\/sso\\/saml\\/acs$ — a pattern that doesn’t match the exact ACS URL makes the sign-in fail with no clear error.':
     'textd90f99f1be57',
   Recipient: 'text51fac985e953',
   'Recipient (ACS URL)': 'text5fd0f0afed3f',
   'Register Dosco in your IdP': 'textdc5f0f8236de',
-  'Removed from the Entra group → the mapped Dosco access is gone on next sign-in.':
+  'Removed from the Entra group → the mapped access is gone on next sign-in.':
     'texta01e54c04671',
   'Reply URL (Assertion Consumer Service URL)': 'textd07d886c79ea',
   'Require admin approval — Create': 'text139241655203',
@@ -798,7 +798,7 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
     'text8cae0a15ed1e',
   'The Configuration / Parameters / SSO tabs only appear AFTER that first Save — save the app once, then reopen it to configure.':
     'text7ddc2f43eb64',
-  'The JumpCloud user groups you bind to the app are created in Dosco under their JumpCloud names.':
+  'The JumpCloud user groups you bind to the app are created in the platform under their JumpCloud names.':
     'textbd82a26d7bf4',
   'The SSO app → Copy Metadata URL (a hosted link) — or Export Metadata for the same XML.':
     'textca79bc98e751',
@@ -811,7 +811,7 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
     'textf29ad8b8092c',
   'The federation metadata you captured earlier is prefilled below. Dosco registers your IdP and routes sign-ins for your email domain through it.':
     'textbf692d2cef5a',
-  'The internal PingOne groups you select on the provisioning rule are created in Dosco under their PingOne names.':
+  'The internal PingOne groups you select on the provisioning rule are created in the platform under their PingOne names.':
     'text19e9b5ae9295',
   'The member/group counts below tick up as JumpCloud pushes the bound groups and their members.':
     'text728545349685',
@@ -865,7 +865,7 @@ export const GUIDE_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   Value: 'text8e37953d23da',
   'Verify provisioning': 'text465887292bcb',
   "What's the name of your app?": 'textdb1e359790c5',
-  'Whatever attributes Dosco needs (email, first/last name, and groups) must survive the upstream hop — Cloudflare forwards them on.':
+  'Whatever attributes the platform needs (email, first/last name, and groups) must survive the upstream hop — Cloudflare forwards them on.':
     'text1ad818754c47',
   'When group sync maps OneLogin Roles, those same Roles are what gate app access — so assigning via a Role does double duty (access + the "groups" value).':
     'text2aebea9f007a',

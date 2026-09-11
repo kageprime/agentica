@@ -229,7 +229,7 @@ const envSchema = z.object({
   // deployment turn the whole docs/spec surface OFF so no route shapes publish.
   OPENAPI_PUBLIC_DOCS: optBoolTrue,
   // Self-host enterprise license: when the operator has purchased/holds a
-  // Kortix Enterprise license, this bypasses the sales-assigned `enterprise`
+  // Enterprise license, this bypasses the sales-assigned `enterprise`
   // tier check and unlocks every enterprise entitlement (SSO, SCIM, RBAC,
   // audit access) regardless of the account's billing tier — see
   // getAccountEntitlements()/accountHasEntitlement() in
@@ -284,7 +284,7 @@ const envSchema = z.object({
   // `defaultManagedProviderId()` — a deployed bundle that still names it
   // provisions on github and logs a warning. Existing code.storage repos keep
   // resolving through their own connection row. The GitHub backend creates repos under
-  // MANAGED_GIT_GITHUB_OWNER (a Kortix-owned org) via the Kortix App
+  // MANAGED_GIT_GITHUB_OWNER (a Kortix-owned org) via the App
   // installed there (MANAGED_GIT_GITHUB_INSTALL_ID). Reuses KORTIX_GITHUB_APP_*
   // for the App JWT. Each backend's isConfigured() checks its own vars, so
   // leaving these blank keeps the managed-git path inert.
@@ -418,7 +418,7 @@ const envSchema = z.object({
   // This flag is independent of
   // LLM_GATEWAY_ENABLED above: a self-host still runs the gateway for its own
   // BYOK routing (every sandbox model call goes through `/v1/llm`), it just
-  // must never see or route to Kortix's shared credentials. When unset it
+  // must never see or route to the platform's shared credentials. When unset it
   // follows KORTIX_BILLING_INTERNAL_ENABLED (derived below): billing on =
   // managed cloud where the managed lineup is the product; billing off =
   // self-host where it must stay dark. An explicit true/false always wins.
@@ -697,7 +697,7 @@ const envSchema = z.object({
   AUTH_EMAIL_HOOK_SECRET: optStr,
 
   // ── Transactional email: pre-EMAIL_URL variables (still supported) ────────
-  // Deployed Kortix runs on these today. They are used whenever EMAIL_URL is
+  // Deployed the platform runs on these today. They are used whenever EMAIL_URL is
   // unset; setting EMAIL_URL overrides all of them.
   // `smtp` is last but present by default: an existing self-host that
   // configured SMTP_* for GoTrue before EMAIL_URL shipped starts sending
@@ -1397,7 +1397,7 @@ export const config = {
 //   * Kortix keys (user uses our keys):  1.2x provider cost (20% markup)
 //   * User's own keys (passthrough):     0.1x provider cost (10% platform fee)
 
-/** Markup when Kortix provides the API key. */
+/** Markup when the platform provides the API key. */
 export const KORTIX_MARKUP = 1.2;
 
 /** Platform fee when user provides their own API key. */

@@ -264,7 +264,7 @@ pdftoppm -jpeg -r 150 output.pdf slide
 ls slide-*.jpg   # always ls — zero-padding varies by page count
 ```
 
-2. Start a background review session using the Kortix session orchestration flow (`session_start_background`, or `session_spawn` if the alias is what the runtime exposes). Give it the slide image paths plus a prompt like this:
+2. Start a background review session using the session orchestration flow (`session_start_background`, or `session_spawn` if the alias is what the runtime exposes). Give it the slide image paths plus a prompt like this:
 
 ```text
 Visually inspect these slides. Assume there are issues — find them.

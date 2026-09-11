@@ -13,7 +13,7 @@ import type { Context } from 'hono';
  *                              login is this", set purely so the per-account
  *                              session gate can do idle/lifetime/force-logout.
  *
- * Reading the raw context var and calling it a Kortix session is a live bug, not
+ * Reading the raw context var and calling it a session is a live bug, not
  * a theoretical one. Every KaaB isolation guard treats a NON-NULL caller session
  * as "a sandbox acting for one end-user, narrow it" — so handing it a browser's
  * Supabase auth session made the platform treat every logged-in human as an
@@ -35,7 +35,7 @@ import type { Context } from 'hono';
  * obvious context var.
  */
 export function callerKortixSessionId(c: Context): string | null {
-  // Anything that is not a Supabase browser JWT carries a real Kortix session id
+  // Anything that is not a Supabase browser JWT carries a real session id
   // when it carries one at all. Allow-listing 'supabase' as the ONLY excluded
   // kind (rather than allow-listing 'pat') keeps a future token kind that mints
   // session-bound credentials working by default — the isolation guards are the

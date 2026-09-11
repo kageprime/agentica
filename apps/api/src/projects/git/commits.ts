@@ -19,8 +19,8 @@ import type {
   ListCommitsOptions,
 } from './types';
 
-export const FIELD_SEP = '';
-export const RECORD_SEP = '';
+export const FIELD_SEP = '\t';
+export const RECORD_SEP = '\r';
 export const MAX_FAST_BOOT_GIT_BUNDLE_BASE64_BYTES = 24 * 1024;
 export const LOG_FORMAT = [
   '%H',
@@ -144,7 +144,7 @@ export interface ScaffoldDeltaBundle {
 
 /**
  * Locate the bundle boundary for `tip`: the first-parent ROOT commit. Every
- * project seeded from the Kortix starter starts life as the deterministic
+ * project seeded from the starter starts life as the deterministic
  * scaffold commit, so the root is the one commit the sandbox image can supply
  * from `/opt/kortix/scaffold.git` — either byte-for-byte (same SHA) or by tree
  * (a provider rewrote commit metadata; the daemon re-creates the commit object

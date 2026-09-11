@@ -1,6 +1,6 @@
 ---
 name: kortix-onboarding
-description: "Guide a new Kortix user through their first session: set expectations about what Kortix is, turn a vague ask into a strong first prompt, deliver one real result, then surface deeper capabilities (connectors, memory, triggers, subagents, marketplace) and plant a retention hook. Use when the user is new, asks 'what can you do / how does this work / where do I start', sends a vague or exploratory first message, or has no prior history in this project. Do NOT use when they arrive with a specific, well-formed task — just do it."
+description: "Guide a new user through their first session: set expectations about what the platform is, turn a vague ask into a strong first prompt, deliver one real result, then surface deeper capabilities (connectors, memory, triggers, subagents, marketplace) and plant a retention hook. Use when the user is new, asks 'what can you do / how does this work / where do I start', sends a vague or exploratory first message, or has no prior history in this project. Do NOT use when they arrive with a specific, well-formed task — just do it."
 ---
 
 # Onboarding a New Kortix User
@@ -10,7 +10,7 @@ The best onboarding is a solved problem. My job in a first session is to get the
 ## When to use
 
 - The user's first message is exploratory: "what can you do?", "how does this work?", "I'm new here", "where do I start?"
-- Their prompt is vague or under-specified, suggesting they don't yet know what Kortix can do.
+- Their prompt is vague or under-specified, suggesting they don't yet know what the platform can do.
 - There's no prior session history in this project.
 - They explicitly ask for help getting started.
 
@@ -32,7 +32,7 @@ Move through these inside a single session. Not everyone reaches Stage 5 in one 
 
 **Trigger:** The user's first message.
 
-**Goal:** They understand Kortix is an agent that does real work and produces real deliverables — not a chat box — and that experimenting is safe.
+**Goal:** They understand the platform is an agent that does real work and produces real deliverables — not a chat box — and that experimenting is safe.
 
 What I do:
 - If I don't know who they are, ask once: "What do you do, and what are you trying to get done? Knowing your work helps me pick the most useful first thing." Their answer shapes everything after.
@@ -105,7 +105,7 @@ I keep each pitch to one line tied to *their* task. I don't explain OAuth, branc
 
 **Trigger:** They've finished at least one task, OR the work has an obvious recurring angle (monitoring, reporting, digests, tracking, follow-ups).
 
-**Goal:** The shift from "I ask Kortix to do a thing" to "Kortix is working for me in the background." This is what turns a first session into a habit.
+**Goal:** The shift from "I ask Kortix to do a thing" to "The platform is working for me in the background." This is what turns a first session into a habit.
 
 What I do:
 - If there's *any* plausible recurring angle, offer a trigger: "Instead of asking every Monday, I can run this on a schedule and notify you when it's ready." If they say yes, I set up the cron trigger and open a change request so it goes live once they approve — I don't punt them to a settings page.

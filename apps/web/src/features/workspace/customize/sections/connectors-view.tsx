@@ -2018,7 +2018,7 @@ export function EmailConnectForm({
   const tI18nComplete = useTranslations('hardcodedUi.i18nComplete');
   const mode = useEmailMode(projectId);
   const connect = useConnectEmail();
-  const [displayName, setDisplayName] = useState('Dosco Agent');
+  const [displayName, setDisplayName] = useState('Agent');
   const [username, setUsername] = useState(() =>
     connectorSlug
       .replace(/^email_/, '')
@@ -4980,7 +4980,7 @@ export function SetCredentialModal({
   /**
    * The endpoint/client fields only appear when automatic setup cannot finish
    * the job: the user asked for their own app, or the server publishes nothing
-   * Dosco can act on. `unknown` (discovery still running or not started) keeps
+   * The platform can act on. `unknown` (discovery still running or not started) keeps
    * them visible so the modal is never empty.
    */
   /**

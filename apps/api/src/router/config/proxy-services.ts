@@ -126,7 +126,7 @@ export function getProxyServices(): Record<string, ProxyServiceConfig> {
     // - Passthrough (Mode 2): forwards the user's own API key to the real
     //   upstream provider for platform-fee billing.
     //
-    // Mode 1 (Kortix token in auth): inject provider key configured in service
+    // Mode 1 (Token in auth): inject provider key configured in service
     // Mode 2 (user key + X-Kortix-Token): passthrough to real provider
     //
     // The proxy handler picks targetBaseUrl for Mode 2/3 and

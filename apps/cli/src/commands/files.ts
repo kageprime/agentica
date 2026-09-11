@@ -87,7 +87,7 @@ Options:
   --json             Emit the raw API payload as JSON (machine-readable);
                      suppresses human output. Supported by every subcommand.
   --project <id>     Operate on this project id (default: linked).
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   -h, --help         Show this help.
 
 Every subcommand needs project.file.read. download additionally refuses any

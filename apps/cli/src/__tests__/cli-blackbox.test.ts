@@ -865,7 +865,7 @@ describe('kortix CLI black-box behavior', () => {
     const result = await runCli(['--version']);
 
     expect(result.code).toBe(0);
-    expect(result.stdout).toContain('Kortix CLI');
+    expect(result.stdout).toMatch(/CLI\s+v/);
   });
 
   test('add is not a top-level command', async () => {

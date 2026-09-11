@@ -29,7 +29,7 @@ import { sandboxEnvValue } from './sandbox-env.ts';
 // unless overridden by `--host <name>` for a single invocation.
 //
 // Single-host auth files are read on first load and moved into a `cloud`
-// host so users can switch cleanly between Kortix Cloud and self-hosted APIs.
+// host so users can switch cleanly between Cloud and self-hosted APIs.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const DEFAULT_API_BASE = process.env.KORTIX_DEFAULT_API_BASE ?? 'https://api.kortix.com';
@@ -464,7 +464,7 @@ function isPrivateHostname(rawHost: string): boolean {
 }
 
 /**
- * Kortix cloud APIs are HTTPS-only. A remote `http://` base 308-redirects to
+ * Cloud APIs are HTTPS-only. A remote `http://` base 308-redirects to
  * https, and `fetch` drops the `Authorization` header on the scheme change — so
  * the bearer token silently never arrives and the call 401s as "Token rejected
  * by the API" even after a successful browser login (and the same drop breaks
@@ -518,7 +518,7 @@ function normalizeConfig(parsed: Partial<Config>): Config {
   const renamed: Record<string, string> = {};
 
   // Legacy `default`: the original single-host name. If it still points at
-  // Kortix Cloud, fold it into `cloud`. If it is a never-logged-in placeholder
+  // Cloud, fold it into `cloud`. If it is a never-logged-in placeholder
   // (no token), it is a stale artifact — drop it and fall back to cloud. A
   // `default` host that actually carries credentials is left untouched.
   const legacyDefault = cleaned.default;

@@ -42,7 +42,7 @@ function Hero(): ReactNode {
           >
             <span className="text-6xl" aria-hidden>火</span>
             <span className="text-muted-foreground px-4 text-center text-sm font-medium">
-              火 Dosco Network team — illustration coming soon
+              火 Network team — illustration coming soon
             </span>
           </div>
         </div>

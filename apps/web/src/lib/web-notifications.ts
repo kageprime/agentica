@@ -398,7 +398,7 @@ export function notifySessionError(
 }
 
 /**
- * Notify that Dosco is asking the user a question.
+ * Notify that the platform is asking the user a question.
  */
 export function notifyQuestion(
   sessionId: string,
@@ -423,7 +423,7 @@ export function notifyQuestion(
 }
 
 /**
- * Notify that Dosco needs a permission grant.
+ * Notify that the platform needs a permission grant.
  */
 export function notifyPermissionRequest(
   sessionId: string,

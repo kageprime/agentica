@@ -55,7 +55,7 @@ export async function resolveTeamsActor(
   if (!link) return { reason: 'unlinked' };
 
   if (!(await isAccountMember(link.userId, accountId))) return { reason: 'not_member' };
-  // A channel webhook carries no Kortix credential: it acts AS the Kortix user
+  // A channel webhook carries no credential: it acts AS the user
   // the Slack/Teams identity is linked to. Role-only is the honest classification
   // and is exactly the authority this call had when the trailing `actingTokenId`
   // was omitted.

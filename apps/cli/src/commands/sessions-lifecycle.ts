@@ -43,7 +43,7 @@ an idle auto-stop leaves it. Resume with \`kortix sessions start\`. Use
 
 Options:
   --project <id>   Operate on this project id (default: linked).
-  --host <name>    Operate against a non-default Kortix host.
+  --host <name>    Operate against a non-default host.
   --json           Machine-readable output.
   -h, --help       Show this help.
 
@@ -61,7 +61,7 @@ Options:
   --wait           Block until the runtime is ready (up to ~5 min). Exit 1 if
                    the session ends up failed or stopped.
   --project <id>   Operate on this project id (default: linked).
-  --host <name>    Operate against a non-default Kortix host.
+  --host <name>    Operate against a non-default host.
   --json           Machine-readable output.
   -h, --help       Show this help.
 
@@ -80,7 +80,7 @@ Options:
   --exclude <session-id>   Never hand back this session — pass the warm one you
                            just took, so a replenish creates a fresh box.
   --project <id>           Operate on this project id (default: linked).
-  --host <name>            Operate against a non-default Kortix host.
+  --host <name>            Operate against a non-default host.
   --json                   Machine-readable output.
   -h, --help               Show this help.
 
@@ -100,7 +100,7 @@ stores the value for its next start. The reply says which happened:
 
 Options:
   --project <id>   Operate on this project id (default: linked).
-  --host <name>    Operate against a non-default Kortix host.
+  --host <name>    Operate against a non-default host.
   --json           Machine-readable output.
   -h, --help       Show this help.
 
@@ -117,7 +117,7 @@ runtime's configured default is the fallback.
 
 Options:
   --project <id>   Operate on this project id (default: linked).
-  --host <name>    Operate against a non-default Kortix host.
+  --host <name>    Operate against a non-default host.
   --json           Machine-readable output.
   -h, --help       Show this help.
 `;

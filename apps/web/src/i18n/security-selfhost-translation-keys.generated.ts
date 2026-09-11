@@ -4,7 +4,7 @@ export const SECURITY_SELFHOST_TRANSLATION_KEYS: Readonly<Record<string, string>
     'text5e2ce6656b32',
   '/enterprise': 'text28346646cd67',
   '2 vCPU / 4 GB floor, 4 vCPU / 16 GB for real use': 'text66dee8fd0152',
-  '3,000+ apps in a click, plus MCP, OpenAPI, GraphQL and raw HTTP. The third-party credential is held and resolved server-side; the machine holds one scoped Dosco token and calls through it. The same rule covers Dosco’s own provider keys, which no sandbox is allowed to hold.':
+  '3,000+ apps in a click, plus MCP, OpenAPI, GraphQL and raw HTTP. The third-party credential is held and resolved server-side; the machine holds one scoped token and calls through it. The same rule covers Dosco’s own provider keys, which no sandbox is allowed to hold.':
     'text1c81f8a26f00',
   'A change request is a diff. An agent rewriting its own prompt is reviewed the same way a code change is — because it is one. A change request whose manifest does not validate cannot merge at all.':
     'textd4edcc30c8f6',
@@ -23,7 +23,7 @@ export const SECURITY_SELFHOST_TRANSLATION_KEYS: Readonly<Record<string, string>
     'text36f80c38222d',
   'A self-hosted instance has no managed model lineup and does not want one. You connect the providers you already pay for, and every model call routes through the gateway running on your own box.':
     'text45ba74fd89a9',
-  'A self-hosted instance runs its own gateway for its own model routing. It never sees or routes to Dosco credentials, and there is no platform fee on a self-hosted account.':
+  'A self-hosted instance runs its own gateway for its own model routing. It never sees or routes to credentials, and there is no platform fee on a self-hosted account.':
     'text2c9254d4dcde',
   'A service account is a first-class machine identity the account owns, not a human token wearing a hat. Policies attach to it directly, and a request it makes is evaluated purely against its own policies — it never inherits the reach of whoever created it.':
     'text93cf8ed6d1fd',
@@ -54,7 +54,7 @@ export const SECURITY_SELFHOST_TRANSLATION_KEYS: Readonly<Record<string, string>
   'An agent declares in kortix.yaml which secrets it may ever be given. A session receives the intersection of that grant and the role of the person who started it — so an agent can never reach past its own declaration, or past the human behind it.':
     'text4f0fb30e3bee',
   'An agent is a principal, not a loophole.': 'textbc346bfb5269',
-  'An agent that can install anything, call anything and write anywhere is only safe if the walls are real. In Dosco they sit below the agent, in the platform, where a prompt cannot talk its way past them.':
+  'An agent that can install anything, call anything and write anywhere is only safe if the walls are real. In the platform they sit below the agent, in the platform, where a prompt cannot talk its way past them.':
     'textb9c1352c8c67',
   'Another session — same project, same team, or another customer': 'text0686a22fbf7d',
   'Anthropic, OpenAI, Google, Groq, xAI, DeepSeek, Mistral, Bedrock and OpenRouter, or the ChatGPT and Copilot subscription you already hold.':
@@ -154,7 +154,7 @@ export const SECURITY_SELFHOST_TRANSLATION_KEYS: Readonly<Record<string, string>
   'It keeps itself current': 'text51b143371424',
   'Its own sandbox, with its own filesystem and its own lifetime': 'text58f084456f75',
   kortix: 'text388f7968512c',
-  'Dosco Cloud': 'text493bdb7154e4',
+  'Cloud': 'text493bdb7154e4',
   'kortix self-host start': 'textdbef6cc84fef',
   'kortix self-host start registers the selfhost host for you and makes it active.':
     'text8ea44187f958',
@@ -176,7 +176,7 @@ export const SECURITY_SELFHOST_TRANSLATION_KEYS: Readonly<Record<string, string>
   'Merging is default-deny': 'text829e67c6a623',
   'microVM where you ask for it': 'textb3960c7e6888',
   Models: 'textd17d2d78d76e',
-  'Most AI tools give the agent whatever the person who started it can reach. Dosco does not. An agent identity carries its own policies, evaluated on their own, so it cannot inherit its way up to something you never granted it.':
+  'Most AI tools give the agent whatever the person who started it can reach. The platform does not. An agent identity carries its own policies, evaluated on their own, so it cannot inherit its way up to something you never granted it.':
     'text1aeb8993945b',
   'Need it inside your own network, with SSO and a licence? Talk to us.': 'text0eae7ee74fc9',
   'never crosses in': 'text818da9a35cdc',
@@ -187,7 +187,7 @@ export const SECURITY_SELFHOST_TRANSLATION_KEYS: Readonly<Record<string, string>
   'Not a community edition.': 'texte3bbf2902a7f',
   'not on your box': 'textaa57cad004f0',
   'Nothing is shared, because nothing is shared.': 'text9045e34e96f2',
-  'On Dosco’s own Platinum compute a sandbox is a Cloud Hypervisor microVM. Daytona and E2B are also supported. The provider is a deployment choice, and we will tell you which one you are on rather than blur them together.':
+  'On the platform’s own Platinum compute a sandbox is a Cloud Hypervisor microVM. Daytona and E2B are also supported. The provider is a deployment choice, and we will tell you which one you are on rather than blur them together.':
     'text8368ff24d89c',
   'on your box': 'text425aa668a9e4',
   'One branch per session': 'textb0f2f6dd1e38',
@@ -249,7 +249,7 @@ export const SECURITY_SELFHOST_TRANSLATION_KEYS: Readonly<Record<string, string>
   'See enterprise': 'text08c74a58ac03',
   'Self-host free': 'text6cad1856bada',
   'Self-hosted': 'textbeafec79ffdd',
-  'Self-hosting is free and always will be. Dosco Cloud is the same product with the box, the upgrades and the sandbox tier taken off your hands.':
+  'Self-hosting is free and always will be. Cloud is the same product with the box, the upgrades and the sandbox tier taken off your hands.':
     'text2461783e77d5',
   'Self-hosting is not a smaller Dosco with the interesting parts removed. It is the whole control plane — accounts, projects, repos, secrets, connectors, policies, audit — running inside your network, on storage you back up yourself.':
     'text4e1407fe77a8',
@@ -257,7 +257,7 @@ export const SECURITY_SELFHOST_TRANSLATION_KEYS: Readonly<Record<string, string>
     'text5b643170d839',
   'service account': 'textd7da08389824',
   'Service accounts': 'text1642d9e225e6',
-  'Sessions call the gateway inside your own stack, over your own domain or tunnel. Dosco has no credential in that path and no visibility into it.':
+  'Sessions call the gateway inside your own stack, over your own domain or tunnel. The platform has no credential in that path and no visibility into it.':
     'text23ad3a862df5',
   'Set the default you want': 'text2bf623481fd8',
   Shredded: 'texta69c197df026',
@@ -333,7 +333,7 @@ export const SECURITY_SELFHOST_TRANSLATION_KEYS: Readonly<Record<string, string>
   'Unlocks SAML SSO, SCIM directory sync, custom roles, groups and audit read on this instance.':
     'textaea3a7e97183',
   Updates: 'text22e2bada8f1c',
-  'Use Dosco Cloud': 'textb627f853304f',
+  'Use Cloud': 'textb627f853304f',
   Used: 'textae7d8dfac9ff',
   'Values are sealed with AES-256-GCM. The key is derived per project with HKDF-SHA256, so one project’s ciphertext cannot be opened with another project’s key. The envelope is versioned, so the scheme can move forward without a flag day.':
     'text1ece34602eea',

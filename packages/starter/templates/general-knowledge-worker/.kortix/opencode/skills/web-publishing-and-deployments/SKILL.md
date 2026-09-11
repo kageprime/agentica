@@ -49,7 +49,7 @@ shared preview URL is public-by-link if they asked for privacy.
    "Security review" below.
 3. **Flag runtime-only dependencies that won't survive publishing.** API keys
    set in the dev environment aren't automatically present in a standalone
-   deployment, and anything reaching back into the Kortix agent runtime or its
+   deployment, and anything reaching back into the agent runtime or its
    connectors has no bridge once deployed. Scan first:
 
    ```bash

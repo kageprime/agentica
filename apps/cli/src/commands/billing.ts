@@ -48,7 +48,7 @@ Subcommands:
 
 Global options:
   --account <id>     Operate on this account (default: active account).
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   --json             Machine-readable output.
   -h, --help         Show this help.
 

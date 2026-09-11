@@ -23,7 +23,7 @@ Exit codes:
 Options:
   --timeout <seconds>   Give up after this long (default 300).
   --project <id>        Operate on this project id (default: linked).
-  --host <name>         Operate against a non-default Kortix host.
+  --host <name>         Operate against a non-default host.
   --json                Print {settled, blocked, waited_ms} as JSON.
   -h, --help            Show this help.
 `;

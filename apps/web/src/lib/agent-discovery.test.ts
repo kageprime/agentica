@@ -113,7 +113,7 @@ describe('agent discovery documents', () => {
       params: { name: 'get_public_markdown', arguments: { path: '/' } },
     }) as any;
     expect(call.result.isError).not.toBe(true);
-    expect(call.result.content[0].text).toContain('# Dosco');
+    expect(call.result.content[0].text).toContain('# Agent Network');
   });
 
   test('registers two read-only WebMCP tools with abort-controlled lifetimes', async () => {
@@ -149,7 +149,7 @@ describe('agent discovery documents', () => {
     expect(response.status).toBe(200);
     expect(response.headers.get('Content-Type')).toBe('text/markdown; charset=utf-8');
     expect(response.headers.get('Vary')).toBe('Accept');
-    expect(await response.text()).toContain('# Dosco');
+    expect(await response.text()).toContain('# Agent Network');
   });
 
   test('adds agent discovery links to the homepage middleware response', async () => {

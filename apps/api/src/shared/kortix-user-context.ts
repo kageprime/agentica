@@ -4,7 +4,7 @@
  * Format: `<base64url(json payload)>.<base64url(HMAC-SHA256)>`
  *
  * Kortix-master owns the same secret (the sandbox's KORTIX_TOKEN service key)
- * and verifies the signature locally — no callback to the Kortix API per
+ * and verifies the signature locally — no callback to the API per
  * request. An `exp` field bounds staleness after ACL changes.
  *
  * Keep this module pure so the sandbox-side verifier can mirror the same

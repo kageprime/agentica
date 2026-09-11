@@ -34,15 +34,15 @@
  */
 
 export const hero = {
-  eyebrow: 'About 火 Dosco Network',
+  eyebrow: 'About 火 Network',
   title: 'Dosco delivers deliverables — not just chat.',
-  lead: 'Dosco is a flexible AI agent that becomes any role — UI engineer, logo designer, accountant, PR — at 100% capacity. Hand it a sprint and it drops in and executes. The perfect coworker.',
+  lead: 'The platform is a flexible AI agent that becomes any role — UI engineer, logo designer, accountant, PR — at 100% capacity. Hand it a sprint and it drops in and executes. The perfect coworker.',
   ctaPrimary: 'Talk to us',
   ctaPrimaryHref: '/contact',
   ctaSecondary: 'Request a demo',
   ctaSecondaryHref: '/contact',
-  imageAlt: '火 Dosco Network team (illustration)',
-  starsCaption: 'the 火 Dosco Network',
+  imageAlt: '火 Network team (illustration)',
+  starsCaption: 'the 火 Network',
 } as const;
 
 /** The three claims the page rests on. One headline, one paragraph, no more. */
@@ -51,19 +51,19 @@ export const statements = [
     id: 'own',
     n: '01',
     title: 'Dosco delivers deliverables, not chat.',
-    body: 'Dosco is not a chatbot that returns text. It ships actual work that counts — finished designs, code, reports, filings. The output is the deliverable.',
+    body: 'The platform is not a chatbot that returns text. It ships actual work that counts — finished designs, code, reports, filings. The output is the deliverable.',
   },
   {
     id: 'closed',
     n: '02',
     title: 'One agent, every role at 100% capacity.',
-    body: '火 Dosco Network becomes whatever you need — UI engineer, logo designer, accountant, PR. Each role runs at full capacity, the moment you need it.',
+    body: '火 Network becomes whatever you need — UI engineer, logo designer, accountant, PR. Each role runs at full capacity, the moment you need it.',
   },
   {
     id: 'shift',
     n: '03',
     title: 'The perfect coworker drops into your sprint.',
-    body: 'Hand Dosco a sprint and it executes — planning, building, and landing the work end to end. Autonomy shifts from humans to agents, and 火 Dosco Network is the teammate that does it.',
+    body: 'Hand Dosco a sprint and it executes — planning, building, and landing the work end to end. Autonomy shifts from humans to agents, and 火 Network is the teammate that does it.',
   },
 ] as const;
 
@@ -111,7 +111,7 @@ export const platform = {
 } as const;
 
 export const closing = {
-  title: 'Every team will run on agents. 火 Dosco Network is the one you own.',
+  title: 'Every team will run on agents. 火 Network is the one you own.',
   ctaPrimary: 'Talk to us',
   ctaPrimaryHref: '/contact',
   ctaSecondary: 'Read the code',

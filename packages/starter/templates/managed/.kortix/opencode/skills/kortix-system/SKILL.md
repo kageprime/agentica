@@ -1,12 +1,12 @@
 ---
 name: kortix-system
-description: "Canonical reference for Kortix projects, Apps, the CLI, sessions, sandboxes, change requests, triggers, connectors, secrets, system skills, and OpenCode REST. Covers `kortix.yaml` versions 1 and 2, serverless App deployments, OpenCode configuration, session identity, credential boundaries, and the complete OpenCode reference. Load when the user asks how Kortix works, what Kortix can do, how to deploy an App, how an agent discovers platform instructions, how to configure or test OpenCode, how to edit `kortix.yaml`, how to use the `kortix` CLI, how to land work through a change request, or how to schedule and automate work."
+description: "Canonical reference for projects, Apps, the CLI, sessions, sandboxes, change requests, triggers, connectors, secrets, system skills, and OpenCode REST. Covers `kortix.yaml` versions 1 and 2, serverless App deployments, OpenCode configuration, session identity, credential boundaries, and the complete OpenCode reference. Load when the user asks how the platform works, what the platform can do, how to deploy an App, how an agent discovers platform instructions, how to configure or test OpenCode, how to edit `kortix.yaml`, how to use the `kortix` CLI, how to land work through a change request, or how to schedule and automate work."
 ---
 
 <skill name="kortix-system">
 
 <live-skills>
-The `kortix` CLI is the live source of truth for how Kortix works. The Kortix
+The `kortix` CLI is the live source of truth for how the platform works. The Kortix
 **system skills** — `kortix-system`, `kortix-apps`, `kortix-connectors`,
 `kortix-memory`, `kortix-harness-refinement`, `kortix-slack`,
 `kortix-computer`, `kortix-marketplace` — are
@@ -14,7 +14,7 @@ served fresh by the CLI,
 so their instructions always match the platform version you're running on (no
 re-install, no image re-bake):
 
-- `kortix system-skills` — list the Kortix system skills.
+- `kortix system-skills` — list the system skills.
 - `kortix system-skills get <name>` — print one skill's current SKILL.md body.
 - `kortix system-skills get <name> --full` — also include its referenced files.
 
@@ -34,11 +34,11 @@ contract.
 </live-skills>
 
 <overview>
-A **Kortix project** is one GitHub repo with a `kortix.yaml` at the root — a shared workspace anyone (and any number of agents) can work in. A **session** is one conversation = one ephemeral sandbox VM = one branch named after the session id. The sandbox dies when the session ends; the branch persists. Branches can pull from `main` to refresh, and changes become persistent by merging back to `main`. Sessions are isolated, but the underlying repo is the global workspace.
+A **Project** is one GitHub repo with a `kortix.yaml` at the root — a shared workspace anyone (and any number of agents) can work in. A **session** is one conversation = one ephemeral sandbox VM = one branch named after the session id. The sandbox dies when the session ends; the branch persists. Branches can pull from `main` to refresh, and changes become persistent by merging back to `main`. Sessions are isolated, but the underlying repo is the global workspace.
 
 The repo has two configuration layers with strict ownership:
 
-- **Kortix config** — `kortix.yaml` at the repo root, plus `.kortix/` for the
+- **Config** — `kortix.yaml` at the repo root, plus `.kortix/` for the
   sandbox Dockerfile, memory, and managed skills.
 - **OpenCode config** — `.kortix/opencode`, or the v2
   `opencode.config_dir`. OpenCode owns prompts, tools, permissions, extensions,
@@ -50,9 +50,9 @@ OpenCode REST.
 </overview>
 
 <capabilities>
-## What Kortix can do
+## What the platform can do
 
-Kortix is an AI command center where a workforce of agents does real work —
+The platform is an AI command center where a workforce of agents does real work —
 and the whole thing is **code you own**: a project is a git repo with a
 `kortix.yaml` at its root; a session is one conversation in its own
 disposable sandbox on its own branch; work becomes permanent only via a
@@ -92,7 +92,7 @@ whenever a capability answer needs more than the one-liner above.
 Load this skill when the user asks any of:
 
 - "What can you do?" / "Can you do X?" / "How does Kortix work?" / "How do I
-  do Y in Kortix?" / how Kortix compares to other AI tools or assistants
+  do Y in the platform?" / how the platform compares to other AI tools or assistants
 - "Schedule this / remind me later / run this every morning / on a
   schedule" / "recurring task" / "cron job" / "webhook trigger"
 - "What does `kortix.yaml` do?" / "What is `kortix_version`?"
@@ -100,16 +100,16 @@ Load this skill when the user asks any of:
 - "Where do secrets come from?" / "Why does my session fail to start?"
 - "What's the difference between `kortix.yaml` and `opencode.jsonc`?"
 - "How do I use or test OpenCode?"
-- "How does an agent retrieve the current Kortix system instructions?"
+- "How does an agent retrieve the current system instructions?"
 - "How do I customize the sandbox image?"
-- "How do I deploy a website, Dockerfile, or OCI image?" / "How do Kortix Apps work?"
+- "How do I deploy a website, Dockerfile, or OCI image?" / "How do Apps work?"
 - "How do I create an OpenCode agent or a reusable skill?"
 - "How do I register an MCP server?"
 - "How do I tighten permissions for the build agent?"
 - "What does `AGENTS.md` do in OpenCode?"
 - "Which model should I default to?" / "How do I configure reasoning effort?"
 - "How do I land this work on `main`?" / "Open a PR / change request for me"
-- "How do change requests work in Kortix?" / "What's `kortix cr`?"
+- "How do change requests work in the platform?" / "What's `kortix cr`?"
 
 If the question is purely about *operating* code (running tests,
 choosing between `edit` and `write`), you don't need this skill — the
@@ -118,7 +118,7 @@ agent's own instructions cover that. This skill is the **configuration
 </when-to-load>
 
 <cli>
-You are running inside a Kortix session sandbox. The **`kortix` CLI**
+You are running inside a session sandbox. The **`kortix` CLI**
 is on `$PATH` (`/usr/local/bin/kortix`) and pre-authenticated against
 this exact project — a project-scoped token is already injected as
 `$KORTIX_CLI_TOKEN`, with `$KORTIX_API_URL` pointed at the right host.
@@ -129,7 +129,7 @@ layer, and the project APIs reject it — just use the CLI, which already
 holds the right token.)
 
 **Reach for the CLI** whenever the user asks for something that touches
-Kortix cloud state — not just files in the repo. Examples:
+Cloud state — not just files in the repo. Examples:
 
 | The user says… | Use… |
 | --- | --- |
@@ -189,7 +189,7 @@ enforcement feature:
 - `network` — appears only under the experimental network enforcement feature.
   The named environment variable holds a HANDLE, not the value. Use
   the variable exactly as you would use the real credential (header, query
-  string, body). Kortix swaps the handle for the real value OUTSIDE the sandbox,
+  string, body). The platform swaps the handle for the real value OUTSIDE the sandbox,
   and only on the `hosts` the entry lists, over HTTPS. Sent anywhere else the
   handle arrives as a literal string and the request fails. A response that
   echoes the credential comes back with `[REDACTED]` in its place — that means
@@ -197,7 +197,7 @@ enforcement feature:
   failure. The value is not in this sandbox in any form: do not search for it,
   do not ask the user for it. The entry's `notes` carry the full rules.
 - `https_broker` — appears only under the experimental network enforcement
-  feature. Use `kortix secrets call IDENTIFIER URL [options]`; Kortix adds the
+  feature. Use `kortix secrets call IDENTIFIER URL [options]`; The platform adds the
   value server-side only after the request matches the stored policy. This is
   also the fallback when a request cannot be relayed transparently.
 - `kortix_service` — spent only by its named service, such as a connector or
@@ -218,7 +218,7 @@ automatically whenever you add or need a tool. Full playbook in the
 
 **Exception — connecting Slack itself.** Slack is a built-in channel, not a
 connector or a secret. `kortix channels connect` is the ONE command: it prints
-a one-click "Add to Slack" install link (Kortix Cloud) — surface that URL and
+a one-click "Add to Slack" install link (Cloud) — surface that URL and
 you're done. No manifest, no bot token, no secret-intake link. Details in the
 `kortix-slack` skill.
 
@@ -228,7 +228,7 @@ when you need exact syntax.
 </cli>
 
 <apps>
-## Kortix Apps — deploy a website or container
+## Apps — deploy a website or container
 
 An **App** is a project-scoped, serverless deployment with one stable Kortix
 URL. A deployment is immutable. A failed deployment never replaces the active
@@ -276,7 +276,7 @@ or operating an App.
 </apps>
 
 <marketplace>
-The **Kortix Marketplace** is the project skill library and the normal way to
+The **Marketplace** is the project skill library and the normal way to
 discover, install, inspect, and update optional capabilities. Search it before
 creating a new skill from scratch.
 
@@ -341,7 +341,7 @@ validating a skill.
 <scheduling>
 ## Scheduling — running work later, on a schedule, or on an event
 
-Kortix runs work on a schedule through **triggers** — a durable entry in
+The platform runs work on a schedule through **triggers** — a durable entry in
 the project's `kortix.yaml` (`triggers:`). When one fires, the platform
 spins up a session and hands the agent a prompt, exactly as if a teammate
 had typed it — there's no separate "scheduler tool" to call at runtime, you
@@ -382,7 +382,7 @@ watching — usually via `slack send`, silent otherwise), and it must be
 
 Everything that shapes agent behavior in this project — agent prompts,
 sub-agents, skills/tools, memory — is the **harness**, and it lives in git
-under `.kortix/`. Kortix treats the harness as continuously improvable
+under `.kortix/`. The platform treats the harness as continuously improvable
 from trajectory evidence, on two loops:
 
 1. **In-session refinement (self-invoked)** — every agent runs the
@@ -407,7 +407,7 @@ is valid).
 
 <change-requests>
 **This is the single most important rule for any agent running in a
-Kortix session: if you want your work to land on `main`, you MUST open
+Session: if you want your work to land on `main`, you MUST open
 a change request (CR).**
 
 Sessions run on ephemeral branches (`session-<id>`). The session VM
@@ -494,7 +494,7 @@ When you, as an agent, have changes you believe should persist:
 | Dashboard     | Renders the CR — title, description, diff, merge preview, conflict markers.               |
 | CLI           | `kortix cr ls / show / diff / open / merge / close / reopen` — full life-cycle locally.   |
 | `kortix.yaml` | Edits to triggers / env land via CR like any other file.                                  |
-| Skills        | New OpenCode skill files reach future sessions **only** after a CR merges. Managed Kortix system skills also receive the deployed host overlay. |
+| Skills        | New OpenCode skill files reach future sessions **only** after a CR merges. Managed system skills also receive the deployed host overlay. |
 | Triggers      | Cron / webhook trigger edits reach the scheduler **only** after the CR merges to `main`.  |
 
 Full reference: `.kortix/opencode/skills/kortix-system/references/kortix/change-requests.md`.
@@ -505,7 +505,7 @@ The boundary between project config and runtime config:
 
 | Surface | Owner | File | Read by |
 | --- | --- | --- | --- |
-| Kortix config | Kortix | `kortix.yaml` + optional custom sandbox files | Kortix platform |
+| Config | Kortix | `kortix.yaml` + optional custom sandbox files | Platform |
 | OpenCode native config | OpenCode | `.kortix/opencode/` | OpenCode |
 
 Version 2 declares OpenCode's config directory through
@@ -528,9 +528,9 @@ of truth, no separate spec to keep in sync by hand):
 
 | URL | Covers |
 | --- | --- |
-| `https://kortix.com/schema/kortix.v2.schema.json` | `kortix_version: 2` OpenCode governance map |
-| `https://kortix.com/schema/kortix.v1.schema.json` | `kortix_version: 1` only (legacy `[[agents]]` array + `[[channels]]`) |
-| `https://kortix.com/schema/kortix.schema.json` | All published versions; dispatches on `kortix_version` |
+| `https://dosco.live/schema/kortix.v2.schema.json` | `kortix_version: 2` OpenCode governance map |
+| `https://dosco.live/schema/kortix.v1.schema.json` | `kortix_version: 1` only (legacy `[[agents]]` array + `[[channels]]`) |
+| `https://dosco.live/schema/kortix.schema.json` | All published versions; dispatches on `kortix_version` |
 
 `kortix schema` (from any session — the CLI is always pre-authenticated, see
 `<cli>` above) prints the same document locally: `kortix schema --version 2`,
@@ -571,7 +571,7 @@ agents:
   release-bot:                          # = the agent's .md name (.kortix/opencode/agents/release-bot.md)
     sandbox: ml                         # default environment for this agent
     connectors: [github]                # which connectors it may call   (default: none)
-    kortix_cli: [project.write, project.cr.open]    # what it may do via the Kortix CLI/API (default: none)
+    kortix_cli: [project.write, project.cr.open]    # what it may do via the CLI/API (default: none)
 ```
 
 **Which file owns what — never duplicate across the boundary:**
@@ -631,7 +631,7 @@ to see the full enum.
   The full capabilities reference behind the `<capabilities>` summary
   above: a worked-example paragraph per capability (research, browser,
   code/data, documents, media, websites/apps, connectors, secrets,
-  memory, scheduling, channels, subagents, models), "What Kortix is," and
+  memory, scheduling, channels, subagents, models), "What the platform is," and
   "What makes Kortix different" for comparison questions. Load whenever a
   capability question needs more than the one-liner in SKILL.md.
 </reference>
@@ -656,11 +656,11 @@ to see the full enum.
   session sandbox** (where `KORTIX_CLI_TOKEN` + `KORTIX_API_URL` are
   pre-injected so `kortix sessions ls`, `kortix secrets set FOO=bar`,
   `kortix cr ls` all work out of the box). Load this when you want to
-  drive the Kortix cloud from a terminal or agent.
+  drive the cloud from a terminal or agent.
 </reference>
 
 <reference path=".kortix/opencode/skills/kortix-system/references/kortix/apps.md">
-  Kortix Apps deployment and operations reference. Covers static, bundle,
+  Apps deployment and operations reference. Covers static, bundle,
   Dockerfile, and OCI workloads; the v2 manifest `apps:` map; archive ignore
   rules; environment and secret mappings; stable URLs; cold wake and idle
   stop; lifecycle commands; rollback; resource and budget limits; and current
@@ -668,7 +668,7 @@ to see the full enum.
 </reference>
 
 <reference path=".kortix/opencode/skills/kortix-system/references/kortix/marketplace.md">
-  In-depth Kortix Marketplace reference. What the marketplace is, when to use
+  In-depth Marketplace reference. What the marketplace is, when to use
   it before authoring a new skill, CLI and web workflows, install/update/remove
   semantics, `registry-lock.json`, default starter skills, source registries,
   and the difference between consumer `kortix marketplace` commands and
@@ -722,11 +722,11 @@ to see the full enum.
   land on `main`"), and common gotchas (force-pushes, merged-CR diffs,
   origin_session_id orphaning). Load this whenever the user mentions
   change requests, CRs, merging, landing work, opening a PR-equivalent,
-  or asks how Kortix handles the GitHub-PR gap.
+  or asks how the platform handles the GitHub-PR gap.
 </reference>
 
 <reference path=".kortix/opencode/skills/kortix-system/references/opencode/overview.md">
-  How OpenCode fits into a Kortix project — where each primitive lives
+  How OpenCode fits into a project — where each primitive lives
   under `.kortix/opencode/`, how the same dir drives both the remote
   sandbox and local `opencode` runs — plus the index into the per-feature
   pages mirrored from opencode.ai/docs/.
@@ -798,7 +798,7 @@ to see the full enum.
 <gotchas>
 Things that surprise people:
 
-- **The workspace IS global — sessions are not.** A Kortix project is
+- **The workspace IS global — sessions are not.** A project is
   one big GitHub repo everyone shares. Persistent changes happen by
   committing to the session branch and **opening a change request**
   that merges back to `main`. Every session — even thousands running
@@ -812,7 +812,7 @@ Things that surprise people:
   keeping, the next move is *always* `kortix cr open`, never a force
   push, never asking the user to copy files out. See the
   `<change-requests>` section above.
-- **Triggers live in `kortix.yaml`, not as files.** Old Kortix shipped
+- **Triggers live in `kortix.yaml`, not as files.** Older versions shipped
   triggers under `.opencode/triggers/<slug>.md` — that's gone.
   Centralized in the manifest now, parsed as `triggers:`.
 - **Kortix-owned files live in `.kortix/` at the repo root.** The
@@ -821,7 +821,7 @@ Things that surprise people:
   `opencode.config_dir`.
 - **OpenCode behavior remains OpenCode-native.** Skills, commands, tools,
   plugins, MCP, providers, and agent prompts remain OpenCode config. Declaring
-  a logical agent in `agents:` is a separate Kortix decision.
+  a logical agent in `agents:` is a separate platform decision.
 - **Provider verification is a real prompt.** A generic key check cannot prove
   a model, region, entitlement, and API dialect together. Test the exact
   model through a session prompt.

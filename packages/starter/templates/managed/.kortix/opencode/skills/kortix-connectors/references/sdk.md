@@ -1,7 +1,7 @@
 # Connector SDK reference
 
 Use `@kortix/sdk` for durable TypeScript workflows that call external systems
-through the Kortix Connector gateway. The gateway keeps provider credentials
+through the Connector gateway. The gateway keeps provider credentials
 server-side and enforces connection access and policy.
 
 ## Client setup

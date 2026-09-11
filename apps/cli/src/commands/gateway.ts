@@ -19,7 +19,7 @@ import { C, help, pad, status } from '../style.ts';
 
 const HELP = help`Usage: kortix gateway <subcommand> [options]
 
-Configure and inspect the LLM gateway for the linked Kortix project — the
+Configure and inspect the LLM gateway for the linked project — the
 layer that routes every model request, meters spend, and exposes an
 OpenAI-compatible endpoint. (Connect provider credentials with
 \`kortix providers\`; pick per-agent models with \`kortix agents\`.)
@@ -59,7 +59,7 @@ Observability:
 
 Global options:
   --project <id>     Operate on this project id (default: linked or \$KORTIX_PROJECT_ID).
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   --json             Machine-readable output (read subcommands).
   -h, --help         Show this help.
 `;

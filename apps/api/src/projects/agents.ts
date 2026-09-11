@@ -11,7 +11,7 @@ import { canonicalizeGrantActions, canonicalizeGrantConnectors } from '../iam/ag
  *
  *   1. `connectors` — which connectors (by `connectors[].slug`) the
  *      agent may call. Default: none.
- *   2. `kortix_cli` — what the agent may do to Kortix itself via the `kortix`
+ *   2. `kortix_cli` — what the agent may do to the platform itself via the `kortix`
  *      CLI/API (project-scoped iam actions: deploy, open CRs, triggers, …).
  *      Default: none. Account-scoped admin actions are NEVER grantable.
  *
@@ -25,7 +25,7 @@ import { canonicalizeGrantActions, canonicalizeGrantConnectors } from '../iam/ag
  *     kortix: {}                          # default GP agent — connectors/kortix_cli = "all" (∩ user)
  *     release-bot:
  *       connectors: ["github"]            # which connectors
- *       kortix_cli: ["project.trigger.create", "project.cr.open"]   # Kortix CLI/API powers
+ *       kortix_cli: ["project.trigger.create", "project.cr.open"]   # CLI/API powers
  *
  * Parser mirrors `projects/connectors.ts`: never throws on a bad entry, collects
  * them in `errors` so the UI can render them next to the good ones.
@@ -97,7 +97,7 @@ export interface AgentSpec {
   connectors: GrantSet;
   /** Connectors that must resolve before the session starts. */
   connectorsRequired?: string[];
-  /** Kortix CLI/API powers (project-scoped iam actions). `[]` = none (default). */
+  /** CLI/API powers (project-scoped iam actions). `[]` = none (default). */
   kortixCli: GrantSet;
   /** Project-secret IDENTIFIERS (project_secrets.identifier, not raw env-var
    *  keys) this agent receives as sandbox env + may read via the secrets API.

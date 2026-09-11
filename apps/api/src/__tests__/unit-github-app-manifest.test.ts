@@ -31,8 +31,8 @@ afterEach(() => {
 
 describe('buildGithubAppManifest', () => {
   test('points redirect_url/setup_url at this API, sets public:false and the required permissions', () => {
-    const manifest = buildGithubAppManifest({ apiBaseUrl: 'https://api.kortix.example', homepageUrl: 'https://kortix.ai', appName: 'Kortix Self-Host test' });
-    expect(manifest.name).toBe('Kortix Self-Host test');
+    const manifest = buildGithubAppManifest({ apiBaseUrl: 'https://api.kortix.example', homepageUrl: 'https://kortix.ai', appName: 'Self-Host test' });
+    expect(manifest.name).toBe('Self-Host test');
     // Homepage URL is separate from the API base — GitHub validates it as a
     // public FQDN, so it is never the (possibly localhost) API origin.
     expect(manifest.url).toBe('https://kortix.ai');
@@ -67,7 +67,7 @@ describe('buildGithubAppManifest', () => {
   test('generates a unique-ish name when none is given', () => {
     const a = buildGithubAppManifest({ apiBaseUrl: 'https://api.kortix.example', homepageUrl: 'https://kortix.ai' });
     const b = buildGithubAppManifest({ apiBaseUrl: 'https://api.kortix.example', homepageUrl: 'https://kortix.ai' });
-    expect(a.name).toMatch(/^Kortix Self-Host [0-9a-f]+$/);
+    expect(a.name).toMatch(/^Self-Host [0-9a-f]+$/);
     expect(a.name).not.toBe(b.name);
   });
 });

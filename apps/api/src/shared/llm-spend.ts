@@ -41,7 +41,7 @@ export interface LlmSpendRow {
 }
 
 export interface LlmSpendBreakdown {
-  /** Debited from the Kortix wallet — managed inference, or the BYOK platform fee. */
+  /** Debited from the wallet — managed inference, or the BYOK platform fee. */
   kortix_cost: number;
   /** Paid straight to your own provider on your own key. Always 0 for managed inference. */
   provider_cost: number;
@@ -104,7 +104,7 @@ const aggregate = (rowExpression: SQL<string>) =>
 /** Windowed total LLM spend. This is the headline number on every cost surface. */
 export const totalSpendSql = aggregate(rowTotalSpendSql);
 
-/** Windowed spend debited from the Kortix wallet. */
+/** Windowed spend debited from the wallet. */
 export const kortixBilledSpendSql = aggregate(rowKortixBilledSpendSql);
 
 /** Windowed spend paid directly to your own providers. */

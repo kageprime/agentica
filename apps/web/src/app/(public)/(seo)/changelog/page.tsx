@@ -29,19 +29,19 @@ export async function generateMetadata(): Promise<Metadata> {
     {
       title: 'Changelog',
       description:
-        'Every Dosco release, straight from the source. New features, fixes, and improvements — versioned and dated.',
+        'Every release, straight from the source. New features, fixes, and improvements — versioned and dated.',
       openGraph: {
-        title: 'Dosco Changelog',
-        description: 'Every Dosco release, straight from the source.',
+        title: 'Changelog',
+        description: 'Every release, straight from the source.',
         url: `${CANONICAL_ORIGIN}/changelog`,
         siteName: 'Dosco',
         type: 'website' as const,
-        images: [{ url: '/banner.png', width: 1200, height: 630, alt: 'Dosco Changelog' }],
+        images: [{ url: '/banner.png', width: 1200, height: 630, alt: 'Changelog' }],
       },
       twitter: {
         card: 'summary_large_image' as const,
-        title: 'Dosco Changelog',
-        description: 'Every Dosco release, straight from the source.',
+        title: 'Changelog',
+        description: 'Every release, straight from the source.',
         images: ['/banner.png'],
       },
       alternates: { canonical: `${CANONICAL_ORIGIN}/changelog` },

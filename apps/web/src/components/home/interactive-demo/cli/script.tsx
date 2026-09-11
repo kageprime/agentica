@@ -100,7 +100,7 @@ export const SCRIPT: Command[] = [
       wait(260),
       blank(),
       out([
-        t('Initialized Dosco project '),
+        t('Initialized project '),
         t(`"${PROJECT}"`, 'fg'),
         t(' in '),
         t(`~/${PROJECT}`, 'faded'),
@@ -128,7 +128,7 @@ export const SCRIPT: Command[] = [
       fx((a) => a.setProjectStatus(PROJECT, 'shipping')),
       okLine(t('kortix.yaml verified')),
       blank(),
-      out([t('  '), t('kortix ship', 'kortix'), t('  new project → managed Dosco git', 'dim')]),
+      out([t('  '), t('kortix ship', 'kortix'), t('  new project → managed git', 'dim')]),
       out(meta('name', PROJECT, 'fg')),
       blank(),
       wait(450),

@@ -8,7 +8,7 @@ description: How to CONNECT Slack (one command — `kortix channels connect`, pr
 <overview>
 Your sandbox is wired into Slack. When a teammate `@`-mentions the bot or replies in a thread the bot owns, the platform spins up this session and hands you the message; your turn IS the Slack reply.
 
-The `slack` CLI is on `$PATH` and **just works** — every call runs through the Kortix connector gateway, which resolves the Slack bot token **server-side**. There is no token in your sandbox and nothing to configure: don't look for `$SLACK_BOT_TOKEN`, don't reach for an MCP/HTTP workaround, just run the commands below. They are the full, supported surface (posting, **file upload**, history, reactions, search, edit/delete — all of it). Two patterns matter most:
+The `slack` CLI is on `$PATH` and **just works** — every call runs through the connector gateway, which resolves the Slack bot token **server-side**. There is no token in your sandbox and nothing to configure: don't look for `$SLACK_BOT_TOKEN`, don't reach for an MCP/HTTP workaround, just run the commands below. They are the full, supported surface (posting, **file upload**, history, reactions, search, edit/delete — all of it). Two patterns matter most:
 
 - **`slack step "..."`** — narrate progress. Updates the live plan block in the Slack thread *as you go*.
 - **`slack send "..."`** — finalize the turn with your answer. This closes the plan block and posts the reply.
@@ -26,7 +26,7 @@ Slack), run:
 kortix channels connect
 ```
 
-On Kortix Cloud this prints a **one-click "Add to Slack" install link**. Your
+On Cloud this prints a **one-click "Add to Slack" install link**. Your
 entire job is: surface that URL to the user and tell them to open it, pick
 their workspace, and click Allow. That's the whole setup — the platform's
 shared Slack app handles the webhook, tokens, and connector materialization
@@ -129,7 +129,7 @@ slack send "It was api@a3f1 — the new auth middleware drops the trace header o
 - **A step that did not reach the thread FAILS — it never answers `ok: true`.** `slack step` exits 1 with `{"ok": false, "code": "STEP_NOT_RELAYED", "reason": "<why>", "error": "…<what to do>"}`. Read `reason`, then act:
   - `no_open_turn` — this run was not started from Slack (a web prompt on a Slack-born session), or the turn was already closed. Keep working; if the user is waiting in a thread, post there with `slack send --channel <id> --thread <ts>`.
   - `turn_finalized` — you already answered this turn. One `slack send` per turn.
-  - `relay_request_failed` — the Kortix API refused the relay (auth, 5xx, timeout). That is a platform problem, not a missing turn: retry once, then report it in the thread with `--channel/--thread`.
+  - `relay_request_failed` — the API refused the relay (auth, 5xx, timeout). That is a platform problem, not a missing turn: retry once, then report it in the thread with `--channel/--thread`.
   - `stream_open_failed` / `post_failed` — Slack rejected the message. Continue; deliver the answer with `slack send` at the end.
   Never assume a step was seen when the command failed.
 </live-stream>
@@ -290,7 +290,7 @@ Each turn finalizes exactly one stream. Don't call `slack send` twice — the se
 
 ### When `slack send` fails
 
-A `slack send` with no `--channel` is the turn's answer. When it cannot be delivered into a Slack turn it exits 1 with `{"ok": false, "code": "ANSWER_NOT_RELAYED", "reason": "<why>", "error": "…<what to do>"}` — it never prints `ok: true` for an undelivered answer. `no_open_turn` means this run was not started from Slack, or the turn was closed before you answered; if the user is waiting in a thread, deliver the same answer with `slack send --channel <id> --thread <ts>` (the channel and thread are in the prompt header and in `$SLACK_CHANNEL_ID` / `$SLACK_THREAD_TS`). `relay_request_failed` is a Kortix API failure, not a missing turn: retry once, then post with `--channel/--thread`.
+A `slack send` with no `--channel` is the turn's answer. When it cannot be delivered into a Slack turn it exits 1 with `{"ok": false, "code": "ANSWER_NOT_RELAYED", "reason": "<why>", "error": "…<what to do>"}` — it never prints `ok: true` for an undelivered answer. `no_open_turn` means this run was not started from Slack, or the turn was closed before you answered; if the user is waiting in a thread, deliver the same answer with `slack send --channel <id> --thread <ts>` (the channel and thread are in the prompt header and in `$SLACK_CHANNEL_ID` / `$SLACK_THREAD_TS`). `relay_request_failed` is an API failure, not a missing turn: retry once, then post with `--channel/--thread`.
 </final-answer>
 
 <asking-the-user>

@@ -528,7 +528,7 @@ describe('Apps public edge', () => {
 
     expect(result.get('x-frame-options')).toBeNull();
     expect(result.get('content-security-policy')).toBe(
-      "default-src 'self'; script-src 'self'; frame-ancestors 'self' https://kortix.com https://*.kortix.com http://localhost:* http://127.0.0.1:*",
+      "default-src 'self'; script-src 'self'; frame-ancestors 'self' https://dosco.live https://*.kortix.com http://localhost:* http://127.0.0.1:*",
     );
     expect(result.get('content-security-policy-report-only')).toBe("img-src 'self'");
   });
@@ -546,7 +546,7 @@ describe('Apps public edge', () => {
       expect(csp).toContain('https://essentia.kortix.cloud');
       expect(csp).toContain('https://*.kortix.cloud');
       // Managed cloud + localhost stay allowed too.
-      expect(csp).toContain('https://kortix.com');
+      expect(csp).toContain('https://dosco.live');
       expect(csp).toContain('http://localhost:*');
       // Upstream frame-ancestors is stripped, ours wins.
       expect(csp).not.toContain("frame-ancestors 'none'");
@@ -561,7 +561,7 @@ describe('Apps public edge', () => {
       config.FRONTEND_URL = 'http://localhost:3000';
       const result = appPublicResponseHeaders(new Headers());
       expect(result.get('content-security-policy')).toBe(
-        "frame-ancestors 'self' https://kortix.com https://*.kortix.com http://localhost:* http://127.0.0.1:*",
+        "frame-ancestors 'self' https://dosco.live https://*.kortix.com http://localhost:* http://127.0.0.1:*",
       );
     } finally {
       config.FRONTEND_URL = original;

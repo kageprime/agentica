@@ -9,7 +9,7 @@ import { bindTeamsIdentity } from '@kortix/sdk';
 /**
  * Teams bind page — the Teams twin of `/slack/login/<token>`. The bot sends a
  * short-lived signed link; after a normal Dosco login this page binds the
- * Teams user to the signed-in Dosco account so the agent runs as them.
+ * Teams user to the signed-in account so the agent runs as them.
  */
 export default function TeamsLoginPage() {
   const tI18nComplete = useTranslations('hardcodedUi.i18nComplete');

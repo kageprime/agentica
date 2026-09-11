@@ -40,7 +40,7 @@ Examples:
 Options:
   -r, --recursive    Copy directories recursively.
   --project <id>     Operate on this project id (default: linked).
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   --json             Print the transferred files as JSON.
   -h, --help         Show this help.
 `;
@@ -181,7 +181,7 @@ export function buildSpawnPrompt(prompt: string, opts: { fromSandbox: boolean })
  * The persisted model + agent a prompt to this session must carry (mirrors
  * the SDK's own `send()` resolution). An async prompt WITHOUT them lets
  * OpenCode fall back to its built-in default model, which is not provisioned
- * in Kortix sandboxes — the message lands but the agent loop never starts.
+ * in the platform sandboxes — the message lands but the agent loop never starts.
  */
 export function sessionPromptDefaults(session: {
   agent_name?: string | null;

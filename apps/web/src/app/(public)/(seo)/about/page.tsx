@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from '@/i18n/get-translations';
 
 const DESCRIPTION =
-  'Dosco Network is where work gets done. A flexible AI agent becomes any role — UI engineer, logo designer, accountant, PR — at 100% capacity, dropping into your sprint to deliver actual work.';
+  'Network is where work gets done. A flexible AI agent becomes any role — UI engineer, logo designer, accountant, PR — at 100% capacity, dropping into your sprint to deliver actual work.';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('hardcodedUi.i18nComplete');

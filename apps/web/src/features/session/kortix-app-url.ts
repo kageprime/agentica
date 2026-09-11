@@ -1,5 +1,5 @@
 /**
- * Dosco Apps already provide their own signed edge, lifecycle page, access
+ * Apps already provide their own signed edge, lifecycle page, access
  * exchange, and iframe policy. Keep these URLs on their direct origin. Routing
  * them through a session's generic web forward proxy breaks host-only access
  * cookies and adds one avoidable network hop.

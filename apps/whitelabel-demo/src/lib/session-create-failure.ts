@@ -118,7 +118,7 @@ export function sessionCreateFailure(err: unknown): SessionCreateFailure {
       return {
         title: 'Secret narrowing needs wrapper mode',
         detail:
-          'This deployment is talking to Kortix directly, where the per-session secret allowlist is not available.',
+          'This deployment is talking to the platform directly, where the per-session secret allowlist is not available.',
         retryable: false,
       };
     case 'INVALID_SESSION_MODEL':

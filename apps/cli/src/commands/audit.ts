@@ -72,7 +72,7 @@ Options:
   --url <u>            webhooks add: the http(s) endpoint to POST events to.
   --action-prefix <p>  webhooks add: only deliver actions with this prefix.
   --account <id>       Operate on this account (default: active account).
-  --host <name>        Operate against a non-default Kortix host.
+  --host <name>        Operate against a non-default host.
   --json               Machine-readable output.
   -h, --help           Show this help.
 

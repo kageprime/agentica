@@ -1,6 +1,6 @@
 # LLM Gateway — reliability hardening
 
-Code-level review of the server-side Kortix LLM gateway (`packages/llm-gateway`
+Code-level review of the server-side LLM gateway (`packages/llm-gateway`
 core, shared by the in-process `/v1/llm` pipeline and the standalone pod; control
 plane in `apps/api/src/llm-gateway`).
 

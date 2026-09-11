@@ -19,7 +19,7 @@
  *
  * ## Why two cookies
  *
- * A preview is normally an iframe inside the Kortix web app, which makes it a
+ * A preview is normally an iframe inside the web app, which makes it a
  * THIRD-PARTY context. Chrome's third-party cookie restrictions and Safari's
  * partitioning mean an ordinary cookie may never come back. `Partitioned`
  * (CHIPS) is the supported form there, but a partitioned cookie set inside that
@@ -169,7 +169,7 @@ export function previewSessionCookies(
 
 /**
  * The Cookie header as the APP should see it: everything the browser sent,
- * minus the cookies that belong to Kortix.
+ * minus the cookies that belong to the platform.
  *
  * On the path proxy every cookie is stripped, because the preview shares an
  * origin with the API and the jar therefore contains the caller's own API

@@ -363,7 +363,7 @@ function Artifact({ artifact }: { artifact: UseCaseArtifact }) {
 }
 
 /**
- * One card. Identical chrome for every department — Dosco is monochrome, so a
+ * One card. Identical chrome for every department — the platform is monochrome, so a
  * card is told apart by its mono tag and its artifact, not by a colour.
  */
 function UseCaseCard({ card, index, active }: { card: UseCase; index: number; active: boolean }) {

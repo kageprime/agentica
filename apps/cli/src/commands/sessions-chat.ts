@@ -19,7 +19,7 @@ import { queueSessionPrompt, type CreateSessionPromptResult } from './sessions-q
 type CtxOpts = { projectArg?: string; hostArg?: string };
 
 export interface ResolvedSession {
-  /** Kortix session row. */
+  /** Session row. */
   session: ProjectSession;
   /** Auth used for every scoped SDK call. */
   auth: Auth;
@@ -39,7 +39,7 @@ export interface ResolvedSession {
  * Common pre-flight for chat commands: locate which project (and host) the
  * session lives in — trying the active/linked one first, then scanning
  * every other logged-in host/account when it's not pinned by
- * --host/--project — fetch the Kortix session, confirm the sandbox is
+ * --host/--project — fetch the session, confirm the sandbox is
  * reachable, and return a bundle of everything the caller needs.
  *
  * `cliCommand` (e.g. `"sessions chat"`) is used only to build the
@@ -98,7 +98,7 @@ export async function loadSessionForChat(
 /**
  * Ensure the session has a working OpenCode session id. If the Kortix
  * row already has one, use it. Otherwise: list, pick the first, or
- * create one — and persist the id back to Kortix so subsequent CLI calls
+ * create one — and persist the id back to the platform so subsequent CLI calls
  * stay glued to the same conversation.
  */
 export async function ensureOpencodeSession(r: ResolvedSession): Promise<string> {
@@ -183,7 +183,7 @@ session (or starts one with --new).
   --new                   Start a fresh session and chat with it.
   --agent <name>          Agent to run for this turn (defaults to the session's).
   --project <id>          Operate on this project id (default: linked).
-  --host <name>           Operate against a non-default Kortix host.
+  --host <name>           Operate against a non-default host.
   -h, --help              Show this help.
 
 In the REPL: type a message + Enter to send. Ctrl-D or \`exit\` quits.`;
@@ -536,7 +536,7 @@ most recent running session.
   --limit, -n <N>   How many recent messages to show (default 10).
   --json            Emit structured JSON (role / text / parts) for scripting.
   --project <id>    Operate on this project id (default: linked).
-  --host <name>     Operate against a non-default Kortix host.
+  --host <name>     Operate against a non-default host.
   -h, --help        Show this help.
 
 Pair it with \`kortix sessions ls\` (see every session) to check up on other
@@ -712,7 +712,7 @@ to include stopped ones. Aliases: \`overview\`, \`ps\`.
   --all, -a         Include stopped/completed sessions.
   --json            Structured output for scripting.
   --project <id>    Operate on this project id (default: linked).
-  --host <name>     Operate against a non-default Kortix host.
+  --host <name>     Operate against a non-default host.
   -h, --help        Show this help.
 
 Then talk to any of them: \`kortix sessions chat <id> --prompt "…"\`, or read

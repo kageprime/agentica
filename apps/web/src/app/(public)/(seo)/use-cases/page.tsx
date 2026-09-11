@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title,
     description,
     keywords: [
-      'Dosco use cases',
+      'Use cases',
       'AI agent case studies',
       'AI command center',
       'AI workforce',

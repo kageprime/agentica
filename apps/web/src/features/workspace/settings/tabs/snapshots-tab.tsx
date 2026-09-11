@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * The Snapshots tab — what Dosco prepared for this project, and when.
+ * The Snapshots tab — what the platform prepared for this project, and when.
  *
  * **The problem this layout solves.** The pane used to open on a bare "Build
  * log" of `kortix-tpl-…` strings, provider names and raw stderr. Nothing on
@@ -138,7 +138,7 @@ const XCircleFilled = ({ className }: { className?: string }) => (
 export const CATEGORY_LABEL: Record<SnapshotErrorCategory, string> = {
   quota: 'Snapshot quota reached',
   dockerfile: 'Dockerfile build failed',
-  layer: 'Dosco runtime layer failed',
+  layer: 'Runtime layer failed',
   git: 'Repository access failed',
   tunnel: 'Sandbox callback unreachable',
   provider: 'Sandbox provider error',
@@ -165,13 +165,13 @@ export const CATEGORY_HELP: Record<SnapshotErrorCategory, string> = {
     'The image built, but Dosco could not install its own tools on top of it. This is usually temporary — try building again.',
   git: 'Dosco could not read this project’s repository. Check that the repository connection is still authorised, then build again.',
   tunnel:
-    'The new machine could not call back to Dosco while it was being set up. This is usually temporary — try building again.',
+    'The new machine could not call back to the platform while it was being set up. This is usually temporary — try building again.',
   provider:
     'The company that runs the machine returned an error. Nothing is wrong with your project — try building again.',
   timeout:
     'Preparing the machine took longer than the time limit allows. Move slow steps out of the Dockerfile, or try again when the provider is less busy.',
   runtime:
-    'The machine was prepared, but a file Dosco needs at start-up was missing from it. Build again; if it repeats, the template’s base image is the place to look.',
+    'The machine was prepared, but a file the platform needs at start-up was missing from it. Build again; if it repeats, the template’s base image is the place to look.',
   unknown: 'The build stopped on an error Dosco could not classify. The full log is below.',
 };
 
@@ -860,7 +860,7 @@ export const DEFAULT_SNAPSHOTS_COPY: SnapshotsCopy = {
     retry: 'Retry',
     logTitle: 'Build log',
     logDescription:
-      'One row for every time Dosco prepared a machine for this project. Open a row for the details.',
+      'One row for every time the platform prepared a machine for this project. Open a row for the details.',
     empty:
       'No builds recorded yet. The platform default builds once globally; custom templates build on first use.',
   },

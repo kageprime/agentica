@@ -335,7 +335,7 @@ const DENSITY_PAGE_OPTIONS: {
   {
     id: 'normal',
     label: 'Normal',
-    description: 'Steps and thinking stream live while Dosco works',
+    description: 'Steps and thinking stream live while the platform works',
   },
   {
     id: 'minimal',

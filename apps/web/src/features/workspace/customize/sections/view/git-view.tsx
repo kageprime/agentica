@@ -275,7 +275,7 @@ function SaveStatus() {
 
 /**
  * The repository group: what it is connected to, whether that connection works,
- * and the two settings that change how Dosco uses it.
+ * and the two settings that change how the platform uses it.
  *
  * These were two separate sections before — a read-only "Repository" summary
  * box and a "Repository settings" panel — which is what produced the duplicate
@@ -538,7 +538,7 @@ function LocalSetup({ projectId }: { projectId: string }) {
  * alternative for people who already have a Git workflow — surfacing both at
  * equal weight was most of what made the pane feel like a config dump. The copy
  * leads with what you can do (`git clone`) and the thing that is genuinely
- * unusual about it (no token to create or store), not with how Dosco resolves
+ * unusual about it (no token to create or store), not with how the platform resolves
  * the credential.
  */
 function OwnGitClient({ project }: { project: ProjectWithOrigin }) {
@@ -658,7 +658,7 @@ function RepoAccessSection({
 }
 
 /**
- * The body for a repository Dosco does not own.
+ * The body for a repository the platform does not own.
  *
  * Collaborator invites go through the managed org's admin credential
  * (`managedAdminAuth`, `apps/api/src/projects/git-backends/github.ts`), which

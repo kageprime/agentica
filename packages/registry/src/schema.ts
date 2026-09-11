@@ -3,7 +3,7 @@
  *
  * We deliberately track shadcn's `registry.json` / `registry-item.json`
  * shape (https://ui.shadcn.com/docs/registry) so that:
- *   - any Kortix repo is "just a registry" (drop a registry.json at the root),
+ *   - any repo is "just a registry" (drop a registry.json at the root),
  *   - tooling that already understands shadcn registries can read ours,
  *   - and we get namespaces / `include` / `registryDependencies` for free.
  *
@@ -44,7 +44,7 @@ export const KORTIX_ITEM_TYPES = [
   'registry:connector', // a connector definition (Pipedream/MCP/HTTP)
   'registry:rules', // AGENTS.md / rules files
   'registry:memory', // seed memory files
-  'registry:project', // a whole Kortix project (full repo scaffold)
+  'registry:project', // a whole project (full repo scaffold)
   'registry:bundle', // a curated set of other items (a "starter"/use-case)
   'registry:template', // an installable use-case: a bundle + declared inputs
 ] as const;
@@ -164,7 +164,7 @@ export interface RegistryItem {
   /** Install-time documentation shown to the user. */
   docs?: string;
   /**
-   * Arbitrary metadata. Kortix reads:
+   * Arbitrary metadata. The platform reads:
    *   icon         — gallery icon id/url
    *   source       — provenance ("kortix-ai/skills")
    *   homepage     — link

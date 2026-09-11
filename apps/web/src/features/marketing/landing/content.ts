@@ -15,7 +15,7 @@ import type { UiTranslator } from '@/i18n/translator';
 
 /**
  * Hero variants. The product pitch — what Dosco IS — not a use-case pitch.
- * Anchored on the product tagline: "Dosco Agent Terminal".
+ * Anchored on the product tagline: "Agent Terminal".
  *
  * Append `?hero=1` (or 2, 3, 4) to the URL to preview an alternative; the
  * selector is dev-only and renders nothing in production.
@@ -91,7 +91,7 @@ export const trust = {
     'them with it is the work.',
   ],
   sub: 'Every session runs on its own isolated machine, with credentials it never sees, and lands nothing without a person approving it.',
-  ctaLabel: 'How Dosco is secured',
+  ctaLabel: 'How the platform is secured',
   ctaHref: '/enterprise',
   /** Exactly three. No HIPAA, no ISO — we do not hold them. */
   badges: [
@@ -116,7 +116,7 @@ export const trust = {
       // ACCURACY: never restore "air-gapped". `kortix self-host start` pulls
       // images from docker.io and reaches a sandbox provider over egress, so a
       // fully disconnected install is not a shipped capability.
-      body: 'Dosco Cloud, your own VPC, or your own on-prem network — yours down to the metal.',
+      body: 'Cloud, your own VPC, or your own on-prem network — yours down to the metal.',
     },
   ],
 } as const;
@@ -448,7 +448,7 @@ export type StackLayer = {
 export const stack = {
   eyebrow: 'One platform',
   title: 'Every layer an AI workforce needs — unified.',
-  sub: 'Most tools hand you one layer and rent you the rest. Dosco is all of them, running wherever you put it.',
+  sub: 'Most tools hand you one layer and rent you the rest. The platform is all of them, running wherever you put it.',
   layers: [
     {
       id: 'models',
@@ -489,9 +489,9 @@ export const stack = {
     },
     {
       id: 'kortix',
-      name: '火 Dosco Network',
-      body: 'Every layer above brought together in one platform your team owns, deploys and scales end to end — from the model to the finished work. That’s 火 Dosco Network.',
-      chips: ['火 Dosco Network', 'Self-hostable', 'Yours down to the metal'],
+      name: '火 Network',
+      body: 'Every layer above brought together in one platform your team owns, deploys and scales end to end — from the model to the finished work. That’s 火 Network.',
+      chips: ['火 Network', 'Self-hostable', 'Yours down to the metal'],
     },
   ] satisfies readonly StackLayer[],
 } as const;

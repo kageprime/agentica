@@ -26,7 +26,7 @@ interface VersionDiffPreview {
 
 const HELP = help`Usage: kortix cr <subcommand> [options]
 
-Open, review, and merge Kortix change requests. A CR proposes merging one
+Open, review, and merge change requests. A CR proposes merging one
 version (branch) into another inside a project. The CR layer is Kortix-
 native — it works on top of any git host (GitHub, GitLab, plain
 git) without a per-host adapter.
@@ -54,7 +54,7 @@ the same leaf the Review Center uses, not gitops.push.
 
 Global options:
   --project <id>     Operate on this project id (default: linked).
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   -h, --help         Show this help.
 
 Inside an agent sandbox the CLI reads KORTIX_TOKEN and KORTIX_PROJECT_ID

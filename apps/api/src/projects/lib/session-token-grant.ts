@@ -371,7 +371,7 @@ export async function remintGrantForAgentSwitch(
   // Synchronous for the same-agent case too — every ordinary turn. This ran in
   // the background for one release (the manifest read is a git fetch of the
   // project mirror, ~0.8s on the path of every prompt) and the security review
-  // was right to refuse it: generic Kortix CLI/API authorization reads
+  // was right to refuse it: generic CLI/API authorization reads
   // `account_tokens.agent_grant` straight from the token row (`middleware/
   // auth.ts` → `requireScope`), so a `kortix.yaml` that NARROWED the running
   // agent's `kortixCli` in the previous turn was still enforced with the old,
@@ -422,7 +422,7 @@ export function resetGrantRefreshCooldownForTest(): void {
  * Resolve the grant represented by an existing session token from the current
  * project manifest.
  *
- * Connector and Kortix CLI requests can occur after the session changes
+ * Connector and CLI requests can occur after the session changes
  * `kortix.yaml` in the same turn. The prompt hook cannot observe that later
  * mutation. Gateway authorization therefore calls this function before it
  * evaluates the stored grant.

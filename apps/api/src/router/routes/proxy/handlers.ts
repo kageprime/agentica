@@ -51,14 +51,14 @@ function usageRoute(service: ProxyServiceConfig, subPath: string): string {
 //
 // Three authentication/billing modes:
 //
-// 1. Kortix token (kortix_/kortix_sb_ in our DB) in Authorization header
+// 1. Token (kortix_/kortix_sb_ in our DB) in Authorization header
 //    → Inject Kortix's API key, forward, bill at KORTIX_MARKUP (1.2×).
 //
-// 2. User's own API key in Authorization + Kortix token in X-Kortix-Token header
+// 2. User's own API key in Authorization + token in X-Kortix-Token header
 //    → Passthrough (no key injection), bill at PLATFORM_FEE_MARKUP (0.1×).
 //
-// 3. User's own API key, no Kortix token anywhere
-//    → Pure passthrough. No billing, no gating (self-hosted / non-Kortix user).
+// 3. User's own API key, no token anywhere
+//    → Pure passthrough. No billing, no gating (self-hosted / non-User).
 
 export async function handleProxy(c: any, service: ProxyServiceConfig, prefix: string) {
   const fullPath = new URL(c.req.url).pathname;
@@ -78,11 +78,11 @@ export async function handleProxy(c: any, service: ProxyServiceConfig, prefix: s
     // Mode 2: User's own key — passthrough, bill at 0.1×
     return handleKortixPassthrough(c, service, subPath, queryString, method, auth.accountId);
   } else {
-    // Mode 3: No Kortix token — pure passthrough, no billing.
+    // Mode 3: No token — pure passthrough, no billing.
     // When billing is enabled, reject: only kortix_ tokens with billing are accepted.
     if (config.KORTIX_BILLING_INTERNAL_ENABLED) {
       throw new HTTPException(401, {
-        message: 'Kortix API key required. Get one at https://kortix.com',
+        message: 'API key required. Get one at https://dosco.live',
       });
     }
     // Self-hosted: allow passthrough for BYOC users with their own API keys.
@@ -453,7 +453,7 @@ async function extractUsageFromKortixProxyStream(
   }
 }
 
-// === Kortix user with own key: passthrough + bill at platform fee (0.1×) ===
+// === user with own key: passthrough + bill at platform fee (0.1×) ===
 
 async function handleKortixPassthrough(
   c: any,
@@ -559,7 +559,7 @@ async function handleKortixPassthrough(
   });
 }
 
-// === Not Kortix user: pure passthrough ===
+// === Not user: pure passthrough ===
 
 async function handlePassthrough(
   c: any,

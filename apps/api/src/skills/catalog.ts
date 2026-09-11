@@ -33,7 +33,7 @@ import {
   isKortixManagedSkillName,
 } from '@kortix/starter';
 
-/** Where skills live inside a Kortix project (and inside the starter templates). */
+/** Where skills live inside a project (and inside the starter templates). */
 const SKILLS_PREFIX = '.kortix/opencode/skills/';
 /** The skill body every skill has; everything else under the dir is a reference. */
 const SKILL_ENTRYPOINT = 'SKILL.md';

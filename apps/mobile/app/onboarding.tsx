@@ -877,7 +877,7 @@ function ExampleCard({ example, index, scrollX, isActive, isDark, t }: ExampleCa
           </View>
         </View>
 
-        {/* Kortix Computer Drawer */}
+        {/* Computer Drawer */}
         <AnimatedView
           style={[
             drawerAnimatedStyle,

@@ -16,7 +16,7 @@ export const MARKETING_SECONDARY_TRANSLATION_KEYS: Readonly<Record<string, strin
     'text8abce8d69fe4',
   'An OpenCode agent: markdown, plus the tools and plugins beside it': 'text4132201cc99c',
   Apply: 'text31e392d1c037',
-  'Apply to Dosco': 'textc8fece67fd58',
+  'Apply to the platform': 'textc8fece67fd58',
   'Ask for help, ask questions, redo things. Never quietly assume someone else will catch the part you skipped.':
     'textf01b71d254cc',
   'Autonomy is shifting from humans to agents.': 'text8fdced5e1b26',
@@ -40,7 +40,7 @@ export const MARKETING_SECONDARY_TRANSLATION_KEYS: Readonly<Record<string, strin
   'Cron schedules and signed webhooks start sessions with no one asking': 'texta098482113d7',
   'Daily platform and feature explainers.': 'text889485d2bdde',
   'End to end': 'text6b5cb4175706',
-  'Every company is already autonomous. Today people drive that autonomy. Agents will. Dosco is where the shift happens.':
+  'Every company is already autonomous. Today people drive that autonomy. Agents will. The platform is where the shift happens.':
     'text3885f30292f3',
   'Every lab will have an AGI platform. Ours is the one you own.': 'text6df4611282ac',
   'Every layer an AI workforce needs — in one platform you own.': 'text1cf441545609',
@@ -60,18 +60,18 @@ export const MARKETING_SECONDARY_TRANSLATION_KEYS: Readonly<Record<string, strin
     'text0547f5c8932c',
   'Influencer and UGC motion on X and LinkedIn.': 'textc1bd8f2b8d0e',
   'It is not done if': 'textb2d544129223',
-  'Dosco is model-agnostic. Pick the model per agent, per session or per message, and switch the day a better one lands.':
+  'The platform is model-agnostic. Pick the model per agent, per session or per message, and switch the day a better one lands.':
     'textcc65757529c4',
   'Large language models': 'text5f69c8b42ef2',
   'Make Dosco the instant answer to "what is the open-source Claude Cowork or ChatGPT Work?"':
     'texteed85df67313',
-  'Most tools hand you one layer and rent you the rest. Dosco is all six — they read in order, and the sixth commits the work back into the first.':
+  'Most tools hand you one layer and rent you the rest. The platform is all six — they read in order, and the sixth commits the work back into the first.':
     'text85e7ee9efd75',
   'No PMs, no QA': 'text1367ae07eb66',
   'Not "the tests pass". Prove it, then confirm it is live in production, which is not the same as merged.':
     'textcb36b767438f',
   'On the frontier of AI by habit, not by assignment.': 'text559fe9cfeadb',
-  'On your own infrastructure if you want it there. Dosco does not sit beside the company as one more tool. It becomes the company — where the work, the context and the operations live.':
+  'On your own infrastructure if you want it there. The platform does not sit beside the company as one more tool. It becomes the company — where the work, the context and the operations live.':
     'textcc6b627af0fa',
   'Onboard customers, teach them, build their first agents, and create their connections.':
     'text03763ff9a63b',

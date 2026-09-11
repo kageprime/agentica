@@ -74,7 +74,7 @@ function buildSlackManifest(projectId: string): string {
   const manifest = {
     display_information: {
       name: 'Kortix',
-      description: 'Run a Kortix project from Slack',
+      description: 'Run a project from Slack',
       background_color: '#0a0a0a',
     },
     features: { bot_user: { display_name: 'kortix', always_online: true } },

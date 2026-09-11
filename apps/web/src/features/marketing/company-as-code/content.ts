@@ -32,7 +32,7 @@ import type { UiTranslator } from '@/i18n/translator';
 export const hero = {
   eyebrow: 'Company as code',
   title: 'A company is going to be a git repository.',
-  sub: 'Not as a metaphor. A Dosco project is a git repo, and that repo is the company: its agents, the skills it has built up, everything it has learned, and the definition of the machines all of it runs on. Versioned. Diffable. Owned outright.',
+  sub: 'Not as a metaphor. A project is a git repo, and that repo is the company: its agents, the skills it has built up, everything it has learned, and the definition of the machines all of it runs on. Versioned. Diffable. Owned outright.',
   ctaPrimary: 'Start a project',
   ctaPrimaryHref: '/auth',
   ctaSecondary: 'Read the manifest spec',
@@ -50,10 +50,10 @@ export const hero = {
 export const definition = {
   eyebrow: 'The definition',
   title: 'Two files define the company.',
-  sub: 'kortix.yaml is the Dosco layer: the machine sessions boot on, the connectors, the triggers, the secret names, and what each agent is allowed to touch. The OpenCode config is the runtime the agents think in. Everything past those two is files in the repo.',
+  sub: 'kortix.yaml is the layer: the machine sessions boot on, the connectors, the triggers, the secret names, and what each agent is allowed to touch. The OpenCode config is the runtime the agents think in. Everything past those two is files in the repo.',
   yaml: {
     title: 'kortix.yaml',
-    caption: 'The Dosco layer — one file, at the repo root.',
+    caption: 'The layer — one file, at the repo root.',
     lines: [
       '# Schema version 2. The runtime is OpenCode.',
       'kortix_version: 2',
@@ -174,7 +174,7 @@ export const repo = {
   /** Real paths from the shipped starter template. Do not invent a directory. */
   tree: [
     { path: 'northwind/', note: 'the repo, and the company', depth: 0 },
-    { path: 'kortix.yaml', note: 'the Dosco layer', depth: 1 },
+    { path: 'kortix.yaml', note: 'the layer', depth: 1 },
     { path: '.kortix/', note: '', depth: 1 },
     { path: 'memory/', note: '', depth: 2 },
     { path: 'MEMORY.md', note: 'what the company has learned', depth: 3 },
@@ -386,7 +386,7 @@ export const portable = {
     {
       id: 'hosting',
       k: 'Open source and self-hostable',
-      v: 'Run it on Dosco Cloud, in your own VPC, or fully on-prem. Read the code, fork it, audit it. Nobody rents your company back to you.',
+      v: 'Run it on Cloud, in your own VPC, or fully on-prem. Read the code, fork it, audit it. Nobody rents your company back to you.',
     },
   ],
 } as const;

@@ -1,5 +1,5 @@
 /**
- * `buildRegistry` — turn a Kortix repo into a shadcn-format registry.json.
+ * `buildRegistry` — turn a repo into a shadcn-format registry.json.
  *
  * Auto-detects the OpenCode primitives in the repo (skills, agents, commands,
  * tools) and emits one item per primitive, each with `files` carrying a

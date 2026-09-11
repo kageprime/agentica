@@ -327,7 +327,7 @@ function refreshedCatalogs(): {
 
 // `projectId` gates BYOK/codex visibility (anonymous callers see managed only).
 // `freeManagedOnly` (a free-tier account with internal billing on) hides every
-// managed Kortix model. A free user's own connected provider keys still work,
+// managed model. A free user's own connected provider keys still work,
 // but there is no unreliable platform-managed free default.
 export function gatewayModelCatalog(
   projectId: string | undefined,

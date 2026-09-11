@@ -11,7 +11,7 @@
  *
  * This band is the first thing a person reads on a brand-new project. It is not
  * a feature list — it is the answer to "what is this FOR", and every row is a
- * claim about what Dosco is.
+ * claim about what the platform is.
  *
  * An earlier version of this file failed that test. It was written under the
  * rule "every prompt must map to a skill in the `general-knowledge-worker`
@@ -21,7 +21,7 @@
  * powerful tool?" A prompt has to name a REASON, not a capability.
  *
  * Worse, that rule excluded the things that make this an AI Management System
- * rather than a chat box. The most valuable prompts here operate on Dosco's
+ * rather than a chat box. The most valuable prompts here operate on the platform's
  * OWN primitives — they are the first group below, and they are first on
  * purpose:
  *

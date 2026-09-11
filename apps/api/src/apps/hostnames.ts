@@ -4,7 +4,7 @@
  * (resolveAppHost). They used to carry separate copies of the same
  * `KORTIX_APPS_BASE_DOMAIN || 'apps.kortix.com'` fallback with different
  * normalization, which is how a self-hosted deployment ended up publishing
- * `https://prod-<slug>-<key>.apps.kortix.com` — a hostname on Kortix's domain,
+ * `https://prod-<slug>-<key>.apps.kortix.com` — a hostname on the platform's domain,
  * pointing at Kortix's Cloudflare Worker, for an App running on the operator's
  * own hardware. The operator could not serve it and did not own it.
  *
@@ -86,7 +86,7 @@ export function appPublicUrl(row: { slug: string; routeKey: string }): string {
   const domain = appsBaseDomain();
   if (!domain) {
     throw new Error(
-      'Kortix Apps has no base domain: set KORTIX_APPS_BASE_DOMAIN to a wildcard domain this deployment serves.',
+      'Apps has no base domain: set KORTIX_APPS_BASE_DOMAIN to a wildcard domain this deployment serves.',
     );
   }
   return `https://${config.INTERNAL_KORTIX_ENV}-${row.slug}-${row.routeKey}.${domain}`;

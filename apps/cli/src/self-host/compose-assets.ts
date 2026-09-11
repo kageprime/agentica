@@ -131,7 +131,7 @@ const CADDY_GLOBAL_CLOSE = 'email {$KORTIX_ACME_EMAIL}\n}';
  * resolveAppHost(Host) still names the right App on the API side without any
  * header_up override.
  */
-const APPS_SITE_BLOCK = `# *.<apps base domain>: every deployed Kortix App, served over per-App
+const APPS_SITE_BLOCK = `# *.<apps base domain>: every deployed App, served over per-App
 # on-demand TLS. Only present when KORTIX_APPS_BASE_DOMAIN is configured — see
 # renderCaddyfile() in compose-assets.ts. The global on_demand_tls \`ask\` above
 # bounds certificate issuance to real App hosts. The inbound Host header is
@@ -306,7 +306,7 @@ export const LAPTOP_APP_REPLICAS = 1;
  * Compose the pinned official Supabase Docker distribution with the Kortix
  * application services. The upstream service definitions and image pins stay
  * intact; we only remove globally-conflicting container names, add legacy
- * Kortix service names, and restrict every published port to loopback.
+ * Service names, and restrict every published port to loopback.
  */
 export function renderFullDockerCompose(composeProject: string, options: RenderComposeOptions = {}): string {
   const base = parse(

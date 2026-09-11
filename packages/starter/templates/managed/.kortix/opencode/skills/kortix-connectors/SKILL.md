@@ -1,6 +1,6 @@
 ---
 name: kortix-connectors
-description: Use Kortix connectors to reach external systems from a session. Use the `kortix connectors` CLI for agent work, `@kortix/sdk` for durable TypeScript workflows, and `kortix connectors mcp` when a stdio MCP server is required. Load this skill to inspect, add, connect, or call external tools without exposing third-party credentials to the sandbox.
+description: Use connectors to reach external systems from a session. Use the `kortix connectors` CLI for agent work, `@kortix/sdk` for durable TypeScript workflows, and `kortix connectors mcp` when a stdio MCP server is required. Load this skill to inspect, add, connect, or call external tools without exposing third-party credentials to the sandbox.
 ---
 
 <skill name="kortix-connectors">

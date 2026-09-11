@@ -316,8 +316,8 @@ function StatTile({ label, value }: { label: string; value: ReactNode }) {
 /**
  * Who charged for this request, in the caller's own terms.
  *
- * `credits` = Dosco-managed inference on Dosco's credentials, paid from the
- * wallet. `platform-fee` = your own provider key, plus the Dosco platform
+ * `credits` = Dosco-managed inference on the platform's credentials, paid from the
+ * wallet. `platform-fee` = your own provider key, plus the platform
  * fee. `none` = your own provider key with no Dosco charge at all (self-host
  * and free tier), or a flat-rate subscription route such as ChatGPT Codex.
  */
@@ -512,7 +512,7 @@ function GatewayLogDetail({
               (`credits`) request the upstream price is Dosco's wholesale cost,
               not the caller's — the API never sends it, so there is no
               "provider cost" tile to render for one. A BYOK request that also
-              carries a Dosco platform fee is the only case with two payees,
+              carries a platform fee is the only case with two payees,
               and only that case gets the fourth tile. */}
           <div
             className={cn(

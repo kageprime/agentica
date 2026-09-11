@@ -283,7 +283,7 @@ export async function openBillingPortal(returnUrl?: string): Promise<void> {
     // Direct users to the web app's billing management page
     const webBillingUrl = process.env.EXPO_PUBLIC_WEB_APP_URL 
       ? `${process.env.EXPO_PUBLIC_WEB_APP_URL}/subscription`
-      : 'https://www.kortix.com/subscription';
+      : 'https://dosco.live/subscription';
 
     await openExternalUrl(webBillingUrl);
   } catch (error) {

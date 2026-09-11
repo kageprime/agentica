@@ -53,7 +53,7 @@ export interface SessionCostSummary {
   updated_at: string;
   last_activity_at: string | null;
   llm_cost: number;
-  /** The `llm_cost` slice debited from the Kortix wallet. */
+  /** The `llm_cost` slice debited from the wallet. */
   llm_kortix_cost: number;
   /** The `llm_cost` slice paid straight to your own provider on your own key. */
   llm_provider_cost: number;

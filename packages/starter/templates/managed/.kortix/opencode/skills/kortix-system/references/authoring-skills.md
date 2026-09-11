@@ -4,7 +4,7 @@ Companion to the "create a new OpenCode skill" line in this skill's
 `<when-to-load>`. A skill is reusable know-how, written down once so every
 future session can load it on demand instead of rediscovering the workflow
 from scratch. This page teaches you to author one to the **agentskills.io
-specification** and land it in a Kortix project the right way.
+specification** and land it in a project the right way.
 
 ## When to use this guide
 
@@ -19,7 +19,7 @@ Reach for it when the user asks you to:
   reference files
 - Validate a skill or prepare it for sharing / the marketplace
 
-First, though: **search the Kortix marketplace before you build.** A skill
+First, though: **search the marketplace before you build.** A skill
 that already exists is better than one you write. Run `kortix marketplace
 search "<topic>" --json`, inspect close matches with `kortix marketplace
 show <name> --json`, and only author something new when nothing covers the
@@ -44,7 +44,7 @@ templates the skill reuses verbatim — anything an agent would otherwise
 rebuild on every run. (`kortix-system` itself follows this pattern — this
 very file is one of its `references/`.)
 
-## Where skills live in Kortix
+## Where skills live in the platform
 
 OpenCode project skills use:
 

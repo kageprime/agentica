@@ -469,7 +469,7 @@ async function maybeSwapAgent(
     );
     // Reap any half-created new-name row so the fallback buildSnapshot (same name)
     // isn't blocked by a name-collision 409 — pickBuildHost has no state filter for
-    // non-admin/org callers, which is exactly how Kortix builds authenticate.
+    // non-admin/org callers, which is exactly how the platform builds authenticate.
     await provider.deleteSnapshot(identity.snapshotName).catch(() => {});
     return false;
   }

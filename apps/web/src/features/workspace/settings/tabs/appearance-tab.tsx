@@ -38,7 +38,7 @@ const DENSITY_OPTIONS: { id: ConversationDensity; label: string; description: st
   {
     id: 'normal',
     label: 'Normal',
-    description: 'Steps and thinking stream live while Dosco works.',
+    description: 'Steps and thinking stream live while the platform works.',
   },
   {
     id: 'minimal',
@@ -75,7 +75,7 @@ export const DEFAULT_APPEARANCE_TAB_COPY: AppearanceTabCopy = {
   densities: {
     normal: {
       label: 'Normal',
-      description: 'Steps and thinking stream live while Dosco works.',
+      description: 'Steps and thinking stream live while the platform works.',
     },
     minimal: { label: 'Minimal', description: 'One status line until you expand it.' },
   },

@@ -12,7 +12,7 @@ Options:
   -h, --help     Show this help.
 `;
 
-const INSTALL_URL = 'https://kortix.com/install';
+const INSTALL_URL = 'https://dosco.live/install';
 
 export async function runUpdate(argv: string[]): Promise<number> {
   if (argv.includes('-h') || argv.includes('--help')) {
@@ -20,7 +20,7 @@ export async function runUpdate(argv: string[]): Promise<number> {
     return 0;
   }
 
-  process.stdout.write(`${status.info(`Updating Kortix CLI from ${C.cyan}${INSTALL_URL}${C.reset}…`)}\n`);
+  process.stdout.write(`${status.info(`Updating CLI from ${C.cyan}${INSTALL_URL}${C.reset}…`)}\n`);
   process.stdout.write(`${C.dim}  Running: curl -fsSL ${INSTALL_URL} | bash${C.reset}\n\n`);
 
   const result = spawnSync('bash', ['-c', `curl -fsSL ${INSTALL_URL} | bash`], {

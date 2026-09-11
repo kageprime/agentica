@@ -24,7 +24,7 @@ const FAQ: readonly FaqItem[] = [
     id: 'free-include',
     question: 'What does Free include?',
     answer:
-      'Free includes 200 credits each month for sandbox compute and 1 project. Bring your own API key or connect your ChatGPT subscription for premium access. Managed Claude, GPT, and Gemini on Dosco keys are paid.',
+      'Free includes 200 credits each month for sandbox compute and 1 project. Bring your own API key or connect your ChatGPT subscription for premium access. Managed Claude, GPT, and Gemini on the platform keys are paid.',
   },
   {
     id: 'team-seat-include',

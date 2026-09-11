@@ -41,7 +41,7 @@ export const hero = {
   sub: 'One Docker Compose stack, built from the same images the managed cloud runs. Your database, your files, your repos and your policies sit on disk you control. It is open source, so what you are running is code you can read.',
   ctaPrimary: 'Self-host free',
   ctaPrimaryHref: '/docs/host',
-  ctaSecondary: 'Use Dosco Cloud',
+  ctaSecondary: 'Use Cloud',
   ctaSecondaryHref: '/auth',
   microline: 'Same images as the cloud · One command · Any model, your keys',
   /** Four mono facts the page then proves. Every value is defensible. */
@@ -110,7 +110,7 @@ export const commands = {
   hosts: {
     title: 'choose which Dosco you are talking to',
     lines: [
-      '# a host is one Dosco API endpoint, with its own token',
+      '# a host is one API endpoint, with its own token',
       '$ kortix hosts ls',
       '',
       '# work against your own stack',
@@ -190,7 +190,7 @@ export const firstRun = {
 } as const;
 
 /* ── 4 · the stack ─────────────────────────────────────────────────────────
-   Rendered by self-host/compose-assets.ts. Dosco services + the vendored,
+   Rendered by self-host/compose-assets.ts. Services + the vendored,
    digest-pinned Supabase distribution. Caddy renders only with a domain;
    cloudflared only in tunnel mode. There is NO Redis and NO worker service. */
 export const stack = {
@@ -267,7 +267,7 @@ export const parity = {
     {
       id: 'billing',
       k: 'No metering in the way',
-      v: 'A self-hosted instance runs its own gateway for its own model routing. It never sees or routes to Dosco credentials, and there is no platform fee on a self-hosted account.',
+      v: 'A self-hosted instance runs its own gateway for its own model routing. It never sees or routes to credentials, and there is no platform fee on a self-hosted account.',
     },
   ],
 } as const;
@@ -298,7 +298,7 @@ export const models = {
     {
       id: 'routing',
       title: 'The gateway is yours',
-      body: 'Sessions call the gateway inside your own stack, over your own domain or tunnel. Dosco has no credential in that path and no visibility into it.',
+      body: 'Sessions call the gateway inside your own stack, over your own domain or tunnel. The platform has no credential in that path and no visibility into it.',
     },
     {
       id: 'anything',
@@ -346,10 +346,10 @@ export const targets = {
 export const closing = {
   eyebrow: 'Two ways to run it',
   title: 'Run it yourself, or let us run it.',
-  sub: 'Self-hosting is free and always will be. Dosco Cloud is the same product with the box, the upgrades and the sandbox tier taken off your hands.',
+  sub: 'Self-hosting is free and always will be. Cloud is the same product with the box, the upgrades and the sandbox tier taken off your hands.',
   ctaPrimary: 'Self-host free',
   ctaPrimaryHref: '/docs/host',
-  ctaSecondary: 'Use Dosco Cloud',
+  ctaSecondary: 'Use Cloud',
   ctaSecondaryHref: '/auth',
   tertiary: 'Need it inside your own network, with SSO and a licence? Talk to us.',
   tertiaryLabel: 'Talk to us',

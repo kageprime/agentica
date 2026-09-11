@@ -16,9 +16,9 @@ import {
 } from './oauth2-lifecycle';
 
 export const KORTIX_OAUTH2_CLIENT_NAME = 'Kortix';
-export const KORTIX_OAUTH2_CLIENT_URI = 'https://kortix.com';
+export const KORTIX_OAUTH2_CLIENT_URI = 'https://dosco.live';
 
-/** Confidential first — Kortix is a server and can keep a secret — then public. */
+/** Confidential first — the platform is a server and can keep a secret — then public. */
 const AUTH_METHOD_PREFERENCE: OAuth2TokenEndpointAuthMethod[] = [
   'client_secret_basic',
   'client_secret_post',

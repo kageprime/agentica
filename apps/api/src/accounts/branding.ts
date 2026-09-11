@@ -17,7 +17,7 @@
 //     downgraded account can still see and unwind what it set;
 //   - SERVING is entitlement-checked: `effectiveBranding` (used by
 //     `GET /accounts` and `GET /accounts/:id`) returns `null` the moment the
-//     entitlement lapses, so members fall back to Kortix without any write.
+//     entitlement lapses, so members fall back to the platform without any write.
 
 import { createHash } from 'node:crypto';
 import { createRoute, z } from '@hono/zod-openapi';
@@ -548,7 +548,7 @@ export function registerBrandingRoutes(): void {
     },
   );
 
-  // DELETE — reset everything to Kortix defaults. Permission only.
+  // DELETE — reset everything to the platform defaults. Permission only.
   accountsRouter.openapi(
     createRoute({
       method: 'delete',

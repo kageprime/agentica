@@ -1,5 +1,5 @@
 /**
- * Home — Main app screen for Kortix Computer Mobile.
+ * Home — Main app screen for Computer Mobile.
  *
  * Uses a drawer layout:
  * - Drawer: Session list + "New Session" button

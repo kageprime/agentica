@@ -57,7 +57,7 @@ import type { UiTranslator } from '@/i18n/translator';
 export const hero = {
   eyebrow: 'Security',
   title: 'Built to survive a security review.',
-  sub: 'An agent that can install anything, call anything and write anywhere is only safe if the walls are real. In Dosco they sit below the agent, in the platform, where a prompt cannot talk its way past them.',
+  sub: 'An agent that can install anything, call anything and write anywhere is only safe if the walls are real. In the platform they sit below the agent, in the platform, where a prompt cannot talk its way past them.',
   ctaPrimary: 'Talk to us',
   ctaPrimaryHref: '/contact',
   ctaSecondary: 'Read the docs',
@@ -109,7 +109,7 @@ export const isolation = {
     {
       id: 'microvm',
       k: 'microVM where you ask for it',
-      v: 'On Dosco’s own Platinum compute a sandbox is a Cloud Hypervisor microVM. Daytona and E2B are also supported. The provider is a deployment choice, and we will tell you which one you are on rather than blur them together.',
+      v: 'On the platform’s own Platinum compute a sandbox is a Cloud Hypervisor microVM. Daytona and E2B are also supported. The provider is a deployment choice, and we will tell you which one you are on rather than blur them together.',
     },
     {
       id: 'branch',
@@ -179,7 +179,7 @@ export const credentials = {
     {
       id: 'connectors',
       k: 'Connector credentials never enter the machine',
-      v: '3,000+ apps in a click, plus MCP, OpenAPI, GraphQL and raw HTTP. The third-party credential is held and resolved server-side; the machine holds one scoped Dosco token and calls through it. The same rule covers Dosco’s own provider keys, which no sandbox is allowed to hold.',
+      v: '3,000+ apps in a click, plus MCP, OpenAPI, GraphQL and raw HTTP. The third-party credential is held and resolved server-side; the machine holds one scoped token and calls through it. The same rule covers Dosco’s own provider keys, which no sandbox is allowed to hold.',
     },
     {
       id: 'honest',
@@ -198,7 +198,7 @@ export const credentials = {
 export const identity = {
   eyebrow: 'Identity & permissions',
   title: 'An agent is a principal, not a loophole.',
-  sub: 'Most AI tools give the agent whatever the person who started it can reach. Dosco does not. An agent identity carries its own policies, evaluated on their own, so it cannot inherit its way up to something you never granted it.',
+  sub: 'Most AI tools give the agent whatever the person who started it can reach. The platform does not. An agent identity carries its own policies, evaluated on their own, so it cannot inherit its way up to something you never granted it.',
   /** The permission matrix, drawn from the shipped resource types + presets. */
   matrix: {
     caption: 'Permissions attach to a principal, for an action, on a resource type.',
@@ -384,7 +384,7 @@ export const posture = {
   deployments: [
     {
       id: 'cloud',
-      k: 'Dosco Cloud',
+      k: 'Cloud',
       v: 'The managed service. We run the control plane and the compute; you run the company.',
     },
     {

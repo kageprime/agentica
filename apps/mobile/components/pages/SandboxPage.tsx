@@ -97,7 +97,7 @@ const STATUS_STYLE: Record<ProjectSnapshotStatus, { label: string; color: string
 
 const CATEGORY_LABEL: Record<SnapshotErrorCategory, string> = {
   dockerfile: 'Dockerfile build failed',
-  layer: 'Kortix runtime layer failed',
+  layer: 'Runtime layer failed',
   git: 'Repository access failed',
   tunnel: 'Sandbox callback unreachable',
   provider: 'Sandbox provider error',
@@ -400,7 +400,7 @@ function SandboxTemplateSheet({
 
       <BottomSheetScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 16 }} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
         <Text style={{ fontSize: 12.5, color: muted, marginBottom: 16 }}>
-          Pick a public Docker image or a Dockerfile in your repo. The Kortix runtime layer is added automatically.
+          Pick a public Docker image or a Dockerfile in your repo. The runtime layer is added automatically.
         </Text>
 
         <View style={{ flexDirection: 'row', gap: 12 }}>

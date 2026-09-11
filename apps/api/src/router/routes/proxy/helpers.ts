@@ -15,7 +15,7 @@ import type { ToolCreditReservation, AuthResult } from './app';
 export { matchAllowedRoute };
 
 /**
- * Resolve ANY Kortix credential to the account it bills.
+ * Resolve ANY credential to the account it bills.
  *
  * The platform mints two shapes and they live in different tables:
  *   - `kortix_pat_…`  → `account_tokens`   (`validateAccountToken`)
@@ -25,7 +25,7 @@ export { matchAllowedRoute };
  * to this proxy — is the FIRST shape: a session-scoped PAT auto-minted at
  * session create (projects/routes/r3.ts). This resolver only ever consulted
  * the second table, so every built-in tool call answered
- * `401 Invalid Kortix token in x-api-key` while the same token authenticated
+ * `401 Invalid token in x-api-key` while the same token authenticated
  * fine on every other route. Try the right validator for the prefix; never
  * widen what counts as valid (both validators still enforce active + not
  * expired + not revoked).
@@ -43,9 +43,9 @@ export async function tryAuthenticate(c: any): Promise<AuthResult> {
   const authHeader = c.req.header('Authorization');
   const bearerToken = authHeader?.startsWith('Bearer ') ? authHeader.slice(7) : undefined;
 
-  // --- Mode 1: Kortix token directly in Authorization header ---
+  // --- Mode 1: Token directly in Authorization header ---
   // The user sent kortix_ or kortix_sb_ as the Bearer token — full Kortix-managed flow.
-  // If it looks like a Kortix token but fails validation → hard reject.
+  // If it looks like a token but fails validation → hard reject.
 
   if (bearerToken && isKortixToken(bearerToken) && config.DATABASE_URL) {
     try {
@@ -54,12 +54,12 @@ export async function tryAuthenticate(c: any): Promise<AuthResult> {
     } catch {
       // Fall through to reject below
     }
-    // Looks like a Kortix token but didn't validate — reject.
-    // Never allow an invalid Kortix token to fall through to free passthrough.
-    throw new HTTPException(401, { message: 'Invalid Kortix token' });
+    // Looks like a token but didn't validate — reject.
+    // Never allow an invalid token to fall through to free passthrough.
+    throw new HTTPException(401, { message: 'Invalid token' });
   }
 
-  // --- Mode 1a: Kortix token in Authorization: Token <token> (Replicate SDK) ---
+  // --- Mode 1a: Token in Authorization: Token <token> (Replicate SDK) ---
   // The Replicate SDK uses "Token " prefix instead of "Bearer ".
   const tokenPrefixed = authHeader?.startsWith('Token ') ? authHeader.slice(6) : undefined;
   if (tokenPrefixed && isKortixToken(tokenPrefixed) && config.DATABASE_URL) {
@@ -69,12 +69,12 @@ export async function tryAuthenticate(c: any): Promise<AuthResult> {
     } catch {
       // Fall through to reject below
     }
-    throw new HTTPException(401, { message: 'Invalid Kortix token' });
+    throw new HTTPException(401, { message: 'Invalid token' });
   }
 
-  // --- Mode 1b: Kortix token in x-api-key header (Anthropic SDK) ---
+  // --- Mode 1b: Token in x-api-key header (Anthropic SDK) ---
   // The Anthropic SDK sends the API key via x-api-key instead of Authorization.
-  // If the value is a Kortix token, treat it as Mode 1 (Kortix-managed).
+  // If the value is a token, treat it as Mode 1 (Kortix-managed).
   const xApiKey = c.req.header('x-api-key');
   if (xApiKey && isKortixToken(xApiKey) && config.DATABASE_URL) {
     try {
@@ -83,12 +83,12 @@ export async function tryAuthenticate(c: any): Promise<AuthResult> {
     } catch {
       // Fall through to reject below
     }
-    throw new HTTPException(401, { message: 'Invalid Kortix token in x-api-key' });
+    throw new HTTPException(401, { message: 'Invalid token in x-api-key' });
   }
 
-  // --- Mode 1c: Kortix token in JSON body field (Tavily SDK) ---
+  // --- Mode 1c: Token in JSON body field (Tavily SDK) ---
   // The Tavily SDK sends the API key in the JSON body as "api_key" instead of a header.
-  // Check the body for a Kortix token so sandbox tools can auth through the proxy.
+  // Check the body for a token so sandbox tools can auth through the proxy.
   if (config.DATABASE_URL && c.req.method === 'POST') {
     try {
       const cloned = c.req.raw.clone();
@@ -99,7 +99,7 @@ export async function tryAuthenticate(c: any): Promise<AuthResult> {
         if (bodyApiKey && isKortixToken(bodyApiKey)) {
           const accountId = await resolveKortixAccount(bodyApiKey);
           if (accountId) return { isKortixUser: true, accountId };
-          throw new HTTPException(401, { message: 'Invalid Kortix token in request body' });
+          throw new HTTPException(401, { message: 'Invalid token in request body' });
         }
       }
     } catch (e) {
@@ -108,11 +108,11 @@ export async function tryAuthenticate(c: any): Promise<AuthResult> {
     }
   }
 
-  // --- Mode 2: User's own key + Kortix token in X-Kortix-Token ---
+  // --- Mode 2: User's own key + token in X-Kortix-Token ---
   // The user's own API key is in Authorization (Bearer) or a provider-specific
-  // header (e.g. Anthropic's x-api-key). The Kortix token rides in
+  // header (e.g. Anthropic's x-api-key). The token rides in
   // X-Kortix-Token so we can identify the account for platform-fee billing.
-  // If X-Kortix-Token looks like a Kortix token but fails → hard reject.
+  // If X-Kortix-Token looks like a token but fails → hard reject.
 
   if (config.DATABASE_URL) {
     const kortixTokenHeader = c.req.header('X-Kortix-Token');
@@ -127,7 +127,7 @@ export async function tryAuthenticate(c: any): Promise<AuthResult> {
     }
   }
 
-  // --- Mode 3: No Kortix token anywhere — pure passthrough, no billing ---
+  // --- Mode 3: No token anywhere — pure passthrough, no billing ---
   return { isKortixUser: false };
 }
 

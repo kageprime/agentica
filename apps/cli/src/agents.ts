@@ -14,7 +14,7 @@ export const SUPPORTED_AGENTS: readonly CodingAgent[] = [
 export const DEFAULT_PRIMARY: CodingAgent = 'codex';
 
 /**
- * Path of the canonical Kortix skill, relative to repo root.
+ * Path of the canonical skill, relative to repo root.
  *
  * `kortix-cli`, not `kortix-system`: the rest of the `kortix-*` family is
  * injected into sandboxes at boot rather than committed, so it is absent from a
@@ -144,7 +144,7 @@ function handleExisting(abs: string, overwrite: boolean): boolean {
 }
 
 function agentsPointer(): string {
-  return `# Kortix project
+  return `# Project
 
 This repository is a [Kortix](https://kortix.ai) project — its agent runtime
 config lives under \`.kortix/\` and the manifest is \`kortix.yaml\`. The starter's

@@ -22,7 +22,7 @@ Options:
   --prompt "<text>"    Test prompt (default: "ping").
   --timeout <seconds>  How long to wait for the reply (default: 180).
   --project <id>       Operate on this project (default: linked).
-  --host <name>        Operate against a non-default Kortix host.
+  --host <name>        Operate against a non-default host.
   -h, --help           Show this help.
 
 Exit codes:

@@ -84,7 +84,7 @@ Options:
   --description <t>   Description (create, set).
   --no-description    Clear the description (set).
   --account <id>      Operate on this account (default: the active account).
-  --host <name>       Operate against a non-default Kortix host.
+  --host <name>       Operate against a non-default host.
   --json              Machine-readable output (read subcommands).
   -y, --yes           Skip the confirmation prompt.
   -h, --help          Show this help.

@@ -4,7 +4,7 @@
  *
  * ONE validator reference, three surfaces:
  *
- *   1. `https://kortix.com/schema/kortix{,.v1,.v2}.schema.json` — the same
+ *   1. `https://dosco.live/schema/kortix{,.v1,.v2}.schema.json` — the same
  *      documents published at `apps/web/public/schema/` for editor
  *      `$schema` integration.
  *   2. This command — the CLI-local copy, for scripting / offline use /

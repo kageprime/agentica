@@ -182,7 +182,7 @@ function renderBox(current: string, latestDisplay: string, hint: string): string
   return [
     '',
     top,
-    boxLine(`${C.bold}Kortix CLI${C.reset} ${C.dim}v${current}${C.reset}  ${C.yellow}→${C.reset}  ${C.green}${C.bold}${latestDisplay}${C.reset}`),
+    boxLine(`${C.bold}CLI${C.reset} ${C.dim}v${current}${C.reset}  ${C.yellow}→${C.reset}  ${C.green}${C.bold}${latestDisplay}${C.reset}`),
     boxLine(hint),
     bottom,
   ].join('\n');

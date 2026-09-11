@@ -28,7 +28,7 @@ import {
 
 describe('generateAppName / generateState', () => {
   test('generateAppName embeds the injected suffix, keeping names globally unique on GitHub', () => {
-    expect(generateAppName(() => 'abc123')).toBe('Kortix Self-Host abc123');
+    expect(generateAppName(() => 'abc123')).toBe('Self-Host abc123');
   });
 
   test('generateState returns whatever the injected token source produces', () => {

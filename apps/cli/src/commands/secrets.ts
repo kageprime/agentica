@@ -20,7 +20,7 @@ import { C, help, pad, status, visibleWidth } from '../style.ts';
 
 const HELP = help`Usage: kortix secrets <subcommand> [options]
 
-Manage encrypted secrets on the linked Kortix project.
+Manage encrypted secrets on the linked project.
 
 A secret has an IDENTIFIER (the name an agent's \`secrets\` grant references),
 a KEY (the env var it occupies in the sandbox), and a value. Leave the
@@ -35,10 +35,10 @@ Each secret has one EXPOSURE — can agent code read the value?
                that is not HTTPS.
   enforced     EXPERIMENTAL — requires the project's \`secrets_egress\` feature
                flag (Settings → Feature flags), off by default. The env var
-               holds a HANDLE, not the value. Kortix substitutes the real value
+               holds a HANDLE, not the value. The platform substitutes the real value
                outside the sandbox, only on the approved hosts, and rewrites any
                echo of it to [REDACTED].
-  none         No sandbox presence. A Kortix service spends the value (LLM
+  none         No sandbox presence. A service spends the value (LLM
                gateway, connector, Git), or the secret is stored and disabled.
 
 Enforcement (enforced exposure) is EXPERIMENTAL and gated behind the
@@ -79,7 +79,7 @@ Subcommands:
     --allow-host <host>              Approved host for enforced exposure.
                                     Exact host, HTTPS. Repeat for more hosts.
                                     The host list IS the policy.
-    --consumer <service>             Which Kortix service spends a none-exposure
+    --consumer <service>             Which service spends a none-exposure
                                     secret: llm-gateway or connector.
                                     (\`--consumer http-broker\` writes a legacy
                                     \`secrets call\`-only row; prefer enforced.)
@@ -232,7 +232,7 @@ export function deliveryCell(row: {
       : row.strategy === 'denied'
         ? 'disabled'
         : row.strategy === 'broker'
-          ? (row.consumer ?? 'Kortix service')
+          ? (row.consumer ?? 'Service')
           : // Colon, not the ` · ` the markers below use — the exposure and its
             // hosts are one fact, and a second ` · ` would read as a third one.
             'enforced: approved hosts';
@@ -588,7 +588,7 @@ async function secretsDelivery(args: string[], opts: CtxOpts, json = false): Pro
   if (strategy !== 'broker' && consumerFlag !== undefined) {
     process.stderr.write(
       `${status.err(
-        '--consumer names the Kortix service that spends a none-exposure secret. Pass it with the `broker` alias.',
+        '--consumer names the service that spends a none-exposure secret. Pass it with the `broker` alias.',
       )}\n`,
     );
     return 2;
@@ -750,13 +750,13 @@ async function secretsDelivery(args: string[], opts: CtxOpts, json = false): Pro
       // relay. An agent that knows the last line does not go asking a human for
       // the raw value.
       process.stdout.write(
-        `  ${C.dim}The env var holds a handle. Kortix substitutes the real value outside the sandbox, only on those hosts, and rewrites any echo of it to [REDACTED].${C.reset}\n` +
+        `  ${C.dim}The env var holds a handle. The platform substitutes the real value outside the sandbox, only on those hosts, and rewrites any echo of it to [REDACTED].${C.reset}\n` +
           `  ${C.dim}Agent code sends the handle with its ordinary HTTP client. For a request that cannot be intercepted, run \`kortix secrets call ${identifier} <https-url>\`.${C.reset}\n`,
       );
       if (result.network_boundary_available === false) {
         process.stdout.write(
           `  ${status.warn(
-            'This Kortix server reports no enforcement path — requests would leave carrying the handle, not the value.',
+            'This server reports no enforcement path — requests would leave carrying the handle, not the value.',
           )}\n`,
         );
       }

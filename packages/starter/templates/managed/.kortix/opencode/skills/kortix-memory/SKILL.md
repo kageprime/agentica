@@ -6,7 +6,7 @@ description: How to read, write, and curate project memory in `.kortix/memory/` 
 <skill name="kortix-memory">
 
 <overview>
-Every Kortix project has a **project brain** at `.kortix/memory/` — a
+Every project has a **project brain** at `.kortix/memory/` — a
 folder of curated markdown files describing what this project is,
 which connections it uses, the conventions the team works by, and
 the decisions worth not re-litigating.
@@ -29,7 +29,7 @@ Memory is **continuously CRUD'd**:
 - Both consult this skill for the rubric.
 
 Memory is **team-shared**: it lives in the repo, every session sees the
-same content. Edits land on `main` only via a Kortix change request —
+same content. Edits land on `main` only via a change request —
 never by pushing directly.
 </overview>
 
@@ -155,7 +155,7 @@ on `main` through the normal change-request flow (below).
 ### Landing memory on `main`
 
 Session branches die when sessions end. Memory edits reach `main`
-only via a Kortix change request — same path as any code change:
+only via a change request — same path as any code change:
 
 ```sh
 git add .kortix/memory

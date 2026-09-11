@@ -283,7 +283,7 @@ describe('kortix system-skills — get', () => {
   test('unknown skill exits 1 with a hint', async () => {
     const code = await runSystemSkills(['get', 'does-not-exist']);
     expect(code).toBe(1);
-    expect(stripAnsi(stderr)).toContain('No Kortix system skill matches');
+    expect(stripAnsi(stderr)).toContain('No system skill matches');
   });
 
   test('missing name exits 2', async () => {

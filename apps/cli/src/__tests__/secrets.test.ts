@@ -788,7 +788,7 @@ describe('kortix secrets delivery', () => {
     ]);
 
     expect(code).toBe(0);
-    expect(stripAnsi(stdout)).toContain('This Kortix server reports no enforcement path');
+    expect(stripAnsi(stdout)).toContain('This server reports no enforcement path');
   });
 
   test('stays quiet about the boundary when the server reports one, or reports nothing', async () => {

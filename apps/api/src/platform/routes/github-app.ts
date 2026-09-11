@@ -102,7 +102,7 @@ export function buildGithubAppManifest(opts: {
   // ("url wasn't supplied"), so it is kept separate and always a valid FQDN.
   const base = opts.apiBaseUrl.replace(/\/+$/, '');
   return {
-    name: opts.appName ?? `Kortix Self-Host ${randomBytes(4).toString('hex')}`,
+    name: opts.appName ?? `Self-Host ${randomBytes(4).toString('hex')}`,
     url: opts.homepageUrl,
     redirect_url: `${base}/v1/platform/github-app/manifest-callback`,
     setup_url: `${base}/v1/platform/github-app/install-callback`,
@@ -702,7 +702,7 @@ githubAppSetupRouter.openapi(
 //
 // Both routes are PUBLIC (unauthenticated) by necessity, same reasoning as
 // manifest-callback/install-callback above: the popup opens `oauth/authorize`
-// directly (no Kortix session is attached to that navigation), and GitHub's
+// directly (no session is attached to that navigation), and GitHub's
 // redirect back to `oauth/callback` cannot carry a Kortix auth header either.
 // The resulting token proves nothing on its own — every route that consumes
 // it (POST /projects/github/installations/{linkable,link}, POST

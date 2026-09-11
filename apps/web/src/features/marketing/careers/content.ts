@@ -24,7 +24,7 @@
  *    attachment.
  *  - Naming opencode / Codex / Claude Code / Pi under Product / Eng describes
  *    ecosystem fluency wanted in a CANDIDATE. It must never read as a claim
- *    that Dosco supports those harnesses. OpenCode is the Dosco harness, and
+ *    that the platform supports those harnesses. OpenCode is the Dosco harness, and
  *    the same opening says so.
  *  - Competitor names, exactly: **Claude Cowork** (one word, lowercase `w`) and
  *    **ChatGPT Work** (two words).
@@ -103,8 +103,8 @@ export const openings = [
       'Can recruit.',
     ],
     /** Guards the coding-agent bullet: fluency in a candidate, never a claim
-     *  about what Dosco runs. */
-    note: 'Dosco runs on the OpenCode harness. That bullet is about your fluency in the ecosystem, not about what the platform supports.',
+     *  about what the platform runs. */
+    note: 'The platform runs on the OpenCode harness. That bullet is about your fluency in the ecosystem, not about what the platform supports.',
   },
   {
     id: 'rnd',
@@ -180,7 +180,7 @@ export const apply = {
 
 /** Copy for `ApplyModal`. Short, and one open question carries the weight. */
 export const applyForm = {
-  title: 'Apply to Dosco',
+  title: 'Apply to the platform',
   description: 'Short. One open question does the work.',
   areaLabel: 'Which opening',
   areaPlaceholder: 'Pick the closest one',

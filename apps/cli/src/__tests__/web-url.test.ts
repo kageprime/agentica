@@ -40,8 +40,8 @@ describe('webDashboardUrl — derive fallback (no authoritative env)', () => {
     expect(webDashboardUrl('http://localhost:8008')).toBe('http://localhost:3000');
   });
 
-  test('unparseable input falls back to kortix.com', () => {
-    expect(webDashboardUrl('not a url')).toBe('https://kortix.com');
+  test('unparseable input falls back to dosco.live', () => {
+    expect(webDashboardUrl('not a url')).toBe('https://dosco.live');
   });
 });
 

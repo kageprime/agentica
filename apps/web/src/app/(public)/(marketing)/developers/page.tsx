@@ -199,7 +199,7 @@ const CLI_GROUPS: { label: string; icon: typeof TerminalIcon; cmds: [string, str
     label: 'Operate',
     icon: KeyRound,
     cmds: [
-      ['kortix self-host', 'Run your own Dosco cloud'],
+      ['kortix self-host', 'Run your own cloud'],
       ['kortix hosts use', 'Switch cloud ↔ local'],
       ['kortix providers', 'Bring your own model keys'],
     ],
@@ -211,7 +211,7 @@ const RUNS_ANYWHERE = [
     icon: Server,
     title: 'Self-host anywhere',
     // ACCURACY: not "air-gapped" — `self-host start` pulls images from docker.io.
-    desc: 'A laptop, a VPS, or your own VPC — the exact same stack as Dosco cloud.',
+    desc: 'A laptop, a VPS, or your own VPC — the exact same stack as cloud.',
   },
   {
     icon: Cpu,
@@ -221,7 +221,7 @@ const RUNS_ANYWHERE = [
   {
     icon: KeyRound,
     title: 'Any model',
-    desc: 'Bring your own keys — Anthropic, OpenAI, or local models — or run on Dosco compute.',
+    desc: 'Bring your own keys — Anthropic, OpenAI, or local models — or run on compute.',
   },
 ];
 

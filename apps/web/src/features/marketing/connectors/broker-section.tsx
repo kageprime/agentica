@@ -69,7 +69,7 @@ function EnvPanel({
  * The token-flow diagram — the load-bearing picture on this page.
  *
  * A dashed rule runs between step 01 and step 02. Everything left of it happens
- * inside the sandbox the model drives; everything right of it happens on Dosco.
+ * inside the sandbox the model drives; everything right of it happens on the platform.
  * The credential only ever exists on the right. The strip underneath names what
  * never crosses, because that is the claim the whole page rests on.
  */

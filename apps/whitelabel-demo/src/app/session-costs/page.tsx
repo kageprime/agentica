@@ -84,7 +84,7 @@ function SessionCostsDashboard() {
           </h1>
         </div>
         <p className="mt-1 text-sm text-muted-foreground">
-          Each row represents one Kortix session. The wrapper applies its
+          Each row represents one session. The wrapper applies its
           configured markup to that session&apos;s recorded cost.
         </p>
 

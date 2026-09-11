@@ -51,13 +51,13 @@ Branches:
 
 Where it backs the project (origin is inferred, never asked):
   * Existing GitHub \`origin\` (e.g. github.com/you/repo) → links it directly,
-    GitHub-backed. If the Kortix GitHub App isn't installed yet, ship prints a
+    GitHub-backed. If the GitHub App isn't installed yet, ship prints a
     one-click install link (same as the web UI import); or pass
     --github-token <PAT> to link without the app. Sessions clone/push the real
     repo, so \`git push\` stays synced.
   * Other existing \`origin\` remote                       → registered + pushed.
   * No \`origin\` remote                                    → creates a managed
-    Kortix git repo and pushes to it. No GitHub needed.
+    Git repo and pushes to it. No GitHub needed.
 
 Accounts:
   On first ship, if you belong to more than one account you're asked which to
@@ -67,7 +67,7 @@ Options:
   --name <project>     Display name for a new project (default: folder name).
   --account <id|slug>  Account to create the project under (first ship only).
   --origin <value>     Override origin choice:
-                         managed      force a managed Kortix repo
+                         managed      force a managed repo
                          <git-url>    register + push to this remote
   --github-token <pat> Link a GitHub origin with this token instead of the
                        GitHub App (App-free import; needs repo Contents R/W).
@@ -79,7 +79,7 @@ Options:
   -y, --yes            Don't prompt; use the active account, skip secret prompts.
   -n, --dry-run        Print what would happen, do nothing.
   --project <id>       Operate on this project id (default: linked).
-  --host <name>        Operate against a non-default Kortix host.
+  --host <name>        Operate against a non-default host.
   -h, --help           Show this help.
 `;
 
@@ -140,7 +140,7 @@ export async function runShip(argv: string[]): Promise<number> {
   // ── Guards ───────────────────────────────────────────────────────────────
   if (!isKortixProject()) {
     process.stderr.write(
-      `${status.err(`Not a Kortix project — no .kortix/ or kortix.yaml in ${process.cwd()}.`)}\n` +
+      `${status.err(`Not a project — no .kortix/ or kortix.yaml in ${process.cwd()}.`)}\n` +
         `  ${C.dim}Run ${C.reset}${C.cyan}kortix init${C.reset}${C.dim} here first.${C.reset}\n`,
     );
     return 1;
@@ -231,7 +231,7 @@ function prepareManifest(flags: ShipFlags): { ok: boolean; env: EnvSpec } {
   if (!manifest) {
     process.stderr.write(
       `\n${status.err('No kortix.yaml here — refusing to ship a project with no manifest.')}\n` +
-        `  ${C.dim}A Kortix project is defined by its manifest: agents, skills and\n` +
+        `  ${C.dim}A project is defined by its manifest: agents, skills and\n` +
         `  connectors all come from it. Pushing without one creates a project\n` +
         `  that cannot start a session.${C.reset}\n` +
         `  ${C.dim}Create one with ${C.reset}${C.cyan}kortix init${C.reset}${C.dim} in ${process.cwd()}.${C.reset}\n\n`,
@@ -570,7 +570,7 @@ export async function linkGitHubBackedProject(
       if (!installUrl) throw err;
 
       process.stdout.write(
-        `\n  ${status.warn('Kortix GitHub App not installed for this repo yet.')}\n` +
+        `\n  ${status.warn('GitHub App not installed for this repo yet.')}\n` +
           `  ${C.dim}One-click install (authorize access to your repo):${C.reset}\n` +
           `  ${C.cyan}${installUrl}${C.reset}\n\n` +
           `  ${C.dim}Or skip the app with a token: ${C.reset}${C.cyan}kortix ship --github-token <PAT>${C.reset}\n\n`,
@@ -579,7 +579,7 @@ export async function linkGitHubBackedProject(
         throw new Error('GitHub App install required — re-run without -y after installing, or pass --github-token <PAT>.');
       }
       const again = await confirm('Installed it? Retry the link', true);
-      if (!again) throw new Error('Aborted — install the Kortix GitHub App (or use --github-token) then run `kortix ship` again.');
+      if (!again) throw new Error('Aborted — install the GitHub App (or use --github-token) then run `kortix ship` again.');
     }
   }
   throw new Error('GitHub App still not detected after several tries — install it, or use --github-token <PAT>.');
@@ -638,7 +638,7 @@ async function shipFirstTime(
     if (explicitUrl) setOrigin(explicitUrl);
   } else {
     process.stdout.write(
-      `\n  ${C.bold}kortix ship${C.reset}  ${C.dim}new project → managed Kortix git${C.reset}\n` +
+      `\n  ${C.bold}kortix ship${C.reset}  ${C.dim}new project → managed git${C.reset}\n` +
         `  ${C.dim}name    ${C.reset}${name}\n\n`,
     );
     if (flags.dryRun) {
@@ -668,7 +668,7 @@ async function shipFirstTime(
     bindShippedFolder(project, hostName, auth);
     gitTarget = resolveProvisionShipGitTarget(prov);
     if (gitTarget.credentialMode === 'kortix-token') {
-      // Proxy origin — we push with our own Kortix token; the API resolves the
+      // Proxy origin — we push with our own token; the API resolves the
       // upstream + host credential server-side. No provider token is exported.
       pushToken = auth.token;
     } else {
@@ -759,7 +759,7 @@ async function shipExisting(
   if (kortixOwnsOrigin) setOrigin(repoUrl);
   else ensureOrigin(repoUrl);
   // Leave the repo able to `git push` on its own afterwards, same as a
-  // `kortix projects clone` — the helper hands git a Kortix token on demand
+  // `kortix projects clone` — the helper hands git a token on demand
   // without ever writing one into .git/config.
   if (target.credentialMode === 'kortix-token') configureProjectGitAuth(process.cwd(), repoUrl);
 
@@ -1119,7 +1119,7 @@ function surface(err: unknown): number {
     } else if (err.status === 503) {
       // Don't diagnose — the server owns the reason. The one thing we DO know
       // is that a stale CLI is a common cause (older builds pushed to the raw
-      // upstream with a minted provider token instead of the Kortix git proxy,
+      // upstream with a minted provider token instead of the git proxy,
       // which a token-configured host can't hand out), so say that and stop.
       process.stderr.write(
         `${status.err(err.message)}\n` +

@@ -23,7 +23,7 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   '90d': 'textc906817c1dd2',
   'A chosen list of members and groups': 'text0aae241fd603',
   'A message in Slack starts a session.': 'text07d41a5b065b',
-  'A model answers; an agent finishes the job. Dosco runs the loop around it — reading the repo, planning, calling tools, checking its own work, returning a branch you can review.':
+  'A model answers; an agent finishes the job. The platform runs the loop around it — reading the repo, planning, calling tools, checking its own work, returning a branch you can review.':
     'texte11b6fe4e5fb',
   'A Rauch-style hard-pixel particle rendering of the Dosco symbol.': 'text20432b11333f',
   'A trigger starts a session at 3am.': 'textd62393fd9c05',
@@ -107,7 +107,7 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'Choose which agent answers': 'texta33bc2792173',
   'Choose which model runs this turn': 'text0e22e022480d',
   'Claude Code': 'text246ef8c1130d',
-  'Clone a full, working Dosco project in one click, or add skills from every source into your own.':
+  'Clone a full, working project in one click, or add skills from every source into your own.':
     'text5a7b24722fae',
   Closed: 'textc21ead0614e7',
   'Cloud runtime': 'texta5a909060ba4',
@@ -199,8 +199,8 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   Errors: 'textcb702378f315',
   Europe: 'texte595f45dc6c9',
   'Every action, human or agent, is written down — on every plan.': 'text02d887f458d5',
-  'Every Dosco release, straight from the source.': 'text526c3dafbee8',
-  'Every Dosco release, straight from the source. New features, fixes, and improvements — versioned and dated.':
+  'Every release, straight from the source.': 'text526c3dafbee8',
+  'Every release, straight from the source. New features, fixes, and improvements — versioned and dated.':
     'text3efe2d7294ba',
   'Every member of this project': 'text7b9908a3c44a',
   'Every member of this project.': 'text78fc0a25db23',
@@ -270,22 +270,22 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'Keys are resolved on our side of the wall. The machine the model drives never holds them.':
     'texte6229e214e88',
   'Dosco – The AI Command Center for Your Company': 'textce34af36d804',
-  'Dosco is building the open AGI platform. A company owns all of it — every agent, all of their data, every skill, every connector, the memory, the whole configuration, on their own infrastructure.':
+  'The platform is building the open AGI platform. A company owns all of it — every agent, all of their data, every skill, every connector, the memory, the whole configuration, on their own infrastructure.':
     'text445cf0a2abfa',
   'Dosco — Presentations': 'textd84b8be91e7b',
-  'Dosco API documentation': 'text7b3c138b383d',
-  'Dosco API health': 'text6170d1002071',
-  'Dosco Changelog': 'text1e2baba1cb9b',
-  'Dosco Gateway': 'text88099e99f545',
+  'API documentation': 'text7b3c138b383d',
+  'API health': 'text6170d1002071',
+  'Changelog': 'text1e2baba1cb9b',
+  'Gateway': 'text88099e99f545',
   'Dosco OpenAPI document': 'texte84ccb2c62c8',
-  'Dosco Public Content': 'textcc9a80a16e3c',
+  'Public Content': 'textcc9a80a16e3c',
   'kortix-ai/kortix · since Mon': 'textc4736485c745',
   Latency: 'texte0e7d293043c',
   Legacy: 'text1432897a6136',
   Light: 'textdbcd5e7bb7a0',
   LinkedIn: 'textdd84425b72da',
   Linux: 'text4828e60247c1',
-  'List Dosco public documentation and marketing pages.': 'text442e47369852',
+  'List public documentation and marketing pages.': 'text442e47369852',
   'List models': 'text908aa27de870',
   'Loading your workspace': 'text22cd35468c29',
   Logo: 'textd707dc2f1936',
@@ -295,7 +295,7 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   Manager: 'text8b2085f74dfa',
   Markdown: 'text0e52f6b9d025',
   Marketplace: 'textc608981d8d68',
-  'Marketplace — Clone a ready-made Dosco project': 'text7eebc3924618',
+  'Marketplace — Clone a ready-made project': 'text7eebc3924618',
   Member: 'text7c968fb71f50',
   "Members, billing, roles, and audit live in each organization's own settings.":
     'textfde028796e58',
@@ -380,7 +380,7 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'Pure black & white, zero accent — Swiss minimalism': 'textbef51dd5402b',
   'Querying metrics.q3': 'texte402dcff5083',
   'Ran the billing suite': 'text5d405d8955db',
-  'Read the Markdown representation of a Dosco public page.': 'text768b4b146c74',
+  'Read the Markdown representation of a public page.': 'text768b4b146c74',
   'Read the webhook handler': 'text2bdb956493fd',
   'Read, run sessions, and fire triggers — no editing or config. The project floor role.':
     'texta808a5ca5a95',
@@ -421,12 +421,12 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'Sales & marketing': 'text8228542fed70',
   'Sales deck': 'text14d04a4900a4',
   Sandbox: 'text67fc62497e85',
-  'scaffold a new Dosco project': 'textaeb72f2ccad6',
+  'scaffold a new project': 'textaeb72f2ccad6',
   'Scanning commits since Monday…': 'text70e8adbbc0b2',
   Scheduled: 'text4724f344c1c0',
   Schedules: 'text221ff19c904c',
   Scheduling: 'texted5c58303a98',
-  'Search and read Dosco public documentation and API metadata.': 'text072fd9c0ffc8',
+  'Search and read public documentation and API metadata.': 'text072fd9c0ffc8',
   Secrets: 'textd8707d411d99',
   'Secrets, approvals, and the way work lands.': 'text9414211277f7',
   Security: 'text8f6fb4eb7f42',
@@ -456,8 +456,8 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
     'texte2cc5cc46d8e',
   'Start a session anywhere and pick up where you left off.': 'text3c481db9e3e6',
   'start an agent session': 'textf4d3cad9353c',
-  'Steps and thinking stream live while Dosco works': 'text9014b90b5360',
-  'Steps and thinking stream live while Dosco works.': 'textdf4e2990214a',
+  'Steps and thinking stream live while the platform works': 'text9014b90b5360',
+  'Steps and thinking stream live while the platform works.': 'textdf4e2990214a',
   Stopped: 'text1a4f630ac1b6',
   'Store encrypted values and control where each value can be used.': 'text6bae6cd973f1',
   Subagents: 'text88296ab3d666',
@@ -487,7 +487,7 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   "The floor role for the account. No implicit project access — they see only the projects they've been added to, directly or via a group.":
     'text6562d4f7e6fb',
   'The gate': 'textb46788a7c320',
-  'The in-depth platform walkthrough — the full Dosco surface, from projects and sessions to connectors, channels and change requests.':
+  'The in-depth platform walkthrough — the full surface, from projects and sessions to connectors, channels and change requests.':
     'text7484ed6d3897',
   'The Dosco team': 'text49e7ba9f095d',
   'The open-source AI command center for your company. Every agent, skill, and memory is a file in one versioned repo you own — a workforce of AI agents that does real work, shared across your whole team from Slack, Teams, the web, or the CLI. Self-hostable, any model, your keys.':
@@ -539,7 +539,7 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'Your ChatGPT subscription': 'text1797cd1f264b',
   'Your last workspace is archived': 'text9a0da87b2e56',
   'Your own API key': 'text31adf1a22230',
-  'Your team is on Dosco Team. Compute and LLM credits are ready.': 'textdbe08e62ef56',
+  'Your team is on Team. Compute and LLM credits are ready.': 'textdbe08e62ef56',
   'Your top-up landed — compute and the latest AI models are ready to go.': 'texteda7df9ad5e6',
   'your-company/': 'text7a9f6daee641',
   '. The session keeps its id; the sandbox is rebuilt.': 'text09a3bb2aced6',
@@ -598,7 +598,7 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'Clear notifications': 'texte6f312c6b6ef',
   'Clone address': 'textac830bd3c755',
   'Clone command': 'text6264f3bfdd91',
-  'Clone from this address with any Git client. When git asks, enter any username and a Dosco API key as the password — the Dosco command line does this for you through its credential helper, plain':
+  'Clone from this address with any Git client. When git asks, enter any username and an API key as the password — the command line does this for you through its credential helper, plain':
     'texte327e6c1348b',
   'Clone with plain': 'text7760401b25c7',
   'Conditions saved': 'textfc62a0071f66',
@@ -667,8 +667,8 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'Granted of — some failed.': 'text21b1727307b8',
   Health: 'text55898449eb74',
   'How the model samples, and how many tool calls one run may make.': 'text33439eb47c9a',
-  'Install the Dosco command line': 'text81fbecb138f6',
-  'instead of the Dosco command line.': 'text2f72fafe0ce1',
+  'Install the command line': 'text81fbecb138f6',
+  'instead of the command line.': 'text2f72fafe0ce1',
   Instructions: 'text934652dce41d',
   'Instructions and scripts this agent can load into a session.': 'textb27e54100c96',
   'Instructions and scripts this agent can load into a session. Click a skill to read it.':
@@ -681,7 +681,7 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'is now .': 'textf4d149d4f9a4',
   'is now the project default': 'text384c077e42b5',
   "It may have been renamed or removed from the project's configuration.": 'text2ad30464c3ed',
-  "Dosco can't reach this repository": 'textcb25ff313d81',
+  "The platform can't reach this repository": 'textcb25ff313d81',
   'Dosco did not create this repository, so it cannot add collaborators to it. Manage access from the repository settings on GitHub.':
     'text6e5a03445559',
   'Last 24 hours': 'text5c37cf8f018b',
@@ -792,7 +792,7 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'The newest provisioning failures, with the class the API assigned them.': 'text9bd290d1b0ce',
   'The production support entrypoint. Every number below is live — the overview polls every 15 seconds.':
     'text211be77ddd51',
-  'The recipe for the machine a session runs on, and the record of every time Dosco prepared one.':
+  'The recipe for the machine a session runs on, and the record of every time the platform prepared one.':
     'text2c063e7ab5f6',
   'The repository this workspace runs from, and who can reach it.': 'texte0d7209f4c07',
   'The same numbers the charts below encode as colour, as text.': 'text7055405b8f29',
@@ -822,7 +822,7 @@ export const REMAINING_UI_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'What every user is seeing right now.': 'text8070bf46e184',
   'What is wrong right now. Zero is the expected value for all three counts.': 'text75779b882b3d',
   'What this account has left to spend, and what it spent this period.': 'textb091005190d7',
-  'What this agent may do to the project itself — sessions, triggers, secrets, members — through the Dosco CLI inside a session.':
+  'What this agent may do to the project itself — sessions, triggers, secrets, members — through the CLI inside a session.':
     'text59e679e041ce',
   'Whatever the project default is, now and after it changes.': 'textb23625948eee',
   'When this agent starts on its own.': 'text1a1e4d549e85',

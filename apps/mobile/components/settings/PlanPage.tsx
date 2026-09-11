@@ -31,7 +31,7 @@ export function PlanPage({ visible = true, onClose }: PlanPageProps) {
 
   const handleOpenWeb = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    Linking.openURL('https://www.kortix.com');
+    Linking.openURL('https://dosco.live');
   };
 
   if (!visible) return null;

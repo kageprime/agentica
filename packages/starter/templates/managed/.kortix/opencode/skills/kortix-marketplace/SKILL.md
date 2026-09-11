@@ -1,11 +1,11 @@
 ---
 name: kortix-marketplace
-description: "The Kortix marketplace — how to discover capabilities and IMPORT them into this project. The marketplace is a catalog of open git repos: whole ready-made PROJECTS (registry:project) and individual skills/agents/tools. There is no deterministic 'installer' — you (the agent) import an item by reading its source and merging the files that fit into this project, then opening a change request. Use when the user wants to browse/search the Kortix catalog, 'add/clone the <X> project', 'import that skill/agent', pull in a marketplace capability, or add a new source."
+description: "The marketplace — how to discover capabilities and IMPORT them into this project. The marketplace is a catalog of open git repos: whole ready-made PROJECTS (registry:project) and individual skills/agents/tools. There is no deterministic 'installer' — you (the agent) import an item by reading its source and merging the files that fit into this project, then opening a change request. Use when the user wants to browse/search the catalog, 'add/clone the <X> project', 'import that skill/agent', pull in a marketplace capability, or add a new source."
 ---
 
 <skill name="kortix-marketplace">
 
-The **Kortix marketplace** is the Kortix-native catalog. Every item is an **open
+The **Marketplace** is the Kortix-native catalog. Every item is an **open
 git repo** made of plain files — a whole clonable **project** (its `kortix.yaml`,
 agents, skills, tools) or an individual **skill / agent / tool**. There is **no
 deterministic installer, no version lock, and no update system**: you add an item
@@ -63,7 +63,7 @@ truth** for what's in this project.
 
 <projects>
 A whole **project** item is the richest thing in the marketplace — a working,
-end-to-end Kortix project focused on a function. You can spin it up as its **own
+end-to-end project focused on a function. You can spin it up as its **own
 new project** (from the web UI's "Add to a project" → new project, which seeds
 the files deterministically), or **import/merge it into this existing project**
 via the recipe above to make this project bigger. It's all just files.
@@ -78,7 +78,7 @@ one click; an arbitrary git URL is admin-gated. Once added, its items show up in
 </adding-a-source>
 
 <outside-the-catalog>
-This skill covers the Kortix catalog: whole projects + skills/agents/tools,
+This skill covers the catalog: whole projects + skills/agents/tools,
 imported into this repo as owned files via a CR.
 
 When the catalog has nothing that fits, the wider open ecosystem is still fair

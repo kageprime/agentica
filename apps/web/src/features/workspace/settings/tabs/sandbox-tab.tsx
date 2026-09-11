@@ -75,7 +75,7 @@
  *    holes. The sixth is "Routing", promoted out of the footer, where it had
  *    been a bare `Automatic` badge with a second label bolted on.
  *
- * The copy is de-jargoned to match: `source` renders as "Dosco platform" /
+ * The copy is de-jargoned to match: `source` renders as "Platform" /
  * "This dashboard" / `kortix.yaml`, not `platform` / `UI` / `kortix.yaml`;
  * `is_default` is promoted out of the meta line into a `Default` badge.
  *
@@ -282,7 +282,7 @@ export function describeSource(
 ): { label: string; icon: PhosphorIcon; mono: boolean } {
   if (template.source === 'platform')
     return {
-      label: labels.platform ?? 'Dosco platform',
+      label: labels.platform ?? 'Platform',
       icon: ShippingContainerIcon,
       mono: false,
     };

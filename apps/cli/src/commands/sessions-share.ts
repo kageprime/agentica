@@ -56,7 +56,7 @@ export interface SessionPublicShare {
 
 const SHARE_HELP = help`Usage: kortix sessions share <session-id> [options]
 
-Set who inside Kortix can open this session. With no --mode it prints the
+Set who inside the platform can open this session. With no --mode it prints the
 current setting and changes nothing. Owner-governed: the API refuses a project
 manager who cannot already read the session.
 
@@ -72,7 +72,7 @@ Options:
   --group <id>       Account group allowed in members mode (repeatable).
   --show             Print the current setting and exit.
   --project <id>     Operate on this project id (default: linked).
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   --json             Machine-readable output.
   -h, --help         Show this help.
 
@@ -108,7 +108,7 @@ Create options:
 
 Global options:
   --project <id>     Operate on this project id (default: linked).
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   --json             Machine-readable output.
   -h, --help         Show this help.
 

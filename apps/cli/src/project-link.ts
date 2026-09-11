@@ -5,7 +5,7 @@ import { sandboxEnvValue } from './api/sandbox-env.ts';
 
 /**
  * `.kortix/link.json` — the per-repo binding between a working
- * directory and a Kortix cloud project.
+ * directory and a cloud project.
  *
  * Lives inside `.kortix/` (alongside `Dockerfile` + `opencode/`), so
  * the link travels with the branch when teammates clone the repo —
@@ -27,7 +27,7 @@ export function linkFilePath(cwd = process.cwd()): string {
   return resolve(cwd, '.kortix', 'link.json');
 }
 
-/** Is the cwd plausibly a Kortix project? We require either an existing
+/** Is the cwd plausibly a project? We require either an existing
  *  `.kortix/` directory (from `kortix init`) or a manifest (`kortix.toml`
  *  or `kortix.yaml`) at the root. Refusing to auto-create `.kortix/` from a
  *  random directory prevents stray folders. */

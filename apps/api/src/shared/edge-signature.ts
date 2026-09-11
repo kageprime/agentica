@@ -1,7 +1,7 @@
 /**
  * The trust boundary between a Cloudflare edge Worker and this API.
  *
- * Both hostname-routed surfaces — Kortix Apps (`*.apps.<domain>`) and sandbox
+ * Both hostname-routed surfaces — Apps (`*.apps.<domain>`) and sandbox
  * previews (`*.p.<domain>`) — are served by a Worker that forwards to the API's
  * own origin. That rewrite loses the public hostname: the upstream request
  * carries `Host: dev-api.kortix.com`, not the host the browser typed. The

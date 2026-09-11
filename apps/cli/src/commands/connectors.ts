@@ -220,7 +220,7 @@ Authorize options:
 
 Global:
   --project <id>     Operate on this project id (default: linked).
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   -h, --help         Show this help.
 `;
 
@@ -251,7 +251,7 @@ Managed connector options:
 
 Global:
   --project <id>       Operate on this project id (default: linked).
-  --host <name>        Operate against a non-default Kortix host.
+  --host <name>        Operate against a non-default host.
   --json               Emit the API response as JSON.
   -h, --help           Show this help.
 `;

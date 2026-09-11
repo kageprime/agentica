@@ -21,7 +21,7 @@
  * point of a human-in-the-loop gate, so it is refused outright rather than
  * narrowed to "its own session".
  *
- * Only a Supabase-authenticated Kortix user can resolve an approval. PATs,
+ * Only a Supabase-authenticated user can resolve an approval. PATs,
  * API keys, service accounts, and session credentials are automated principals.
  */
 export type ApprovalRefusal =

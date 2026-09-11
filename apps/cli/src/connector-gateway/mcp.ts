@@ -15,7 +15,7 @@ import { basename, extname, isAbsolute, relative, resolve, sep } from 'node:path
  * discover what it needs.
  *
  * Thin client: it never holds a third-party credential. Every call goes to the
- * Kortix Connector Gateway, which checks sharing, resolves the secret SERVER-SIDE,
+ * Connector Gateway, which checks sharing, resolves the secret SERVER-SIDE,
  * runs the call, and audits it. The sandbox only carries KORTIX_TOKEN +
  * KORTIX_API_URL (injected at sandbox spawn).
  *
@@ -409,7 +409,7 @@ const META_TOOLS = [
   {
     name: 'secret_call',
     description:
-      'Make an HTTPS request that needs a project API key, WITHOUT ever holding the key. Kortix adds the credential outside this sandbox and returns only the upstream response, with any echo of the value replaced by [REDACTED]. Use this for a secret whose capability lists delivery "https_broker" — it has no environment variable at all, so this is the only way to spend it — and as the fallback for a "network" secret when a request cannot be relayed the ordinary way (send its handle with your normal HTTP client first). Pass the secret\'s identifier plus the full https:// URL; add the request\'s own non-secret headers if it needs them, and never add an Authorization header yourself.',
+      'Make an HTTPS request that needs a project API key, WITHOUT ever holding the key. The platform adds the credential outside this sandbox and returns only the upstream response, with any echo of the value replaced by [REDACTED]. Use this for a secret whose capability lists delivery "https_broker" — it has no environment variable at all, so this is the only way to spend it — and as the fallback for a "network" secret when a request cannot be relayed the ordinary way (send its handle with your normal HTTP client first). Pass the secret\'s identifier plus the full https:// URL; add the request\'s own non-secret headers if it needs them, and never add an Authorization header yourself.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -430,7 +430,7 @@ const META_TOOLS = [
         headers: {
           type: 'object',
           description:
-            'Non-secret request headers, { "content-type": "application/json" }. Omit the credential header — Kortix adds it.',
+            'Non-secret request headers, { "content-type": "application/json" }. Omit the credential header — The platform adds it.',
         },
         body: {
           type: 'string',

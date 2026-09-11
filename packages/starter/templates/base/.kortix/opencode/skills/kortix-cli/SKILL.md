@@ -18,7 +18,7 @@ Kortix reference â€” every command, the manifest, change requests, the runtime â
 served **live by the CLI**, so it never goes stale between releases:
 
 ```bash
-kortix skills                    # list the Kortix system skills served live
+kortix skills                    # list the system skills served live
 kortix skills get kortix-system  # THE reference + the paths of its 18 sub-docs
 ```
 

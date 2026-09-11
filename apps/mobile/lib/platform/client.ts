@@ -1,5 +1,5 @@
 /**
- * Platform API Client for Kortix Computer Mobile
+ * Platform API Client for Computer Mobile
  *
  * Communicates with the Computer backend to manage sandbox lifecycle
  * and provides the sandbox URL for OpenCode session operations.

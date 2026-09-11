@@ -214,7 +214,7 @@ function stripFrameAncestors(csp: string): string | null {
 
 // Build the response headers we send back to the browser: clone the upstream
 // headers, neutralize framing restrictions, and apply CORS. Previews are
-// embedded in the Kortix session UI via an <iframe>, so any app that ships
+// embedded in the session UI via an <iframe>, so any app that ships
 // `X-Frame-Options` or a CSP `frame-ancestors` (Next.js, and most frameworks,
 // default to these) would otherwise refuse to load in the panel. Stripping them
 // at the proxy makes embedding work for ANY project without per-app config —

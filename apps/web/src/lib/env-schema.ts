@@ -61,7 +61,7 @@ const RuntimeEnvSchema = z.object({
    *  served model catalog when off — this lets a surface that reasons about
    *  connected providers independently of that catalog (e.g. the LLM
    *  Provider "Connected" list) hide the managed entry outright instead of
-   *  showing it with zero models. Off by default (self-host); Dosco Cloud
+   *  showing it with zero models. Off by default (self-host); Cloud
    *  sets NEXT_PUBLIC_MANAGED_PROVIDER_ENABLED / KORTIX_PUBLIC_MANAGED_PROVIDER_ENABLED
    *  to 'true'. */
   MANAGED_PROVIDER_ENABLED: z.boolean().default(false),

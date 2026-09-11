@@ -6,7 +6,7 @@
  * an upstream base URL, or runtime coordinates.
  *
  * Wrapper mode authenticates the Lumen session and checks project ownership.
- * Direct mode forwards the caller's Kortix token through the server SDK.
+ * Direct mode forwards the caller's token through the server SDK.
  */
 
 import {

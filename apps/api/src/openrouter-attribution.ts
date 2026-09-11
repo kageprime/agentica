@@ -13,5 +13,5 @@
 //
 // Do not swap these for config.KORTIX_URL / config.FRONTEND_URL — that is what
 // caused the split in the first place.
-export const OPENROUTER_APP_REFERER = 'https://www.kortix.com';
+export const OPENROUTER_APP_REFERER = 'https://dosco.live';
 export const OPENROUTER_APP_TITLE = 'Kortix';

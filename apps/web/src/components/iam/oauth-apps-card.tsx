@@ -103,7 +103,7 @@ const OAUTH_CLIENTS_KEY = (accountId: string) => ['oauth-clients', accountId];
 export const SCOPE_HELP: Record<string, string> = {
   profile: 'Who the user is (id, email, accounts)',
   email: 'Email address',
-  kortix: 'Act as the user on the Dosco API (projects, sessions, files)',
+  kortix: 'Act as the user on the API (projects, sessions, files)',
 };
 
 const CLIENT_TYPE_LABEL: Record<OAuthClientType, string> = {

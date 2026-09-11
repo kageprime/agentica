@@ -337,7 +337,7 @@ projectsApp.openapi(
             }
           : verdict.reason === 'non_human_caller'
             ? {
-                error: 'Sign in with a Kortix account to resolve this approval',
+                error: 'Sign in with an account to resolve this approval',
                 code: 'APPROVAL_REQUIRES_HUMAN',
               }
             : { error: 'Only a project manager or the session launcher can resolve this' },

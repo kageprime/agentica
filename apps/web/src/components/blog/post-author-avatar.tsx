@@ -24,7 +24,7 @@ const TILE: Record<UserAvatarSize, { box: string; mark: number }> = {
  *
  * Dosco-authored posts get the Dosco symbol on a solid brand tile; everyone
  * else falls through to `<UserAvatar>`. Without this, `initialsFromIdentity`
- * reduces "The Dosco Team" to first-word + last-word initials — "TT" — which
+ * reduces "The Team" to first-word + last-word initials — "TT" — which
  * drops the only word that identifies the brand.
  */
 export function PostAuthorAvatar({

@@ -313,7 +313,7 @@ This palette is ONLY for sites that are explicitly Kortix-branded. For everythin
 
 ### Kortix HSL Equivalents (for Tailwind / shadcn projects)
 
-When using the fullstack webapp template (Tailwind + shadcn), `index.css` uses HSL values in `H S% L%` format (no `hsl()` wrapper). Below are Kortix HSL conversions for when Kortix is the appropriate fallback (see "Art Direction First" above). For inferred or custom palettes, convert your chosen colors to the same `H S% L%` format:
+When using the fullstack webapp template (Tailwind + shadcn), `index.css` uses HSL values in `H S% L%` format (no `hsl()` wrapper). Below are Kortix HSL conversions for when the platform is the appropriate fallback (see "Art Direction First" above). For inferred or custom palettes, convert your chosen colors to the same `H S% L%` format:
 
 **Light mode:**
 
@@ -349,7 +349,7 @@ When using the fullstack webapp template (Tailwind + shadcn), `index.css` uses H
 | Warning | `#BB653B` | `20 53% 48%` |
 | Success | `#6DAA45` | `97 43% 47%` |
 
-These are the Kortix fallback values. **Always try to derive a concept-driven palette first** (see "Art Direction First" above). Use Kortix only when the request is truly generic with no topic to infer from. When deriving a custom palette, convert your chosen colors to the same `H S% L%` format and role structure with both light and dark modes.
+These are the fallback values. **Always try to derive a concept-driven palette first** (see "Art Direction First" above). Use Kortix only when the request is truly generic with no topic to infer from. When deriving a custom palette, convert your chosen colors to the same `H S% L%` format and role structure with both light and dark modes.
 
 ---
 

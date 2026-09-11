@@ -1,6 +1,6 @@
-# Kortix Apps
+# Apps
 
-Kortix Apps deploy static sites and HTTP applications from a project. Each App
+Apps deploy static sites and HTTP applications from a project. Each App
 has one stable URL. Each deployment is immutable. The active deployment pointer
 changes only after the new runtime passes readiness.
 
@@ -148,7 +148,7 @@ kortix apps access storefront --mode password --password '<value>'
 
 `kortix apps deploy` accepts the same `--access`, `--password`, `--members`,
 and `--groups` flags. Never store a password in `kortix.yaml` or a source file.
-Kortix stores only an Argon2id hash.
+The platform stores only an Argon2id hash.
 
 Kortix-authenticated users open a five-minute exchange URL. It creates an
 eight-hour, secure, host-only cookie for that App hostname. A policy update
@@ -240,7 +240,7 @@ kortix apps show storefront
 kortix apps rollback storefront <deployment-id>
 ```
 
-Rollback accepts only a `ready` deployment. Kortix starts and checks the target
+Rollback accepts only a `ready` deployment. The platform starts and checks the target
 runtime first. It then changes the active pointer and stops the previous
 runtime. A target start failure leaves the previous deployment active.
 

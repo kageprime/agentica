@@ -86,7 +86,7 @@ export function KortixLogo({
     );
   }
 
-  // Dosco fallback art (stamped by dosco-brand patch-logo.py): upstream drew
+  // fallback art (stamped by dosco-brand patch-logo.py): upstream drew
   // the Kortix mark inline here. We render transparent Dosco PNGs instead,
   // swapped per color scheme exactly like the org-branding images above.
   const fallbackAlt = branding?.app_name ?? 'Dosco';

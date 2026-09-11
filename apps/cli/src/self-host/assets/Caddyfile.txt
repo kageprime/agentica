@@ -60,7 +60,7 @@
 			lb_try_interval 250ms
 			fail_duration 30s
 			# /health/live, NOT /health: the deep check reports 503 whenever the
-			# Kortix API is briefly unreachable, so a 2s API blip failed BOTH
+			# API is briefly unreachable, so a 2s API blip failed BOTH
 			# gateway replicas at once -> Caddy "no upstreams available" -> a
 			# real 502 for a gateway that was perfectly healthy.
 			health_uri /health/live

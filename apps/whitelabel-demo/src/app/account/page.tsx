@@ -41,7 +41,7 @@ function WrapperAccountNotice() {
           Not available in wrapper mode
         </h1>
         <p className="mt-1.5 text-sm text-muted-foreground">
-          This app&apos;s wrapper backend manages the underlying Kortix account
+          This app&apos;s wrapper backend manages the underlying account
           on your behalf — end users don&apos;t get direct account
           administration. See{' '}
           <Link href="/session-costs" className="underline">

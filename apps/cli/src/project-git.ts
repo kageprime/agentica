@@ -5,7 +5,7 @@ import { spawnSync } from 'node:child_process';
 // that clones, pushes, or answers a git credential prompt (`kortix ship`,
 // `kortix projects clone`, `kortix git-credential`).
 //
-// It used to be per-command, and they drifted: clone preferred the Kortix git
+// It used to be per-command, and they drifted: clone preferred the git
 // proxy while ship insisted on minting a raw provider push token for managed
 // repos. On a host whose managed git runs on an org-wide PAT the server refuses
 // to export that token (correctly — it's a server-global credential), so every
@@ -17,7 +17,7 @@ import { spawnSync } from 'node:child_process';
 
 /** Which credential a git operation against this project should present. */
 export type ProjectGitCredentialMode =
-  /** Push/clone through the Kortix git proxy with our own Kortix token. */
+  /** Push/clone through the git proxy with our own token. */
   | 'kortix-token'
   /** No proxy on this host — mint a provider push token via /git-token. */
   | 'managed-git-token'
@@ -37,7 +37,7 @@ export interface ProjectGitRef {
   metadata?: Record<string, unknown> | null;
 }
 
-/** A Kortix git-proxy origin (`https://<host>/v1/git/<projectId>.git`). */
+/** A git-proxy origin (`https://<host>/v1/git/<projectId>.git`). */
 export function isGitProxyUrl(url: string | undefined | null): boolean {
   return Boolean(url && /\/v1\/git\//.test(url));
 }
@@ -51,9 +51,9 @@ export function projectIsManaged(project: ProjectGitRef): boolean {
 /**
  * Resolve the URL + credential kind for any git operation on a project.
  *
- * The Kortix git proxy is the UNIVERSAL client-facing origin, so it wins for
+ * The git proxy is the UNIVERSAL client-facing origin, so it wins for
  * EVERY project that advertises one — managed repos included. We authenticate
- * with our own Kortix token and the API resolves the real upstream and mints
+ * with our own token and the API resolves the real upstream and mints
  * the host credential server-side, which means:
  *   * no real provider credential ever reaches the client, and
  *   * it works regardless of how the host's managed git is configured (org PAT
@@ -96,7 +96,7 @@ export function currentGitCredentialHelperCommand(): string {
 /**
  * Install a URL-scoped helper for the Kortix proxy. The leading empty helper
  * resets inherited helpers for this credential context, preventing the user's
- * keychain from persisting the Kortix token returned on demand.
+ * keychain from persisting the token returned on demand.
  */
 export function configureProjectGitAuth(
   repoRoot: string,
@@ -117,7 +117,7 @@ export function configureProjectGitAuth(
     encoding: 'utf8',
   });
   if (add.status !== 0) {
-    throw new Error(add.stderr.trim() || 'Could not configure the Kortix Git credential helper');
+    throw new Error(add.stderr.trim() || 'Could not configure the Git credential helper');
   }
   const pathMode = spawnSync('git', ['config', '--local', 'credential.useHttpPath', 'true'], {
     cwd: repoRoot,

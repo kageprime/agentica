@@ -17,7 +17,7 @@ import { useTranslations } from '@/i18n/use-translations';
  * three lines in plain language about what happens once it is on, and exactly
  * one primary button.
  *
- * **Two paths, one shape.** The managed Dosco Slack app (server has
+ * **Two paths, one shape.** The managed Slack app (server has
  * `SLACK_CLIENT_ID`/`SECRET`/`SIGNING_SECRET`, surfaced as
  * `mode.oauth_available`) is a single click. Self-hosted installs without
  * those env vars have to create their own app. That used to be an

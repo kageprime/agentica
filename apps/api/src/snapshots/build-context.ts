@@ -115,7 +115,7 @@ async function removeStagedContextOnFailure<T>(
 }
 
 /**
- * Stage one provider-neutral Kortix App build context. The user's Dockerfile
+ * Stage one provider-neutral App build context. The user's Dockerfile
  * remains the base. This function adds only the supervisor, ingress binary,
  * and immutable non-secret runtime specification. Provider credentials and App
  * secrets never enter the build context.
@@ -160,7 +160,7 @@ export async function stageAppBuildContext(
     const dockerfileName = '.kortix-app.Dockerfile';
     const composedPath = join(contextDir, dockerfileName);
     const composed = `${userDockerfile.trimEnd()}\n\n` +
-      `# Kortix Apps runtime ${snapshotName}\n` +
+      `# Apps runtime ${snapshotName}\n` +
       'COPY .kortix-app-runtime/kortix-appd /kortix/bin/kortix-appd\n' +
       'COPY .kortix-app-runtime/caddy /kortix/bin/caddy\n' +
       'COPY .kortix-app-runtime/app.json /kortix/config/app.json\n' +
@@ -929,7 +929,7 @@ async function stageScaffoldRepo(contextDir: string): Promise<void> {
   await g(['config', 'user.name', 'Kortix'], work);
   await g(['config', 'user.email', 'noreply@kortix.ai'], work);
   await g(['add', '-A'], work);
-  await g(['commit', '-m', 'chore: scaffold Kortix project'], work);
+  await g(['commit', '-m', 'chore: scaffold project'], work);
   const scaffoldGit = join(contextDir, 'scaffold.git');
   await rename(join(work, '.git'), scaffoldGit);
   await g(['--git-dir', scaffoldGit, 'config', 'core.bare', 'true'], contextDir);

@@ -83,7 +83,7 @@ Color is emphasis — every non-neutral color must answer: **what does this help
 
 ## Custom Palettes
 
-When the user provides color direction **or the content suggests a natural accent** (e.g., finance → navy, sustainability → green): start with that primary as accent → derive surfaces by desaturating → keep semantic colors recognizable (red=error, green=success) → build light AND dark → test contrast (body 4.5:1, large text 3:1). If neither user direction nor content suggest a clear hue, use the Kortix palette above.
+When the user provides color direction **or the content suggests a natural accent** (e.g., finance → navy, sustainability → green): start with that primary as accent → derive surfaces by desaturating → keep semantic colors recognizable (red=error, green=success) → build light AND dark → test contrast (body 4.5:1, large text 3:1). If neither user direction nor content suggest a clear hue, use the palette above.
 
 ---
 
@@ -296,7 +296,7 @@ Use in order for data series (bar, pie, line, scatter):
 
 > **Scope: Non-website assets only.** This section applies to slides, docs, reports, and other non-web artifacts. For website projects, do NOT use it — use the `website-building` skill instead, which has its own design tokens, typography, and color systems.
 
-A curated collection of professional font + color themes for non-web artifacts, layered on top of the Core Principles and palette guidance above. All themes follow the **1 accent + neutrals** philosophy — one dominant accent color used sparingly (headings, key data, icons), with the rest of the palette staying neutral/muted surface and text tones. If no theme is selected, default to the Kortix palette above.
+A curated collection of professional font + color themes for non-web artifacts, layered on top of the Core Principles and palette guidance above. All themes follow the **1 accent + neutrals** philosophy — one dominant accent color used sparingly (headings, key data, icons), with the rest of the palette staying neutral/muted surface and text tones. If no theme is selected, default to the palette above.
 
 ## Purpose
 

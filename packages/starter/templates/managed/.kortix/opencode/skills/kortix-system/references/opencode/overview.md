@@ -1,11 +1,11 @@
 # OpenCode reference — overview
 
-OpenCode is the Kortix session runtime. Version 2 uses OpenCode REST. This
+OpenCode is the session runtime. Version 2 uses OpenCode REST. This
 directory is the complete OpenCode reference.
 
 The same `.kortix/opencode/` config directory drives both surfaces:
 
-- **Remote** — when a Kortix session boots, the platform points OpenCode
+- **Remote** — when a session boots, the platform points OpenCode
   at this dir via `OPENCODE_CONFIG_DIR=.kortix/opencode` and launches
   the agent inside the sandbox VM.
 - **Local** — when you (or anyone) runs `opencode` in this repo on
@@ -32,13 +32,13 @@ linked upstream page wins.
 | Rules (`AGENTS.md`)         | `rules.md`       | <https://opencode.ai/docs/rules/>                                                 |
 | Models                      | `models.md`      | <https://opencode.ai/docs/models/>                                                |
 
-## Where OpenCode looks for things in a Kortix project
+## Where OpenCode looks for things in a project
 
 OpenCode discovers its config from `OPENCODE_CONFIG_DIR`, which the
-Kortix runtime sets to `.kortix/opencode/`. So everything below is
+Runtime sets to `.kortix/opencode/`. So everything below is
 rooted there.
 
-| Surface       | Path inside the Kortix project                                                              |
+| Surface       | Path inside the project                                                              |
 | ------------- | ------------------------------------------------------------------------------------------- |
 | Config root   | `.kortix/opencode/opencode.jsonc`                                                           |
 | Agents        | `.kortix/opencode/agents/<name>.md`                                                         |
@@ -50,7 +50,7 @@ rooted there.
 
 ## The contract with Kortix
 
-OpenCode owns the behavior under `.kortix/opencode/`. Kortix can inspect agent
+OpenCode owns the behavior under `.kortix/opencode/`. The platform can inspect agent
 metadata and overlays current managed system skills, but it does not reinterpret
 OpenCode prompts, permissions, tools, providers, or plugins.
 

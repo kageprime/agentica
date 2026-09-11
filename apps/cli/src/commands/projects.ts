@@ -62,7 +62,7 @@ Subcommands:
   link [<id>]          Bind cwd to a remote project (writes .kortix/link.json)
   unlink               Remove .kortix/link.json from cwd
   open [<id>]          Open the dashboard URL for one project
-  clone [<id>] [dir]   Clone through the authenticated Kortix git proxy. Falls
+  clone [<id>] [dir]   Clone through the authenticated git proxy. Falls
                        back to your local Git credentials for direct BYO repos.
   rm [<id>]            Archive a project (defaults to the linked one).
                        --purge also deletes its managed git repo (irreversible).
@@ -769,7 +769,7 @@ A project still on a v1 manifest is usually also running stale platform skills. 
 Whenever you are unsure about a field name, an allowed value, or whether a key survived into v2, consult the canonical JSON Schema instead of guessing:
 
 - \`kortix schema --version 2\` — prints the exact v2 schema the validator and the CR-merge gate enforce. Works offline inside your sandbox. \`kortix schema --version 1\` prints the v1 shape you are migrating FROM.
-- The same documents are published at \`https://kortix.com/schema/kortix.v2.schema.json\` (and \`kortix.v1.schema.json\`, plus the combined \`kortix.schema.json\` that dispatches on \`kortix_version\`).
+- The same documents are published at \`https://dosco.live/schema/kortix.v2.schema.json\` (and \`kortix.v1.schema.json\`, plus the combined \`kortix.schema.json\` that dispatches on \`kortix_version\`).
 
 The schema, this prompt, and \`kortix validate\` all enforce the same rules — if they ever appear to disagree, trust \`kortix validate\`'s output and say so in the change request description.
 
@@ -1381,7 +1381,7 @@ async function projectsLink(arg?: string): Promise<number> {
   // dir (from `kortix init`) or a `kortix.yaml` at the root.
   if (!isKortixProject()) {
     process.stderr.write(
-      `${status.err(`Not a Kortix project — no .kortix/ or kortix.yaml in ${process.cwd()}.`)}\n`,
+      `${status.err(`Not a project — no .kortix/ or kortix.yaml in ${process.cwd()}.`)}\n`,
     );
     process.stderr.write(
       `  ${C.dim}Run ${C.reset}${C.cyan}kortix init${C.reset}${C.dim} here first to scaffold one.${C.reset}\n`,

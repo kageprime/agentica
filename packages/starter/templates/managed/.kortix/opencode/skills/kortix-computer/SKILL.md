@@ -1,12 +1,12 @@
 ---
 name: kortix-computer
-description: How to reach a CONNECTED MACHINE (a user's laptop/desktop, or any computer paired over the Agent Computer Tunnel) from a Kortix session — read/write files, run shell commands, and drive the desktop (click/type/screenshot) on that machine. It works through the `computer` connector and the same list/discover/show/call path as every other connector, so there is no separate tunnel client and no token. Load this when the task is about acting ON a specific physical/remote computer the user has connected ("on my laptop…", "read ~/Downloads on my machine", "run this on my desktop", "click the button on my screen"), or when the user asks how the agent reaches their computer. For files INSIDE this sandbox, just use normal shell/fs — not this.
+description: How to reach a CONNECTED MACHINE (a user's laptop/desktop, or any computer paired over the Agent Computer Tunnel) from a session — read/write files, run shell commands, and drive the desktop (click/type/screenshot) on that machine. It works through the `computer` connector and the same list/discover/show/call path as every other connector, so there is no separate tunnel client and no token. Load this when the task is about acting ON a specific physical/remote computer the user has connected ("on my laptop…", "read ~/Downloads on my machine", "run this on my desktop", "click the button on my screen"), or when the user asks how the agent reaches their computer. For files INSIDE this sandbox, just use normal shell/fs — not this.
 ---
 
 <skill name="kortix-computer">
 
 <overview>
-A user can connect their own machine to Kortix over the **Agent Computer Tunnel**
+A user can connect their own machine to the platform over the **Agent Computer Tunnel**
 (a permissioned reverse tunnel). Once connected, you reach that machine through
 the **connector gateway** — it shows up as a single **`computer`** connector that fronts
 **all** of the account's connected machines. You use the normal

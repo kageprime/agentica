@@ -1,6 +1,7 @@
 import { cors } from 'hono/cors';
 
 const CLOUD_ORIGINS = [
+  'https://dosco.live',
   'https://www.kortix.com',
   'https://kortix.com',
   'https://dev.kortix.com',

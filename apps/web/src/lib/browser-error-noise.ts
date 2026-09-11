@@ -1845,7 +1845,7 @@ export function isInjectedScriptSendMessageNoise(input: {
 // first-party Dosco code: `app:///content/captcha/mt_captcha/interceptor.js`
 // is a synthetic extension-injection source (NOT an `app:///_next/…` bundle
 // frame and NOT a de-minified `apps/web/src/…` source path), `widgetId` is the
-// extension's internal widget-configuration property (NOT a Dosco API), and
+// extension's internal widget-configuration property (NOT an API), and
 // the call-site function `d` is a minified extension function (NOT a
 // de-minified `apps/web/src/…` frame).
 //
@@ -1863,7 +1863,7 @@ export function isInjectedScriptSendMessageNoise(input: {
 // defects.
 //
 // `widgetId` is the extension's INTERNAL widget-configuration property name
-// — it is specific enough to anchor on (it is never a Dosco API surface; our
+// — it is specific enough to anchor on (it is never an API surface; our
 // code never reads a `widgetId` property), but it is a property NAME (not a
 // canonical library string like `Paper Shaders: …`), so — mirroring
 // `isInjectedScriptSendMessageNoise` (the `sendMessage` wallet-extension
@@ -3208,7 +3208,7 @@ export function isNonErrorUndefinedRejectionNoise(input: {
 // Browser-internal DOM/binding `OperationError` noise — `Instance dropped in
 // popErrorScope`. `popErrorScope` is part of the WebIDL/internal error-scope
 // machinery (DOMQueuingStrategy, ResizeObserver, IntersectionObserver, media
-// streams, GPU, …), NOT a first-party Dosco API. Some browser code paths
+// streams, GPU, …), NOT a first-party API. Some browser code paths
 // (Firefox-originated; also emitted by some Chromium/Edge paths) surface a
 // frameless `OperationError: Instance dropped in popErrorScope` as an
 // unhandled promise rejection via the global `onunhandledrejection` handler.
@@ -3257,7 +3257,7 @@ const OPERATION_ERROR_POP_ERROR_SCOPE_PATTERN = /^Instance dropped in popErrorSc
  * `OperationError: Instance dropped in popErrorScope` noise class:
  * `popErrorScope` is part of the WebIDL/internal error-scope machinery
  * (DOMQueuingStrategy, ResizeObserver, IntersectionObserver, media streams,
- * GPU, …), NOT a first-party Dosco API. Some browser code paths surface a
+ * GPU, …), NOT a first-party API. Some browser code paths surface a
  * frameless `OperationError` with this exact message as an uncaught global
  * `onunhandledrejection` — never first-party app code. Requires the EXACT
  * message (case-sensitive; `OperationError` alone is a generic WebIDL type a
@@ -4210,7 +4210,7 @@ export function isUndefinedVariableThirdPartyNoise(input: {
 // carries only `<anonymous>` frames, so the negative guard does NOT fire for
 // it. A frameless capture with this exact message still classifies as noise
 // — the `webdriver` property name is the specific anchor (it is never a
-// first-party Dosco API surface). Deliberately NOT added to
+// first-party API surface). Deliberately NOT added to
 // `sentry.client.config.ts`'s `ignoreErrors` list — that gate has no frame
 // context, so a bare-string match there could swallow a real first-party
 // `defineProperty` regression the negative guard exists to preserve; the

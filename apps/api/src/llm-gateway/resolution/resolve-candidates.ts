@@ -59,7 +59,7 @@ export const resolveCachedManagedModels = accountMayUseManagedModels;
 // ONLY) + a configured, resolvable fallback model. getRuntimeManagedModel()/
 // managedCandidates() are themselves empty when KORTIX_MANAGED_PROVIDER_ENABLED
 // is off, so a self-host naturally has no managed fallback — the explicit check
-// here is redundant belt-and-suspenders (never a silent fallback to Kortix's
+// here is redundant belt-and-suspenders (never a silent fallback to the platform's
 // shared credentials), not load-bearing on its own.
 function byokFallbackCandidates(): UpstreamDescriptor[] {
   if (!config.LLM_GATEWAY_ENABLED || !config.KORTIX_MANAGED_PROVIDER_ENABLED) return [];
@@ -282,7 +282,7 @@ export async function resolveCandidates(
   // is on (RUNTIME_MANAGED_MODELS is empty otherwise — see managed-models.ts), so
   // a self-host never reaches this branch for an explicitly-named managed model;
   // it falls through to the checks below → a clear "model not available on this
-  // deployment" error, never a silent fallback to Kortix credits. A BYOK catalog
+  // deployment" error, never a silent fallback to the platform credits. A BYOK catalog
   // model (bare `provider/model`) is handled above and requires the user's own
   // key; it never falls through here.
   const managed = getRuntimeManagedModel(effectiveModel);

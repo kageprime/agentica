@@ -311,14 +311,14 @@ function buildSteps(project: KortixProject | undefined): DevStep[] {
   });
   steps.push({
     kind: 'commands',
-    title: 'Install the Kortix CLI',
+    title: 'Install the CLI',
     hint: "Manages this project's secrets, sessions, and change requests from your terminal.",
-    lines: ['curl -fsSL https://kortix.com/install | bash', 'kortix login'],
+    lines: ['curl -fsSL https://dosco.live/install | bash', 'kortix login'],
   });
   steps.push({
     kind: 'commands',
     title: 'Set up your local dev environment',
-    hint: 'Wires the Kortix skill into your coding agent and adds anything your local setup is missing — existing files are kept. The repo is already linked, so kortix commands target it automatically.',
+    hint: 'Wires the skill into your coding agent and adds anything your local setup is missing — existing files are kept. The repo is already linked, so kortix commands target it automatically.',
     lines: ['kortix init --force'],
   });
   steps.push({
@@ -330,7 +330,7 @@ function buildSteps(project: KortixProject | undefined): DevStep[] {
   steps.push({
     kind: 'launchers',
     title: 'Build it in your coding agent',
-    hint: 'Open the repo in the agent you wired up and just talk to it — the Kortix skill is loaded, so it knows how to configure agents, edit kortix.yaml, add triggers, and write skills.',
+    hint: 'Open the repo in the agent you wired up and just talk to it — the skill is loaded, so it knows how to configure agents, edit kortix.yaml, add triggers, and write skills.',
   });
   steps.push({
     kind: 'commands',

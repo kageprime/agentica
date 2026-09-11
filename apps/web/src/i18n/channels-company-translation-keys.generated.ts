@@ -133,7 +133,7 @@ export const CHANNELS_COMPANY_TRANSLATION_KEYS: Readonly<Record<string, string>>
   'A commit you can diff and revert': 'text361b73d4cf43',
   'A company is going to be a git repository.': 'texte2189e484c2d',
   'A company you can clone': 'text929e6e7385a0',
-  'A connected channel’s token is a connector-scoped secret. It does not appear on the project’s Secrets page, and Dosco never injects it into a cloud computer. It is resolved server-side at the moment the agent sends a message.':
+  'A connected channel’s token is a connector-scoped secret. It does not appear on the project’s Secrets page, and the platform never injects it into a cloud computer. It is resolved server-side at the moment the agent sends a message.':
     'text33455b560348',
   'A file dropped in the thread is pulled into the agent’s cloud computer. A file the agent produces is uploaded back into the same thread. The deck lands where you asked for the deck.':
     'textfd060941db0c',
@@ -235,24 +235,24 @@ export const CHANNELS_COMPANY_TRANSLATION_KEYS: Readonly<Record<string, string>>
   'It runs as an agent you chose': 'text7949be83e927',
   kortix: 'text388f7968512c',
   'kortix channels': 'textc27d8467e76a',
-  'Dosco cuts a branch and boots its own isolated cloud computer, exactly as it would for a session started from the dashboard or the CLI. You get a reaction on your own message, not a bot post saying “on it”.':
+  'The platform cuts a branch and boots its own isolated cloud computer, exactly as it would for a session started from the dashboard or the CLI. You get a reaction on your own message, not a bot post saying “on it”.':
     'text5004ea5fdc72',
   'kortix init · kortix ship · one repo · any model': 'textfc5fe4b93461',
   'kortix init makes any directory a Dosco. kortix ship brings it live. From then on it is one repo you own — versioned, diffable, and improving itself one reviewed change at a time.':
     'texta4b6a3d9d629',
   'kortix init scaffolds it, kortix ship brings it live. It is the same repo doing the same thing, so local development and the live system stopped being different categories.':
     'textd861cc0af73c',
-  'Dosco links a chat sender to a Dosco account before the agent runs for them. Run /kortix login and sign in. An unlinked sender gets a prompt to link, not a session — so a stranger in a shared channel cannot spend your compute.':
+  'The platform links a chat sender to an account before the agent runs for them. Run /kortix login and sign in. An unlinked sender gets a prompt to link, not a session — so a stranger in a shared channel cannot spend your compute.':
     'text115e22ef7526',
   'kortix_version: 2': 'text61f28ba7b5a4',
   'kortix.yaml': 'text1965f383021e',
   'kortix.yaml — triggers': 'text6e68758082bc',
   'kortix.yaml grants': 'text9c9582a7f332',
-  'kortix.yaml is the Dosco layer: the machine sessions boot on, the connectors, the triggers, the secret names, and what each agent is allowed to touch. The OpenCode config is the runtime the agents think in. Everything past those two is files in the repo.':
+  'kortix.yaml is the layer: the machine sessions boot on, the connectors, the triggers, the secret names, and what each agent is allowed to touch. The OpenCode config is the runtime the agents think in. Everything past those two is files in the repo.':
     'textbd49211479cd',
   'launch-note.md': 'textdd6b0b63da5a',
   'launch-note.md · +64 −0': 'textbbd67a03b342',
-  'Link or unlink your chat identity to your Dosco account': 'textc562664bad32',
+  'Link or unlink your chat identity to your account': 'textc562664bad32',
   'List the projects you can bind this channel to': 'text095830453d5a',
   'List the recent sessions started from this workspace': 'text61715eaa9236',
   Live: 'textb64ac05f17e6',
@@ -270,7 +270,7 @@ export const CHANNELS_COMPANY_TRANSLATION_KEYS: Readonly<Record<string, string>>
   'No reply relay. A real channel streams the answer back for you; here the agent has to send the outbound message itself, through a connector you have granted it. Inbound is solved. Outbound is your wiring.':
     'text81c1677c6fc1',
   'northwind — main': 'text6d97796afbde',
-  'Not as a metaphor. A Dosco project is a git repo, and that repo is the company: its agents, the skills it has built up, everything it has learned, and the definition of the machines all of it runs on. Versioned. Diffable. Owned outright.':
+  'Not as a metaphor. A project is a git repo, and that repo is the company: its agents, the skills it has built up, everything it has learned, and the definition of the machines all of it runs on. Versioned. Diffable. Owned outright.':
     'textf1a43c68a361',
   'Nothing merges itself': 'text956d3b01e6ca',
   'On a card, in the thread': 'textbcd03103c8c1',
@@ -291,7 +291,7 @@ export const CHANNELS_COMPANY_TRANSLATION_KEYS: Readonly<Record<string, string>>
   'Only the owner. Everyone else gets nothing, predictably.': 'text89e2ee9d1cd7',
   'Open a change request against main?': 'text08bd9a10da30',
   'Open source and self-hostable': 'text782a07562e97',
-  'Open source and self-hostable. Any model, your keys. Dosco Cloud, your own VPC, or fully on-prem.':
+  'Open source and self-hostable. Any model, your keys. Cloud, your own VPC, or fully on-prem.':
     'text1d9a8dde5629',
   'Open the repo': 'text1fa449139a48',
   'OpenCode, declared in the repo': 'text8eb07f243576',
@@ -315,7 +315,7 @@ export const CHANNELS_COMPANY_TRANSLATION_KEYS: Readonly<Record<string, string>>
     'text43daf9c5f6cf',
   'Rebind this channel to a different project, or unbind it': 'text72e3213c16d7',
   'Reviewed by a person, then merged to main': 'text402ce0e016a1',
-  'Run it on Dosco Cloud, in your own VPC, or fully on-prem. Read the code, fork it, audit it. Nobody rents your company back to you.':
+  'Run it on Cloud, in your own VPC, or fully on-prem. Read the code, fork it, audit it. Nobody rents your company back to you.':
     'text5b4d78bf9475',
   'Run the project without leaving the conversation.': 'text429be41120e9',
   Runtime: 'text109311589787',
@@ -351,8 +351,8 @@ export const CHANNELS_COMPANY_TRANSLATION_KEYS: Readonly<Record<string, string>>
   'The first message in a thread creates a session. Every later message in that thread reaches the same session — after the sandbox stops overnight, after the person who started it goes home. That mapping is a unique index in the database, not a convention two services agree to honour.':
     'text1f926d1359b8',
   'The honest alternative →': 'text5c5dec8246bd',
-  'the Dosco layer': 'textb85c24628050',
-  'The Dosco layer — one file, at the repo root.': 'text9e957a44dafa',
+  'the layer': 'textb85c24628050',
+  'The layer — one file, at the repo root.': 'text9e957a44dafa',
   'The machine can propose. A person decides. Work reaches main only through a change request someone approved, so the company cannot drift while you are not looking.':
     'text3f5c55e70abc',
   'The manifest names secrets and grants them per agent. The values are encrypted in the platform, injected into the machine at runtime, and never written to the repo or the logs.':

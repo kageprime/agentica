@@ -11,7 +11,7 @@ import { bindSlackIdentity } from '@kortix/sdk';
  * `/slack/login/<token>`; the token is a short-lived signed payload carrying
  * the Slack workspace + user id. This page requires a normal Dosco login, then
  * POSTs the token (with the user's bearer) to the API, which binds the Slack
- * user to this Dosco account so the agent runs as THEM — not the installer.
+ * user to this account so the agent runs as THEM — not the installer.
  */
 export default function SlackLoginPage() {
   const tI18nComplete = useTranslations('hardcodedUi.i18nComplete');

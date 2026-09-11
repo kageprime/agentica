@@ -1,6 +1,6 @@
 // One transactional-email transport for the whole platform.
 //
-// Every email Kortix sends — account invites, project invites, access
+// Every email the platform sends — account invites, project invites, access
 // requests, demo leads, and (via the Supabase send-email hook) magic links,
 // signup confirmations and password recovery — goes through sendEmail() here.
 // One sender identity, one provider chain, one place to add a provider.

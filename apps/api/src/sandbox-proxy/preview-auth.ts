@@ -13,7 +13,7 @@
  * accepts exactly the set `combinedAuth` accepts for preview routes:
  *   - CLI Personal Access Tokens (kortix_pat_…)  → the minting user's id
  *   - Service-account tokens       (kortix_sa_…)  → the service-account id
- *   - Kortix API/sandbox tokens    (kortix_…)     → the owning account id
+ *   - API/sandbox tokens    (kortix_…)     → the owning account id
  *   - Supabase JWTs                               → the user's id
  * and enforces sandbox ownership via `canAccessPreviewSandbox`.
  *
@@ -77,7 +77,7 @@ export async function authenticatePreviewPrincipalDetailed(
         : null;
     }
 
-    // Kortix API / sandbox token — ownership is checked against the account.
+    // API / sandbox token — ownership is checked against the account.
     if (isKortixToken(token)) {
       const r = await validateSecretKey(token);
       if (!r.isValid || !r.accountId) return null;

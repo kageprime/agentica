@@ -31,7 +31,7 @@ import { useTranslations } from '@/i18n/use-translations';
  * The first cut of (3) deleted the disclosure AND the providers behind it:
  * with no search text the list was the three first-class ids plus whatever
  * already had a key, so 185 providers only existed for someone who typed a
- * name they already knew. That reads as "Dosco supports three providers".
+ * name they already knew. That reads as "The platform supports three providers".
  * The whole catalog is in the list now (`orderProviderRows`), first-class ids
  * first, everything else in catalog order — the search field narrows a list
  * that is already all there instead of being the only door to it.

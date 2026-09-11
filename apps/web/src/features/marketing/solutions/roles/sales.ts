@@ -83,7 +83,7 @@ export const sales: RoleContent = {
       ],
     },
     caption:
-      'Illustration. Northwind, Acme, Globex and Initech are placeholders — Dosco never names a customer.',
+      'Illustration. Northwind, Acme, Globex and Initech are placeholders — the platform never names a customer.',
     notes: [
       {
         id: 'draft',
@@ -169,7 +169,7 @@ export const sales: RoleContent = {
       {
         id: 'pause',
         k: 'An approval pauses the run, it does not fail it',
-        v: 'A gate that errors out teaches an agent to route around it. A Dosco gate holds the call open, so you answer while the session is still mid-task and it resumes from exactly where it stopped.',
+        v: 'A gate that errors out teaches an agent to route around it. A gate holds the call open, so you answer while the session is still mid-task and it resumes from exactly where it stopped.',
       },
       {
         id: 'args',
@@ -179,7 +179,7 @@ export const sales: RoleContent = {
       {
         id: 'creds',
         k: 'Connector credentials never enter the machine',
-        v: 'The sandbox carries one project-scoped Dosco token and no third-party keys. Your CRM credential is decrypted server-side and attached to the outbound request. Turning a connector off takes effect on the next call — there is nothing in the sandbox to rotate.',
+        v: 'The sandbox carries one project-scoped token and no third-party keys. Your CRM credential is decrypted server-side and attached to the outbound request. Turning a connector off takes effect on the next call — there is nothing in the sandbox to rotate.',
       },
       {
         id: 'audit',
@@ -191,6 +191,6 @@ export const sales: RoleContent = {
 
   closing: {
     title: 'Give it the admin. Keep the conversations.',
-    sub: 'Open source and self-hostable. Any model, your keys. Dosco Cloud, your own VPC, or your own on-prem network.',
+    sub: 'Open source and self-hostable. Any model, your keys. Cloud, your own VPC, or your own on-prem network.',
   },
 };

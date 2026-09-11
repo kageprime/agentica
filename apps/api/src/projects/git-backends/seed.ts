@@ -65,7 +65,7 @@ export async function seedRepoViaGitPush(input: {
     if (input.baseFiles?.length) {
       await writeFiles(input.baseFiles);
       await run(['add', '-A']);
-      await execFileAsync('git', ['commit', '-m', 'chore: scaffold Kortix project'],
+      await execFileAsync('git', ['commit', '-m', 'chore: scaffold project'],
         { cwd: dir, timeout: 60_000, env: { ...env, ...PINNED } });
     }
     await writeFiles(input.files);
@@ -74,9 +74,9 @@ export async function seedRepoViaGitPush(input: {
     // empty second commit when baseFiles === files).
     const status = await run(['status', '--porcelain']);
     if (status.stdout.toString().trim().length > 0) {
-      await run(['commit', '-m', input.baseFiles?.length ? 'chore: project setup' : (input.commitMessage || 'chore: scaffold Kortix project')]);
+      await run(['commit', '-m', input.baseFiles?.length ? 'chore: project setup' : (input.commitMessage || 'chore: scaffold project')]);
     } else if (!input.baseFiles?.length) {
-      await run(['commit', '-m', input.commitMessage || 'chore: scaffold Kortix project']);
+      await run(['commit', '-m', input.commitMessage || 'chore: scaffold project']);
     }
 
     const host = new URL(input.upstreamUrl).host;

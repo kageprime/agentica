@@ -16,7 +16,7 @@ export type TabSwitchModifier = 'meta' | 'ctrl';
 export type PanelMode = 'easy' | 'advanced';
 
 /**
- * How much live activity the session chat shows while Dosco works.
+ * How much live activity the session chat shows while the platform works.
  * 'normal' auto-expands the activity burst — steps and streaming thinking
  * text appear as they happen. 'minimal' keeps the burst collapsed to its
  * one-line summary until the user opens it.

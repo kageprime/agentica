@@ -11,7 +11,7 @@ export interface ProjectCostRow {
   project_name: string;
   session_count: number;
   llm_cost: number;
-  /** The `llm_cost` slice debited from the Kortix wallet. */
+  /** The `llm_cost` slice debited from the wallet. */
   llm_kortix_cost: number;
   /** The `llm_cost` slice paid straight to your own provider on your own key. */
   llm_provider_cost: number;
@@ -286,7 +286,7 @@ export function buildCostSeries(
 
 export interface CostSummaryTotals {
   llm_cost: number;
-  /** The `llm_cost` slice debited from the Kortix wallet. */
+  /** The `llm_cost` slice debited from the wallet. */
   llm_kortix_cost: number;
   /** The `llm_cost` slice paid straight to your own provider on your own key. */
   llm_provider_cost: number;

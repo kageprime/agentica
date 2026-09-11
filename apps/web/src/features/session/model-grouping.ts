@@ -8,7 +8,7 @@ const MANAGED_MODEL_IDS = new Set<string>(DEFAULT_MANAGED_MODEL_IDS);
 // model ids namespaced as `<provider>/<model>`. For the picker we recover the
 // REAL provider: platform-managed defaults stay under the "Dosco" group, while
 // every BYOK model surfaces under its real provider ("Anthropic", "OpenAI", …) —
-// so a connected provider reads as its own section, not buried in Dosco.
+// so a connected provider reads as its own section, not buried in the platform.
 //
 // *** BUG THIS FIXES (every model showing under "Dosco", even BYOK Anthropic) ***
 // `pickerGroupId` always correctly computed the grouping KEY (it split

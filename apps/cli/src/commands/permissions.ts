@@ -16,7 +16,7 @@ const HELP = help`Usage: kortix permissions <subcommand> [options]
 
 The permission catalog — every leaf action a role can grant, its scope, and
 whether it can be delegated. People, groups and service accounts get roles
-built from these leaves; agents get Kortix CLI scopes in kortix.yaml.
+built from these leaves; agents get CLI scopes in kortix.yaml.
 
 Subcommands:
   ls [--scope account|project] [--json]   List the catalog.
@@ -26,7 +26,7 @@ Options:
   --scope <s>        account | project — only actions decided at that scope.
   --area <a>         Only actions in one area (e.g. secrets, triggers).
   --account <id>     Operate on this account (default: the active account).
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   --json             Machine-readable output.
   -h, --help         Show this help.
 

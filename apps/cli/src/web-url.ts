@@ -4,7 +4,7 @@
  * The CLI (and the in-sandbox agent that shells out to it) is connected to
  * Kortix over the API, so the only base URL it is handed is `KORTIX_API_URL`
  * (e.g. https://api-prod.kortix.com). User-facing links must point at the
- * frontend (e.g. https://kortix.com). Resolving them by string-munging the API
+ * frontend (e.g. https://dosco.live). Resolving them by string-munging the API
  * host is fragile — it silently produced `api-prod.kortix.com/projects/…`
  * links — so we never guess when an authoritative value is available.
  *
@@ -79,7 +79,7 @@ function deriveFrontendFromApiBase(apiBase: string): string {
     }
     return url.origin;
   } catch {
-    return 'https://kortix.com';
+    return 'https://dosco.live';
   }
 }
 

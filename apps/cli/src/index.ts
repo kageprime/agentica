@@ -162,7 +162,7 @@ const TIERS: readonly CommandTier[] = [
           {
             name: 'init',
             args: '[project-name]',
-            blurb: 'Start a new Kortix project (a fresh standalone directory)',
+            blurb: 'Start a new project (a fresh standalone directory)',
           },
           {
             name: 'projects',
@@ -264,7 +264,7 @@ const TIERS: readonly CommandTier[] = [
           {
             name: 'apps',
             args: '<subcommand>',
-            blurb: 'Experimental: deploy serverless Apps with stable Kortix URLs',
+            blurb: 'Experimental: deploy serverless Apps with stable URLs',
           },
           {
             name: 'marketplace',
@@ -330,7 +330,7 @@ const TIERS: readonly CommandTier[] = [
         title: '',
         commands: [
           { name: 'update', blurb: 'Pull the latest CLI from kortix.com/install' },
-          { name: 'uninstall', blurb: 'Remove the Kortix CLI from this machine' },
+          { name: 'uninstall', blurb: 'Remove the CLI from this machine' },
           { name: 'help', blurb: 'Show this help' },
           { name: 'version', blurb: 'Print the CLI version' },
         ],
@@ -355,7 +355,7 @@ function renderHelp(): string {
   );
   const lines: string[] = [];
   lines.push('');
-  lines.push(header('Kortix CLI', VERSION));
+  lines.push(header('CLI', VERSION));
   lines.push(rule());
   for (const tier of TIERS) {
     const sections = tier.sections
@@ -382,7 +382,7 @@ function renderHelp(): string {
 }
 
 function printVersion(): void {
-  process.stdout.write(`${header('Kortix CLI', VERSION)}\n`);
+  process.stdout.write(`${header('CLI', VERSION)}\n`);
 }
 
 // The landing screen: ASCII banner → host/account/project context → update

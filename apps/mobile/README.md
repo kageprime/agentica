@@ -4,11 +4,11 @@
 >
 > **This app is knowingly behind the rest of the monorepo and is not part of the
 > current release path.** Treat it as parked. It will be reconsolidated in a
-> future pass; until then, do not assume anything here reflects how Kortix works.
+> future pass; until then, do not assume anything here reflects how the platform works.
 >
 > ### Why it is stale
 >
-> `@kortix/sdk` is the only way any host may reach the Kortix API. This app
+> `@kortix/sdk` is the only way any host may reach the API. This app
 > predates that rule:
 >
 > - **~2,800 LOC of hand-rolled OpenCode REST client** under

@@ -30,7 +30,7 @@ import {
   isKortixManagedSkillName,
 } from '@kortix/starter';
 
-/** Where skills live inside a Kortix project (and inside the starter templates). */
+/** Where skills live inside a project (and inside the starter templates). */
 const SKILLS_PREFIX = '.kortix/opencode/skills/';
 
 export interface ManagedSkillOverlayFile {

@@ -6,7 +6,7 @@ import { useTranslations } from '@/i18n/use-translations';
  *
  * Mirrors the Daytona "Create Snapshot" form (image + resources + entrypoint)
  * but adapted for Dosco: a template can be defined either by a `dockerfile`
- * path in the project repo OR a public `image` reference. The Dosco runtime
+ * path in the project repo OR a public `image` reference. The runtime
  * layer is added automatically — the user only defines their workspace base.
  */
 

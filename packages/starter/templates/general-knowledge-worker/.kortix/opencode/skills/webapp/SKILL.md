@@ -234,7 +234,7 @@ Read `skills/webapp/references/environment.md` — pre-installed packages, dev s
 
 These files come from the `website-building` dependency and live under `skills/website-building/shared/` — NOT under `skills/webapp/shared/`.
 
-- `skills/website-building/shared/01-design-tokens.md` — **Always read.** Type scale, spacing system, Kortix palette, base stylesheet. Provides the fallback design system when the user gives no art direction.
+- `skills/website-building/shared/01-design-tokens.md` — **Always read.** Type scale, spacing system, palette, base stylesheet. Provides the fallback design system when the user gives no art direction.
 - `skills/website-building/shared/02-typography.md` — **Always read.** Font selection (Fontshare preferred), display vs. body rules, font blacklist, variable font features.
 - `skills/website-building/shared/03-motion.md` — **Read when the app has animation.** Easing blueprint (which curve for which context), duration quick-reference, spring presets, scroll-driven CLS rules, AnimatePresence patterns. The webapp elevation system for hover/active states is noted inside — the rest of the guidance (easing curves, timing, page transitions, stagger patterns) applies fully.
 - `skills/website-building/shared/05-taste.md` — **Read for any user-facing app.** Design taste principles: simplicity, fluidity, feedback, restraint. Defines the "feel" quality bar — progressive disclosure, context-preserving overlays, micro-interactions.

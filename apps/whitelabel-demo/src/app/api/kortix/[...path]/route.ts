@@ -9,7 +9,7 @@
  *   2. The caller must carry a valid Lumen app session (bearer or cookie).
  *   3. Per-user rate limit.
  *   4. `evaluatePolicy` — the explicit allow/deny table in `server/policy.ts`.
- *   5. Forward to upstream with the Kortix API key substituted in for
+ *   5. Forward to upstream with the API key substituted in for
  *      Authorization — the end user's own session token NEVER reaches Kortix.
  *
  * Streaming: the response body passes straight through

@@ -5,7 +5,7 @@
  * project. All underlying git work goes through `./git.ts`, which talks to
  * whichever backend the project's repo URL points to (GitHub, GitLab,
  * plain git). The CR system is therefore backend-agnostic — the
- * review UI lives in Kortix even when the repo is hosted elsewhere.
+ * review UI lives in the platform even when the repo is hosted elsewhere.
  *
  * v1 is intentionally minimal: status (open / merged / closed), head/base
  * refs, an auto-refreshed head_commit_sha. No reviews, no comments, no

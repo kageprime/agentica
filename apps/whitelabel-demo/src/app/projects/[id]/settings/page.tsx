@@ -236,7 +236,7 @@ function ExperimentalFeatures({
       <div className="border-b border-border px-5 py-3">
         <div className="text-sm font-medium">Experimental features</div>
         <p className="mt-0.5 text-xs text-muted-foreground">
-          Project-scoped capabilities supplied by the Kortix server.
+          Project-scoped capabilities supplied by the server.
         </p>
       </div>
       <div className="divide-y divide-border">

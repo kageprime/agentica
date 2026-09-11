@@ -108,9 +108,9 @@ const ROOT_METADATA: Metadata = {
   },
   description: siteMetadata.description,
   keywords: siteMetadata.keywords,
-  authors: [{ name: 'Dosco Team', url: siteMetadata.url }],
-  creator: 'Dosco Team',
-  publisher: 'Dosco Team',
+  authors: [{ name: 'Team', url: siteMetadata.url }],
+  creator: 'Team',
+  publisher: 'Team',
   applicationName: siteMetadata.name,
   robots: {
     index: true,
@@ -309,7 +309,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
               name: siteMetadata.name,
               alternateName: [
                 'Dosco',
-                "Dosco AI",
+                "AI",
                 "Dosco – The AI Command Center for Your Company",
               ],
               url: siteMetadata.url,

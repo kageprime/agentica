@@ -53,7 +53,7 @@ describe('registerOAuth2Client — RFC 7591 dynamic client registration', () => 
     const body = JSON.parse(String(seen!.init?.body));
     expect(body).toEqual({
       client_name: 'Kortix',
-      client_uri: 'https://kortix.com',
+      client_uri: 'https://dosco.live',
       redirect_uris: ['https://api.kortix.com/v1/connectors/oauth2/callback'],
       grant_types: ['authorization_code', 'refresh_token'],
       response_types: ['code'],

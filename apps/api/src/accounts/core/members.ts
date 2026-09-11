@@ -353,7 +353,7 @@ export function registerMemberRoutes(): void {
                 email: z.string(),
                 role: z.string().optional(),
                 // Project access to grant alongside the invite — applied
-                // immediately if the invitee already has a Kortix account,
+                // immediately if the invitee already has an account,
                 // or staged on the pending invite (same bootstrap_grants
                 // column POST /projects/:id/access/invite already writes)
                 // and applied automatically when they accept.

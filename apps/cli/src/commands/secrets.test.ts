@@ -35,7 +35,7 @@ describe('deliveryCell', () => {
   test('names the exposure, or the service that spends the value', () => {
     expect(cell()).toBe('environment');
     expect(cell({ strategy: 'broker', consumer: 'llm_gateway' })).toBe('llm_gateway');
-    expect(cell({ strategy: 'broker', consumer: null })).toBe('Kortix service');
+    expect(cell({ strategy: 'broker', consumer: null })).toBe('Service');
     expect(cell({ strategy: 'egress', consumer: 'network' })).toBe('enforced: approved hosts');
   });
 

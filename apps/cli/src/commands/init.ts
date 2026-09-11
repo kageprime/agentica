@@ -39,12 +39,12 @@ function agentSublabel(agent: CodingAgent): string {
 
 const HELP = help`Usage: kortix init [project-name] [options]
 
-Start a new Kortix project.
+Start a new project.
 
 A fresh, self-contained workspace your agents can run from day one — the
-Kortix project floor, project memory, and a kortix.yaml to make it yours.
+Project floor, project memory, and a kortix.yaml to make it yours.
 By default this works like create-next-app and creates a new directory. In an
-already-cloned Kortix repository, pass --force to wire local coding agents in
+already-cloned repository, pass --force to wire local coding agents in
 place without replacing repository files.
 
 Arguments:
@@ -63,7 +63,7 @@ Options:
   --primary <agent>    Primary coding agent to wire up (${SUPPORTED_AGENTS.join('|')}).
   --agents <list>      Comma-separated extras to wire up alongside --primary.
                        Example: --agents claude,cursor
-  --force              Configure the current cloned Kortix repository in place.
+  --force              Configure the current cloned repository in place.
                        Requires kortix.yaml (or kortix.toml) and .kortix/opencode.
   --no-git             Don't run \`git init\` in the new project directory.
   -y, --yes            Skip prompts (requires a project-name).
@@ -212,9 +212,9 @@ function printAgentPreamble(): void {
   const opts = SUPPORTED_AGENTS.map((a) => `${bold}${a}${reset}`).join(`  ${dim}·${reset}  `);
   const lines = [
     '',
-    `  Pick the local coding tools to wire into this Kortix project.`,
+    `  Pick the local coding tools to wire into this project.`,
     '',
-    `  ${dim}Each tool receives the starter's canonical Kortix system skills.${reset}`,
+    `  ${dim}Each tool receives the starter's canonical system skills.${reset}`,
     `  ${dim}Ask it to configure triggers, agents, or OpenCode settings.${reset}`,
     '',
     `  ${opts}`,
@@ -226,7 +226,7 @@ function printAgentPreamble(): void {
 /** "I want a code reviewer agent. Read the kortix skill, then..." */
 function sampleStarterPrompt(): string {
   return (
-    'I want to configure my Kortix project. Read the kortix skill, ' +
+    'I want to configure my project. Read the kortix skill, ' +
     'then propose an initial agent for my use case (e.g. a PR reviewer ' +
     'or a daily digest worker), wire up the trigger in kortix.yaml, ' +
     'and tell me what secrets I still need to set.'
@@ -267,7 +267,7 @@ export async function runInit(argv: string[]): Promise<number> {
   }
 
   // Create the project in a fresh directory next to the shell's cwd. Refuse to
-  // scaffold into an existing non-empty folder — a Kortix project is standalone.
+  // scaffold into an existing non-empty folder — a project is standalone.
   const cwd = configureExisting
     ? resolve(process.cwd())
     : resolve(process.cwd(), projectName);
@@ -292,7 +292,7 @@ export async function runInit(argv: string[]): Promise<number> {
     const hasRuntime = existsSync(resolve(cwd, ".kortix", "opencode"));
     if (!hasManifest || !hasRuntime) {
       process.stderr.write(
-        "kortix init --force: this directory is not a cloned Kortix project.\n" +
+        "kortix init --force: this directory is not a cloned project.\n" +
           "Expected kortix.yaml (or kortix.toml) and .kortix/opencode.\n",
       );
       return 1;
@@ -323,7 +323,7 @@ export async function runInit(argv: string[]): Promise<number> {
     printAgentPreamble();
     const initialIdx = SUPPORTED_AGENTS.indexOf(DEFAULT_PRIMARY);
     const picked = await selectMultiFromList<CodingAgent>({
-      title: 'Pick the coding agent(s) to wire into this Kortix project',
+      title: 'Pick the coding agent(s) to wire into this project',
       searchHint: `${C.dim}↑/↓ navigate · Space toggle · Enter confirm${C.reset}`,
       items: SUPPORTED_AGENTS.map((a) => ({
         value: a,
@@ -387,8 +387,8 @@ export async function runInit(argv: string[]): Promise<number> {
   const lines: string[] = [];
   lines.push(
     configureExisting
-      ? `Configured this Kortix project in ${cwd}`
-      : `Initialized Kortix project "${projectName}" in ${cwd}`,
+      ? `Configured this project in ${cwd}`
+      : `Initialized project "${projectName}" in ${cwd}`,
   );
   const totalWritten = result.written.length + agentInstall.written.length;
   lines.push(`Wrote ${totalWritten} file${totalWritten === 1 ? '' : 's'}:`);

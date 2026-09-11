@@ -3,9 +3,9 @@ export const BLOG_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'A frontier without an ecosystem is not stable': 'text062dddbbb151',
   'A workforce of AI agents that do real work across your tools — defined as files in a git repo, run in isolated sandboxes, governed by review, and built enterprise-first. Here is the whole thing, A to Z.':
     'text7a269e6be11f',
-  'AGI-ready architecture: what it really means, and how Dosco is built for it':
+  'AGI-ready architecture: what it really means, and how the platform is built for it':
     'textcff5be799324',
-  "AGI-ready doesn't mean an architecture that produces AGI. It means one that absorbs a 100× capability jump without losing state or granting uncontrolled access. How Dosco is built for it.":
+  "AGI-ready doesn't mean an architecture that produces AGI. It means one that absorbs a 100× capability jump without losing state or granting uncontrolled access. How the platform is built for it.":
     'text838bb7d9fdc0',
   'AI transformation needs a company OS': 'textba66db5df698',
   "Beyond the chat box: why ChatGPT, Claude, and Grok aren't an AI workforce": 'text9b69c39a29da',
@@ -20,37 +20,37 @@ export const BLOG_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'Connect the tools, keep the keys out of the agent.': 'texte69556252880',
   'Connect your first tool and watch it come back with something you can use. Free to start, free to self-host.':
     'text2e531f2487d9',
-  'Connect your tools and hand a Dosco agent a real task. Free to start, free to self-host.':
+  'Connect your tools and hand an agent a real task. Free to start, free to self-host.':
     'text7da07ad47ba0',
-  'Create a Dosco project, start an isolated session, and review the change your agent brings back. Self-host it or use Dosco Cloud.':
+  'Create a project, start an isolated session, and review the change your agent brings back. Self-host it or use Cloud.':
     'text5203cb730f22',
   "Don't just find the work. Run it.": 'textd65407c0111d',
-  'Every AI product is converging on the same architecture. The only defensible advantage is a data flywheel — a learning loop where every interaction makes your system better. Here is what that means, and why Dosco is built for it.':
+  'Every AI product is converging on the same architecture. The only defensible advantage is a data flywheel — a learning loop where every interaction makes your system better. Here is what that means, and why the platform is built for it.':
     'textc26857e5267c',
   'Every AI product is the same: the convergence nobody is talking about': 'textb1871012f227',
   "Glean is the best permission-aware enterprise search. But search finds work — it doesn't do it. Here's where you outgrow it, and the open runtime alternative.":
     'textdf401def2586',
   'Go from asking questions to running the work.': 'text1d72184afeaf',
   'Good businesses don’t need moats (and why that’s fine)': 'text65b8fb5119ec',
-  'Hand a Dosco agent a real task and get a finished result back. Free to start, free to self-host.':
+  'Hand an agent a real task and get a finished result back. Free to start, free to self-host.':
     'text2928e9dd01ed',
   'How to give AI agents production tool access without raw API keys: scoped connectors, approval policies, server-side credentials, and reviewed work.':
     'textd203efbea730',
   'How to give AI agents tool access safely': 'text04717e6e8e3f',
   'Introducing Dosco: the AI command center for your company': 'textebb63fcaf908',
-  'Dosco is built on the feedback loop. Deploy it, use it, and watch it compound. Start building yours.':
+  'The platform is built on the feedback loop. Deploy it, use it, and watch it compound. Start building yours.':
     'textbf1d5331564b',
-  'Dosco is open-source and built for companies that want to own their AI future. Self-host it, connect your own models, and build something that compounds.':
+  'The platform is open-source and built for companies that want to own their AI future. Self-host it, connect your own models, and build something that compounds.':
     'text0977ca269624',
-  'Dosco is the Autonomous Company Operating System — open-source, self-hostable, any model. Start one project free.':
+  'The platform is the Autonomous Company Operating System — open-source, self-hostable, any model. Start one project free.':
     'text06272d336a8c',
-  'Dosco is the open-source AI OS where your company’s knowledge compounds. Free to start, free to self-host, free to own your learning loop.':
+  'The platform is the open-source AI OS where your company’s knowledge compounds. Free to start, free to self-host, free to own your learning loop.':
     'text11776662ccda',
-  "Dosco is the open-source AI operating system where your company's knowledge compounds. Connect your tools, deploy an agent, and start accumulating your own token capital. Free to start, free to self-host.":
+  "The platform is the open-source AI operating system where your company's knowledge compounds. Connect your tools, deploy an agent, and start accumulating your own token capital. Free to start, free to self-host.":
     'texte60053964d37',
-  'Dosco is the platform for companies that want to own their AI learning loop. Self-host it, connect your models, and build something that compounds over time.':
+  'The platform is the platform for companies that want to own their AI learning loop. Self-host it, connect your models, and build something that compounds over time.':
     'text9b1f46268884',
-  'Dosco is the platform for dynamic software. Deploy on-prem, own your data, and build systems that learn.':
+  'The platform is the platform for dynamic software. Deploy on-prem, own your data, and build systems that learn.':
     'texta7e22100c375',
   'Dosco passes the test of sovereignty. Free to start, free to self-host, free to own your AI future.':
     'text7ee0ad224441',
@@ -70,7 +70,7 @@ export const BLOG_TRANSLATION_KEYS: Readonly<Record<string, string>> = {
   'OpenClaw and Hermes are brilliant open-source personal agents — and we genuinely recommend them for individuals. But a personal "Jarvis" and a governed company platform are different things. Here is exactly where the line is.':
     'text42f3ceed281b',
   'Personal AI agents vs a company OS: Dosco, OpenClaw, and Hermes': 'text13b96b3a60d2',
-  'Poetic compiles your procedures into a purpose-built language it runs for you. Dosco keeps the workflow as ordinary code in a repo you own, and gates the boundary where it touches the world. A technical comparison of two answers to the same problem.':
+  'Poetic compiles your procedures into a purpose-built language it runs for you. The platform keeps the workflow as ordinary code in a repo you own, and gates the boundary where it touches the world. A technical comparison of two answers to the same problem.':
     'textbcc3be342ea1',
   'Put the project model to work.': 'text1ee690876b9c',
   'QM and Dosco both give teams persistent agents, isolated computers, Slack and web access, and self-hosting. The decisive difference is deeper: QM organizes work around people and rooms; Dosco organizes it around git-backed projects and reviewable sessions.':

@@ -16,7 +16,7 @@ type JsonRpcRequest = {
 const TOOL_DEFINITIONS = [
   {
     name: 'list_public_content',
-    description: 'List Dosco public documentation and marketing pages.',
+    description: 'List public documentation and marketing pages.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -37,7 +37,7 @@ const TOOL_DEFINITIONS = [
   },
   {
     name: 'get_public_markdown',
-    description: 'Read the Markdown representation of a Dosco public page.',
+    description: 'Read the Markdown representation of a public page.',
     inputSchema: {
       type: 'object',
       properties: {

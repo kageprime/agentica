@@ -14,7 +14,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 /**
  * A slim strip that lives at the top of the session Terminal panel and tells the
  * user how to attach their *local* OpenCode TUI to this session's sandbox with
- * the Dosco CLI. Deliberately NOT its own tab — it rides along with the live
+ * the CLI. Deliberately NOT its own tab — it rides along with the live
  * terminal so "how do I get a shell into this from my machine?" is answered
  * right where a shell already lives.
  *

@@ -7,7 +7,7 @@
  * system skill, `get` prints one in full, and both read `/v1/skills` on the host
  * you are actually signed into, so the instructions always match the deployment.
  *
- *   kortix system-skills                 list the system skills (how Kortix works)
+ *   kortix system-skills                 list the system skills (how the platform works)
  *   kortix system-skills get <name>      print one skill's SKILL.md + its file list
  *   kortix system-skills get <n> --full  …and inline every reference file
  *   kortix system-skills file <n> <path> print ONE reference file
@@ -80,14 +80,14 @@ export const SYSTEM_SKILLS_COMMAND = 'system-skills';
 
 const helpFor = (cmd: string) => help`Usage: kortix ${cmd} <subcommand> [options]
 
-Learn how to drive Kortix. The Kortix system skills are the platform's own
+Learn how to drive Kortix. The system skills are the platform's own
 documentation — sessions, sandboxes, the connector/approval loop, memory,
 channels — served live by the host you are signed into, so they always match
 the version you are talking to. This is all any harness needs: the binary,
 a token, and these skills.
 
 Subcommands:
-  list                 List the Kortix system skills (default).
+  list                 List the system skills (default).
   get <name>           Print one skill's current SKILL.md body, then list the
                        paths of its reference files.
   file <name> <path>   Print ONE reference file. Cheaper than --full when you
@@ -97,7 +97,7 @@ Subcommands:
 Options:
   --full               get: also inline every referenced file (kortix-system is
                        ~230 KB in full — prefer \`file\` for a single document).
-  --host <name>        Use a configured Kortix host.
+  --host <name>        Use a configured host.
   --json               Machine-readable output.
   -h, --help           Show this help.
 
@@ -111,7 +111,7 @@ Optional (non-system) skills live in the marketplace:
   kortix marketplace list --type skill
 `;
 
-/** Where a skill's files live inside a Kortix project. */
+/** Where a skill's files live inside a project. */
 const SKILLS_DIR = '.kortix/opencode/skills';
 
 function parseFlags(argv: string[]): SkillsFlags {
@@ -138,7 +138,7 @@ function resolveClient(host?: string): { client: ApiClient; auth: Auth } | null 
   return { client: clientFromAuth(auth), auth };
 }
 
-/** The system floor — the kortix-managed skills that describe how Kortix works. */
+/** The system floor — the kortix-managed skills that describe how the platform works. */
 async function fetchSystemSkills(client: ApiClient): Promise<SkillSummary[]> {
   const res = await client.get<SkillsListResponse>('/skills');
   return res.skills ?? [];
@@ -168,7 +168,7 @@ async function skillsList(flags: SkillsFlags, cmd: string): Promise<number> {
     // turns retrying a bare "Not found".
     if (err instanceof ApiError && err.status === 404) {
       process.stderr.write(
-        `${status.err('This Kortix host does not serve system skills yet.')} It needs a newer API; check ${C.cyan}kortix whoami${C.reset} for which host you are on.\n`,
+        `${status.err('This host does not serve system skills yet.')} It needs a newer API; check ${C.cyan}kortix whoami${C.reset} for which host you are on.\n`,
       );
       return 1;
     }
@@ -186,7 +186,7 @@ async function skillsList(flags: SkillsFlags, cmd: string): Promise<number> {
     return 0;
   }
   process.stdout.write(
-    `\n  ${C.bold}Kortix system skills${C.reset} ${C.faded}(live — how Kortix works)${C.reset}\n\n`,
+    `\n  ${C.bold}System skills${C.reset} ${C.faded}(live — how the platform works)${C.reset}\n\n`,
   );
   const width = Math.min(24, Math.max(...skills.map((s) => s.name.length)));
   for (const s of skills) {
@@ -225,7 +225,7 @@ async function skillsGet(argv: string[], flags: SkillsFlags, cmd: string): Promi
   } catch (err) {
     if (err instanceof ApiError && err.status === 404) {
       process.stderr.write(
-        `${status.err(`No Kortix system skill matches "${name}".`)} Run ${C.cyan}kortix ${cmd}${C.reset}.\n`,
+        `${status.err(`No system skill matches "${name}".`)} Run ${C.cyan}kortix ${cmd}${C.reset}.\n`,
       );
       return 1;
     }
@@ -305,7 +305,7 @@ async function skillsFile(argv: string[], flags: SkillsFlags, cmd: string): Prom
       // Distinguish "no such skill" from "no such file in it" — the second is
       // the common typo, and the fix is to list the paths, not the skills.
       process.stderr.write(
-        `${status.err(`No file "${path}" in Kortix system skill "${name}".`)} List its files with ${C.cyan}kortix ${cmd} get ${name}${C.reset}.\n`,
+        `${status.err(`No file "${path}" in the platform system skill "${name}".`)} List its files with ${C.cyan}kortix ${cmd} get ${name}${C.reset}.\n`,
       );
       return 1;
     }
@@ -320,7 +320,7 @@ async function skillsFile(argv: string[], flags: SkillsFlags, cmd: string): Prom
   return 0;
 }
 
-/** Walk up from cwd to a Kortix project root, else use cwd. Keys on a project
+/** Walk up from cwd to a project root, else use cwd. Keys on a project
  *  marker (a `kortix.yaml`/`kortix.toml` manifest or a `.kortix/opencode` dir),
  *  not a bare `.kortix/` — otherwise the CLI's own `~/.kortix` home dir matches. */
 function projectRoot(): string {

@@ -114,7 +114,7 @@ Options:
   --project <id>      new: bind the key to one project.
   --description <t>   service-accounts new: what this identity is for.
   --account <id>      Operate on this account (default: the active account).
-  --host <name>       Operate against a non-default Kortix host.
+  --host <name>       Operate against a non-default host.
   --json              Machine-readable output.
   -y, --yes           Skip the confirmation prompt.
   -h, --help          Show this help.

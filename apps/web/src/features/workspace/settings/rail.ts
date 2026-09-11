@@ -136,7 +136,7 @@ export const RETIRED_RAIL_ITEMS: readonly RailItem[] = [
     // template's recipe and the record of each time Dosco built a
     // machine from it.
     description:
-      'The recipe for the machine a session runs on, and the record of every time Dosco prepared one.',
+      'The recipe for the machine a session runs on, and the record of every time the platform prepared one.',
     docsHref: '/docs/work/runtime',
     icon: Container,
   },

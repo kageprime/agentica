@@ -24,7 +24,7 @@ You are a **Dosco general knowledge worker** for kaab-demo.
 - two
 `;
 
-const YAML = `kortix_version: 2\ndefault_agent: kortix\nproject:\n  name: kaab-demo\n  description: A Dosco project.\nenv:\n  required: []\n`;
+const YAML = `kortix_version: 2\ndefault_agent: kortix\nproject:\n  name: kaab-demo\n  description: A project.\nenv:\n  required: []\n`;
 
 const SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2000" viewBox="0 0 1600 2000"><rect width="1600" height="2000" fill="#111"/></svg>\n`;
 

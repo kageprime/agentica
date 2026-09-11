@@ -52,7 +52,7 @@ import { runSessionsWaitFor } from './sessions-wait.ts';
 
 const HELP = help`Usage: kortix sessions <subcommand> [options]
 
-Manage Kortix project sessions — each session is an isolated sandbox VM
+Manage project sessions — each session is an isolated sandbox VM
 on its own ephemeral branch.
 
 Subcommands:
@@ -150,7 +150,7 @@ Subcommands:
                                     --no-connectors, --require-connector,
                                     --no-required-connectors, --json.
                                     Alias: access.
-  share <session-id>                Who inside Kortix can open this session.
+  share <session-id>                Who inside the platform can open this session.
                                     --mode private|project|members, --member
                                     <id|email>, --group <id>, --show, --json.
   links <session-id> [<sub>]        Public, unauthenticated links onto one

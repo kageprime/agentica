@@ -109,9 +109,9 @@ const MARKETING_RECORDS: PublicContentRecord[] = [
   {
     kind: 'marketing',
     slug: 'marketplace',
-    title: 'Dosco Marketplace',
+    title: 'Marketplace',
     description:
-      'Browse skills, agents, and commands from every source. Add them to a Dosco project in one click.',
+      'Browse skills, agents, and commands from every source. Add them to a project in one click.',
     htmlPath: '/marketplace',
   },
   {
@@ -127,23 +127,23 @@ const MARKETING_RECORDS: PublicContentRecord[] = [
   {
     kind: 'marketing',
     slug: 'changelog',
-    title: 'Dosco Changelog',
+    title: 'Changelog',
     description:
-      'Every Dosco release, straight from the source. New features, fixes, and improvements — versioned and dated.',
+      'Every release, straight from the source. New features, fixes, and improvements — versioned and dated.',
     htmlPath: '/changelog',
   },
   {
     kind: 'marketing',
     slug: 'blog',
-    title: 'Dosco Blog',
+    title: 'Blog',
     description:
-      'Field notes on building, running, and governing AI agents that do real work — from the team building the Dosco command center.',
+      'Field notes on building, running, and governing AI agents that do real work — from the team building the command center.',
     htmlPath: '/blog',
   },
   {
     kind: 'marketing',
     slug: 'use-cases',
-    title: 'Dosco Use Cases',
+    title: 'Use Cases',
     description:
       'How teams put a workforce of AI agents to work — the loops they engineer, the deliverables they ship, and the reviewed changes that make the company better every day.',
     htmlPath: '/use-cases',
@@ -158,7 +158,7 @@ const MARKETING_RECORDS: PublicContentRecord[] = [
   {
     kind: 'marketing',
     slug: 'enterprise',
-    title: 'Dosco Enterprise',
+    title: 'Enterprise',
     description: PRICING_PLANS.find((plan) => plan.id === 'enterprise')?.note,
     htmlPath: '/enterprise',
     markdownPath: '/markdown/enterprise.md',
@@ -188,18 +188,18 @@ const MARKETING_RECORDS: PublicContentRecord[] = [
   {
     kind: 'marketing',
     slug: 'agent-computer',
-    title: 'Dosco Agent Computer',
+    title: 'Agent Computer',
     description:
-      'Every Dosco session gets its own computer: an isolated Linux machine that clones your repo, cuts a branch named after the session, and runs OpenCode. Work lands through a change request a person approves.',
+      'Every session gets its own computer: an isolated Linux machine that clones your repo, cuts a branch named after the session, and runs OpenCode. Work lands through a change request a person approves.',
     htmlPath: '/agent-computer',
     markdownPath: '/markdown/agent-computer.md',
   },
   {
     kind: 'marketing',
     slug: 'agents-and-skills',
-    title: 'Dosco Agents & Skills',
+    title: 'Agents & Skills',
     description:
-      'A Dosco agent is a markdown persona with a deny-by-default reach into connectors, secrets and skills. A skill is the markdown that encodes how your company does one job. Both are files in your repo, versioned and reviewed.',
+      'An agent is a markdown persona with a deny-by-default reach into connectors, secrets and skills. A skill is the markdown that encodes how your company does one job. Both are files in your repo, versioned and reviewed.',
     htmlPath: '/agents-and-skills',
     markdownPath: '/markdown/agents-and-skills.md',
   },
@@ -208,7 +208,7 @@ const MARKETING_RECORDS: PublicContentRecord[] = [
     slug: 'automations',
     title: 'Dosco Automations',
     description:
-      'Cron schedules and signed webhooks start Dosco sessions with nobody present. Each trigger names the agent it runs as, carries a prompt template, and lands its work through a change request a person approves.',
+      'Cron schedules and signed webhooks start sessions with nobody present. Each trigger names the agent it runs as, carries a prompt template, and lands its work through a change request a person approves.',
     htmlPath: '/automations',
     markdownPath: '/markdown/automations.md',
   },
@@ -217,7 +217,7 @@ const MARKETING_RECORDS: PublicContentRecord[] = [
     slug: 'channels',
     title: 'Dosco Channels',
     description:
-      'Connect Slack or Microsoft Teams to a Dosco project and a message in a thread starts a session. The agent works on its own cloud computer and replies in the same thread. Email is in preview.',
+      'Connect Slack or Microsoft Teams to a project and a message in a thread starts a session. The agent works on its own cloud computer and replies in the same thread. Email is in preview.',
     htmlPath: '/channels',
     markdownPath: '/markdown/channels.md',
   },
@@ -226,14 +226,14 @@ const MARKETING_RECORDS: PublicContentRecord[] = [
     slug: 'company-as-code',
     title: 'Company as Code',
     description:
-      'A Dosco project is a git repo, and that repo is the company. kortix.yaml and the OpenCode config define it; agents, skills and memory are files beside your code. Every change is a commit a person approves.',
+      'A project is a git repo, and that repo is the company. kortix.yaml and the OpenCode config define it; agents, skills and memory are files beside your code. Every change is a commit a person approves.',
     htmlPath: '/company-as-code',
     markdownPath: '/markdown/company-as-code.md',
   },
   {
     kind: 'marketing',
     slug: 'connectors',
-    title: 'Dosco connectors',
+    title: 'Connectors',
     description:
       'Connect 3,000+ apps, MCP servers, OpenAPI, GraphQL and raw HTTP once for the whole company. Agents reach them through one scoped token — credentials stay server-side, every action is allowed, gated, or blocked, and every call is logged.',
     htmlPath: '/connectors',
@@ -249,7 +249,7 @@ const MARKETING_RECORDS: PublicContentRecord[] = [
     // is not a microVM. The narrower claims below are the true ones.
     title: 'Dosco Security',
     description:
-      'How Dosco is built to survive a security review: an isolated machine per session, connector credentials brokered server-side that never enter that machine, permissions for people and agents, human approval gates, and a change request between an agent and main.',
+      'How the platform is built to survive a security review: an isolated machine per session, connector credentials brokered server-side that never enter that machine, permissions for people and agents, human approval gates, and a change request between an agent and main.',
     htmlPath: '/security',
     markdownPath: '/markdown/security.md',
   },
@@ -272,7 +272,7 @@ const MARKETING_RECORDS: PublicContentRecord[] = [
   {
     kind: 'marketing',
     slug: 'solutions',
-    title: 'Dosco Solutions by role',
+    title: 'Solutions by role',
     description:
       'One platform, eight teams with completely different work. What sales, marketing, product, engineering, finance, people, IT and data science can each hand off — and what comes back.',
     htmlPath: '/solutions',

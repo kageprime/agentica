@@ -48,8 +48,8 @@ function allowedRedirectUri(value: string | undefined, projectId: string): strin
   const configuredOrigin = new URL(config.FRONTEND_URL).origin;
   const allowedOrigins = new Set([
     configuredOrigin,
-    'https://kortix.com',
-    'https://www.kortix.com',
+    'https://dosco.live',
+    'https://dosco.live',
     'https://dev.kortix.com',
     'https://staging.kortix.com',
   ]);

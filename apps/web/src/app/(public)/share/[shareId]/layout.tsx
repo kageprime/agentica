@@ -9,7 +9,7 @@ export async function generateMetadata({
   const { shareId } = await params;
 
   const title = 'Shared Conversation | Dosco';
-  const description = 'Replay this Worker conversation on Dosco';
+  const description = 'Replay this Worker conversation on the platform';
   const url = getServerPublicEnv().APP_URL || 'https://dosco.live';
 
   return {

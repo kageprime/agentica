@@ -1,8 +1,8 @@
-# Kortix CLI — full reference
+# CLI — full reference
 
 The `kortix` CLI is the canonical way to drive everything the Kortix
 dashboard can do — from a terminal, from a coding agent, from a session
-sandbox. It is **always available** inside a Kortix session sandbox:
+sandbox. It is **always available** inside a session sandbox:
 
 - the binary is on `PATH` (`/usr/local/bin/kortix`)
 - `KORTIX_CLI_TOKEN` is pre-injected — a project-scoped token the CLI
@@ -40,7 +40,7 @@ permission model.
 The local install flow is one curl + one click:
 
 ```sh
-curl -fsSL https://kortix.com/install | bash
+curl -fsSL https://dosco.live/install | bash
 kortix login                        # opens browser, you click Authorize
 ```
 
@@ -79,9 +79,9 @@ kortix files cat README.md --json | jq -r .content
 | `kortix logout [--host <name>]` | Remove the token for the active host (or named one). |
 | `kortix whoami [--host <name>]` | Print the user + active account on the chosen host. |
 
-### Hosts — pick which Kortix you talk to
+### Hosts — pick which host you talk to
 
-A host is one Kortix API endpoint. You can configure several
+A host is one API endpoint. You can configure several
 (cloud, localhost, self-hosted) and switch between them. One is
 "active" at any moment; commands operate on the active host by default.
 
@@ -168,7 +168,7 @@ Encrypted project credentials. Delivery follows each secret's exposure and the
 session's agent grant. **Environment** exposure (`runtime`) is the default: it
 puts the real value in an environment variable. **Egress-enforced** exposure
 (`egress`) is experimental and opt-in per project — when enabled it puts a HANDLE
-in the env instead and Kortix swaps it for the real value outside the sandbox, on
+in the env instead and the platform swaps it for the real value outside the sandbox, on
 the exact HTTPS hosts the policy lists.
 
 | Command | Effect |
@@ -177,7 +177,7 @@ the exact HTTPS hosts the policy lists.
 | `kortix secrets set NAME=VALUE …` | Upsert one or more. `NAME=-` reads VALUE from stdin (so values never appear in shell history). |
 | `kortix secrets request NAME …` | **Mint a short-lived link for a human to ENTER the value(s)** — you never see/handle the raw key. Surface the URL (web: fill-in modal, Slack: tappable link). `--scope runtime\|connector` (default `runtime` = injected into the sandbox env), `--expires <minutes>` (default 30). Use this when you need a key you don't have. |
 | `kortix secrets unset NAME …` | Remove. |
-| `kortix secrets call IDENTIFIER URL [--method METHOD] [--header NAME:VALUE] [--data BODY\|--data-file PATH]` | (Experimental network enforcement only.) Send one policy-bound HTTPS request. Kortix adds the secret server-side. Use it when a request cannot be relayed transparently. |
+| `kortix secrets call IDENTIFIER URL [--method METHOD] [--header NAME:VALUE] [--data BODY\|--data-file PATH]` | (Experimental network enforcement only.) Send one policy-bound HTTPS request. The platform adds the secret server-side. Use it when a request cannot be relayed transparently. |
 
 `$KORTIX_SECRET_CAPABILITIES` is the session's value-free machine-readable
 catalog. It contains only granted capabilities. Use `kortix secrets ls --json`
@@ -314,11 +314,11 @@ the same state.
 ### Channels (Slack)
 
 The project's Slack wiring. **Connecting Slack is one command** — never a
-manifest, bot token, or secret-intake link on Kortix Cloud.
+manifest, bot token, or secret-intake link on Cloud.
 
 | Command | Effect |
 | --- | --- |
-| `kortix channels connect` | **THE way to connect Slack.** Prints a one-click "Add to Slack" install link (Kortix Cloud) — surface the URL; the human picks a workspace and clicks Allow. Add `--wait` to block until the install lands. Self-host without the shared Slack app: falls back to manual token mode and says so. `--json` for machine output. |
+| `kortix channels connect` | **THE way to connect Slack.** Prints a one-click "Add to Slack" install link (Cloud) — surface the URL; the human picks a workspace and clicks Allow. Add `--wait` to block until the install lands. Self-host without the shared Slack app: falls back to manual token mode and says so. `--json` for machine output. |
 | `kortix channels status` | Show the connected workspace (or "not connected"). `--json`. |
 | `kortix channels disconnect` | Drop the project's Slack connection. |
 | `kortix channels manifest` | Slack app manifest JSON — **manual/self-host setup only**. |
@@ -420,7 +420,7 @@ kortix init my-project --yes --no-git
 
 ### System skills
 
-System skills are the live agent manual for the deployed Kortix host.
+System skills are the live agent manual for the deployed host.
 
 | Command | Effect |
 | --- | --- |
@@ -434,7 +434,7 @@ System skills are the live agent manual for the deployed Kortix host.
 
 ## Token scope
 
-There are **two** token types issued by the Kortix API. Both use the
+There are **two** token types issued by the API. Both use the
 `kortix_pat_…` prefix; they're distinguished by an internal `project_id`
 column on the token row.
 

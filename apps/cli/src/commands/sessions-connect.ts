@@ -22,7 +22,7 @@ type CtxOpts = { projectArg?: string; hostArg?: string };
 const CONNECT_HELP = help`Usage: kortix sessions connect [<session-id>] [options] [-- <opencode attach args…>]
 
 Attach your local OpenCode TUI to the OpenCode server already running inside a
-Kortix session sandbox. The CLI opens a local loopback proxy, injects your
+Session sandbox. The CLI opens a local loopback proxy, injects your
 Kortix auth token, then runs \`opencode attach\` against it.
 
 With no session id on an interactive terminal, opens a picker: running
@@ -40,7 +40,7 @@ every logged-in host and account for the id. One command, no manual
 
   --port <N>       Local loopback proxy port (default: random free port).
   --project <id>   Pin this project id (skips the cross-host scan).
-  --host <name>    Pin this Kortix host (skips the cross-host scan).
+  --host <name>    Pin this host (skips the cross-host scan).
   -h, --help       Show this help.
 
 Examples:

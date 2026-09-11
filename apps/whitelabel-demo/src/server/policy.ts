@@ -10,7 +10,7 @@
  * operator's, behind `KORTIX_API_KEY`) from an unbounded number of wrapper end
  * users, so it also blocks account-admin surfaces (members, invites, billing,
  * GitHub App installs, platform/admin) outright — those are the operator's to
- * manage from their own Kortix dashboard, never delegated to end users.
+ * manage from their own dashboard, never delegated to end users.
  *
  * Every rule below is derived from which `@kortix/sdk` calls this app's own
  * UI actually makes (`grep -rn 'kortix\.' src` in `apps/whitelabel-demo`) —

@@ -324,7 +324,7 @@ async function postProjectPicker(opts: {
 // resolution the channel path uses (resolveOauthProject): one project →
 // auto-bind silently, two+ unbound → the same project picker right in the
 // assistant thread, already bound → nothing. So a DM user gets the exact same
-// "choose your Kortix project" experience as a channel, without needing a slash
+// "choose your project" experience as a channel, without needing a slash
 // command (which the Assistant pane can't run).
 export async function handleAssistantThreadStarted(
   teamId: string,
@@ -475,7 +475,7 @@ export async function classifyEvent(
     if (!botUserId) {
       console.warn(
         '[slack] app_mention accepted without verifying the mentioned bot: this project has no ' +
-          'recorded bot user id (run `link-bot`). In a workspace with more than one Kortix app ' +
+          'recorded bot user id (run `link-bot`). In a workspace with more than one app ' +
           'installed, this is how the wrong bot answers.',
       );
       return 'mention';
@@ -537,7 +537,7 @@ async function threadIsOwned(teamId: string, threadTs: string): Promise<boolean>
   return !!row;
 }
 
-const CHANNEL_INTRO_FALLBACK = "Kortix is now connected to this channel. Mention @Kortix with a task to get started.";
+const CHANNEL_INTRO_FALLBACK = "The platform is now connected to this channel. Mention @Kortix with a task to get started.";
 
 async function postChannelIntro(projectId: string, channelId: string): Promise<void> {
   const token = await loadSlackTokenForProject(projectId);
@@ -549,11 +549,11 @@ async function postChannelIntro(projectId: string, channelId: string): Promise<v
     .limit(1);
   const projectLine = project?.name
     ? `This channel is connected to *${escapeMrkdwn(project.name)}*.`
-    : 'This channel is connected to a Kortix project.';
+    : 'This channel is connected to a project.';
   const blocks: Array<Record<string, unknown>> = [
     {
       type: 'header',
-      text: { type: 'plain_text', text: 'Kortix is connected to this channel', emoji: false },
+      text: { type: 'plain_text', text: 'The platform is connected to this channel', emoji: false },
     },
     {
       type: 'section',
@@ -717,7 +717,7 @@ export async function spawnAgentTurn(
 
   // Resolve who the agent runs AS. Gated by SLACK_REQUIRE_USER_IDENTITY:
   //  • ON  — every sender (first message OR follow-up, channel OR button click)
-  //    must be linked to a Kortix account that is a member of this project's
+  //    must be linked to an account that is a member of this project's
   //    account. No live mapping → block and nudge to `/login`; never fall back
   //    to the owner (the impersonation this fixes).
   //  • OFF — legacy behavior: run as the account owner stand-in.
@@ -817,7 +817,7 @@ export async function spawnAgentTurn(
         await saveTurn(handle);
       }
       // Per-Slack-user identity: once a thread participant is authorized, deliver
-      // their follow-up as that validated Kortix user. The thread/session gate
+      // their follow-up as that validated user. The thread/session gate
       // above decides whether they are allowed to join this conversation at all.
       const outcome = await deliverSlackFollowUpToSession({
         sessionId: existing.sessionId,
@@ -865,7 +865,7 @@ export async function spawnAgentTurn(
         // the thread lands right back here (`session.status === 'failed'` is sticky)
         // and, unguarded, re-posts the identical line — the thread jammed on repeat.
         // The first failure claims a durable per-thread notice and posts it with a
-        // direct link to open the session in Kortix; every later one just clears its
+        // direct link to open the session in the platform; every later one just clears its
         // ⏳ ack and stays silent, so the thread isn't spammed forever.
         if (handle) {
           await deleteTurn(existing.sessionId);

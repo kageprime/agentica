@@ -508,7 +508,7 @@ async function selfHostStart(flags: GlobalFlags): Promise<number> {
     );
   }
 
-  // Dev mode (--local-images / KORTIX_IMAGE_PULL=never): the Kortix app
+  // Dev mode (--local-images / KORTIX_IMAGE_PULL=never): the app
   // images were built locally and were never pushed to any registry, so a
   // blanket `docker compose pull` fails outright (`manifest unknown`) instead
   // of just skipping those services — `docker compose pull` has no per-service
@@ -536,7 +536,7 @@ async function selfHostStart(flags: GlobalFlags): Promise<number> {
   if (tunnelCode !== 0) return tunnelCode;
 
   registerLocalHost(DEFAULT_HOST_NAME, env.API_PUBLIC_URL, env.PUBLIC_URL);
-  process.stdout.write(`${status.ok('Self-hosted Kortix is starting')}\n`);
+  process.stdout.write(`${status.ok('Self-hosted the platform is starting')}\n`);
   process.stdout.write(`${C.dim}  Dashboard: ${C.reset}${C.cyan}${env.PUBLIC_URL}${C.reset}\n`);
   process.stdout.write(`${C.dim}  Logs:      ${C.reset}${C.cyan}kortix self-host logs${C.reset}\n\n`);
   renderConnectionSummary(env);
@@ -1025,7 +1025,7 @@ async function promptFeatureFlags(env: SelfHostEnv, flags: GlobalFlags): Promise
   env.KORTIX_PUBLIC_RESTRICT_ACCOUNT_CREATION = restrictAccountCreation ? 'true' : 'false';
 }
 
-/** Point every Kortix app image (and the tracked version) at the given tag. */
+/** Point every app image (and the tracked version) at the given tag. */
 function applyImagesForTag(env: SelfHostEnv, tag: string): void {
   env.KORTIX_VERSION = tag;
   env.FRONTEND_IMAGE = `${DEFAULT_FRONTEND_IMAGE_REPO}:${tag}`;
@@ -1848,18 +1848,18 @@ async function configureConnections(env: SelfHostEnv, flags: GlobalFlags): Promi
     env.PLATINUM_API_URL = await prompt('Platinum API URL', env.PLATINUM_API_URL || 'https://api.platinum.dev');
     env.PLATINUM_TEMPLATE = await prompt('Platinum template (optional — leave blank for the platform default)', env.PLATINUM_TEMPLATE);
   }
-  // Kortix Apps (optional, default skip): Apps publish on a wildcard domain
+  // Apps (optional, default skip): Apps publish on a wildcard domain
   // this instance serves. When configured, the bundled Caddy proxy adds a
   // `*.<apps base domain>` site block that reverse-proxies to kortix-api and
   // issues a certificate PER-APP on first request via ACME HTTP-01 (on_demand)
   // — so only a `*.<domain>` DNS record is needed, NOT a wildcard certificate,
   // and no reverse proxy has to be hand-wired. Requires a domain (Caddy only
-  // runs in domain mode). Kortix Cloud fronts Apps with a Cloudflare Worker
+  // runs in domain mode). Cloud fronts Apps with a Cloudflare Worker
   // that signs each request; a self-host has no such Worker, so its own reverse
   // proxy is the trust boundary and direct edge traffic is accepted.
   if (shouldPrompt(flags)) {
     const appsMode = await selectFrom(
-      'Kortix Apps hosting (optional, serves deployed Apps on their own domain): configure/skip',
+      'Apps hosting (optional, serves deployed Apps on their own domain): configure/skip',
       ['skip', 'configure'] as const,
       env.KORTIX_APPS_BASE_DOMAIN ? 'configure' : 'skip',
     );
@@ -2414,7 +2414,7 @@ function defaultEnv(flags: GlobalFlags): SelfHostEnv {
     INTERNAL_SERVICE_KEY: token(32),
     API_KEY_SECRET: token(32),
     TUNNEL_SIGNING_SECRET: token(32),
-    // Sandboxes run on a real provider, just like Kortix Cloud — Daytona,
+    // Sandboxes run on a real provider, just like Cloud — Daytona,
     // E2B, or Kortix's own Platinum (SandboxProviderName in
     // apps/api/src/config.ts); `kortix self-host configure` asks which one
     // and collects only that provider's key(s).
@@ -2439,7 +2439,7 @@ function defaultEnv(flags: GlobalFlags): SelfHostEnv {
     // self-host (so they can configure the managed GitHub App etc. in-app).
     // Set at init via --admin-email or the guided prompt; the API reads it.
     KORTIX_PLATFORM_ADMIN_EMAILS: flags.adminEmail ?? '',
-    // Kortix Apps. Blank base domain = the API derives `apps.<its own domain>`.
+    // Apps. Blank base domain = the API derives `apps.<its own domain>`.
     // KORTIX_APPS_ALLOW_DIRECT_EDGE tells the API that no Cloudflare Apps
     // Worker fronts it, so App requests arriving from the operator's own
     // reverse proxy are served instead of rejected for a missing edge signature.

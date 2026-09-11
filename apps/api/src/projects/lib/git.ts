@@ -715,7 +715,7 @@ export async function withProjectGitAuth(project: ProjectRow): Promise<ProjectRo
 
 /**
  * Resolve a project to a real upstream git endpoint + short-lived host auth
- * headers — the single seam consumed by the Kortix git proxy (and, post-M2,
+ * headers — the single seam consumed by the git proxy (and, post-M2,
  * server-side git). Token resolution reuses `resolveProjectGitAuth` (managed +
  * BYO GitHub / project credential); the backend formats
  * the URL + headers for the provider. Returns null when no upstream is
@@ -744,7 +744,7 @@ export type GitProxyAuth =
   | { ok: false; status: number; message: string };
 
 /**
- * Authorize a Kortix git-proxy request: a bare credential (extracted from the
+ * Authorize a git-proxy request: a bare credential (extracted from the
  * git Basic/Bearer header) + the target project + the operation scope.
  *
  * The owning account is the trust boundary:
@@ -998,7 +998,7 @@ async function authorizeGitProxyUncached(
     return { ok: true, project, principal: { kind: 'user', userId: null } };
   }
 
-  return { ok: false, status: 401, message: 'git proxy requires a Kortix token' };
+  return { ok: false, status: 401, message: 'git proxy requires a token' };
 }
 
 

@@ -16,5 +16,5 @@ import { config } from '../config';
  * import-free of `config` and testable without booting the server.
  */
 export function sandboxFrontendBaseUrl(): string {
-  return (config.FRONTEND_URL || 'https://kortix.com').replace(/\/+$/, '');
+  return (config.FRONTEND_URL || 'https://dosco.live').replace(/\/+$/, '');
 }

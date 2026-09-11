@@ -12,7 +12,7 @@ export function randomAlphanumeric(length: number): string {
 }
 
 /**
- * Kortix API key prefixes.
+ * API key prefixes.
  *
  *   kortix_      — user-created API key (for external programmatic access)
  *   kortix_sb_   — sandbox-managed key (auto-created per sandbox, used by agents)

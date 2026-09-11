@@ -24,7 +24,7 @@ export interface AccountTokenValidationResult {
    *  token, session_id = sandbox_id). Used to attribute LLM usage per-session. */
   sessionId?: string | null;
   /** Non-null = this is an agent-session token; the running agent's resolved
-   *  authorization (which Kortix CLI/API actions + connectors it may use,
+   *  authorization (which CLI/API actions + connectors it may use,
    *  already ∩ the launching user). Null = full access (laptop CLI PAT). */
   agentGrant?: AgentGrant | null;
   error?: string;

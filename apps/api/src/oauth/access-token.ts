@@ -22,7 +22,7 @@ export const OAUTH_REFRESH_TOKEN_PREFIX = 'kortix_ort_';
 export const OAUTH_SCOPE_PROFILE = 'profile';
 /** Email address (OIDC-shaped clients ask for it by this name; same data as `profile`). */
 export const OAUTH_SCOPE_EMAIL = 'email';
-/** Act as the user on the whole Kortix API. The scope that makes the token a credential. */
+/** Act as the user on the whole API. The scope that makes the token a credential. */
 export const OAUTH_SCOPE_KORTIX = 'kortix';
 
 export const OAUTH_SCOPES = [OAUTH_SCOPE_PROFILE, OAUTH_SCOPE_EMAIL, OAUTH_SCOPE_KORTIX] as const;

@@ -55,7 +55,7 @@ async function computeScaffoldIdentity(): Promise<ScaffoldIdentity> {
     await g(['config', 'user.name', 'Kortix']);
     await g(['config', 'user.email', 'noreply@kortix.ai']);
     await g(['add', '-A']);
-    await g(['commit', '-q', '-m', 'chore: scaffold Kortix project']);
+    await g(['commit', '-q', '-m', 'chore: scaffold project']);
     const rootSha = await g(['rev-parse', 'HEAD']);
     const treeSha = await g(['rev-parse', 'HEAD^{tree}']);
     return { rootSha, treeSha };

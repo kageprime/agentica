@@ -1,5 +1,5 @@
 /**
- * Kortix Projects hooks — ported from apps/web/src/hooks/kortix/use-kortix-projects.ts
+ * Projects hooks — ported from apps/web/src/hooks/kortix/use-kortix-projects.ts
  *
  * Fetches from kortix-master's /kortix/projects API through the sandbox URL.
  */
@@ -131,7 +131,7 @@ async function kortixFetch<T>(sandboxUrl: string, path: string, init?: RequestIn
   });
   if (!res.ok) {
     const text = await res.text().catch(() => '');
-    throw new Error(`Kortix API ${res.status}: ${text.slice(0, 200)}`);
+    throw new Error(`API ${res.status}: ${text.slice(0, 200)}`);
   }
   return res.json();
 }

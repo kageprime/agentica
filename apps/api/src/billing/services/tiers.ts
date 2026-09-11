@@ -139,7 +139,7 @@ export const INCLUDED_CREDITS_RATIO = INCLUDED_CREDITS_PER_SEAT_USD / PER_SEAT_P
  *   3. Everything else that PAID — the legacy zoo (machine subscriptions,
  *      legacy `pro`, retired tier_* keys with no grant): the money that
  *      actually moved × INCLUDED_CREDITS_RATIO. Before this rule those
- *      renewals granted 0: a $40/mo "Kortix Computer" customer paid every
+ *      renewals granted 0: a $40/mo "Computer" customer paid every
  *      month, sat at a $0 wallet, and could not run anything. There is no
  *      per-key mapping table to maintain — the paid invoice IS the mapping.
  *
@@ -198,12 +198,12 @@ export function getComputeDisplayPriceCents(serverType: string): number | null {
 
 /**
  * Human-readable line for Stripe checkout / invoice descriptions.
- * Example: "Kortix Computer · Pro — 8 vCPU, 16 GB RAM, 320 GB SSD"
+ * Example: "Computer · Pro — 8 vCPU, 16 GB RAM, 320 GB SSD"
  */
 export function getComputeDescription(serverType: string): string {
   const t = COMPUTE_TIERS[serverType];
-  if (!t) return 'Kortix Computer';
-  return `Kortix Computer · ${t.label} — ${t.cores} vCPU, ${t.memoryGb} GB RAM, ${t.diskGb} GB SSD`;
+  if (!t) return 'Computer';
+  return `Computer · ${t.label} — ${t.cores} vCPU, ${t.memoryGb} GB RAM, ${t.diskGb} GB SSD`;
 }
 
 // ─── Tiers ──────────────────────────────────────────────────────────────────

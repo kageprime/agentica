@@ -1,5 +1,5 @@
 /**
- * `kortix marketplace <subcommand>` - browse the Kortix marketplace. This is
+ * `kortix marketplace <subcommand>` - browse the marketplace. This is
  * intentionally a discovery-only surface: no build, validate, or publish
  * commands live here, and no deterministic install/update/remove machinery
  * either — adding a marketplace item to a project is an agent import
@@ -55,7 +55,7 @@ interface MarketplaceFlags {
 
 const HELP = help`Usage: kortix marketplace <subcommand> [options]
 
-Browse the Kortix marketplace.
+Browse the marketplace.
 
 Subcommands:
   search [query]       Search marketplace items.
@@ -67,7 +67,7 @@ Options:
   --query <text>       Search text (same as search [query]).
   --type <type>        Filter by item type, e.g. skill.
   --source <source>    Filter by marketplace/source, e.g. kortix.
-  --host <name>        Use a configured Kortix host.
+  --host <name>        Use a configured host.
   --project <id>       Install into this project id (default: linked).
   --json               Machine-readable output.
   -h, --help           Show this help.

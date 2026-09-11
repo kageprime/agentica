@@ -691,7 +691,7 @@ function ImportForm({
   const [domain, setDomain] = useState('');
   const [claim, setClaim] = useState(config.groupClaimName);
   const [autoCreate, setAutoCreate] = useState(true);
-  // Default ON: connecting an IdP should make its groups appear in Dosco
+  // Default ON: connecting an IdP should make its groups appear in the platform
   // without hand-mapping each claim — the admin just attaches project roles.
   // (Groups auto-created this way are source='sso' and never annex manual
   // groups; the toggle stays for admins who want mapping-only.)
@@ -1244,7 +1244,7 @@ function ProvisionedStatusPanel({
   const totalMembers = membersQuery.data?.length ?? null;
   const isLoading = membersQuery.isLoading || groupsQuery.isLoading;
 
-  // Dosco is the SCIM server: the freshest signal we own is when the IdP
+  // the platform is the SCIM server: the freshest signal we own is when the IdP
   // last made an authenticated SCIM call (stamped on every request, including
   // no-change reconciliation reads). Active tokens only.
   const lastSyncAt = latestScimSyncAt(tokensQuery.data ?? []);

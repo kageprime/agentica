@@ -434,7 +434,7 @@ export const codeStorageBackend: GitHostBackend = {
     if (opts.baseFiles?.length) {
       await commitPack(repoPath, token, {
         branch: opts.branch,
-        message: 'chore: scaffold Kortix project',
+        message: 'chore: scaffold project',
         files: opts.baseFiles,
       });
     }

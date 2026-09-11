@@ -136,7 +136,7 @@ export interface LlmProviderEntry {
   /** True for the curated popular set — pinned to the top of the catalog. */
   featured: boolean;
   /**
-   * Platform-managed provider (the Dosco gateway). Injected into every sandbox
+   * Platform-managed provider (the gateway). Injected into every sandbox
    * automatically — no API key, no connect/disconnect flow. Rendered as an
    * always-connected "Managed" row rather than a BYO credential entry.
    */

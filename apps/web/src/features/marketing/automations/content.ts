@@ -57,7 +57,7 @@ export const types = {
       id: 'webhook',
       kind: 'webhook',
       title: 'It fires on an event',
-      body: 'An external service POSTs to the trigger URL. Dosco checks the signature, renders the payload into the prompt, and starts the session. A payload that fails your filter is accepted and ignored.',
+      body: 'An external service POSTs to the trigger URL. The platform checks the signature, renders the payload into the prompt, and starts the session. A payload that fails your filter is accepted and ignored.',
     },
   ],
   notes: [
@@ -215,7 +215,7 @@ export const webhook = {
 export const session = {
   eyebrow: 'Session strategy',
   title: 'Which session a fire lands in.',
-  sub: 'By default every fire is a clean slate. When the work is a running thread rather than a fresh errand, a trigger can re-prompt a session it already owns. Dosco tries the modes in order and falls through on failure, so a fire never simply disappears.',
+  sub: 'By default every fire is a clean slate. When the work is a running thread rather than a fresh errand, a trigger can re-prompt a session it already owns. The platform tries the modes in order and falls through on failure, so a fire never simply disappears.',
   steps: [
     {
       n: '01',
@@ -273,7 +273,7 @@ export const review = {
 export const closing = {
   eyebrow: 'Automate it',
   title: 'Write the schedule. Read the change request.',
-  sub: 'Open source and self-hostable. Any model, your keys. Dosco Cloud, your own VPC, or fully on-prem.',
+  sub: 'Open source and self-hostable. Any model, your keys. Cloud, your own VPC, or fully on-prem.',
   ctaPrimary: 'Start a session',
   ctaPrimaryHref: '/auth',
   ctaSecondary: 'Read the trigger docs',

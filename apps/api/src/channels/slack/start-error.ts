@@ -36,13 +36,13 @@ export function startErrorMessage(status: number | undefined, body: unknown): st
     case 400:
       return `I couldn't start a session — the request was rejected${shortDetail ? ` (${shortDetail})` : ''}. Check this channel's Kortix settings with \`/kortix\`, then send your message again.`;
     case 402:
-      return "This workspace is out of credits, so I can't start a session. Top up in the Kortix dashboard and send your message again.";
+      return "This workspace is out of credits, so I can't start a session. Top up in the dashboard and send your message again.";
     case 403:
-      return "I couldn't start a session — this workspace doesn't have permission to run one here. Ask a Kortix workspace admin to grant access, then send your message again.";
+      return "I couldn't start a session — this workspace doesn't have permission to run one here. Ask a workspace admin to grant access, then send your message again.";
     case 404:
       return "I couldn't find this project to start a session — it may have been moved or deleted. Reconnect Kortix to this channel with `/kortix switch`, then try again.";
     case 409:
-      return "I couldn't find a Kortix account to run this session as. Connect your account with `/kortix login`, then send your message again.";
+      return "I couldn't find an account to run this session as. Connect your account with `/kortix login`, then send your message again.";
     case 429:
       return "This workspace is at its concurrent-session limit right now. Close or finish a running session, then send your message again.";
     case 500:

@@ -344,11 +344,11 @@ function buildStarterRegistry(): RegistryJson {
   const starterFloorFiles = [
     ...getManagedSkillFiles(),
     ...getStarterFiles({
-      projectName: "Kortix Starter",
+      projectName: "Starter",
       template: "general-knowledge-worker",
     }),
   ];
-  // The `marketplace` template layer is "listed in the Kortix marketplace but
+  // The `marketplace` template layer is "listed in the marketplace but
   // not part of the starter floor" (see getMarketplaceFiles in @kortix/starter):
   // standalone optional skills plus the use-case templates' runbook skills.
   const files = [...starterFloorFiles, ...getMarketplaceFiles()];
@@ -375,11 +375,11 @@ function buildStarterRegistry(): RegistryJson {
       starterFloorPaths.has(primaryPath)
     ) {
       // A starter-floor skill: it stands on its own in the catalog AND ships
-      // inside the Kortix Starter project, so tag it so the UI can badge it
-      // "Part of Kortix Starter" and link back to the whole project.
+      // inside the Starter project, so tag it so the UI can badge it
+      // "Part of Starter" and link back to the whole project.
       item.meta = {
         ...(item.meta ?? {}),
-        partOfProject: { id: STARTER_KIT_ITEM_ID, title: "Kortix Starter" },
+        partOfProject: { id: STARTER_KIT_ITEM_ID, title: "Starter" },
       };
     } else if (
       item.type === "registry:skill" &&
@@ -387,7 +387,7 @@ function buildStarterRegistry(): RegistryJson {
     ) {
       // A use-case runbook skill (declared in the marketplace template's
       // kortix.registry.json): it ships inside the Use-case pack project, not
-      // the Kortix Starter. Tag it so the explore grid folds it under the
+      // the Starter. Tag it so the explore grid folds it under the
       // pack tile while it stays resolvable for the use-case install wizard.
       item.meta = {
         ...(item.meta ?? {}),
@@ -396,7 +396,7 @@ function buildStarterRegistry(): RegistryJson {
     }
     // Remaining marketplace-layer skills (deep-research, search, coding, …)
     // are ordinary standalone browse tiles: optional installs, not part of
-    // the Kortix Starter project.
+    // the Starter project.
     for (const f of item.files ?? []) {
       const content = map.get(f.path);
       if (content != null) f.content = content;
@@ -467,7 +467,7 @@ function buildProjectTemplateRegistry(): RegistryItem[] {
   return items;
 }
 
-// The marketplace hero: one synthetic "Kortix Starter" project. Its contents
+// The marketplace hero: one synthetic "Starter" project. Its contents
 // (`what's inside`) are every browseable starter skill — resolved typed from the
 // catalog by name — and its files are the whole starter kit (file browser +
 // clone). This is the single project we lead the marketplace with; individual
@@ -478,19 +478,19 @@ export const STARTER_KIT_ITEM_ID = `kortix-projects:${STARTER_KIT_ITEM_NAME}`;
 // The second synthetic project: the Use-case pack. One browse tile that groups
 // every use-case runbook skill + persona agent from the marketplace template
 // layer (`packages/starter/templates/marketplace/runtime/**`) — visible and
-// clonable in the marketplace, but never advertised as Kortix Starter content.
+// clonable in the marketplace, but never advertised as Starter content.
 export const USE_CASE_PACK_ITEM_NAME = "use-case-pack";
 export const USE_CASE_PACK_ITEM_ID = `kortix-projects:${USE_CASE_PACK_ITEM_NAME}`;
 export const USE_CASE_PACK_TITLE = "Use-case pack";
 
-const STARTER_KIT_README = `# Kortix Starter
+const STARTER_KIT_README = `# Starter
 
-The default Kortix project — a general knowledge worker that's ready to do real
+The default project — a general knowledge worker that's ready to do real
 work from the very first message.
 
-It comes preloaded with the core Kortix skill floor: documents (PDF, DOCX,
+It comes preloaded with the core skill floor: documents (PDF, DOCX,
 XLSX) and slides, web apps and websites, browser automation, publishing and
-deployments, and design foundations. The managed Kortix platform skills
+deployments, and design foundations. The managed platform skills
 (sessions, memory, the CLI) are injected into every session automatically.
 More skills — research, outreach, and per-role runbooks — are one install away
 in the marketplace.
@@ -538,9 +538,9 @@ function buildStarterKitProjectItem(): RegistryItem {
   return {
     name: STARTER_KIT_ITEM_NAME,
     type: "registry:project",
-    title: "Kortix Starter",
+    title: "Starter",
     description:
-      "The default Kortix project — a general knowledge worker preloaded with the core skill floor (documents, slides, spreadsheets, web apps, browser automation, and more), ready to work from the first session.",
+      "The default project — a general knowledge worker preloaded with the core skill floor (documents, slides, spreadsheets, web apps, browser automation, and more), ready to work from the first session.",
     categories: ["project", "starter"],
     registryDependencies: skillNames,
     files,
@@ -557,7 +557,7 @@ agents that run them.
 ## How to use it
 
 - **Guided (recommended):** each use case installs individually through the
-  [use-case pages](https://kortix.com/use-cases) — the wizard wires the agent,
+  [use-case pages](https://dosco.live/use-cases) — the wizard wires the agent,
   its skill, grants, and any scheduled trigger into your project.
 - **Bulk clone:** clone this pack as a project to get every runbook skill under
   \`.kortix/opencode/skills/\` and every persona agent file under
@@ -751,7 +751,7 @@ function envSources(): string[] {
 /**
  * Marketplaces that ship ENABLED by default — loaded like the Kortix base (not
  * removable), so the catalog is full on day one. For now this is empty: **only
- * Kortix is active by default**, and every other source (Anthropic, OpenAI, and
+ * The platform is active by default**, and every other source (Anthropic, OpenAI, and
  * the rest of FEATURED_MARKETPLACES) is one-click opt-in via "Add a source".
  * Can be overridden by `KORTIX_DEFAULT_MARKETPLACES` (comma-separated).
  */

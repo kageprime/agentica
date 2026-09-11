@@ -1,5 +1,5 @@
 /**
- * Central styling primitives for the Kortix CLI.
+ * Central styling primitives for the CLI.
  */
 
 const ENABLED = process.stdout.isTTY === true && !process.env.NO_COLOR;
@@ -49,7 +49,7 @@ export function rule(width = 56): string {
   return `  ${C.faded}${'─'.repeat(width)}${C.reset}`;
 }
 
-/** "  Kortix CLI  v0.1.0" header style. */
+/** "  CLI  v0.1.0" header style. */
 export function header(title: string, version: string): string {
   return `  ${C.white}${C.bold}${title}${C.reset}  ${C.faded}v${version}${C.reset}`;
 }

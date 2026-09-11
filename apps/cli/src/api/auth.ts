@@ -19,7 +19,7 @@ import { sandboxEnvValue } from './sandbox-env.ts';
 export { DEFAULT_API_BASE };
 
 export interface Auth {
-  /** Base URL of the Kortix API, e.g. https://api.kortix.com */
+  /** Base URL of the API, e.g. https://api.kortix.com */
   api_base: string;
   /** kortix_pat_... token */
   token: string;

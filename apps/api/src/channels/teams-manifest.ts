@@ -28,9 +28,9 @@ export interface TeamsManifest {
 }
 
 const BOT_COMMANDS = [
-  { title: '/help', description: 'Show what Kortix can do' },
+  { title: '/help', description: 'Show what the platform can do' },
   { title: '/status', description: 'Show the effective project, agent and model' },
-  { title: '/login', description: 'Connect your Kortix account' },
+  { title: '/login', description: 'Connect your account' },
   { title: '/models', description: 'Pick the model for this conversation' },
   { title: '/agents', description: 'Pick the agent for this conversation' },
   { title: '/projects', description: 'List connected projects' },
@@ -49,7 +49,7 @@ const SHORT_DESCRIPTION =
   'Your AI workforce, in Teams — @-mention an agent and it does the real work.';
 
 const LONG_DESCRIPTION =
-  'Kortix brings a workforce of AI agents into Microsoft Teams. Add the bot to a chat or channel, @-mention it with a task, and an agent gets on it — working across your connected tools and replying right here as it goes, with live progress. Follow-ups stay in the same conversation. Managed by Kortix · https://kortix.com';
+  'Kortix brings a workforce of AI agents into Microsoft Teams. Add the bot to a chat or channel, @-mention it with a task, and an agent gets on it — working across your connected tools and replying right here as it goes, with live progress. Follow-ups stay in the same conversation. Managed by Kortix · https://dosco.live';
 
 function hostOf(baseUrl: string): string {
   try {
@@ -69,9 +69,9 @@ export function buildTeamsManifest(cfg: BuildTeamsManifestConfig): TeamsManifest
     id: cfg.appId,
     developer: {
       name: 'Kortix',
-      websiteUrl: 'https://kortix.com',
-      privacyUrl: 'https://kortix.com/privacy',
-      termsOfUseUrl: 'https://kortix.com/terms',
+      websiteUrl: 'https://dosco.live',
+      privacyUrl: 'https://dosco.live/privacy',
+      termsOfUseUrl: 'https://dosco.live/terms',
     },
     name: { short: appName, full: appName },
     description: {

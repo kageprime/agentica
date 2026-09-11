@@ -48,7 +48,7 @@ Options:
   --limit <N>              \`find\` result cap (filename search only).
   -y, --yes                Skip the \`rm\` confirmation.
   --project <id>           Operate on this project id (default: linked).
-  --host <name>            Operate against a non-default Kortix host.
+  --host <name>            Operate against a non-default host.
   --json                   Machine-readable output.
   -h, --help               Show this help.
 

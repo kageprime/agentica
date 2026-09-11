@@ -173,7 +173,7 @@ export const product: RoleContent = {
       {
         id: 'creds',
         k: 'Connector credentials never enter the machine',
-        v: 'The sandbox carries one project-scoped Dosco token and no third-party keys. Your tracker and helpdesk credentials are decrypted server-side and attached to the outbound call.',
+        v: 'The sandbox carries one project-scoped token and no third-party keys. Your tracker and helpdesk credentials are decrypted server-side and attached to the outbound call.',
       },
       {
         id: 'memory',
@@ -185,6 +185,6 @@ export const product: RoleContent = {
 
   closing: {
     title: 'Do the reading. Keep the deciding.',
-    sub: 'Open source and self-hostable. Any model, your keys. Dosco Cloud, your own VPC, or your own on-prem network.',
+    sub: 'Open source and self-hostable. Any model, your keys. Cloud, your own VPC, or your own on-prem network.',
   },
 };

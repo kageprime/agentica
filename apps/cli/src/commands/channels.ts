@@ -18,7 +18,7 @@ bound channel runs.
 
 Subcommands:
   status                  Show the current connection.
-  connect                 Connect. Slack: on Kortix Cloud (or any host with the
+  connect                 Connect. Slack: on Cloud (or any host with the
                           shared Slack app configured) this prints a one-click
                           "Add to Slack" install link — open it, pick the
                           workspace, Allow. Done: no app to create, no tokens.
@@ -539,7 +539,7 @@ async function channelsManifest(
   const manifest = {
     display_information: {
       name: 'Kortix',
-      description: 'Run a Kortix project from Slack',
+      description: 'Run a project from Slack',
       background_color: '#0a0a0a',
     },
     features: { bot_user: { display_name: 'kortix', always_online: true } },

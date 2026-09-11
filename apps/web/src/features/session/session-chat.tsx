@@ -673,7 +673,7 @@ interface SessionTurnProps {
   isFirstTurn: boolean;
   /**
    * The session's working state, resolved ONCE by the parent
-   * (`resolveLastTurnWorking`): the projection for a Dosco session, the raw
+   * (`resolveLastTurnWorking`): the projection for a session, the raw
    * SSE slot only for a child session that has no `/turn` row. Only the
    * WORKING turn renders it (`isWorkingTurn`).
    */
@@ -899,7 +899,7 @@ function SessionTurnImpl({
   );
   // The WORKING turn's working state is the session's, and the parent resolved
   // that answer once (`resolveLastTurnWorking`): the projection
-  // (`useSessionWorking` → `GET .../turn`) for a Dosco session, the raw SSE
+  // (`useSessionWorking` → `GET .../turn`) for a session, the raw SSE
   // slot only for a child session with no `/turn` row. Any other turn is
   // NEVER working — that is a fact about the transcript, not an observation,
   // and it is what removes the "last turn shimmers for ever" symptom the raw
@@ -2011,7 +2011,7 @@ SessionTurn.displayName = 'SessionTurn';
 
 interface SessionChatProps {
   sessionId: string;
-  /** Durable Dosco project session id used by project-session APIs. */
+  /** Durable project session id used by project-session APIs. */
   projectSessionId?: string;
   /** Complete SDK state for the root session. Omit for a read-only child session. */
   sessionState?: UseSessionResult;
@@ -2604,7 +2604,7 @@ export function SessionChat({
    * own send receipt only until either of them answers.
    */
   // A child-session mount (`sub-session-modal.tsx` passes no project ids) has
-  // no Dosco session row for `/turn` to answer about, so the projection below
+  // no session row for `/turn` to answer about, so the projection below
   // is disabled and every working read falls back to the raw stream slot —
   // the same split `session-layout.tsx` makes for its busy indicator.
   const isChildSession = !projectId || !projectSessionId;
@@ -2687,7 +2687,7 @@ export function SessionChat({
   }, [effectiveBusy]);
 
   // The one working answer the LAST turn card renders (its shimmer). Resolved
-  // here, once, so the card never reads the raw slot for a Dosco session —
+  // here, once, so the card never reads the raw slot for a session —
   // see `resolveLastTurnWorking` for the split and the defect it removes.
   const lastTurnWorking = resolveLastTurnWorking({
     isChildSession,

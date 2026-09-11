@@ -662,7 +662,7 @@ type Provider = {
 const PROVIDERS: Provider[] = [
   {
     domain: null,
-    name: 'Dosco Gateway',
+    name: 'Gateway',
     hint: 'Managed routing — injected into every sandbox',
     state: 'managed',
   },

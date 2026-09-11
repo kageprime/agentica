@@ -56,7 +56,7 @@ Subcommands:
 
   --new            Start a brand-new shell instead of reattaching.
   --project <id>   Pin this project id (skips the cross-host scan).
-  --host <name>    Pin this Kortix host (skips the cross-host scan).
+  --host <name>    Pin this host (skips the cross-host scan).
   --json           Machine-readable output (\`ls\`/\`kill\`).
   -h, --help       Show this help.
 

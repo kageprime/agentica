@@ -47,7 +47,7 @@ export const STAGED_CONTEXT_ENTRIES = [
   'scaffold.git',
 ] as const;
 
-/** Bases whose package manager is not apt — the Kortix layer's floor needs it. */
+/** Bases whose package manager is not apt — the layer's floor needs it. */
 const NON_DEBIAN_BASES = [
   'alpine',
   'amazonlinux',
@@ -170,7 +170,7 @@ function fromBase(args: string): { base: string; stage?: string } | null {
 }
 
 /**
- * Lint a sandbox Dockerfile for the constraints the Kortix cloud builder
+ * Lint a sandbox Dockerfile for the constraints the cloud builder
  * enforces. Returns `ManifestIssue`s in source order; an empty array means the
  * text passes every static check (it says NOTHING about whether the image
  * actually builds — see `kortix sandboxes build --local` for that).
@@ -244,7 +244,7 @@ export function lintDockerfile(text: string, opts: LintDockerfileOpts): Manifest
   }
 
   // ── 3. Non-Debian base ───────────────────────────────────────────────────
-  // The Kortix layer's floor opens with `apt-get update && apt-get install`, so
+  // The layer's floor opens with `apt-get update && apt-get install`, so
   // a base without apt cannot carry it. Only the FINAL stage's base matters —
   // the layer is appended to the end of the user's Dockerfile, so an
   // alpine BUILDER stage is perfectly legal. This is a WARNING, not an error:
@@ -285,7 +285,7 @@ export function lintDockerfile(text: string, opts: LintDockerfileOpts): Manifest
           line: finalBase.line,
           severity: 'warning',
           message:
-            `\`FROM ${base}\` looks like a non-Debian base (${hit}). The Kortix runtime layer ` +
+            `\`FROM ${base}\` looks like a non-Debian base (${hit}). The runtime layer ` +
             `appended on top installs its floor with \`apt-get\`, which only exists on ` +
             `Debian/Ubuntu-family images — on this base the cloud build fails at the layer's ` +
             `first RUN. Warning, not an error: only the tag is visible here, and it could be a ` +

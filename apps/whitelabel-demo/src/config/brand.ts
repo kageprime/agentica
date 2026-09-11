@@ -8,7 +8,7 @@ export const BRAND = {
   name: 'Lumen',
   /** One-line tagline on the auth/landing screen. */
   tagline: 'Your agents, your repos, your brand.',
-  /** Kortix API base URL (the SDK `backendUrl`). */
+  /** API base URL (the SDK `backendUrl`). */
   apiUrl: process.env.NEXT_PUBLIC_KORTIX_API_URL ?? 'https://api.kortix.com/v1',
   /** Accent color (CSS). */
   accent: '#6366f1',
@@ -22,7 +22,7 @@ export type Brand = typeof BRAND;
  *    deployment; the browser holds a pasted PAT and talks to it directly.
  *  - **wrapper mode** (`wrapperMode: true`) → this app's own same-origin BFF
  *    proxy (`src/app/api/kortix/[...path]/route.ts`), which holds the real
- *    Kortix API key server-side and re-authenticates every request against
+ *    API key server-side and re-authenticates every request against
  *    this app's own login session instead.
  *
  * Always resolves to an ABSOLUTE url. The SDK parses `backendUrl` with

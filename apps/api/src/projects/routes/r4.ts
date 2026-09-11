@@ -2154,7 +2154,7 @@ projectsApp.openapi(
       body.display_name ??
       body.displayName ??
       loaded.row.name ??
-      'Kortix Agent'
+      'Agent'
     ).trim();
     const username = normalizeAgentMailUsername(body.username ?? loaded.row.name);
     const existingInboxId =
@@ -2829,7 +2829,7 @@ projectsApp.openapi(
 
     // `opencode_session` carries the canonical opencode ROOT id the sandbox just
     // bootstrapped (or reused after a restart). Persist it as the durable pin so
-    // the Kortix session resolves to the LIVE root with NO dependency on a browser
+    // the session resolves to the LIVE root with NO dependency on a browser
     // ever opening it — closing the null-pin gap that left Slack/trigger/cron
     // sessions resolving lazily onto the wrong (orphaned) root. The sandbox token
     // is already scoped to this project (checked above); the daemon only ever

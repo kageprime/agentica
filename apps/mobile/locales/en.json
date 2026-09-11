@@ -114,13 +114,13 @@
       "passwordTooShort": "Password must be at least 8 characters"
     },
     "drawer": {
-      "defaultTitle": "Welcome to Kortix",
+      "defaultTitle": "Welcome to the platform",
       "defaultMessage": "The AI Super Mega Giga app.",
-      "signInToChat": "Welcome to Kortix",
+      "signInToChat": "Welcome to the platform",
       "signInToChatMessage": "The AI Super Mega Giga app.",
-      "signUpUnlock": "Welcome to Kortix",
+      "signUpUnlock": "Welcome to the platform",
       "signUpUnlockMessage": "The AI Super Mega Giga app.",
-      "welcomeBack": "Welcome to Kortix",
+      "welcomeBack": "Welcome to the platform",
       "welcomeBackMessage": "The AI Super Mega Giga app.",
       "signUpToContinue": "Sign up to continue",
       "signUpToContinueMessage": "Please sign up or sign in to create and select workers, connect apps and much more"
@@ -138,12 +138,12 @@
     }
   },
   "onboarding": {
-    "welcome": "See what Kortix can do",
+    "welcome": "See what the platform can do",
     "welcomeSubtitle": "Your AI assistant that takes action",
     "skip": "Skip",
     "next": "Next",
     "getStarted": "Get Started",
-    "kortixComputer": "Kortix Computer",
+    "kortixComputer": "Computer",
     "ready": "Ready",
     "examples": {
       "presentations": {

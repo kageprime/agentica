@@ -71,7 +71,7 @@ skillsApp.openapi(
     method: 'get',
     path: '/',
     tags: ['skills'],
-    summary: 'GET /skills — list the Kortix system skills',
+    summary: 'GET /skills — list the system skills',
     description:
       'Name + description for every kortix-managed system skill. Bodies are not ' +
       'included; fetch one with GET /v1/skills/{name}.',
@@ -79,7 +79,7 @@ skillsApp.openapi(
     responses: {
       200: json(
         z.object({ skills: z.array(SkillSummarySchema), count: z.number().int() }),
-        'Kortix system skills',
+        'System skills',
       ),
       ...errors(401),
     },
@@ -116,7 +116,7 @@ skillsApp.openapi(
     const file = getManagedSkillFile(name, path);
     if (!file) {
       return c.json(
-        { error: true, message: `No file "${path}" in Kortix skill "${name}"`, status: 404 },
+        { error: true, message: `No file "${path}" in skill "${name}"`, status: 404 },
         404,
       );
     }
@@ -148,7 +148,7 @@ skillsApp.openapi(
     const skill = getManagedSkill(name);
     if (!skill) {
       return c.json(
-        { error: true, message: `No Kortix system skill named "${name}"`, status: 404 },
+        { error: true, message: `No system skill named "${name}"`, status: 404 },
         404,
       );
     }

@@ -144,7 +144,7 @@ Local build (build --local):
                        under emulation.
   --tag <t>            Image tag (default: kortix-local/<slug>:latest).
   --no-cache           Pass --no-cache to docker build.
-  --no-layer           Build only your Dockerfile, without the Kortix layer.
+  --no-layer           Build only your Dockerfile, without the layer.
   --print              Print the composed Dockerfile to stdout and exit.
 
 Options:
@@ -155,7 +155,7 @@ Options:
   --clear              provider: remove the pin instead of setting one.
   --timeout <sec>      provider: how long to follow a preparation (default 600).
   --project <id>       Operate on this project id (default: linked).
-  --host <name>        Operate against a non-default Kortix host.
+  --host <name>        Operate against a non-default host.
   -h, --help           Show this help.
 
 Pinning a provider needs the \`project.customize.write\` permission.

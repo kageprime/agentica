@@ -20,7 +20,7 @@ questions the agent is blocked on. Answer them with
 
 Options:
   --project <id>   Operate on this project id (default: linked/default).
-  --host <name>    Operate against a non-default Kortix host.
+  --host <name>    Operate against a non-default host.
   --json           Machine-readable output ({ permissions, questions }).
   -h, --help       Show this help.
 `;
@@ -35,7 +35,7 @@ Options:
   --reject           Deny the request.
   --message "<why>"  Note passed back to the agent with the reply.
   --project <id>     Operate on this project id (default: linked/default).
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   -h, --help         Show this help.
 `;
 
@@ -53,7 +53,7 @@ Options:
   --answers <json>   Raw answers payload (string[][]) for requests carrying
                      several questions — overrides --option/--text.
   --project <id>     Operate on this project id (default: linked/default).
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   -h, --help         Show this help.
 `;
 
@@ -362,7 +362,7 @@ Subcommands:
 
 Options:
   --project <id>   Operate on this project id (default: linked/default).
-  --host <name>    Operate against a non-default Kortix host.
+  --host <name>    Operate against a non-default host.
   --json           Machine-readable output.
   -h, --help       Show this help.
 

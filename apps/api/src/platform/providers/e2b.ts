@@ -344,7 +344,7 @@ async function kortixHealthy(
  * pause has no autostart contract to lean on: `lifecycle.autoResume` requires a
  * MEMORY snapshot (`keepMemory: true`), and the E2B SDK documents a
  * filesystem-only snapshot as one that "cold-boots" and "must be resumed
- * explicitly via connect()". Kortix sets no template `startCmd` either, so
+ * explicitly via connect()". The platform sets no template `startCmd` either, so
  * apps/api is the ONLY thing that starts the runtime after a resume — and a
  * resume that leaves the process tree dead (observed on Essentia box
  * `igu3qpz1ctv0pg2agda1x`: `/opt/kortix/logs/daemon.log` gained no boot entries
@@ -536,7 +536,7 @@ export class E2BProvider implements SandboxProvider {
       }
       // A filesystem-only pause cold-boots on connect. E2B normally runs the
       // template start command during that boot; this explicit check makes the
-      // Kortix runtime invariant independent of provider startup behavior.
+      // runtime invariant independent of provider startup behavior.
       const envVars = await loadRuntimeEnv(sandbox);
       if (envVars.KORTIX_WORKLOAD_TYPE === 'app') await ensureAppEntrypoint(sandbox, envVars);
       // RESUME, not create: this is the path that has to survive a provider

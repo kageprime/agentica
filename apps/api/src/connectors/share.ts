@@ -201,7 +201,7 @@ export function isSessionTargetVisibleToCaller(
   // `resolveSupabaseAuth` sets `c.get('sessionId')` to the SUPABASE LOGIN
   // session id for every signed-in human (middleware/auth.ts), so
   // `callerSessionId` is non-null for ordinary dashboard users and can never
-  // equal a Kortix session id. Reading it here made all three conditions below
+  // equal a session id. Reading it here made all three conditions below
   // true for ANY human opening ANY backend-origin session, so the narrowing
   // returned false and `/start` answered 404 — a session listed in the sidebar
   // that could never be opened. Measured on a live self-host (essentia,

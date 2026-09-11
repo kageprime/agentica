@@ -26,7 +26,7 @@ tool inputs and outputs are intentionally stripped so the digest stays readable.
   --all                Ignore --since and include every listable session.
   --json               Emit structured JSON for scripting.
   --project <id>       Operate on this project id (default: linked).
-  --host <name>        Operate against a non-default Kortix host.
+  --host <name>        Operate against a non-default host.
   -h, --help           Show this help.
 
 Aliases: review, summary.

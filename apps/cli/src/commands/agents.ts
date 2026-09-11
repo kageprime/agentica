@@ -76,7 +76,7 @@ type ProjectCtx = NonNullable<Awaited<ReturnType<typeof resolveProjectContext>>>
 
 const HELP = help`Usage: kortix agents <subcommand> [options]
 
-Per-agent settings on the linked Kortix project — the CLI half of Customize →
+Per-agent settings on the linked project — the CLI half of Customize →
 Agents. \`model\` pins an explicit concrete model (scope=agent); an agent with no
 pin follows the project → account → platform default. Model pins and scope apply
 instantly, with no kortix.yaml commit; \`default\` and \`config\` commit to
@@ -109,7 +109,7 @@ Config options:
 
 Global:
   --project <id>     Operate on this project id (default: linked).
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   --json             Machine-readable output.
   -h, --help         Show this help.
 

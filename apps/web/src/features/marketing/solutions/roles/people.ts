@@ -7,7 +7,7 @@ export const people: RoleContent = {
   navDescription: 'Scheduling, kits and onboarding — never the hiring decision',
   seoTitle: 'Dosco for people and recruiting teams',
   seoDescription:
-    'Interview kits, scheduling, onboarding runs and policy answers drawn from your own handbook. Dosco does the coordination; a person makes every decision about a person.',
+    'Interview kits, scheduling, onboarding runs and policy answers drawn from your own handbook. The platform does the coordination; a person makes every decision about a person.',
 
   hero: {
     title: 'The coordination. Never the decision about a person.',
@@ -173,18 +173,18 @@ export const people: RoleContent = {
       {
         id: 'creds',
         k: 'Connector credentials never enter the machine',
-        v: 'The sandbox carries one project-scoped Dosco token and no third-party keys. Your applicant-system credential is decrypted server-side and attached to the outbound request, then thrown away.',
+        v: 'The sandbox carries one project-scoped token and no third-party keys. Your applicant-system credential is decrypted server-side and attached to the outbound request, then thrown away.',
       },
       {
         id: 'sovereign',
         k: 'Where the data sits is your choice',
-        v: 'Dosco is open source and self-hostable: Dosco Cloud, your own VPC, or your own on-prem network. If personal data may not leave your infrastructure, run the whole platform inside it. For deployment and compliance questions, talk to us rather than trusting a claim on a marketing page.',
+        v: 'The platform is open source and self-hostable: Cloud, your own VPC, or your own on-prem network. If personal data may not leave your infrastructure, run the whole platform inside it. For deployment and compliance questions, talk to us rather than trusting a claim on a marketing page.',
       },
     ],
   },
 
   closing: {
     title: 'Take back the week the coordination ate.',
-    sub: 'Open source and self-hostable. Any model, your keys. Dosco Cloud, your own VPC, or your own on-prem network.',
+    sub: 'Open source and self-hostable. Any model, your keys. Cloud, your own VPC, or your own on-prem network.',
   },
 };

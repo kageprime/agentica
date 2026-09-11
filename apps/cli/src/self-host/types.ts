@@ -10,7 +10,7 @@ export interface SelfHostCommandFlags {
   updateTime?: string;
   /** IANA timezone the auto-updater interprets updateTime in (default America/New_York). */
   updateTz?: string;
-  /** Operator holds a Kortix Enterprise license: unlocks SSO/SCIM/RBAC/audit
+  /** Operator holds an Enterprise license: unlocks SSO/SCIM/RBAC/audit
    *  entitlements platform-wide regardless of billing tier
    *  (ENTERPRISE_LICENSE_AVAILABLE, --enterprise-license). */
   enterpriseLicense?: boolean;

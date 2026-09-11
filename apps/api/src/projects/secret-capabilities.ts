@@ -39,7 +39,7 @@ export type SecretCapability =
        *  handle, lowercased and sorted. Every other host receives the handle
        *  itself and fails. */
       hosts: string[];
-      /** Kortix terminates TLS to substitute, so a listed host must be called
+      /** The platform terminates TLS to substitute, so a listed host must be called
        *  over HTTPS. Plain HTTP is refused. */
       scheme: 'https';
       /** The value is not in the sandbox in any form. */
@@ -54,7 +54,7 @@ export type SecretCapability =
  *
  * ONE list, because there is now ONE mechanism on every provider (docs/specs/
  * 2026-08-19-secrets-exposure-usage-model.md §4). The env var holds a handle,
- * Kortix substitutes the real value outside the sandbox on an approved host,
+ * The platform substitutes the real value outside the sandbox on an approved host,
  * and an echoed credential comes back as `[REDACTED]`.
  *
  * The last line matters as much as the first: without it, an agent whose
@@ -65,10 +65,10 @@ export type SecretCapability =
  * capabilities.
  */
 export const NETWORK_BOUNDARY_NOTES: readonly string[] = [
-  'Use the environment variable exactly as you would use the real credential: put it in the header, query string or body your client already builds. `Authorization: Bearer $VAR`, `Cookie: session=$VAR`, an `X-Api-Key` header, a query parameter and a JSON/form body field all work — Kortix substitutes the handle wherever it appears.',
-  'The variable holds a HANDLE, not the value. Kortix swaps the handle for the real credential outside the sandbox.',
+  'Use the environment variable exactly as you would use the real credential: put it in the header, query string or body your client already builds. `Authorization: Bearer $VAR`, `Cookie: session=$VAR`, an `X-Api-Key` header, a query parameter and a JSON/form body field all work — The platform substitutes the handle wherever it appears.',
+  'The variable holds a HANDLE, not the value. The platform swaps the handle for the real credential outside the sandbox.',
   'The value is not in this sandbox: no environment variable, no file, no alias. Do not search for it and do not ask the user for it.',
-  'Send the handle as-is. Do NOT base64-encode it yourself first — for example HTTP Basic auth (`curl -u $VAR:` / `Authorization: Basic <base64>`) hides the handle inside a base64 blob Kortix cannot find, so the swap does not happen. Put the handle in a Bearer/token header, a query parameter or a body field instead.',
+  'Send the handle as-is. Do NOT base64-encode it yourself first — for example HTTP Basic auth (`curl -u $VAR:` / `Authorization: Basic <base64>`) hides the handle inside a base64 blob the platform cannot find, so the swap does not happen. Put the handle in a Bearer/token header, a query parameter or a body field instead.',
   'The swap happens only on the `hosts` this capability lists, over HTTPS. Sent anywhere else the handle arrives as a literal string and the request fails.',
   'If a response reflects the credential straight back, Kortix scrubs the obvious copies to `[REDACTED]`. This is best-effort reflection-scrubbing, not proof of success: a `[REDACTED]` is a hint the substitution ran, not a guarantee, and a host can still transform the value past the scrub.',
   'An empty reply or a connection error on a listed host is a REAL failure. Do not read it as the substitution working.',

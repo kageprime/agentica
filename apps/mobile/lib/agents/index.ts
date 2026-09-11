@@ -32,7 +32,7 @@ export const isKortixDefaultAgent = (agent?: {
 };
 
 /**
- * Check if an agent ID represents the default Kortix agent
+ * Check if an agent ID represents the default agent
  * For cases where we only have an ID and need to check against a list of agents
  */
 export const isKortixDefaultAgentId = (

@@ -2,7 +2,7 @@
 
 import { useTranslations } from '@/i18n/use-translations';
 /**
- * The hand-off that turns "you are signed in to Dosco" into "this preview
+ * The hand-off that turns "you are signed in to the platform" into "this preview
  * origin will serve you".
  *
  * A preview lives on its own hostname (`{env}-p{port}-{sandbox}.p.kortix.com`),

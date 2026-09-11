@@ -1,12 +1,12 @@
 ---
 name: kortix-apps
-description: "Deploy and operate provider-neutral Kortix Apps through the pre-authenticated CLI or SDK. Use when the user asks to publish, host, deploy, preview, inspect, wake, suspend, roll back, debug, or remove HTML/CSS/JavaScript, a static SPA, Vite or React source, Next.js, a Dockerfile service, or an OCI image on a stable Kortix URL."
+description: "Deploy and operate provider-neutral Apps through the pre-authenticated CLI or SDK. Use when the user asks to publish, host, deploy, preview, inspect, wake, suspend, roll back, debug, or remove HTML/CSS/JavaScript, a static SPA, Vite or React source, Next.js, a Dockerfile service, or an OCI image on a stable URL."
 ---
 
-# Kortix Apps
+# Apps
 
-Kortix Apps turns one source tree or image into an immutable serverless
-deployment with a stable URL. Kortix selects and operates the sandbox provider.
+Apps turns one source tree or image into an immutable serverless
+deployment with a stable URL. The platform selects and operates the sandbox provider.
 
 Every current source kind uses the sandbox hosting backend. Do not promise or
 select Cloudflare, Deno Deploy, Vercel, Cloud Run, or another managed hosting
@@ -105,7 +105,7 @@ kortix apps access <app> --mode public
 Use the equivalent `--access`, `--members`, `--groups`, and `--password` flags
 on the first deploy when the user requested non-default access. Never write a
 password into `kortix.yaml`, source, logs, or a command shown to another user.
-Kortix stores only an Argon2id hash. A policy update revokes existing App
+The platform stores only an Argon2id hash. A policy update revokes existing App
 browser sessions.
 
 Create a short-lived authenticated browser link without changing the policy:
@@ -160,7 +160,7 @@ Do not stop at a `ready` status.
    deployment to be `ready`, `actor_type: system`, `source_session_id: null`,
    and to reuse the prior `artifact_id`, `source_kind`, and `hosting_provider`.
    Those fields identify a background runtime refresh.
-9. Reuse a browser profile that is already signed in to Kortix as the App user.
+9. Reuse a browser profile that is already signed in to the platform as the App user.
    If none exists, sign in through `/auth`; in repository E2E tests, use the
    shared authenticated-browser helper. Do not open the Apps page yet. Attach
    App-host response capture first. Stop the App and confirm the JSON state.
@@ -215,7 +215,7 @@ kortix apps delete <slug> --yes
 Rollback accepts only a ready immutable deployment. Delete is destructive and
 removes the stable identity and its runtimes.
 
-On every cold start, Kortix compares the active deployment's App supervisor
+On every cold start, the platform compares the active deployment's App supervisor
 version with the current platform version. Kortix queues at most one immutable
 replacement in the background. Traffic stays on the active deployment until
 the replacement passes readiness.

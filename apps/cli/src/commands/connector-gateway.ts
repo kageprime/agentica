@@ -9,7 +9,7 @@
  *   - the MCP server  (`kortix connectors mcp`, optional compatibility face)
  *
  * Thin client: it never holds a third-party credential. Every tool call goes to
- * the Kortix Connector Gateway (/v1/connectors/*), which checks sharing, resolves
+ * the Connector Gateway (/v1/connectors/*), which checks sharing, resolves
  * the secret SERVER-SIDE, runs the call, and audits it. Auth comes from
  * KORTIX_TOKEN + KORTIX_API_URL, injected at sandbox spawn.
  *

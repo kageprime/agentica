@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Serves the Dosco CLI installer. Hit via:
+// Serves the CLI installer. Hit via:
 //   curl -fsSL https://dosco.live/install | bash
 //
 // ALWAYS serves the canonical script from the `main` branch on GitHub raw.

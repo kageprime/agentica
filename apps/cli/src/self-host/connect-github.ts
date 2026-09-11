@@ -36,10 +36,10 @@ export interface GitHubAppManifest {
   hook_attributes: { url: string; active: boolean };
 }
 
-/** "Kortix Self-Host <suffix>" — the suffix keeps the name globally unique on
+/** "Self-Host <suffix>" — the suffix keeps the name globally unique on
  *  GitHub (app names collide across ALL of GitHub, not just one org). */
 export function generateAppName(randomSuffix: () => string = () => randomBytes(4).toString('hex')): string {
-  return `Kortix Self-Host ${randomSuffix()}`;
+  return `Self-Host ${randomSuffix()}`;
 }
 
 /** CSRF-style nonce round-tripped through GitHub on the manifest-creation
@@ -224,7 +224,7 @@ export function renderStartPageHtml(opts: { manifest: GitHubAppManifest; createU
 <html>
 <head><meta charset="utf-8"><title>Connecting Kortix to GitHub…</title></head>
 <body>
-<p>Redirecting to GitHub to create your Kortix GitHub App…</p>
+<p>Redirecting to GitHub to create your GitHub App…</p>
 <form id="kortix-github-manifest" method="post" action="${escapeHtmlAttr(opts.createUrl)}">
   <input type="hidden" name="manifest" value="${manifestJson}" />
   <noscript><button type="submit">Continue to GitHub</button></noscript>

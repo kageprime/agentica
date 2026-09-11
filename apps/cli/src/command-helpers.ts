@@ -150,7 +150,7 @@ export function emitJson(data: unknown): void {
 
 // ── Cross-host/account/project resource discovery ───────────────────────────
 //
-// Every session/project route is scoped to a specific Kortix host (a project
+// Every session/project route is scoped to a specific host (a project
 // id or session id only exists in one Postgres) — so an id from a different
 // host, or a different account on the same host, than the one currently
 // active/linked 404s even though it's real and reachable with the same (or a

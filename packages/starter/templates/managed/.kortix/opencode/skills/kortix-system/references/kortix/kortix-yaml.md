@@ -1,9 +1,9 @@
 # `kortix.yaml` — in-depth reference
 
 `kortix.yaml` is the single source of truth for everything the
-Kortix platform reads about a project. It lives at the repo root.
+Platform reads about a project. It lives at the repo root.
 Any repo with a valid `kortix.yaml` (or, for legacy v1 projects, a
-`kortix.toml`) at the root is a Kortix project.
+`kortix.toml`) at the root is a project.
 
 The platform parser is permissive: it never throws on a bad entry.
 Instead, bad triggers go into an `errors` list returned alongside the
@@ -13,8 +13,8 @@ This page documents `kortix_version: 2`, which uses OpenCode REST and a
 governance-only `agents:` name-to-block map.
 
 The authoritative structural spec is the public JSON Schema:
-`https://kortix.com/schema/kortix.v2.schema.json`, or
-`https://kortix.com/schema/kortix.schema.json` for all published versions.
+`https://dosco.live/schema/kortix.v2.schema.json`, or
+`https://dosco.live/schema/kortix.schema.json` for all published versions.
 Use `kortix schema --version 2` offline.
 
 > **Legacy note — v1 used TOML.** Projects created before v2 shipped
@@ -32,7 +32,7 @@ Use `kortix schema --version 2` offline.
 ## Version 2 example
 
 ```yaml
-# yaml-language-server: $schema=https://kortix.com/schema/kortix.v2.schema.json
+# yaml-language-server: $schema=https://dosco.live/schema/kortix.v2.schema.json
 kortix_version: 2
 
 default_agent: kortix
@@ -131,7 +131,7 @@ agents:
 Per-agent **governance overlay**. OpenCode-native behavior (prompt, mode,
 model, tools, permissions, skills selection logic) stays in
 `.kortix/opencode/` and `opencode.jsonc`; the manifest's `agents:` map
-declares which agents Kortix should treat as platform-launchable and
+declares which agents the platform should treat as platform-launchable and
 what server-side authority each one receives. Keyed by the agent's name
 (matches its `.kortix/opencode/agents/<name>.md`).
 
@@ -147,7 +147,7 @@ must name a declared, enabled agent.
 | `connectors` | Connectors the agent may call. `["slug", …]` \| `"all"` \| `"none"` (default: `none`).           |
 | `secrets`    | Env-var / secret names the agent may read. Same shape (default: `none`).                        |
 | `skills`     | Skill names the agent may load. Same shape (default: `none`).                                   |
-| `kortix_cli` | What it may do via the Kortix CLI/API (project-scoped iam actions). Same shape (default: `none`). |
+| `kortix_cli` | What it may do via the CLI/API (project-scoped iam actions). Same shape (default: `none`). |
 | `workspace`  | `"runtime"` \| `"read"` \| `"branch"` — the git workspace mode granted to the agent.              |
 
 ```yaml

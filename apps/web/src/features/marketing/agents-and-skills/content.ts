@@ -19,7 +19,7 @@ import type { UiTranslator } from '@/i18n/translator';
  *    markdown persona" and stop. The `.md` is a STOCK OpenCode agent file —
  *    `compile-agent-config.ts` passes its frontmatter straight through
  *    (description, mode, model, variant, temperature, top_p, prompt, disable,
- *    hidden, options, color, steps, permission), so Dosco adds no dialect. The
+ *    hidden, options, color, steps, permission), so the platform adds no dialect. The
  *    rest of the OpenCode surface sits in the same repo and is editable:
  *    `tools/` (real TypeScript, auto-discovered), `plugins/` (the starter ships
  *    a PTY plugin), `skills/`, `opencode.jsonc` (models/providers) and a
@@ -79,10 +79,10 @@ export const hero = {
 export const agent = {
   eyebrow: 'What an agent is',
   title: 'Two files. No hidden object behind them.',
-  sub: 'An agent has exactly two homes. The markdown file carries how it thinks — its prompt, its mode, its model, its permission tree — and it is a stock OpenCode agent file, because Dosco adds no dialect to it. The manifest block carries what it may touch. Nothing about an agent lives in a database you cannot read.',
+  sub: 'An agent has exactly two homes. The markdown file carries how it thinks — its prompt, its mode, its model, its permission tree — and it is a stock OpenCode agent file, because the platform adds no dialect to it. The manifest block carries what it may touch. Nothing about an agent lives in a database you cannot read.',
   md: {
     title: '.kortix/opencode/agents/kortix.md',
-    caption: 'Excerpt of the default agent in every new Dosco project.',
+    caption: 'Excerpt of the default agent in every new project.',
     lines: [
       '---',
       'description: "Generic Dosco general knowledge worker.',
@@ -149,7 +149,7 @@ export const agent = {
 export const reach = {
   eyebrow: 'Scoped reach',
   title: 'Deny by default. Never above the human.',
-  sub: 'The grant block covers the whole surface, not just tools: which sandbox image the agent boots, which connectors and channels it may call, which secrets it may receive, which skills it may invoke, and what it may do to Dosco itself. An agent with no grants gets none of it. You grant explicitly, or the answer is no — and on top of that sits a ceiling nothing in the config can lift.',
+  sub: 'The grant block covers the whole surface, not just tools: which sandbox image the agent boots, which connectors and channels it may call, which secrets it may receive, which skills it may invoke, and what it may do to the platform itself. An agent with no grants gets none of it. You grant explicitly, or the answer is no — and on top of that sits a ceiling nothing in the config can lift.',
   md: {
     title: '.kortix/opencode/agents/memory-reflector.md',
     caption: 'A real permission tree, from a real agent that ships.',
@@ -303,7 +303,7 @@ export const marketplace = {
     {
       n: '00',
       title: 'Find it',
-      body: 'Browse the marketplace without signing in. Dosco ships its own registry — 62 agents, 61 skills and 62 project templates — and you can switch on curated outside registries with one click. None load by default.',
+      body: 'Browse the marketplace without signing in. The platform ships its own registry — 62 agents, 61 skills and 62 project templates — and you can switch on curated outside registries with one click. None load by default.',
     },
     {
       n: '01',
@@ -330,7 +330,7 @@ export const marketplace = {
 export const closing = {
   eyebrow: 'Build the workforce',
   title: 'Write it once. Every session knows it.',
-  sub: 'Open source and self-hostable. Any model, your keys. Dosco Cloud, your own VPC, or fully on-prem.',
+  sub: 'Open source and self-hostable. Any model, your keys. Cloud, your own VPC, or fully on-prem.',
   ctaPrimary: 'Start a session',
   ctaPrimaryHref: '/auth',
   ctaSecondary: 'Read the agent docs',

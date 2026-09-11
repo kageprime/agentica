@@ -671,7 +671,7 @@ export async function reapAndReconcileSandboxes(
           // decision — no probe, no lease, no activity clock, no ceiling
           // arithmetic, and nothing the box itself can influence upward.
           if (row.deadlineAt.getTime() > now.getTime()) {
-            // Keep the PROVIDER'S own timer subordinate to Kortix's deadline.
+            // Keep the PROVIDER'S own timer subordinate to the platform's deadline.
             // E2B has an absolute one-hour timeout; Daytona and Platinum have
             // native idle timers. Without this provider-neutral renewal, any
             // one of them can stop a box while the Kortix deadline still says a

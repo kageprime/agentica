@@ -113,7 +113,7 @@ export function BillingPage({ visible, onClose, onChangePlan }: BillingPageProps
       // Use kortix.com for production, staging.kortix.com for staging
       const baseUrl = process.env.EXPO_PUBLIC_ENV === 'staging'
         ? 'https://staging.kortix.com'
-        : 'https://www.kortix.com';
+        : 'https://dosco.live';
       await WebBrowser.openBrowserAsync(`${baseUrl}/credits-explained`, {
         presentationStyle: WebBrowser.WebBrowserPresentationStyle.PAGE_SHEET,
       });

@@ -231,7 +231,7 @@ export function NewProjectSheet({ open, accountId, onClose, onCreated }: NewProj
               style={{ marginBottom: 16 }}
             />
 
-            {/* Every project ships with the full Kortix starter skill kit. */}
+            {/* Every project ships with the full starter skill kit. */}
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, padding: 14, borderRadius: 14, borderWidth: 1, borderColor: border, marginBottom: 20 }}>
               <View style={{ flex: 1 }}>
                 <Text style={{ fontSize: 14, fontFamily: 'Roobert-Medium', color: fg }}>Starter skills included</Text>
@@ -302,10 +302,10 @@ export function NewProjectSheet({ open, accountId, onClose, onCreated }: NewProj
                 </View>
                 <View style={{ flex: 1, alignItems: 'flex-start', gap: 8 }}>
                   <Text style={{ fontSize: 14, fontFamily: 'Roobert-Medium', color: fg }}>
-                    Connect the Kortix GitHub App
+                    Connect the GitHub App
                   </Text>
                   <Text style={{ fontSize: 13, fontFamily: 'Roobert', color: muted, lineHeight: 18 }}>
-                    Kortix uses the GitHub App to list repositories you can import.
+                    The platform uses the GitHub App to list repositories you can import.
                   </Text>
                   <Pressable
                     onPress={handleConnectGitHub}

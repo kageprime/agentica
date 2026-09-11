@@ -30,7 +30,7 @@ function enterpriseGates(resolved: ResolvedBilling): TierEntitlements {
 }
 
 /**
- * The entitlement set a self-host Kortix Enterprise license grants. Read from
+ * The entitlement set a self-host Enterprise license grants. Read from
  * the plan catalog rather than `getTierEntitlements('enterprise')` so this
  * module never imports `tiers.ts` (which boots env validation at module scope).
  * The parity test pins the two to the same values.

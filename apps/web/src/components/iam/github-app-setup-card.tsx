@@ -675,7 +675,7 @@ export function GitHubAppSetupCard({ canManage }: GitHubAppSetupCardProps) {
         </div>
       ) : (
         <div className="bg-popover overflow-hidden rounded-md border">
-          {/* Identity: who owns the repositories Dosco is about to create. */}
+          {/* Identity: who owns the repositories the platform is about to create. */}
           <div className="flex items-start gap-3 px-4 py-4">
             <span
               aria-hidden
@@ -794,7 +794,7 @@ export function GitHubAppSetupCard({ canManage }: GitHubAppSetupCardProps) {
  *  read as the same panel rather than two unrelated blocks. */
 function CardHeading({
   badges,
-  description = 'Every Dosco project is a git repository the server creates and pushes to on your behalf.',
+  description = 'Every project is a git repository the server creates and pushes to on your behalf.',
   action,
 }: {
   badges?: React.ReactNode;

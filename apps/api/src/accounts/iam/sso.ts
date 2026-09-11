@@ -128,7 +128,7 @@ iamRouter.openapi(
 
   // Keep Supabase's attribute_mapping in step with the (possibly changed) group
   // claim name, so the IdP's group values actually reach the JWT — Supabase drops
-  // any SAML attribute not named in the mapping. Best-effort: the Kortix config is
+  // any SAML attribute not named in the mapping. Best-effort: the config is
   // already persisted, so a Supabase hiccup here must not fail the save.
   if (provider.supabaseSsoProviderId) {
     const synced = await syncSupabaseSamlAttributeMapping(

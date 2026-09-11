@@ -8,7 +8,7 @@
  * all keyed on [data-pptx-*], so nothing here leaks to the rest of the app.
  *
  * The --pptx-* custom properties they read are set at runtime from the `theme`
- * prop (mapped to Kortix tokens), so these follow the app's light/dark theme.
+ * prop (mapped to tokens), so these follow the app's light/dark theme.
  */
 
 [data-pptx-viewer] {

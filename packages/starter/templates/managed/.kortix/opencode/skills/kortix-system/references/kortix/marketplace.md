@@ -1,6 +1,6 @@
-# Kortix Marketplace
+# Marketplace
 
-The Kortix Marketplace is the project skill library. It lets agents and humans
+The Marketplace is the project skill library. It lets agents and humans
 discover, install, inspect, remove, and update reusable skills without copying
 files by hand. In the launch scope, the visible marketplace is skills-first:
 OpenCode agents, tools, plugins, and bundles may exist in the registry model,
@@ -30,7 +30,7 @@ cover the user's need.
 
 ## Consumer CLI
 
-Use these commands from a Kortix project or session:
+Use these commands from a project or session:
 
 ```sh
 kortix marketplace search <query>
@@ -50,7 +50,7 @@ kortix marketplace remove <name> --project <project-id>
 Prefer `--json` when an agent needs to make a decision from command output.
 Do not scrape tables.
 
-Inside a Kortix session, the CLI is pre-authenticated for the current project.
+Inside a session, the CLI is pre-authenticated for the current project.
 If the command needs a project id, use `kortix projects info --json` first or
 pass the id the user gave you.
 
@@ -164,7 +164,7 @@ skills. Registry commands are for developers maintaining a marketplace source.
 
 Marketplace data can come from:
 
-- the embedded Kortix starter marketplace source
+- the embedded starter marketplace source
 - default trusted external sources
 - platform-configured marketplace sources
 - user-added GitHub repos or `registry.json` URLs

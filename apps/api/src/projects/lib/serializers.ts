@@ -229,7 +229,7 @@ export function serializeSession(
  */
 
 function dashboardBaseUrl(): string {
-  return (config.FRONTEND_URL || 'https://kortix.com').replace(/\/+$/, '');
+  return (config.FRONTEND_URL || 'https://dosco.live').replace(/\/+$/, '');
 }
 
 /** True when a GitHub repo-create error is a name collision (HTTP 422). On
@@ -249,7 +249,7 @@ export function serializeProject(
     account_id: row.accountId,
     name: row.name,
     repo_url: row.repoUrl,
-    // Runtime clients clone and push only through the Kortix Git proxy. The
+    // Runtime clients clone and push only through the Git proxy. The
     // upstream origin and its credential remain server-side.
     git_origin_url: proxyGitUrl(row.projectId),
     default_branch: row.defaultBranch,

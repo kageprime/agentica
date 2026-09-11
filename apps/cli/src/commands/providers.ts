@@ -21,7 +21,7 @@ import { C, help, pad, status } from '../style.ts';
 
 const HELP = help`Usage: kortix providers <subcommand> [options]
 
-Configure LLM providers for the linked Kortix project. Two paths:
+Configure LLM providers for the linked project. Two paths:
 
   • OAuth (zero config) — uses the upstream provider's device-code flow
     (ChatGPT Pro/Plus, GitHub Copilot). Tokens land encrypted on the
@@ -56,7 +56,7 @@ Known API-key providers (provider → project secret(s)):
 
 Global options:
   --project <id>     Operate on this project id (default: linked).
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   --region <region>  (set bedrock) AWS region, e.g. us-east-1.
   --enterprise <url> (login github-copilot) Enterprise GHE URL.
   -h, --help         Show this help.
@@ -69,7 +69,7 @@ Start the OAuth device-code flow for openai or github-copilot.
 Options:
   --enterprise <url>  GitHub Enterprise URL for github-copilot.
   --project <id>      Operate on this project id (default: linked).
-  --host <name>       Operate against a non-default Kortix host.
+  --host <name>       Operate against a non-default host.
   -h, --help          Show this help without starting OAuth.
 `;
 

@@ -74,7 +74,7 @@ export function previewStateCopy(state: PreviewState, port?: number): PreviewSta
     case 'forbidden':
       return {
         title: 'This preview address is not signed',
-        body: 'The request reached Kortix without the edge signature that binds it to this hostname. Open the preview from your Kortix session.',
+        body: 'The request reached Kortix without the edge signature that binds it to this hostname. Open the preview from your session.',
         signIn: true,
         autoRetry: false,
       };
@@ -128,7 +128,7 @@ export function previewStatePage(input: {
   port?: number;
   /** Where the person is trying to get to — shown, and carried into sign-in. */
   returnTo: string;
-  /** The Kortix web app, for the sign-in hand-off. Empty disables the action. */
+  /** The web app, for the sign-in hand-off. Empty disables the action. */
   frontendUrl?: string;
 }): string {
   const copy = previewStateCopy(input.state, input.port);

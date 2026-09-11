@@ -121,7 +121,7 @@ export async function registerSupabaseSamlProvider(
  * group-claim name — or a provider registered out-of-band via the operator
  * (`supabase sso add`) path — ends up with the mapping the login-time group sync
  * depends on. Best-effort and non-throwing: returns a typed result the caller
- * logs; a failure never blocks saving the (already-persisted) Kortix config.
+ * logs; a failure never blocks saving the (already-persisted) Config.
  */
 export async function syncSupabaseSamlAttributeMapping(
   supabaseProviderId: string,

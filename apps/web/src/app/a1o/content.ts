@@ -42,7 +42,7 @@ export const LAYERS = [
     ordinal: '02',
     title: 'Agent loop',
     teaser: 'What turns a model into a coworker',
-    body: 'A model answers; an agent finishes the job. Dosco runs the loop around it — reading the repo, planning, calling tools, checking its own work, returning a branch you can review.',
+    body: 'A model answers; an agent finishes the job. The platform runs the loop around it — reading the repo, planning, calling tools, checking its own work, returning a branch you can review.',
   },
   {
     slot: 3,

@@ -33,7 +33,7 @@ Two things that differ from Slack, so don't assume symmetry:
 <overview>
 Once connected, your sandbox is wired into Microsoft Teams. When a teammate `@`-mentions the bot or replies in a conversation the bot owns, the platform spins up this session and hands you the message; your turn IS the Teams reply.
 
-The `teams` CLI is on `$PATH` and **just works** — there is no token in your sandbox and nothing to configure. Turn replies are owned and rendered by the Kortix server; vendor reads run through the Kortix connector gateway, which resolves the Microsoft Graph credential **server-side**. Don't look for an app password, don't reach for an MCP/HTTP workaround — just run the commands below. Two patterns matter most:
+The `teams` CLI is on `$PATH` and **just works** — there is no token in your sandbox and nothing to configure. Turn replies are owned and rendered by the server; vendor reads run through the connector gateway, which resolves the Microsoft Graph credential **server-side**. Don't look for an app password, don't reach for an MCP/HTTP workaround — just run the commands below. Two patterns matter most:
 
 - **`teams step "..."`** — narrate progress. Repaints the live Adaptive Card in the Teams conversation *as you go*.
 - **`teams send "..."`** — finalize the turn with your answer. This closes the live card and renders the reply.
@@ -128,7 +128,7 @@ The rule of thumb: **one checkpoint per meaningful phase** — enough that a tea
 teams send "Reverted api@a3f1 — the new auth middleware dropped the trace header on retries. Errors are back to baseline."
 ```
 
-This finalizes the live card: the plan flips to **Task complete**, your answer renders below it, and a link back to the Kortix session is appended automatically. The server wraps your text into the Adaptive Card — you don't build the card yourself; just write a clear, well-structured message.
+This finalizes the live card: the plan flips to **Task complete**, your answer renders below it, and a link back to the session is appended automatically. The server wraps your text into the Adaptive Card — you don't build the card yourself; just write a clear, well-structured message.
 
 - **One `teams send` per turn.** It closes the card; a second call drops silently. If you have multiple things to say, fold them into one message.
 - **Send the answer LAST.** Any `teams step` after it is ignored.
@@ -152,7 +152,7 @@ Teams questions are **async**: ask, stop, and resume when they reply — their r
 <files-and-artifacts>
 ### Sending a file: `teams send --file <path>` (consent-card flow)
 
-When the work produces an artifact (a PDF, CSV, report, diff, screenshot), offer it with `--file`. Teams files use a **file consent card**: the bot offers the file, the **user clicks Accept**, and only then does Teams hand back an upload slot and the file lands in the conversation. So this is a **two-step, asynchronous** flow — `teams send --file` posts the consent card; the upload completes when the user accepts (the Kortix server handles the accept callback and the actual upload). The conversation context is taken from the env, so you don't pass IDs:
+When the work produces an artifact (a PDF, CSV, report, diff, screenshot), offer it with `--file`. Teams files use a **file consent card**: the bot offers the file, the **user clicks Accept**, and only then does Teams hand back an upload slot and the file lands in the conversation. So this is a **two-step, asynchronous** flow — `teams send --file` posts the consent card; the upload completes when the user accepts (the server handles the accept callback and the actual upload). The conversation context is taken from the env, so you don't pass IDs:
 
 ```sh
 teams send --file /workspace/output/report.pdf --text "Incident report — accept to download."
@@ -176,7 +176,7 @@ When a teammate attaches a file to their message, its name and download URL are 
 teams download --url "<downloadUrl from the prompt>" --out /workspace/incoming/data.csv
 ```
 
-The download runs through the Kortix server (the credential stays server-side); you just give the URL and an output path.
+The download runs through the server (the credential stays server-side); you just give the URL and an output path.
 </files-and-artifacts>
 
 <other-surfaces>

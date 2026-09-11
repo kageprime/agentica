@@ -93,7 +93,7 @@ const SCOPES = ['per agent', 'per session', 'per message'];
 const BILLING: { id: string; glyph: Glyph; label: string }[] = [
   { id: 'key', glyph: KeyIcon as Glyph, label: 'Your own API key' },
   { id: 'chatgpt', glyph: ChatGPT as Glyph, label: 'Your ChatGPT subscription' },
-  { id: 'gateway', glyph: Dosco as Glyph, label: 'Dosco Gateway' },
+  { id: 'gateway', glyph: Dosco as Glyph, label: 'Gateway' },
 ];
 
 /** How long the slot rests on each provider. Slow on purpose: this is a value

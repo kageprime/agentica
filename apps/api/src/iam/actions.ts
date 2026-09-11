@@ -128,7 +128,7 @@ export const PROJECT_ACTIONS = {
   PROJECT_CONNECTOR_CONNECTIONS_MANAGE: 'project.connector.connections.manage',
   PROJECT_CONNECTOR_WRITE: 'project.connector.write',
 
-  // Kortix Apps. Apps used to borrow project.customize.write / project.gitops
+  // Apps. Apps used to borrow project.customize.write / project.gitops
   // .read, so a custom role could not grant or revoke Apps on its own. These
   // are the real leaves. `read` = list and inspect the Apps the caller may see.
   // `write` = create, rename, resize, delete, and set the access policy.

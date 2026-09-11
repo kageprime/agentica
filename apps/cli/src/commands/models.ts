@@ -86,7 +86,7 @@ Options:
   --clear            default: remove the pin instead of setting one.
   --json             Machine-readable output (ls, default).
   --project <id>     Operate on this project id (default: linked).
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   -h, --help         Show this help.
 
 Writes need the \`project.customize.write\` permission.

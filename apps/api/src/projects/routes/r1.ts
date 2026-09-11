@@ -571,15 +571,15 @@ projectsApp.openapi(
   if (gitAuth.authSource === 'pat') {
     // This host's managed git runs on an org-wide token. Exporting it to a
     // client would hand out write access to EVERY managed repo, so we refuse —
-    // clients push through the Kortix git proxy (`git_origin_url`) with their
-    // own Kortix token instead, which needs no provider credential client-side.
+    // clients push through the git proxy (`git_origin_url`) with their
+    // own token instead, which needs no provider credential client-side.
     // Say so explicitly: the old message read as a server misconfiguration and
     // sent people hunting for GitHub App settings that aren't the problem.
     return c.json(
       {
         error:
           "This host's managed git uses an org-wide token, which is never exported. " +
-          "Push through the project's Kortix git origin instead (git_origin_url) — " +
+          "Push through the project's git origin instead (git_origin_url) — " +
           'run `kortix update` if your CLI still asks for a push token.',
         git_origin_url: serializeProject(loaded.row).git_origin_url,
       },
@@ -746,7 +746,7 @@ projectsApp.openapi(
 );
 
 // GET /v1/projects/github/installations?account_id=...
-// Vercel-style account Git connections surface. A Kortix account can connect
+// Vercel-style account Git connections surface. An account can connect
 // multiple GitHub users/orgs and pick the exact installation during import.
 
 projectsApp.openapi(

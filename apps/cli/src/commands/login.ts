@@ -24,7 +24,7 @@ import { openInBrowser } from '../browser.ts';
 
 const HELP = help`Usage: kortix login [options]
 
-Authenticate the CLI against the Kortix cloud. Browser opens to the
+Authenticate the CLI against the cloud. Browser opens to the
 dashboard, one click authorizes this CLI, the token is sent back to a
 local callback — no copy/paste.
 
@@ -327,7 +327,7 @@ async function browserLogin(apiBase: string, dashboardUrl?: string): Promise<str
     `&state=${session.state}` +
     `&label=${deviceLabel}`;
 
-  process.stdout.write(`\n  ${C.bold}Authorize Kortix CLI${C.reset}\n`);
+  process.stdout.write(`\n  ${C.bold}Authorize CLI${C.reset}\n`);
   process.stdout.write(`  ${C.dim}Opening your browser at:${C.reset}\n`);
   process.stdout.write(`  ${C.cyan}${url}${C.reset}\n\n`);
   process.stdout.write(`  ${C.dim}Waiting for approval (Ctrl+C to cancel)…${C.reset}\n`);

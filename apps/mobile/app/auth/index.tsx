@@ -453,7 +453,7 @@ export default function AuthScreen() {
               <View
                 style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 24, gap: 5 }}>
                 <Text style={{ fontSize: 13, fontFamily: 'Roobert', color: muted }}>
-                  New to Kortix?
+                  New to the platform?
                 </Text>
                 <TouchableOpacity onPress={openWebRegister}>
                   <Text style={{ fontSize: 13, fontFamily: 'Roobert-Medium', color: fg }}>

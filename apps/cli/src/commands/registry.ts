@@ -8,7 +8,7 @@
  *   kortix registry search <reg> --query <q>
  *
  * The format is shadcn-compatible (registry.json / registry-item.json), so any
- * Kortix repo with a registry.json is marketplace-addressable and readable by
+ * Repo with a registry.json is marketplace-addressable and readable by
  * shadcn tooling for plain files.
  */
 

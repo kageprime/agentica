@@ -129,7 +129,7 @@ export const thread = {
     {
       n: '01',
       title: 'A session starts',
-      body: 'Dosco cuts a branch and boots its own isolated cloud computer, exactly as it would for a session started from the dashboard or the CLI. You get a reaction on your own message, not a bot post saying “on it”.',
+      body: 'The platform cuts a branch and boots its own isolated cloud computer, exactly as it would for a session started from the dashboard or the CLI. You get a reaction on your own message, not a bot post saying “on it”.',
     },
     {
       n: '02',
@@ -245,7 +245,7 @@ export const commands = {
   sub: 'Type these as /kortix <command> in Slack, or as plain text in a direct message. Most of what you would otherwise open the dashboard for is one line in the channel.',
   columns: ['Command', 'What it does'] as const,
   rows: [
-    { cmd: 'login, logout', v: 'Link or unlink your chat identity to your Dosco account' },
+    { cmd: 'login, logout', v: 'Link or unlink your chat identity to your account' },
     { cmd: 'switch, unbind', v: 'Rebind this channel to a different project, or unbind it' },
     { cmd: 'projects', v: 'List the projects you can bind this channel to' },
     { cmd: 'sessions', v: 'List the recent sessions started from this workspace' },
@@ -277,12 +277,12 @@ export const rules = {
     {
       id: 'identity',
       k: 'Every sender is a known person',
-      v: 'Dosco links a chat sender to a Dosco account before the agent runs for them. Run /kortix login and sign in. An unlinked sender gets a prompt to link, not a session — so a stranger in a shared channel cannot spend your compute.',
+      v: 'The platform links a chat sender to an account before the agent runs for them. Run /kortix login and sign in. An unlinked sender gets a prompt to link, not a session — so a stranger in a shared channel cannot spend your compute.',
     },
     {
       id: 'credentials',
       k: 'The bot token never enters a sandbox',
-      v: 'A connected channel’s token is a connector-scoped secret. It does not appear on the project’s Secrets page, and Dosco never injects it into a cloud computer. It is resolved server-side at the moment the agent sends a message.',
+      v: 'A connected channel’s token is a connector-scoped secret. It does not appear on the project’s Secrets page, and the platform never injects it into a cloud computer. It is resolved server-side at the moment the agent sends a message.',
     },
     {
       id: 'agent',
@@ -346,7 +346,7 @@ export const custom = {
 export const closing = {
   eyebrow: 'Connect it',
   title: 'Put it in the thread people already use.',
-  sub: 'Open source and self-hostable. Any model, your keys. Dosco Cloud, your own VPC, or fully on-prem.',
+  sub: 'Open source and self-hostable. Any model, your keys. Cloud, your own VPC, or fully on-prem.',
   ctaPrimary: 'Connect Slack',
   ctaPrimaryHref: '/auth',
   ctaSecondary: 'Read the channel docs',

@@ -60,7 +60,7 @@ const SOURCE_KEYS: Record<RepositorySource, 'managed' | 'githubCreate' | 'github
  * `github-create` and `github-import` both need one — `POST
  * /projects/create-repo` and `POST /projects/link-repository` resolve their
  * credentials from it (`apps/api/src/projects/routes/r2.ts`), and answer 409
- * `Install the Dosco GitHub App…` when there is none. Sending the user to
+ * `Install the GitHub App…` when there is none. Sending the user to
  * `/github/setup` BEFORE they press Create is that 409 turned into a link.
  *
  * `rememberGitHubSetupReturn` is what makes it a round trip rather than a

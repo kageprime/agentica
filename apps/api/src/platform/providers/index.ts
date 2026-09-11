@@ -263,7 +263,7 @@ export interface SandboxProvider {
   readonly appMachineSupport?: AppMachineSupport;
   create(opts: CreateSandboxOpts): Promise<ProvisionResult>;
   /**
-   * Ensure the Kortix App supervisor is running after create or resume.
+   * Ensure the App supervisor is running after create or resume.
    * Providers that honor the image ENTRYPOINT implement this as a no-op.
    * Providers that replace ENTRYPOINT must start `/kortix/bin/kortix-appd`
    * through their native process API. The operation must be idempotent.
@@ -287,7 +287,7 @@ export interface SandboxProvider {
   ): Promise<ProvisionResult>;
   start(externalId: string): Promise<void>;
   /**
-   * Renew the provider-native lifecycle deadline for a sandbox that Kortix has
+   * Renew the provider-native lifecycle deadline for a sandbox that the platform has
    * already confirmed is running and whose `session_sandboxes.deadline_at` is
    * still live.
    *

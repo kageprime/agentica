@@ -1,4 +1,4 @@
-# What Kortix can do — capabilities reference
+# What the platform can do — capabilities reference
 
 Companion to the `<capabilities>` summary in this skill's `SKILL.md`. Load
 this page when you need the fuller pitch — a real workflow example per
@@ -21,9 +21,9 @@ question.
   `kortix-system` skill is the canonical reference — this page is about
   *capabilities*, not config.
 
-## What Kortix is
+## What the platform is
 
-Kortix is an AI command center where a workforce of agents does real work —
+The platform is an AI command center where a workforce of agents does real work —
 and the whole thing is **code you own**. The unit of work is a **project**:
 a single git repository with a `kortix.yaml` at its root, holding your
 agents, skills, connectors, automations, and memory.
@@ -45,7 +45,7 @@ schedule or trigger runs it end to end).
 
 ## Capability map
 
-| Capability | What Kortix does |
+| Capability | What the platform does |
 | --- | --- |
 | Research | Searches the live web and reads full pages; deep multi-source, cited investigation via research skills |
 | Browser | Drives a real browser in the sandbox for login-gated sites, forms, and dynamic pages |
@@ -63,7 +63,7 @@ schedule or trigger runs it end to end).
 
 ## Capabilities in detail
 
-**Research and the web.** Kortix searches the live web and fetches specific
+**Research and the web.** The platform searches the live web and fetches specific
 pages to read their full content, not just snippets — so findings flow
 straight into analysis, documents, or messages without copy-paste. For
 thorough, source-backed work, research skills run multi-source
@@ -71,13 +71,13 @@ investigations and produce **cited** reports, using the sandbox filesystem
 as working memory so the research is resumable and auditable.
 
 **Browser automation.** When search isn't enough — a site needs a login, a
-form, or renders behind JavaScript — Kortix can drive a real browser inside
+form, or renders behind JavaScript — The platform can drive a real browser inside
 the sandbox: navigate, click, fill forms, extract structured data, and
 screenshot pages. Use it for authenticated dashboards, interactive flows,
 and pages with no public API.
 
 **Code and data execution.** Every session is a real, sandboxed Linux
-machine. Kortix can write and run Python, Node, and shell; install any
+machine. The platform can write and run Python, Node, and shell; install any
 package; and read, write, edit, and search files across the workspace. That
 covers cleaning and analyzing datasets, transforming files, generating
 charts, prototyping scripts, and any compute-heavy task. The sandbox
@@ -90,12 +90,12 @@ tables of contents, slide layouts and speaker notes, spreadsheet formulas
 and charts. The intent is a downloadable, polished file, not a wall of
 text.
 
-**Media.** Kortix can generate images and short videos, produce
+**Media.** The platform can generate images and short videos, produce
 natural-sounding narration (text-to-speech), and transcribe audio and
 video. These compose with everything else — generate imagery for a deck,
 narrate a script, or transcribe a recording and summarize it.
 
-**Websites and apps.** Kortix builds websites and web apps directly in the
+**Websites and apps.** The platform builds websites and web apps directly in the
 project repo — from content sites and landing pages to dashboards and
 interactive web apps — and can deploy them as live apps from the project.
 Because the source lives in the repo, you iterate, re-deploy, and keep full
@@ -122,7 +122,7 @@ says whether agent code can read the real value:
   the required mode for credentials that are COMPUTED with rather than sent
   (SigV4, HMAC signing, JWT assertions, SSH keys) and for non-HTTPS protocols.
 - **egress-enforced** (experimental, opt-in per project) — the sandbox env holds
-  a handle instead of the value. Kortix swaps it for the real value outside the
+  a handle instead of the value. The platform swaps it for the real value outside the
   sandbox, only on the exact HTTPS hosts the policy lists, and redacts the
   credential out of any response that echoes it. The value never enters the
   sandbox. It appears only when the project has enabled network enforcement;
@@ -130,14 +130,14 @@ says whether agent code can read the real value:
 - **none** — no sandbox presence. A **connector** credential and an LLM-gateway
   key sit here: they are spent server-side through one scoped token.
 
-**Memory.** Kortix builds a living, file-based "company brain" — context
+**Memory.** The platform builds a living, file-based "company brain" — context
 that compounds across sessions: projects, the people and orgs that come
 up, and recurring topics. Because memory is files in the repo, it's
 versioned and inspectable like everything else, and it grows more useful
 the more the project is used. Load the `kortix-memory` system skill for
 specifics.
 
-**Scheduling and triggers.** Kortix can run work automatically. **Cron
+**Scheduling and triggers.** The platform can run work automatically. **Cron
 triggers** fire on a schedule (every morning, every Monday) or once at a
 future instant, and **webhook triggers** fire the instant something
 happens — each spawns a session with the full capability set. Triggers are
@@ -146,7 +146,7 @@ reviewed like code. Full operational detail lives in the `<scheduling>`
 section of `SKILL.md` and its `scheduling.md` reference.
 
 **Channels.** Slack and other chat surfaces can stand up a bot that starts
-Kortix sessions where the team already works — so people kick off and
+Sessions where the team already works — so people kick off and
 steer agents without leaving their channel. See the `kortix-slack` system
 skill.
 
@@ -157,7 +157,7 @@ company, per region, or per deliverable; process many entities at once; or
 chain agents so one's output is the next's input. Isolation keeps each
 agent's context clean, which protects quality at scale.
 
-**Models.** Kortix is model-agnostic: bring your own provider and keys (or
+**Models.** The platform is model-agnostic: bring your own provider and keys (or
 a subscription you already pay for), and route each task to the model that
 fits — optimizing for quality, cost, or speed. Reasoning effort and
 per-agent model choices are configurable. For exact model IDs and config,

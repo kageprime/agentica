@@ -162,7 +162,7 @@ function CodeSurface({
 
 const CLI_LINES = [
   '$ curl -fsSL https://dosco.live/install | bash',
-  '  ✓ Dosco CLI installed',
+  '  ✓ CLI installed',
   '',
   '$ kortix init',
   '  ✓ wrote kortix.yaml, agents, skills',

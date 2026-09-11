@@ -124,7 +124,7 @@ export function renderLaunchdPlist(command: string, paths: ServicePaths = getSer
 export function renderSystemdUnit(command: string, paths: ServicePaths = getServicePaths()): string {
   const { stdout, stderr } = logPaths(paths);
   return `[Unit]
-Description=Kortix Agent Tunnel
+Description=Agent Tunnel
 After=network-online.target
 Wants=network-online.target
 

@@ -28,7 +28,7 @@ import { loadLocalManifest } from '../manifest.ts';
 
 const HELP = help`Usage: kortix apps <subcommand> [options]
 
-Deploy and operate serverless Kortix Apps. Each App owns one stable URL.
+Deploy and operate serverless Apps. Each App owns one stable URL.
 Deployments are immutable. A failed deployment never replaces live traffic.
 
 Subcommands:
@@ -83,7 +83,7 @@ Subcommands:
 
 Global options:
   --project <id>     Operate on this project id.
-  --host <name>      Operate against a non-default Kortix host.
+  --host <name>      Operate against a non-default host.
   --json             Machine-readable output.
   -h, --help         Show this help.
 `;

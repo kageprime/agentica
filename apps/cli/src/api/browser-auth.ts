@@ -24,7 +24,7 @@ interface StartOpts {
 
 /**
  * Stand up a one-shot HTTP server on a random localhost port that
- * accepts a single signed callback from the Kortix dashboard.
+ * accepts a single signed callback from the dashboard.
  *
  * The dashboard's authorize page POSTs `{ state, token }` to
  * `http://127.0.0.1:<port>/callback`. CORS is wide-open because we're

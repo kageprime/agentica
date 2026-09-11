@@ -258,7 +258,7 @@ export {
   isInviteSent,
 } from '@kortix/sdk';
 
-// ── Pending project invites (non-Kortix users not signed up yet) ─────────────
+// ── Pending project invites (non-Users not signed up yet) ─────────────
 
 export type { PendingProjectInvite, ResendProjectInviteResult } from '@kortix/sdk';
 

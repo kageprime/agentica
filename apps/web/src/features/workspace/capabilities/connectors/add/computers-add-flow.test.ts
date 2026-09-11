@@ -6,9 +6,9 @@ const source = readFileSync(join(import.meta.dir, 'computers-add-flow.tsx'), 'ut
 const catalogSource = readFileSync(join(import.meta.dir, '../catalog/catalog-entry.ts'), 'utf8');
 
 describe('Computer Tunnel add flow discovery and pairing', () => {
-  test('explains the Dosco Agent Tunnel before machine selection', () => {
-    expect(source).toMatch(/Dosco\s+Agent Tunnel/);
-    expect(catalogSource).toContain('Dosco Agent Tunnel');
+  test('explains the Agent Tunnel before machine selection', () => {
+    expect(source).toMatch(/secure Agent Tunnel/);
+    expect(catalogSource).toContain('Agent Tunnel');
   });
 
   test('uses the canonical tunnel manager without leaving profile setup', () => {

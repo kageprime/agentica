@@ -5,9 +5,9 @@ import { configureKortix, createKortix } from '@kortix/sdk';
 import { getSessionToken } from './session';
 
 /**
- * The white-label's single seam to Kortix: the official `@kortix/sdk`. No raw
+ * The white-label's single seam to the platform: the official `@kortix/sdk`. No raw
  * HTTP and no runtime transport imports. One token supplied via `getToken` — a pasted
- * Kortix API key in direct mode, or Lumen's own session token in wrapper mode
+ * API key in direct mode, or Lumen's own session token in wrapper mode
  * (see `configureWrapperMode` below). Swap `BRAND.apiUrl` + the key to
  * re-point direct mode at any Kortix deployment.
  */

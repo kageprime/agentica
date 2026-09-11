@@ -210,7 +210,7 @@ const ACCESS_COPY: Record<AppAccessMode, { label: string; desc: string }> = {
  * pickers in the same modal read as one ladder rather than two dialects. The
  * default is `identity`, which sits in the middle on purpose: an App that
  * greets you by name needs no login of its own, and one that acts as you on the
- * Dosco API is a deliberate step further.
+ * API is a deliberate step further.
  */
 const VIEWER_SCOPE_COPY: Record<AppViewerTokenScope, { label: string; desc: string }> = {
   off: { label: 'Shares nothing', desc: 'The App never learns who opened it' },
@@ -219,13 +219,13 @@ const VIEWER_SCOPE_COPY: Record<AppViewerTokenScope, { label: string; desc: stri
     desc: "The App sees the viewer's Dosco id, email and groups",
   },
   api: {
-    label: 'Acts as them in Dosco',
-    desc: 'Also calls the Dosco API, limited by their own role',
+    label: 'Acts as them in the platform',
+    desc: 'Also calls the API, limited by their own role',
   },
 };
 
 /**
- * Access modes that have no signed-in Dosco viewer to describe.
+ * Access modes that have no signed-in viewer to describe.
  *
  * A public App is opened by strangers and a password App by whoever holds the
  * password — neither carries a Dosco identity, so there is nothing to share
@@ -1484,7 +1484,7 @@ function AppAccessForm({
   const [viewerScope, setViewerScope] = useState<AppViewerTokenScope>(policy.viewer_token_scope);
   const incomplete = mode === 'restricted' && memberIds.length + groupIds.length === 0;
   const passwordMissing = mode === 'password' && !password && !policy.password_configured;
-  // Public and password Apps are opened without signing in to Dosco, so there
+  // Public and password Apps are opened without signing in to the platform, so there
   // is no viewer identity to share — the control goes away and the field stays
   // as it is on the server rather than being written to a meaningless value.
   const hasSignedInViewer = !ANONYMOUS_MODES.includes(mode);

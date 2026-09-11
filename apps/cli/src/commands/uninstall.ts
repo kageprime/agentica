@@ -9,7 +9,7 @@ import { C, help, status } from '../style.ts';
 
 const HELP = help`Usage: kortix uninstall [options]
 
-Remove the Kortix CLI binary, the /usr/local/bin shim, the stored auth
+Remove the CLI binary, the /usr/local/bin shim, the stored auth
 token, and (optionally) the ~/.kortix install directory.
 
 Options:
@@ -51,7 +51,7 @@ export async function runUninstall(argv: string[]): Promise<number> {
 
   const targets = collectTargets(flags);
   if (targets.length === 0) {
-    process.stdout.write(`${C.dim}Nothing to remove. Kortix CLI is already uninstalled.${C.reset}\n`);
+    process.stdout.write(`${C.dim}Nothing to remove. CLI is already uninstalled.${C.reset}\n`);
     return 0;
   }
 
@@ -91,7 +91,7 @@ export async function runUninstall(argv: string[]): Promise<number> {
     process.stderr.write(`\n${status.warn(`${failed} item${failed === 1 ? '' : 's'} could not be removed.`)}\n`);
     return 1;
   }
-  process.stdout.write(`\n${status.ok('Kortix CLI uninstalled. Sorry to see you go.')}\n`);
+  process.stdout.write(`\n${status.ok('CLI uninstalled. Sorry to see you go.')}\n`);
   return 0;
 }
 

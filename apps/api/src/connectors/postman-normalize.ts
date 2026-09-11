@@ -167,7 +167,7 @@ export function normalizePostmanCollection(doc: any): PostmanNormalizationResult
   const actions: NormalizedAction[] = [];
   const rootVariables = collectionVariables(doc.variable);
   if (hasScripts(doc)) warnings.push('collection pre-request/test scripts were ignored');
-  if (doc.auth) warnings.push('collection authentication was ignored; configure connector auth in Kortix');
+  if (doc.auth) warnings.push('collection authentication was ignored; configure connector auth in the platform');
 
   const walk = (items: unknown[], folders: string[], inherited: Map<string, string>) => {
     for (const candidate of items) {

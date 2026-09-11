@@ -5,7 +5,7 @@ This page is the **how to think about it** companion to `kortix-yaml.md`
 (which has the `kortix triggers …` command reference). Read this when you're
 deciding *whether and how* to schedule work, not just what fields exist.
 
-Kortix runs work on a schedule through **triggers** — a small, durable piece
+The platform runs work on a schedule through **triggers** — a small, durable piece
 of config in the project's `kortix.yaml`. When a trigger fires, the platform
 spins up a session and hands the agent a prompt, exactly as if a teammate had
 typed it. There is no separate "scheduler tool" to call at runtime; you
@@ -35,7 +35,7 @@ assumes you already have that shape and covers the judgment calls around it.
 
 ## Cron syntax cheat sheet
 
-Kortix uses **croner**, 6-field: `second minute hour day-of-month month
+The platform uses **croner**, 6-field: `second minute hour day-of-month month
 day-of-week` (a 5-field expression also works — seconds default to `0`).
 Day-of-week is `0`/`7` = Sunday … `1` = Monday; names like `MON-FRI` work.
 Nicknames `@hourly @daily @weekly @monthly @yearly` are accepted too.
@@ -144,7 +144,7 @@ Make recurring runs idempotent yourself:
 ## Pausing mid-task
 
 There is **no native "sleep then resume this exact turn with full
-conversation context" primitive** in Kortix. A session turn either
+conversation context" primitive** in the platform. A session turn either
 completes or it doesn't — you can't suspend an in-flight turn for hours and
 wake it where it left off.
 

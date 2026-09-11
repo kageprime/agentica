@@ -79,12 +79,12 @@ export async function sendAccountInviteEmail(opts: {
 
   const body = `
     <p style="${S.p}">
-      ${inviterLine} to join ${target} on Kortix.
+      ${inviterLine} to join ${target} on the platform.
     </p>
     ${roleChip}
     ${actionButton(url, 'Review invite')}
     <p style="${S.smallNote}">
-      Don't have a Kortix account yet? You'll be prompted to sign up first —
+      Don't have an account yet? You'll be prompted to sign up first —
       ${signupTail}
     </p>
   `;
@@ -115,11 +115,11 @@ export async function sendAccountInviteEmail(opts: {
         ? `Join ${opts.projectName} on Kortix`
         : `Join ${opts.accountName} on Kortix`,
       paragraphs: [
-        `${inviterText} to join ${targetText} on Kortix.`,
+        `${inviterText} to join ${targetText} on the platform.`,
         ...(opts.role ? [`Role: ${opts.role.toUpperCase()}`] : []),
       ],
       cta: { url, label: 'Review invite' },
-      note: `Don't have a Kortix account yet? You'll be prompted to sign up first — ${signupTail}`,
+      note: `Don't have an account yet? You'll be prompted to sign up first — ${signupTail}`,
     }),
     category: 'account-invite',
   });
@@ -132,7 +132,7 @@ export async function sendProjectAccessRequestEmail(opts: {
   reviewUrl: string;
   message?: string | null;
 }): Promise<EmailDeliveryResult> {
-  const projectName = opts.projectName?.trim() || 'a Kortix project';
+  const projectName = opts.projectName?.trim() || 'a project';
   const message = opts.message?.trim();
   const messageBlock = message
     ? `<p style="${S.p}"><span style="${S.strong}">Message:</span><br />${escapeHtml(message)}</p>`
